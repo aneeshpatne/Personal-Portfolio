@@ -21,7 +21,7 @@ export const metadata = {
     },
   ],
   icons: {
-    icon: "/assets/img/favicon.svg",
+    icon: "/assets/img/favicon.ico",
   },
 };
 
