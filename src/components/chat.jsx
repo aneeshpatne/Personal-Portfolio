@@ -6,7 +6,7 @@ import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import rehypeHighlight from "rehype-highlight";
 import "highlight.js/styles/github-dark.css";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { FaComments } from "react-icons/fa";
 
 // Loading animation component
@@ -24,6 +24,8 @@ function LoadingAnimation() {
 
 export default function Chat({ dataDump }) {
   const [tokenMap, setTokenMap] = useState({});
+  const chatBoxRef = useRef(null);
+
   const { messages, input, handleInputChange, handleSubmit, status, stop } =
     useChat({
       initialMessages: [
@@ -41,6 +43,7 @@ export default function Chat({ dataDump }) {
         }));
       },
     });
+
   const renderedText =
     status === "submitted"
       ? [
@@ -52,6 +55,14 @@ export default function Chat({ dataDump }) {
           },
         ]
       : messages;
+
+  // Auto-scroll to bottom when messages change
+  useEffect(() => {
+    if (chatBoxRef.current) {
+      chatBoxRef.current.scrollTop = chatBoxRef.current.scrollHeight;
+    }
+  }, [messages, status]);
+
   return (
     <div className={styles.chatContainer}>
       <div className={styles.chatHeader}>
@@ -59,7 +70,7 @@ export default function Chat({ dataDump }) {
         <h2 className={styles.chatHeaderTitle}>Project Chat</h2>
       </div>
 
-      <div className={styles.chatBox}>
+      <div className={styles.chatBox} ref={chatBoxRef}>
         {messages.some(
           (msg) => msg.role === "user" || msg.role === "assistant"
         ) ? (
