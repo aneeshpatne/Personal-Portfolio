@@ -1,10 +1,17 @@
+import React from "react";
 import styles from "./style/Skill.module.css";
-import { Inter } from "next/font/google";
-const inter = Inter({ subsets: ["latin"], font });
-export default function Skills({ theme }) {
+
+const Skills = () => {
   return (
     <div className={styles.container}>
-      <h1 className={`${inter.className} ${styles.text}`}>SKILLS</h1>
+      {/* Gradient Line Animations */}
+      <div className={styles.lineContainer}>
+        <div className={`${styles.gradientLine} ${styles.left}`}></div>
+        <h1 className={`${styles.text}`}>SKILLS</h1>
+        <div className={`${styles.gradientLine} ${styles.right}`}></div>
+      </div>
     </div>
   );
-}
+};
+
+export default Skills;
