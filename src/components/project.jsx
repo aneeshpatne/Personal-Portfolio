@@ -12,6 +12,7 @@ import { db } from "@/lib/db";
 import { projectList } from "@/lib/schema";
 import { desc, asc, sql } from "drizzle-orm";
 import { ProjectContainer, ProjectContainerWrapper } from "./projectClient";
+
 export default async function ProjectNew() {
   let project = null;
 
