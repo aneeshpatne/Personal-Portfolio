@@ -1,11 +1,13 @@
 'use client';
+import { useEffect, useState } from 'react';
 import { UseThemeContext } from './ThemeContext';
 import styles from './style/Project.module.css';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 const logoMapper = {
     'JS': '/assets/img/js.svg',
     'ML': '/assets/img/ml.svg',
-    'React': '/assets/img/React.svg',
+    'React': '/assets/img/react.svg',
     'GCP': '/assets/img/gcp.svg',
     'Next': '/assets/img/next.svg',
     'Django': '/assets/img/django.svg',
@@ -25,12 +27,22 @@ function TechStack({imgSrc, Name}){
         <div id={styles.TechstackName}>{Name}</div>
     </div>);
 }
-function ProjectContainer({imgSrc, title, desc, tech, cur}){
+function ProjectContainer({imgSrc, title, desc, tech, id}){
+    const router = useRouter();
     const {theme, ThemeToggle} = UseThemeContext();
+    const [mounted, setMounted] = useState(false);
+    useEffect(()=>{
+        setMounted(true);
+    },[]);
+    function redirect(id) {
+        if (mounted){
+        router.push(`project/${id}`);
+        }
+    }
     return(<div id={styles.ProjectContainer} className={theme ==='LightMode' ? styles.LightMode : ''}>
         <div id={styles.ProjectImg}>
             <img src={imgSrc} alt='project description'></img>
-            <button className={styles.ProjectBtn}><img src="/assets/img/arrow.svg"></img></button>
+            <button className={styles.ProjectBtn} onClick={() => redirect(id)}><img src="/assets/img/arrow.svg"></img></button>
         </div>
         <h1 id={styles.ProjectName} className={theme ==='LightMode'  ? styles.LightMode  : ''}>{title}</h1>
         <div id={styles.ProjectDesc} className={theme ==='LightMode'  ? styles.LightMode  : ''}>{desc}</div>
@@ -69,3 +81,4 @@ export default function Project(){
         </div>
     )
 }
+export {TechStack};
