@@ -89,10 +89,11 @@ export function PM25Client({ value, remark, alertColor }) {
       <div className={styles.header}>
         <div className={styles.titleGroup}>
           <div className={styles.iconBox}>
-            <Icon size={16} strokeWidth={2.5} />
+            <Icon size={20} strokeWidth={2.5} />
           </div>
           <span className={styles.label}>Air Quality</span>
         </div>
+        <div className={styles.badge}>PradushanAPI</div>
       </div>
 
       {/* Main Content: Huge Number */}

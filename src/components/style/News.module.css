@@ -45,6 +45,27 @@
   z-index: 2;
 }
 
+.badges {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.apiBadge {
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 10px;
+    border-radius: 999px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #737373;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    z-index: 2;
+}
+
 .liveBadge {
   display: inline-flex;
   align-items: center;
