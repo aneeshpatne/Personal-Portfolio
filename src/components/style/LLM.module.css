@@ -3,6 +3,8 @@
   width: 100%;
   height: auto;
   overflow-y: auto;
+  background-image: url("/assets/img/bg.svg");
+  background-size: repeat;
 }
 .Canvas {
   position: absolute;
