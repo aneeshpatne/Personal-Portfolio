@@ -8,16 +8,18 @@ import { ExternalLink } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import { mapper } from "./data";
-import { prisma } from "@/libs/db";
+import { db } from "@/lib/db";
+import { projectList } from "@/lib/schema";
+import { desc } from "drizzle-orm";
 
 export default async function ProjectNew() {
   let project = null;
+
   try {
-    project = await prisma.projectList.findMany({
-      orderBy: {
-        startDate: "desc",
-      },
-    });
+    project = await db
+      .select()
+      .from(projectList)
+      .orderBy(desc(projectList.startDate));
   } catch (error) {
     console.error("Error fetching project data:", error);
     return <div>Fetching Error</div>;
