@@ -23,13 +23,26 @@
   z-index: 0;
 }
 
+.topShade {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 40%; /* darken top 40% of the image */
+  z-index: 10; /* sit above image but below content overlay */
+  pointer-events: none;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0));
+  border-top-left-radius: var(--radius);
+  border-top-right-radius: var(--radius);
+}
+
 .overlay {
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
   z-index: 20;
-  padding: 12px;
+  padding: 5px;
   color: #fff;
   background: rgba(0, 0, 0, 0.6);
   pointer-events: none; /* text overlay should not block interactions */
@@ -60,10 +73,17 @@
   justify-content: center;
   background: rgba(0, 0, 0, 0.4);
   color: #fff;
-  padding: 16px;
+  padding: 5px;
   font-size: 0.9rem;
 }
 
 .fallbackTitle {
   font-weight: 700;
+}
+
+.headerText {
+  position: absolute;
+  padding: 12px;
+  font-size: 2.6rem;
+  z-index: 12;
 }
