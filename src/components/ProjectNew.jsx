@@ -1,51 +1,21 @@
 "use client";
 import styles from "./style/ProjectNew.module.css";
 import { motion } from "framer-motion";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
-export function ReadMoreText({ text, wordlimit = 13, speed = 50 }) {
+export function ReadMoreText({ text, wordlimit = 13 }) {
   const words = text.split(" ");
   const truncatedText =
     words.length > wordlimit
       ? words.slice(0, wordlimit).join(" ") + "..."
       : text;
   const [isExpanded, setIsExpanded] = useState(false);
-  const [displayText, setDisplayText] = useState(truncatedText);
 
-  useEffect(() => {
-    let interval;
+  const shownText = isExpanded ? text : truncatedText;
 
-    if (isExpanded) {
-      let i = truncatedText.length;
-      interval = setInterval(() => {
-        if (i < text.length) {
-          setDisplayText(text.slice(0, i + 1));
-          i++;
-        } else {
-          clearInterval(interval);
-        }
-      }, speed);
-    }
-    return () => clearInterval(interval);
-  }, [isExpanded]);
-  useEffect(() => {
-    let interval;
-    if (!isExpanded) {
-      let i = text.length;
-      let interval = setInterval(() => {
-        if (i > truncatedText.length) {
-          setDisplayText(text.slice(0, i - 1));
-          i--;
-        } else {
-          clearInterval(interval);
-        }
-      }, speed);
-    }
-    return () => clearInterval(interval);
-  }, [isExpanded]);
   return (
     <p>
-      {displayText}
+      {shownText}
       {words.length > wordlimit && (
         <button
           className={styles.readMore}
