@@ -216,12 +216,12 @@ function IntroChatBot() {
     <div className={styles.introChatBot}>
       <h1 className={styles.headerText}>Welcome to Resume.AI!</h1>
       <p className={styles.introText}>
-        I&apos;m your AI assistant for Aneesh's Resume, Projects, and Skills.
-        Ask me anything!
+        I&apos;m your AI assistant for Aneesh&apos;s Resume, Projects, and
+        Skills. Ask me anything!
       </p>
       <p className={styles.exampleHeader}>Example questions:</p>
       <ul className={styles.exampleList}>
-        <li>What are Aneesh's skills?</li>
+        <li>What are Aneesh&apos;s skills?</li>
         <li>Does Aneesh know this?</li>
         <li>Can Aneesh handle this project?</li>
       </ul>
