@@ -1,6 +1,7 @@
 import Chat from "@/components/chat";
 import style from "./project.module.css";
 import Image from "next/image";
+import Link from "next/link";
 
 export default async function ProjectPage({ params }) {
   const { slug } = await params;
@@ -33,6 +34,9 @@ export default async function ProjectPage({ params }) {
     ? projectData.topic.split(",").map((topic) => topic.trim())
     : [];
 
+  // Check if GitHub link exists
+  const hasGithubLink = projectData.github && projectData.github.trim().length > 0;
+
   return (
     <div className={style.ProjectPage}>
       <div className={style.content}>
@@ -42,8 +46,8 @@ export default async function ProjectPage({ params }) {
           <Image
             src={projectData.image}
             alt={projectData.title}
-            width={500}
-            height={500}
+            width={100}
+            height={100}
             priority
             style={{ objectFit: "cover" }}
           />
@@ -73,6 +77,32 @@ export default async function ProjectPage({ params }) {
         </div>
 
         <p className={style.description}>{projectData.description}</p>
+        
+        <div className={style.buttons}>
+          {hasGithubLink ? (
+            <Link href={projectData.github} target="_blank" rel="noopener noreferrer" className={`${style.button} ${style.github}`}>
+              <Image 
+                src="/assets/img/githubLight.svg" 
+                alt="GitHub" 
+                width={18} 
+                height={18}
+                className={style.buttonIcon} 
+              />
+              View on GitHub
+            </Link>
+          ) : (
+            <button className={`${style.button} ${style.github} ${style.disabled}`} disabled>
+              <Image 
+                src="/assets/img/githubLight.svg" 
+                alt="GitHub" 
+                width={18} 
+                height={18}
+                className={style.buttonIcon} 
+              />
+              GitHub Unavailable
+            </button>
+          )}
+        </div>
       </div>
 
       <Chat dataDump={projectData.description} />
