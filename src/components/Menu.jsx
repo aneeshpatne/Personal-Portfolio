@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import styles from "./style/menu.module.css";
 import { MessageSquareMore, X } from "lucide-react";
-
+import Chat from "./chatResume";
 const sections = ["home", "skills", "project"];
 
 export default function Menu() {
@@ -37,20 +37,10 @@ export default function Menu() {
 
   const toggleChat = () => {
     setIsChatOpen(!isChatOpen);
-    // You can add additional logic here later for showing/hiding chat
   };
 
   return (
     <>
-      <svg width="0" height="0">
-        <defs>
-          <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stopColor="#9c27b0" />
-            <stop offset="50%" stopColor="#e91e63" />
-            <stop offset="100%" stopColor="#9c27b0" />
-          </linearGradient>
-        </defs>
-      </svg>
       <div className={styles.lowerContainer}>
         <div className={styles.MenuContainer}>
           <MenuItem title="Home" active={activeSection === "home"} />
@@ -65,16 +55,19 @@ export default function Menu() {
             <X size={20} className={styles.closeIcon} />
           ) : (
             <>
-              <MessageSquareMore
-                size={20}
-                className={styles.aiIcon}
-                style={{ stroke: "url(#gradient)" }}
-              />
+              <MessageSquareMore size={20} className={styles.aiIcon} />
               <span>Chat</span>
             </>
           )}
         </button>
       </div>
+      {isChatOpen && (
+        <div className={styles.chatBackdrop} onClick={toggleChat}>
+          <div className={styles.chatBoxMain}>
+            <Chat dataDump="Just Reply that the chatbot is waiting for data pipelines, sorry for inconvenience" />
+          </div>
+        </div>
+      )}
     </>
   );
 }

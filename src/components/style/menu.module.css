@@ -10,6 +10,23 @@
   right: 0;
   padding: 10px;
 }
+.chatBackdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(5px); /* Add blur effect */
+  z-index: 9998;
+}
+.chatBoxMain {
+  position: fixed;
+  bottom: 50%;
+  z-index: 9999;
+  left: 50%;
+  transform: translate(-50%, 50%);
+}
 
 .MenuContainer {
   display: flex;
@@ -26,7 +43,7 @@
   position: absolute;
   right: 50px;
   height: 40px;
-  width: 100px; /* Set constant width */
+  width: 100px;
   background-color: rgb(255, 255, 255);
   border: rgb(255, 255, 255) 1px solid;
   border-radius: 10px;
@@ -43,22 +60,17 @@
 }
 
 .aiIcon {
-  background: linear-gradient(90deg, #9c27b0 0%, #e91e63 50%, #9c27b0 100%);
-  background-size: 200% auto;
-  animation: gradientMove 3s linear infinite;
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  stroke: url(#gradient);
-  transition: all 0.3s ease;
+  animation: bounce 2s infinite ease-in-out;
+  color: inherit;
 }
 
-@keyframes gradientMove {
-  0% {
-    background-position: 0% 50%;
-  }
+@keyframes bounce {
+  0%,
   100% {
-    background-position: 200% 50%;
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-2px);
   }
 }
 
@@ -66,7 +78,6 @@
   color: white;
   background-color: #ff0000;
   border-color: #ff0000;
-  animation: none;
 }
 
 .closeIcon {
@@ -77,11 +88,6 @@
   .chatButton:hover {
     color: white;
     background-color: black;
-  }
-
-  .chatButton:hover .aiIcon {
-    -webkit-text-fill-color: white;
-    animation: none;
   }
 }
 

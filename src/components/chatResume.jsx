@@ -123,7 +123,7 @@ export default function Chat({ dataDump }) {
     <div className={styles.chatContainer}>
       <div className={styles.chatHeader}>
         <FaComments className={styles.chatHeaderIcon} />
-        <h2 className={styles.chatHeaderTitle}>Project Chat</h2>
+        <h2 className={styles.chatHeaderTitle}>Resume.AI</h2>
       </div>
 
       <div className={styles.chatBox} ref={chatBoxRef}>
@@ -214,16 +214,16 @@ export default function Chat({ dataDump }) {
 function IntroChatBot() {
   return (
     <div className={styles.introChatBot}>
-      <h1 className={styles.headerText}>Welcome to the Project Chat!</h1>
+      <h1 className={styles.headerText}>Welcome to Resume.AI!</h1>
       <p className={styles.introText}>
-        I&apos;m your AI assistant with knowledge about this project&apos;s
-        codebase and documentation.
+        I&apos;m your AI assistant for Aneesh's Resume, Projects, and Skills.
+        Ask me anything!
       </p>
       <p className={styles.exampleHeader}>Example questions:</p>
       <ul className={styles.exampleList}>
-        <li>What technologies does this project use?</li>
-        <li>How is the application structured?</li>
-        <li>Can you explain how it works?</li>
+        <li>What are Aneesh's skills?</li>
+        <li>Does Aneesh know this?</li>
+        <li>Can Aneesh handle this project?</li>
       </ul>
     </div>
   );
