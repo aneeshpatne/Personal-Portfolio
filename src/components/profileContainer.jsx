@@ -4,6 +4,7 @@ import CardMarqee from "./CardMarqee";
 import LinkItem from "./LinkItem";
 import TechStack from "./TechStack";
 import { MainItem } from "./MainItem";
+import NasaTile from "./NasaTile";
 export default function Container() {
   return (
     <div className={styles.mainContainer}>
@@ -23,8 +24,10 @@ export default function Container() {
         <div className={styles.cardMarqee}>
           <CardMarqee />
         </div>
+        <div className={styles.nasaImageCard}>
+          <NasaTile />
+        </div>
         <div className={styles.mausamCard}></div>
-        <div className={styles.nasaImageCard}></div>
         <div className={styles.quoteCard}></div>
       </div>
     </div>
