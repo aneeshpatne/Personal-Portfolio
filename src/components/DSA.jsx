@@ -1,9 +1,12 @@
+"use client";
 import styles from "./style/DSA.module.css";
 import DoughnutChart from "./chart";
 import { Bug } from "lucide-react";
 import { Fira_Code } from "next/font/google";
 import { TechStack } from "./WebDev";
-
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+const words = ["Perseverance", "Mastery", "Dedication"];
 const dsaData = [
   "Arrays & Hashing",
   "Two Pointers",
@@ -61,11 +64,7 @@ export default function DSA() {
           <DoughnutChart />
         </div>
         <div className={styles.info}>
-          <h1 className={styles.styledText}>
-            <span>Perseverance</span>
-            <span>Mastery</span>
-            <span>Dedication</span>
-          </h1>
+          <h1 className={styles.Title}>Deep Understanding of Algorithms</h1>
           <div className={styles.topics}>Topics</div>
           <div className={styles.topicList}>
             {dsaData.map((topic, index) => (
@@ -73,6 +72,36 @@ export default function DSA() {
             ))}
           </div>
         </div>
+      </div>
+    </div>
+  );
+}
+function SlidingText() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % words.length);
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <div className={styles.SlidingTextContainer}>
+      <div className={styles.SlidingTextWrapper}>
+        <AnimatePresence initial={false}>
+          <motion.h1
+            key={currentIndex}
+            initial={{ x: 300, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            exit={{ x: -300, opacity: 0 }}
+            transition={{ duration: 0.5, ease: "easeInOut" }}
+            className={styles.SlidingText}
+          >
+            {words[currentIndex]}
+          </motion.h1>
+        </AnimatePresence>
       </div>
     </div>
   );
