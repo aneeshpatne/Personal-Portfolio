@@ -1,0 +1,64 @@
+.backgroundContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.blob1 {
+  position: absolute;
+  top: -10%;
+  left: -10%;
+  width: 1000px;
+  opacity: 0.25;
+  pointer-events: none;
+}
+.staticBlob1 {
+  position: absolute;
+  top: -10%;
+
+  width: 1000px;
+  opacity: 0.25;
+  pointer-events: none;
+}
+.blob2 {
+  position: absolute;
+  top: 10%;
+  left: 55%;
+  width: 750px;
+  height: 750px;
+  object-fit: cover;
+  opacity: 0.25;
+  pointer-events: none;
+}
+.staticBlob2 {
+  position: absolute;
+  top: 10%;
+  left: 30%;
+  width: 750px;
+  height: 750px;
+  object-fit: cover;
+  opacity: 0.25;
+  pointer-events: none;
+}
+.blob3 {
+  position: absolute;
+  top: -10%;
+  left: 30%;
+  width: 750px;
+  height: 750px;
+  opacity: 0.25;
+  pointer-events: none;
+}
+.staticBlob3 {
+  position: absolute;
+  top: 10%;
+  right: 10%;
+  width: 750px;
+  height: 750px;
+  opacity: 0.25;
+  pointer-events: none;
+}
