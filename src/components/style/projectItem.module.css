@@ -66,7 +66,7 @@
 
 .projectContainer:hover .heading {
   transform: translate(-50%, -50%) scale(1.02);
-  text-shadow: 0 6px 18px rgba(0,0,0,0.7);
+  text-shadow: 0 6px 18px rgba(0, 0, 0, 0.7);
 }
 .featured {
   position: absolute;
