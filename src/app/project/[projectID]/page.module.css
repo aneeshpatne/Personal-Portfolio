@@ -18,7 +18,7 @@
     flex-shrink: 0;
     margin: 2% 2%;
     height: 500px;
-    width: 280px;
+    width: 300px;
     background-color: var(--dark-bg);
 }
 #ProjectInfo.LightMode{
@@ -26,12 +26,13 @@ background-color: var(--light-bg);
 }
 #projectDesription{
     display: flex;
+    height:auto;
     flex-direction: column;
     margin: 2% 2%;
-    width: 500px;
+    width: 100%;
     overflow-y: auto;
     background-color: var(--dark-bg);
-    flex-grow: 1; 
+    
 }
 #projectDesription.LightMode{
     background-color: var(--light-bg);
@@ -59,8 +60,7 @@ background-color: var(--light-bg);
 }
 .ProjectTextBox{
     padding: 1%;
-    flex-grow: 1;
-    flex-basis: auto;
+
 }
 @media screen and (max-width: 800px) {
     #ProjectInfoContainer {
