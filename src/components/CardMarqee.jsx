@@ -41,7 +41,7 @@ export default function CardMarqee() {
   return (
     <div className={styles.cardMarqeeInner}>
       <div className={styles.marqueeContaier}>
-        <Marquee autoFill={false} gradient={false} speed={SPEED}>
+        <Marquee autoFill={true} gradient={false} speed={SPEED}>
           {DISPLAY.map((item) => (
             <MemoItem key={item.name} {...item} />
           ))}
@@ -62,6 +62,7 @@ function Item({ title, src }) {
         className={styles.icon}
         priority={false}
       />
+      <span>{title}</span>
     </div>
   );
 }
