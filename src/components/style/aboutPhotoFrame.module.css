@@ -1,0 +1,90 @@
+#AboutContainer {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 5%;
+    margin: 2% 2%;
+}
+
+#PhotoFrameContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #1E2831;
+    width: 20%;
+    min-width: 300px;
+    height: 25em;
+}
+
+#PhotoFrameContainer.LightMode{
+    background-color: var(--light-secondary-color);
+}
+
+#FrameImgContainer{
+    width: 80%;
+    height: 70%;
+    margin-top: 10%;
+    margin-bottom: auto;
+    position: relative;
+
+}
+
+#FrameImgContainer img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center; 
+  }
+
+#AboutTextContainer{
+    width: 70%;
+    display:flex;
+}
+
+#AboutTextBox{
+    flex: 1;
+    overflow-y: auto;
+    text-align: justify;
+}
+.AboutText{
+    font-weight: 500;
+    font-size: 1.2em;
+    padding: 1rem;
+}
+@media (max-width: 1000px) {
+    #AboutContainer {
+      flex-direction: column;
+      align-items: center;
+      height: auto; 
+    }
+    #AboutTextBox{
+        font-size: 1rem ;
+        text-align: left;
+    }
+    #PhotoFrameContainer {
+        height: 25em;
+        margin-bottom: 20px; 
+    }
+    #AboutTextContainer{
+        width: 100%;
+    }
+
+}
+
+@media screen and (max-width: 700px) {
+    #AboutTextBox{
+        font-size: 0.8rem;
+    }
+    
+}
+@media screen and (max-width: 500px) {
+    #AboutTextBox{
+        font-size: 0.75rem;
+    }
+    
+}
+.MainTitle{
+    padding: 20px;
+    font-weight: 800;
+}
