@@ -1,14 +1,14 @@
 'use client';
 import { useState, useEffect } from 'react';
 import styles from './style/graphs.module.css';
-import { getValues } from '@/app/services/api';
+
 export default function Stats({theme}) {
     const radius = 137.5; 
     const circumference = 2 * Math.PI * radius; 
     const [values, setValues] = useState({
-        val1: 23,
-        val2: 292,
-        val3: 185
+        val1: 0,
+        val2: 0,
+        val3: 0
     });
     const [Mounted, setMounted] = useState(false);
     useEffect(() => {
