@@ -10,6 +10,16 @@ const nextConfig = {
         destination: 'https://github.com/aneeshpatne',
         permanent: true,   
       },
+      {
+        source: '/leetcode', 
+        destination: 'https://leecode.com/u/aneeshpatne',
+        permanent: true,   
+      },
+      {
+        source: '/linkedin', 
+        destination: 'https://linkedin.com/in/aneeshpatne',
+        permanent: true,   
+      },
     ];
   },
 };
