@@ -1,6 +1,7 @@
 import styles from "./style/profileContainer.module.css";
 import CardItem from "./cardItem";
 import CardMarqee from "./CardMarqee";
+import LinkItem from "./LinkItem";
 import TechStack from "./TechStack";
 export default function Container() {
   return (
@@ -9,7 +10,9 @@ export default function Container() {
         <div className={styles.techStackItem}>
           <TechStack />
         </div>
-        <div className={styles.linkItem}></div>
+        <div className={styles.linkItem}>
+          <LinkItem />
+        </div>
         <div className={styles.mainPageItem}></div>
         <div className={styles.cardItem}>
           <CardItem />
