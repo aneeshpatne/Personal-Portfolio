@@ -16,7 +16,7 @@ function Skills ({cur}){
         <div id={styles.SkillContainer} className={theme ==='LightMode' ? styles.LightMode : ''}>
             <div id={styles.BtnContainer}>
                 <button id={styles.SkillBtn} className={`${styles.normal} ${state ===0 ? styles.active : ''} ${theme ==='LightMode' ? styles.LightMode : ''}`} onClick={()=>f1(0)}>Web Development</button>
-                <button id={styles.SkillBtn}  className={`${styles.normal} ${state ===1 ? styles.active  : ''} ${theme ==='LightMode' ? styles.LightMode : ''}` } onClick={()=>f1(1)}>DSA</button>
+                <button id={styles.SkillBtn}  className={`${styles.normal} ${state ===1 ? styles.active  : ''} ${theme ==='LightMode' ? styles.LightMode : ''}` } onClick={()=>f1(1)}>Languages & DSA</button>
                 <button id={styles.SkillBtn}  className={`${styles.normal} ${state ===2 ? styles.active  : ''} ${theme ==='LightMode' ? styles.LightMode : ''}`} onClick={()=>f1(2)}>Machine Learning</button>
                 <button id={styles.SkillBtn}  className={`${styles.normal} ${state ===3 ? styles.active  : ''} ${theme ==='LightMode' ? styles.LightMode : ''}`} onClick={()=>f1(3)}>Cloud Platforms</button>
             </div>
