@@ -54,9 +54,44 @@
 .svg {
   width: 100%;
   height: auto;
-  max-height: 500px;
+}
+
+.svgHorizontal {
+  display: block;
+  max-height: 600px;
+}
+
+.svgVertical {
+  display: none;
+  max-height: 800px;
 }
 
 .svgText {
   user-select: none;
+}
+
+/* Mobile: Switch to vertical layout */
+@media (max-width: 768px) {
+  .svgHorizontal {
+    display: none;
+  }
+
+  .svgVertical {
+    display: block;
+  }
+
+  .diagramContainer {
+    min-width: 100%;
+    flex: 1 1 100%;
+  }
+
+  .contentContainer {
+    flex-direction: column;
+  }
+
+  .descriptionContainer {
+    flex: 1 1 100%;
+    min-width: 100%;
+    text-align: center;
+  }
 }
