@@ -29,13 +29,20 @@ const Menu = dynamic(() => import("./menu"), {
 export default function HomePage() {
   return (
     <>
-      <NameNew />
-      <Profile />
-      <Skills />
-      <WebDev />
-      <MatrixLLM />
-      <DSA />
-      <ProjectNew />
+      <section id="home">
+        <NameNew />
+      </section>
+      <Menu />
+      <section id="skills">
+        <Skills />
+
+        <WebDev />
+        <MatrixLLM />
+        <DSA />
+      </section>
+      <section id="project">
+        <ProjectNew />
+      </section>
     </>
   );
 }
