@@ -23,7 +23,7 @@ export default function Header({homeScroll, skillScroll, projectScroll}){
             </div>
         </div>
         <div id={styles.RightHeader}>
-        <button className={`${styles.HeaderButton} ${theme ==='LightMode' ? 'LightMode' : ''}`} onClick={ThemeToggle}>{theme ==='LightMode' ? 'Dark' : 'Light'}</button>
+        <button className={`${styles.HeaderButton} ${theme ==='LightMode' ? styles.LightMode : ''}`} onClick={ThemeToggle}>{theme ==='LightMode' ? 'Dark' : 'Light'}</button>
         </div>
         </div>
         </div>);
