@@ -7,6 +7,8 @@ import remarkGfm from "remark-gfm";
 import rehypeHighlight from "rehype-highlight";
 import "highlight.js/styles/github-dark.css";
 import { useState } from "react";
+import { FaComments } from "react-icons/fa";
+
 export default function Chat({ dataDump }) {
   const [tokenMap, setTokenMap] = useState({});
   const { messages, input, handleInputChange, handleSubmit, status, stop } =
@@ -29,6 +31,11 @@ export default function Chat({ dataDump }) {
 
   return (
     <div className={styles.chatContainer}>
+      <div className={styles.chatHeader}>
+        <FaComments className={styles.chatHeaderIcon} />
+        <h2 className={styles.chatHeaderTitle}>Project Chat</h2>
+      </div>
+
       <div className={styles.chatBox}>
         {messages.some(
           (msg) => msg.role === "user" || msg.role === "assistant"
