@@ -3,6 +3,7 @@
   flex-direction: column;
   height: 500px;
   max-width: 400px;
+  width: 100%;
   background-color: #000; /* Pure black */
   border: 1px solid #222;
   border-radius: 0.5rem;
@@ -315,4 +316,53 @@
 
 .refreshIcon {
   font-size: 1.2rem;
+}
+
+/* Media queries for responsive design */
+@media screen and (max-width: 768px) {
+  .chatContainer {
+    max-width: 90%;
+    height: 450px;
+  }
+
+  .headerText {
+    font-size: 1.5rem;
+  }
+
+  .chatButton {
+    padding: 0 1rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .chatContainer {
+    max-width: 95%;
+    height: 400px;
+  }
+
+  .chatBox {
+    padding: 0.75rem;
+  }
+
+  .chatInputContainer {
+    padding: 0.75rem;
+  }
+
+  .headerText {
+    font-size: 1.25rem;
+  }
+
+  .introText {
+    font-size: 0.9rem;
+  }
+
+  .chatInput {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.95rem;
+  }
+
+  .chatButton {
+    padding: 0 0.75rem;
+    font-size: 0.9rem;
+  }
 }
