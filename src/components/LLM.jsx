@@ -5,7 +5,7 @@ import ReactMarkdown from "react-markdown";
 import AICarousel from "./AI-carousel";
 const data = [
   "#",
-  "Aneesh's",
+  "Aneesh&apos;s",
   "LLM",
   "Skills",
   "\n\n",
@@ -113,7 +113,7 @@ const SentMessage = function () {
   return (
     <div className={styles.sentMessage}>
       <p style={{ display: "inline-block" }}>
-        Tell me about Aneesh's Skills in LLM ?
+        Tell me about Aneesh&apos;s Skills in LLM ?
       </p>
     </div>
   );
