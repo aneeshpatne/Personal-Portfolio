@@ -37,7 +37,10 @@ export default function NameNew({ theme }) {
         <div className={styles.introWrapper}>
           <p className={styles.introName}>Hi, I&apos;m Aneesh</p>
           <p className={styles.introText}>
-            Passionate about Full Stack Dev, LLM solutions, and Data Structures.
+            Passionate about{" "}
+            <span className={styles.gradientText}>Full Stack Dev</span>,{" "}
+            <span className={styles.gradientText}>LLM solutions</span>, and{" "}
+            <span className={styles.gradientText}>Data Structures</span>.
           </p>
         </div>
       </div>
