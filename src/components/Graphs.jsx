@@ -50,9 +50,11 @@ export default function Stats({theme}) {
 
     return (
         <>
-        <h1 className={styles.MainTitle}>Stats</h1>
+        <h1 className={styles.MainTitle}>Programming Stats</h1>
         <div id={styles.container}>
             <div id={styles.leetCodeStats} className ={theme === 'LightMode' ? styles.LightMode : ''}>
+                <p className={styles.projectTitle}>Leetcode Stats</p>
+                <div className={styles.leetCodeStatsContainer}>
             <svg width="312" height="312" viewBox="0 0 312 312" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path fillRule="evenodd" clipRule="evenodd" d="M156 312C242.156 312 312 242.156 312 156C312 69.8436 242.156 0 156 0C69.8436 0 0 69.8436 0 156C0 242.156 69.8436 312 156 312ZM156 274C221.17 274 274 221.17 274 156C274 90.8304 221.17 38 156 38C90.8304 38 38 90.8304 38 156C38 221.17 90.8304 274 156 274Z" fill="#D9D9D9" />
                 <circle cx="156" cy="156" r="137.5" stroke="#f44336"
@@ -93,6 +95,7 @@ export default function Stats({theme}) {
                     {total}
                 </text>
             </svg>
+            </div>
             <div className={`${styles.Score} ${theme === 'LightMode' ? styles.LightMode : ''}`}>
             <div className={styles.ScoreContainer} >
             <svg width="20" height="20">
@@ -116,8 +119,8 @@ export default function Stats({theme}) {
             </div>
             <div className={styles.imgContainer}>
             {theme ==='LightMode' ?
-            <img src='https://github-readme-activity-graph.vercel.app/graph?username=aneeshpatne&bg_color=d9f0d7&color=419236&line=419236&point=419236&days=15&radius=6&height=500' />
-        : <img src='https://github-readme-activity-graph.vercel.app/graph?username=aneeshpatne&bg_color=1E2831&color=FFF&line=366492&point=FFF&days=15&radius=6&height=500' />}    
+            <img src='https://github-readme-activity-graph.vercel.app/graph?username=aneeshpatne&bg_color=d9f0d7&color=000&line=419236&point=419236&days=10&radius=6&height=550&hide_border=true&custom_title=GitHub Contributions' />
+        : <img src='https://github-readme-activity-graph.vercel.app/graph?username=aneeshpatne&bg_color=1E2831&color=FFF&line=366492&point=FFF&days=10&radius=6&height=550&hide_border=true' />}    
             
             </div>
         </div>
