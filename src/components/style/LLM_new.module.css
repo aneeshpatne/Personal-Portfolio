@@ -1,0 +1,9 @@
+.LLMContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.Heading {
+  text-align: center;
+}

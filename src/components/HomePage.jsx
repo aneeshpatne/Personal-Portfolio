@@ -12,6 +12,7 @@ import SystemArchitecture from "./SystemArchitecture";
 import DSA from "./DSA";
 import Footer from "./Footer";
 import ProjectNew from "./project";
+import { LLM_new } from "./LLM_new";
 
 export default function HomePage() {
   return (
@@ -25,8 +26,7 @@ export default function HomePage() {
         <WebDev />
         <SystemArchitecture />
         <DSA />
-        <MatrixLLM />
-  
+        <LLM_new />
       </section>
       <section id="project">
         <Suspense fallback={<ProjectLoadingSkeleton />}>
@@ -40,14 +40,16 @@ export default function HomePage() {
 
 function ProjectLoadingSkeleton() {
   return (
-    <div style={{
-      display: "flex",
-      justifyContent: "center",
-      alignItems: "center",
-      minHeight: "300px",
-      color: "rgba(255, 255, 255, 0.4)",
-      fontSize: "1.1rem"
-    }}>
+    <div
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        minHeight: "300px",
+        color: "rgba(255, 255, 255, 0.4)",
+        fontSize: "1.1rem",
+      }}
+    >
       Loading projects...
     </div>
   );
