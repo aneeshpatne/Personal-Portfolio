@@ -145,6 +145,14 @@
   background-color: #1e40af; /* Blue-800 */
 }
 
+.chatButton.stop {
+  background-color: #dc2626; /* Red-600 */
+}
+
+.chatButton.stop:hover {
+  background-color: #b91c1c; /* Red-700 */
+}
+
 .introChatBot {
   display: flex;
   flex-direction: column;
