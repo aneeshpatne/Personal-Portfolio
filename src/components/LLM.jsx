@@ -51,7 +51,7 @@ function MatrixLLM() {
       <header className={styles.header}>
         <h1 className={styles.title}>Artificial Intelligence</h1>
         <p className={styles.subtitle}>
-          Architecting the next generation of autonomous systems and cognitive infrastructure.
+          Building reliable autonomous systems that solve real problems. Turning raw models into practical software.
         </p>
       </header>
 
@@ -72,8 +72,7 @@ function MatrixLLM() {
           <div>
             <h3 className={styles.cardTitle}>Autonomous Agents</h3>
             <p className={styles.cardDesc}>
-              Building sophisticated agentic workflows that can plan, reason, and execute complex tasks autonomously.
-              Leveraging advanced prompting strategies and state management for robust behavior.
+              Creating workflows that plan and execute tasks. These systems handle complex logic and correct their own errors without human intervention.
             </p>
           </div>
           <AgentVisual />
@@ -90,7 +89,7 @@ function MatrixLLM() {
           </div>
           <h3 className={styles.cardTitle}>MCP Integration</h3>
           <p className={styles.cardDesc}>
-            Implementing the Model Context Protocol to standardize how AI assistants interact with local and remote resources.
+            Connecting AI models to external tools and databases. I build custom servers that allow assistants to interact with your actual data.
           </p>
           <div className={styles.tagContainer} style={{ marginTop: '1rem' }}>
             <span className={styles.tag}>Context Awareness</span>
@@ -109,7 +108,7 @@ function MatrixLLM() {
           </div>
           <h3 className={styles.cardTitle}>Vector Memory</h3>
           <p className={styles.cardDesc}>
-            High-performance RAG systems using Pinecone and Weaviate for semantic search and long-term memory retrieval.
+            Building search systems that find the right context. I use hybrid search and reranking to ensure high accuracy for RAG applications.
           </p>
           <div className={styles.tagContainer} style={{ marginTop: '1rem' }}>
             <span className={styles.tag}>Embeddings</span>
@@ -132,7 +131,7 @@ function MatrixLLM() {
             Leveraging the most powerful tools and frameworks in the AI ecosystem to build production-ready applications.
           </p>
           <div className={styles.techGrid}>
-            {["Vercel AI SDK", "LangChain", "LangGraph", "OpenAI SDK", "Pinecone", "Hugging Face"].map((tech) => (
+            {["Vercel AI SDK", "LangChain", "LangGraph", "OpenAI", "Pinecone", "Hugging Face", "Next.js", "Tailwind"].map((tech) => (
               <div key={tech} className={styles.premiumBadge}>
                 {tech}
               </div>
@@ -154,8 +153,7 @@ function MatrixLLM() {
             <div style={{ flex: 1 }}>
               <h3 className={styles.cardTitle}>ML Ops & Tooling</h3>
               <p className={styles.cardDesc}>
-                Robust infrastructure for deploying and monitoring LLM applications.
-                Specialized in tool calling and function execution.
+                Deploying reliable AI applications. I focus on testing, evaluation, and monitoring to ensure systems work in production.
               </p>
             </div>
             <div style={{ flex: 1, background: 'rgba(0,0,0,0.3)', borderRadius: '8px', padding: '1rem' }}>
