@@ -2,7 +2,7 @@ import { Raleway } from "next/font/google";
 import "./globals.css";
 import "../components/style/header.css";
 import Footer from "@/components/Footer";
-
+import { GoogleAnalytics } from "@next/third-parties/google";
 const raleway = Raleway({
   subsets: ["latin"],
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
@@ -89,6 +89,7 @@ export default function RootLayout({ children }) {
         {children}
         <Footer />
       </body>
+      <GoogleAnalytics gaId="G-2ZB3L8XV5X" />
     </html>
   );
 }
