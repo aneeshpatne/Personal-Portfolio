@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { AnimatePresence } from "framer-motion";
 import { motion } from "framer-motion";
 import { MausamFlowchart } from "./MausamFlowchart.jsx";
+import { ChatFlowchart } from "./ChatFlowchart.jsx";
 
 const instrumentSerif = Instrument_Serif({
   weight: "400",
@@ -75,6 +76,20 @@ export function LLM_new() {
               </p>
             </div>
             <MausamFlowchart />
+            <div style={{ borderTop: "1px solid rgba(255,255,255,0.1)" }}></div>
+            <div className={styles.CardTextContent}>
+              <p className={styles.ProjectText}>
+                <span className={styles.HighlightTitle}>Chat</span> is a
+                multi-model AI chat application that provides a unified
+                interface for multiple AI providers. Users select their
+                preferred model, and the system ensures a consistent experience
+                across providers. The backend dynamically routes requests to the
+                chosen AI provider, handling authentication, formatting, and
+                response normalization. This architecture makes Chat scalable,
+                flexible, and easily extensible with new AI models.
+              </p>
+            </div>
+            <ChatFlowchart />
           </div>
         </div>
       </div>
