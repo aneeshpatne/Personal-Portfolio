@@ -1,7 +1,5 @@
 .chartCard {
-  width: 100%;
   max-width: 350px;
-  margin: auto;
   padding: 16px;
   background: var(--dark-bg);
   border-radius: 8px;
