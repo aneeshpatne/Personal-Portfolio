@@ -9,10 +9,17 @@ import { mapper } from "./data";
 import { useState } from "react";
 
 export function ProjectContainerWrapper({ processedData }) {
-  const tempData = [...processedData];
   const [filter, setFilter] = useState({ sort: "default" });
+  const tempData =
+    filter.sort === "reverse" ? [...processedData].reverse() : processedData;
+
   return (
     <>
+      <button
+        onClick={() => setFilter((prev) => ({ ...prev, sort: "reverse" }))}
+      >
+        Reverse Sort
+      </button>
       {tempData.map((project, index) => (
         <ProjectContainer
           key={index}
