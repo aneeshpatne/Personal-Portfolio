@@ -17,13 +17,15 @@ export default function Menu() {
         }
       },
       {
-        threshold: 0.3,
+        threshold: 0.05,
       }
     );
 
     sections.forEach((id) => {
       const el = document.getElementById(id);
-      if (el) observer.observe(el);
+      if (el) {
+        requestAnimationFrame(() => observer.observe(el));
+      }
     });
 
     return () => observer.disconnect();
