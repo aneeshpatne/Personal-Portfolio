@@ -25,20 +25,20 @@ export default function WebDev() {
         Dev<span className={styles.bigText}>elopment</span>/&gt;
       </h1>
       <p className={styles.secText}>
-        Creating responsive and modern web solutions
+        Creating responsive and modern web solutions!
       </p>
       <div className={styles.content}>
+        <div className={styles.right}>
+          {data.map((d, index) => (
+            <SkillBox name={d.name} tech={d.tech} key={index} />
+          ))}
+        </div>
         <div className={styles.left}>
           <div className={`${styles.word} ${styles.stylish}`}>STYLISH</div>
           <div className={`${styles.word} ${styles.elegant}`}>ELEGANT</div>
           <div className={`${styles.word} ${styles.performant}`}>
             PERFORMANT
           </div>
-        </div>
-        <div className={styles.right}>
-          {data.map((d, index) => (
-            <SkillBox name={d.name} tech={d.tech} key={index} />
-          ))}
         </div>
       </div>
     </div>

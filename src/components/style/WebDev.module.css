@@ -6,7 +6,7 @@
 }
 .Text {
   font-family: "Arial", sans-serif;
-  font-size: clamp(2rem, 5vw, 4rem);
+  font-size: clamp(2rem, 3vw, 4rem);
   font-weight: 900;
   color: #3b82f6; /* Fallback for unsupported browsers */
   background: linear-gradient(to right, #3b82f6, #8b5cf6, #ec4899);
@@ -80,7 +80,7 @@
   animation-delay: 0.9s;
 }
 .secText {
-  font-size: 1.5rem;
+  font-size: clamp(1rem, 2vw, 2rem);
   text-align: center;
 }
 
