@@ -75,10 +75,6 @@ function MatrixLLM() {
   const [input, setInput] = useState("");
   const chatEndRef = useRef(null);
 
-  useEffect(() => {
-    chatEndRef.current?.scrollIntoView({ behavior: "smooth" });
-  }, []);
-
   const sendMessage = () => {
     if (input.trim() === "") return;
     setInput("");
