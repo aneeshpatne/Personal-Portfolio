@@ -2,9 +2,12 @@
   display: flex;
   width: 100%;
   height: 40px;
-  border-bottom: 0.3px solid var(--dark-bg-accent);
+  border-bottom: 1px solid var(--dark-bg-accent);
   align-items: center;
   justify-content: flex-end;
+}
+.headerContainer.LightMode {
+  border-bottom: 1px solid var(--light-bg-accent);
 }
 .themeToggle {
   display: flex;
@@ -19,5 +22,6 @@
   color: var(--dark-bg-btn);
 }
 .themeToggle.LightMode {
+  border: 1px solid var(--light-bg-accent);
   color: black;
 }

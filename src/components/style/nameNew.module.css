@@ -42,14 +42,15 @@
   border: 1px solid var(--dark-bg-accent);
 }
 .socialContainer.light {
-  border: 2px solid var(--light-bg-outline);
+  border: 2px solid var(--light-bg-accent);
 }
 .socialContainer.active {
   color: black;
   background-color: var(--dark-bg-btn);
 }
 .socialContainer.active.light {
-  background-color: var(--light-bg-outline);
+  color: #ffffff;
+  background-color: var(--light-bg-btn);
 }
 .socialText {
   padding: 4px;
