@@ -156,7 +156,7 @@ export default async function ProjectPage({ params }) {
         </div>
       </div>
 
-      <Chat dataDump={projectData.description} />
+      <Chat dataDump={projectData.LLMdump} />
     </div>
   );
 }
