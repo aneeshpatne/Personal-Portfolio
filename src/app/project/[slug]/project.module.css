@@ -61,7 +61,7 @@
   font-size: 0.95rem;
   font-weight: 500;
   cursor: pointer;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
   backdrop-filter: blur(6px);
   z-index: 60;
   display: none; /* default hidden; shown via media query */
@@ -79,10 +79,10 @@
   height: 100dvh; /* full dynamic viewport height */
   width: 360px; /* match desktop column */
   max-width: 100%; /* avoid overflow on ultra small devices */
-  background: rgba(15,15,15,0.95);
-  border-left: 1px solid rgba(255,255,255,0.12);
+  background: rgba(15, 15, 15, 0.95);
+  border-left: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 0;
-  box-shadow: -4px 0 18px -6px rgba(0,0,0,0.6);
+  box-shadow: -4px 0 18px -6px rgba(0, 0, 0, 0.6);
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -92,13 +92,25 @@
 }
 
 @keyframes slideFromRight {
-  from { transform: translateX(40px); opacity: 0; }
-  to { transform: translateX(0); opacity: 1; }
+  from {
+    transform: translateX(40px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
 }
 
 @keyframes slideUp {
-  from { transform: translateY(25px); opacity: 0; }
-  to { transform: translateY(0); opacity: 1; }
+  from {
+    transform: translateY(25px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
 .mobileChatHeader {
@@ -106,8 +118,12 @@
   align-items: center;
   justify-content: space-between;
   padding: 0.85rem 1rem;
-  background: linear-gradient(90deg, rgba(255,255,255,0.06), rgba(255,255,255,0));
-  border-bottom: 1px solid rgba(255,255,255,0.08);
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.06),
+    rgba(255, 255, 255, 0)
+  );
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .mobileChatTitle {
@@ -120,7 +136,7 @@
 }
 
 .mobileChatClose {
-  background: rgba(255,255,255,0.1);
+  background: rgba(255, 255, 255, 0.1);
   color: #fff;
   width: 32px;
   height: 32px;
@@ -135,7 +151,9 @@
   transition: background 0.2s ease;
 }
 
-.mobileChatClose:hover { background: rgba(255,255,255,0.18); }
+.mobileChatClose:hover {
+  background: rgba(255, 255, 255, 0.18);
+}
 
 .mobileChatBody {
   flex: 1;
@@ -418,17 +436,19 @@
 
 @media screen and (max-width: 768px) {
   .ProjectPage {
-  grid-template-columns: 1fr;
-  height: auto; /* Allow natural height on mobile */
-  overflow: visible;
+    grid-template-columns: 1fr;
+    height: auto; /* Allow natural height on mobile */
+    overflow: visible;
   }
 
   .content {
     padding: 1.5rem;
-  overflow: visible; /* Normal flow on small screens */
+    overflow: visible; /* Normal flow on small screens */
   }
 
-  .mobileChatButton { display: inline-flex; }
+  .mobileChatButton {
+    display: inline-flex;
+  }
 
   .title {
     font-size: 2.2rem;
@@ -452,10 +472,10 @@
 
 @media screen and (max-width: 480px) {
   .ProjectPage {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: auto;
   }
 
   .content {
@@ -472,7 +492,10 @@
   }
 
   /* Keep panel style on very small screens too */
-  .mobileChatOverlay { width: 360px; max-width: 100%; }
+  .mobileChatOverlay {
+    width: 360px;
+    max-width: 100%;
+  }
 
   .title {
     font-size: 1.8rem;
