@@ -8,6 +8,9 @@ export default function Container() {
         <div className={styles.mainPageItem}></div>
         <div className={styles.cardItem}></div>
         <div className={styles.cardMarqee}></div>
+        <div className={styles.mausamCard}></div>
+        <div className={styles.nasaImageCard}></div>
+        <div className={styles.quoteCard}></div>
       </div>
     </div>
   );
