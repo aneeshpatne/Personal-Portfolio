@@ -29,6 +29,9 @@ const logoMapper = {
 export default function ProjectInfo({params}){
     const {theme, setTheme} = UseThemeContext();
     const {projectID} = params ; 
+    if (!(projectID in data)){
+        return(<div>In Progress!!</div>)
+    }
     return(<div id={styles.ProjectContainer} >
         <div id = {styles.ProjectInfoContainer} className={theme ==='LightMode' ? styles.LightMode : ''}>
             <div id={styles.ProjectInfo} className={theme ==='LightMode' ? styles.LightMode : ''}>
