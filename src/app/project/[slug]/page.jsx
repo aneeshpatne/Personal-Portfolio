@@ -17,7 +17,7 @@ export default async function ProjectPage({ params }) {
     });
   } catch (error) {
     console.error("Error fetching project data:", error);
-    throw new Error("Failed to fetch project data");
+    return <div>Could not load project.</div>;
   }
   if (!projectData) {
     return <div>Project not found</div>;
