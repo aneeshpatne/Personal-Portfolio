@@ -8,5 +8,9 @@ const instrumentSerif = Instrument_Serif({
 });
 
 export default function TechStackName() {
-  return <h1 className={`${styles.headingText}`}>Tech Stack</h1>;
+  return (
+    <div className={`${styles.headingTextContainer}`}>
+      <h1 className={styles.headingText}>Tech Stack</h1>
+    </div>
+  );
 }

@@ -2,6 +2,8 @@ import styles from "./style/WebDev.module.css";
 import Image from "next/image";
 import TechStackName from "./techStackNameItem";
 import { Instrument_Serif, Space_Grotesk } from "next/font/google";
+import CardMarqee from "./CardMarqee";
+import TechStackItem from "./TechStackItem";
 
 const instrumentSerif = Instrument_Serif({
   subsets: ["latin"],
@@ -39,8 +41,12 @@ export default function WebDev() {
           <div className={styles.techStackTextItem}>
             <TechStackName />
           </div>
-          <div className={styles.marqueeItem}></div>
-          <div className={styles.techStackItem}></div>
+          <div className={styles.marqueeItem}>
+            <CardMarqee />
+          </div>
+          <div className={styles.techStackItem}>
+            <TechStackItem />
+          </div>
         </div>
       </div>
     </div>
