@@ -12,11 +12,17 @@ import { mapper } from "./data";
 import { prisma } from "@/libs/db";
 
 export default async function ProjectNew() {
-  const project = await prisma.projectList.findMany({
-    orderBy: {
-      startDate: "desc",
-    },
-  });
+  let project = null;
+  try {
+    project = await prisma.projectList.findMany({
+      orderBy: {
+        startDate: "desc",
+      },
+    });
+  } catch (error) {
+    console.error("Error fetching project data:", error);
+    throw new Error("Failed to fetch project data");
+  }
 
   if (!project) {
     return <div>Project not found</div>;
