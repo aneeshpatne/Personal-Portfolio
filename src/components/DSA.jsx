@@ -76,33 +76,3 @@ export default function DSA() {
     </div>
   );
 }
-function SlidingText() {
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % words.length);
-    }, 3000);
-
-    return () => clearInterval(interval);
-  }, []);
-
-  return (
-    <div className={styles.SlidingTextContainer}>
-      <div className={styles.SlidingTextWrapper}>
-        <AnimatePresence initial={false}>
-          <motion.h1
-            key={currentIndex}
-            initial={{ x: 300, opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            exit={{ x: -300, opacity: 0 }}
-            transition={{ duration: 0.5, ease: "easeInOut" }}
-            className={styles.SlidingText}
-          >
-            {words[currentIndex]}
-          </motion.h1>
-        </AnimatePresence>
-      </div>
-    </div>
-  );
-}
