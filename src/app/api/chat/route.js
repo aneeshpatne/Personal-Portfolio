@@ -12,7 +12,7 @@ export async function POST(req) {
   let count = 0;
   try {
     count = parseInt((await redis.get(key)) || 0);
-    if (count > 5) {
+    if (count > 15) {
       return new Response(JSON.stringify({ error: "Daily limit reached" }), {
         status: 429,
         headers: { "Content-Type": "application/json" },
@@ -35,7 +35,7 @@ export async function POST(req) {
   const { messages } = await req.json();
 
   const result = streamText({
-    model: openai("gpt-4.1-nano"),
+    model: openai("gpt-5-mini"),
     messages: [
       {
         role: "system",
