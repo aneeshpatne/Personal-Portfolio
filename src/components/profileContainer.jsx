@@ -6,6 +6,7 @@ import TechStack from "./TechStack";
 import { MainItem } from "./MainItem";
 import NasaTile from "./NasaTile";
 import MausamCard from "./MausamCard";
+import ProjectItem from "./projectItem";
 export default function Container() {
   return (
     <div className={styles.mainContainer}>
@@ -31,7 +32,9 @@ export default function Container() {
         <div className={styles.mausamCard}>
           <MausamCard />
         </div>
-        <div className={styles.quoteCard}></div>
+        <div className={styles.quoteCard}>
+          <ProjectItem />
+        </div>
       </div>
     </div>
   );
