@@ -39,11 +39,10 @@ const Legend = ({ data }) => (
 );
 
 export default function DoughnutChart() {
-  // Always call your hooks at the top.
   const [mounted, setMounted] = useState(false);
   const totalSolved = useMemo(
     () => chartData.reduce((acc, curr) => acc + curr.solved, 0),
-    []
+    [],
   );
   useEffect(() => {
     setMounted(true);
