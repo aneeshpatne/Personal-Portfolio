@@ -20,7 +20,9 @@ export default async function ProjectNew() {
     });
   } catch (error) {
     console.error("Error fetching project data:", error);
-    return <div>Could not load project. {error}</div>;
+    return (
+      <div>{JSON.stringify(error, Object.getOwnPropertyNames(error))}</div>
+    );
   }
 
   if (!project) {
