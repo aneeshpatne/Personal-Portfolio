@@ -20,7 +20,7 @@ const useWordCycle = (words, interval) => {
 };
 
 export default function TextCarousel() {
-  const word = useWordCycle(words, 2000); // Change word every 2 seconds
+  const word = useWordCycle(words, 2000);
 
   return (
     <div className={styles.container}>
