@@ -13,6 +13,27 @@ const raleway = Raleway({
 export const metadata = {
   title: "Aneesh Patne - Professional Portfolio",
   description: "A lifelong learner who is talented, motivated, and adaptable",
+  openGraph: {
+    title: "Aneesh Patne - Professional Portfolio",
+    description: "A lifelong learner who is talented, motivated, and adaptable",
+    url: "https://www.aneeshpatne.com/",
+    siteName: "Aneesh Patne",
+    type: "website",
+    images: [
+      {
+        url: "https://www.aneeshpatne.com/assets/img/header.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Aneesh Patne",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Aneesh Patne",
+    description: "A lifelong learner who is talented, motivated, and adaptable",
+    images: ["https://www.aneeshpatne.com/assets/img/aneesh.png"],
+  },
   link: [
     {
       rel: "preload",
@@ -50,32 +71,6 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className={raleway.className}>
       <head>
-        <meta
-          property="og:title"
-          content="Aneesh Patne - Professional Portfolio"
-        />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://www.aneeshpatne.com/" />
-        <meta
-          property="og:image"
-          content="https://www.aneeshpatne.com/assets/img/header.jpg"
-        />
-        <meta
-          property="og:description"
-          content="Aneesh Patne is a engineer with expertise in full stack web development, and Artificial Inteligence."
-        />
-        <meta property="og:site_name" content="Aneesh Patne" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:site" content="@aneeshpatne" />
-        <meta name="twitter:title" content="Aneesh Patne" />
-        <meta
-          name="twitter:description"
-          content="Aneesh Patne is a engineer with expertise in full stack web development, and Artificial Inteligence."
-        />
-        <meta
-          name="twitter:image"
-          content="https://www.aneeshpatne.com/assets/img/aneesh.png"
-        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdData) }}
