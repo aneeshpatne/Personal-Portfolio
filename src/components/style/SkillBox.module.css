@@ -1,7 +1,7 @@
 #SkillContainer{
     display: flex;
-    width: 95vw;
-    min-width: 350px;
+    width: 95%;
+    min-width: 380px;
     background-color: #1E2831;
     border-radius: 15px;
     align-items: center;
@@ -62,4 +62,14 @@
 .MainTitle{
     padding: 20px;
     font-weight: 800;
+}
+@media screen and (max-width:400px) {
+    #BtnContainer{
+        height: 30px;
+    }
+    #SkillBtn{
+        font-size: 0.67rem;
+        
+    }
+    
 }

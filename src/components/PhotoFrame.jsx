@@ -6,7 +6,7 @@ export default function Photoframe(){
     const {theme, ThemeToggle} = UseThemeContext();
     return(<div id={styles.PhotoFrameContainer} className ={theme === 'LightMode' ? styles.LightMode : ''}>
         <div id={styles.FrameImgContainer}>
-            <Image src='/assets/img/placeholder.jpg' alt='its me' layout="fill"/>
+            <Image src='/assets/img/aneesh.png' alt='its me' height={640} width={640}/>
         </div>
     </div>);
 }
