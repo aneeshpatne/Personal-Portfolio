@@ -8,7 +8,7 @@ const spaceGrotesk = Space_Grotesk({
 
 export const metadata = {
   title: "Aneesh Patne",
-  description: "Portfolio and Bento Resume",
+  description: "Portfolio",
 };
 
 export default function ProfileLayout({ children }) {
