@@ -23,7 +23,7 @@ export default function BlobsBackground() {
       }}
     >
       <motion.img
-        src="/assets/img/ellipse1.svg"
+        src="/assets/img/Ellipse1.svg"
         alt="blob"
         style={{
           position: "absolute",
@@ -37,7 +37,7 @@ export default function BlobsBackground() {
         transition={{ duration: 25, repeat: Infinity, ease: "easeInOut" }}
       />
       <motion.img
-        src="/assets/img/ellipse4.svg"
+        src="/assets/img/Ellipse4.svg"
         style={{
           position: "absolute",
           top: "30%",
@@ -53,7 +53,7 @@ export default function BlobsBackground() {
       />
 
       <motion.img
-        src="/assets/img/ellipse2.svg"
+        src="/assets/img/Ellipse2.svg"
         style={{
           position: "absolute",
           top: "5%",
