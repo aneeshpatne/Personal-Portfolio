@@ -40,14 +40,14 @@ export function NewsClient({ data }) {
       <div className={styles.glow} />
 
       <div className={styles.header}>
-        <div className={styles.badges}>
+        <div className={styles.leftGroup}>
             <span className={styles.liveBadge}>Live News</span>
-            <span className={styles.apiBadge}>Khoj API</span>
+            <div className={styles.dateContainer}>
+              <Clock size={12} className={styles.dateIcon} />
+              <span className={styles.date}>{displayDate}</span>
+            </div>
         </div>
-        <div className={styles.dateContainer}>
-          <Clock size={12} className={styles.dateIcon} />
-          <span className={styles.date}>{displayDate}</span>
-        </div>
+        <span className={styles.apiBadge}>Powered by Khoj API</span>
       </div>
 
       <div className={styles.content}>

@@ -54,7 +54,7 @@ export function WeatherClient({ temp, humidity, pressure, fontClassName }) {
             </div>
             <span className={styles.label}>Local Weather</span>
           </div>
-          <div className={styles.badge}>MausamAPI</div>
+          <div className={styles.badge}>Powered by Mausam API</div>
         </div>
 
         {/* Main Content: Temp, Humidity, Pressure */}

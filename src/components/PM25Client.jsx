@@ -93,7 +93,7 @@ export function PM25Client({ value, remark, alertColor }) {
           </div>
           <span className={styles.label}>Air Quality</span>
         </div>
-        <div className={styles.badge}>PradushanAPI</div>
+        <div className={styles.badge}>Powered by Vaayu API</div>
       </div>
 
       {/* Main Content: Huge Number */}

@@ -26,11 +26,12 @@ export function ResumeAI() {
           </div>
           <span className={styles.label}>Interactive Resume</span>
         </div>
-        <div className={styles.badge}>Resume.AI</div>
+        <div className={styles.badge}>Powered by Resume.AI API</div>
       </div>
 
       {/* Main Content: Description */}
       <div className={styles.mainContent}>
+        <h3 className={styles.mainTitle}>Curious about my background?</h3>
         <p className={styles.description}>
           Ask questions about my skills, experience, and projects.
         </p>
