@@ -1,0 +1,42 @@
+.ErrorContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.ErrorBox {
+  padding: 20px;
+  border: 1px solid #d9534f;
+  border-radius: 8px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.ErrorTitle {
+  font-size: 24px;
+  font-weight: bold;
+  color: #d9534f;
+  margin-bottom: 10px;
+}
+
+.ErrorMessage {
+  font-size: 16px;
+  margin-bottom: 15px;
+}
+
+.ErrorButton {
+  background-color: #d9534f;
+  color: white;
+  font-size: 16px;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.ErrorButton:hover {
+  background-color: #c9302c;
+}
