@@ -1,25 +1,20 @@
+export const revalidate = 86400;
+
 import Chat from "@/components/chat";
 import style from "./project.module.css";
 import Image from "next/image";
 import Link from "next/link";
 import { mapper } from "@/components/data";
-import { cache } from "react";
-
+import { PrismaClient } from "@/generated/prisma";
+const prisma = new PrismaClient();
 export default async function ProjectPage({ params }) {
   const { slug } = await params;
-  const data = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}/api/data/${slug}`,
-    {
-      method: "GET",
-      cache: "no-store",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    }
-  );
-  const projectData = await data.json();
-  console.log(projectData);
-  if (!data.ok) {
+  const projectData = await prisma.projects.findUnique({
+    where: {
+      id: slug,
+    },
+  });
+  if (!projectData) {
     return <div>Project not found</div>;
   }
 
