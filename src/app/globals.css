@@ -20,6 +20,13 @@ html {
   --light-secondary-color: #d9f0d7;
   --light-secondary-color-backup: #fce7a9;
   --transition-time: 0.3s;
+  --gradient-start: #60a5fa;
+  --gradient-mid: #22d3ee;
+  --gradient-end: #5eead4;
+  --text-color: #e5e7eb;
+  --background-color: #000000;
+  --binary-bg-start: rgba(30, 58, 138, 0.2);
+  --binary-bg-end: rgba(15, 118, 110, 0.2);
 }
 
 body {

@@ -6,6 +6,7 @@ import { UseThemeContext } from "./ThemeContext";
 import NameNew from "./NameNew";
 import ProjectNew from "./ProjectNew";
 import WebDev from "./WebDev";
+import Profile from "./aboutMeNew";
 export default function HomePage() {
   const { theme, ThemeToggle } = UseThemeContext();
   const [Mount, setMount] = useState(false);
@@ -17,7 +18,8 @@ export default function HomePage() {
     <>
       <NewHeader theme={theme} ThemeToggle={ThemeToggle} />
       <NameNew theme={theme} />
-      <WebDev theme={theme} />
+      <Profile theme={theme} />
+
       <ProjectNew theme={theme} />
     </>
   );
