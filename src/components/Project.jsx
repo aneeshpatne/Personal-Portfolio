@@ -49,7 +49,13 @@ function ProjectContainer({
     return null;
   }
 
-  return <div className={styles.projectContainer}></div>;
+  return (
+    <div className={styles.projectContainer}>
+      <div className={styles.projectImage}>
+        <p className={styles.projectTitle}>Project Title</p>
+      </div>
+    </div>
+  );
 }
 
 function TopicSelector({ topic, theme, isSelected, toggleTopic }) {
