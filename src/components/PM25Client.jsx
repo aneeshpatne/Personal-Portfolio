@@ -68,6 +68,7 @@ const getAQIData = (val, alertColor) => {
 };
 
 export function PM25Client({ value, remark, alertColor }) {
+  const hasValue = value !== null && value !== undefined && value !== "";
   const { color, label: autoLabel, icon: Icon } = useMemo(
     () => getAQIData(value, alertColor),
     [value, alertColor]
@@ -103,7 +104,7 @@ export function PM25Client({ value, remark, alertColor }) {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.1, duration: 0.4 }}
           >
-            {value}
+            {hasValue ? value : "NILL"}
           </motion.span>
           <span className={styles.unit}>AQI</span>
         </div>
@@ -112,7 +113,7 @@ export function PM25Client({ value, remark, alertColor }) {
       {/* Footer: Remark Only */}
       <div className={styles.footer}>
         <div className={styles.statusRow}>
-          <span className={styles.remark}>{displayRemark}</span>
+          <span className={styles.remark}>{hasValue ? displayRemark : ""}</span>
         </div>
       </div>
     </motion.div>
