@@ -9,43 +9,6 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import Loading from "@/app/loading";
 
-export default function ProjectNew() {
-  const [mounted, setMounted] = useState(false);
-  const [project, setProject] = useState([]);
-  useEffect(() => {
-    fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/data/`)
-      .then((response) => response.json())
-      .then((data) => {
-        const processed = data.map((project) => ({
-          ...project,
-          techStack: project.techStack.split(",").map((tech) => tech.trim()),
-        }));
-        setProject(processed);
-      })
-      .catch((error) => {
-        console.error("Error fetching data:", error);
-      });
-    setMounted(true);
-  }, []);
-  if (!mounted) return <Loading />;
-  return (
-    <div className={styles.projects}>
-      <Title />
-      <div className={styles.projectBox}>
-        {project.map((project, index) => (
-          <ProjectContainer
-            key={index}
-            stack={project.techStack}
-            name={project.title}
-            description={project.description}
-            image={project.image}
-            id={project.id}
-          />
-        ))}
-      </div>
-    </div>
-  );
-}
 function ReadMoreText({ text, wordlimit = 13, speed = 50 }) {
   const words = text.split(" ");
   const truncatedText =
@@ -147,7 +110,7 @@ export function ProjectTechStack({ name, color }) {
   );
 }
 
-function Title() {
+export function Title() {
   return (
     <div className={styles.projectTitleContainer}>
       <motion.h1
