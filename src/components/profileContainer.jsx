@@ -1,10 +1,13 @@
 import styles from "./style/profileContainer.module.css";
 import CardItem from "./cardItem";
+import TechStack from "./TechStack";
 export default function Container() {
   return (
     <div className={styles.mainContainer}>
       <div className={styles.Container}>
-        <div className={styles.techStackItem}></div>
+        <div className={styles.techStackItem}>
+          <TechStack />
+        </div>
         <div className={styles.linkItem}></div>
         <div className={styles.mainPageItem}></div>
         <div className={styles.cardItem}>
