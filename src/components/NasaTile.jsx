@@ -30,7 +30,7 @@ export default function NasaTile() {
         <div className={styles.topShade} />
         <div className={styles.overlay}>
           <div className={styles.title}>
-            NGC 6960: The Witch's Broom Nebula{" "}
+            NGC 6960: The Witch&apos;s Broom Nebula
           </div>
         </div>
       </div>
