@@ -46,7 +46,7 @@
 }
 .socialContainer.active {
   color: black;
-  background-color: var(--dark-bg-accent);
+  background-color: var(--dark-bg-btn);
 }
 .socialContainer.active.light {
   background-color: var(--light-bg-outline);

@@ -1,8 +1,11 @@
 import styles from "./style/newHeader.module.css";
-export default function NewHeader() {
+import { Moon } from "lucide-react";
+export default function NewHeader({ theme, themeToggle }) {
   return (
     <div className={styles.headerContainer}>
-      <div className={styles.themeToggle}>hi</div>
+      <div className={styles.themeToggle}>
+        <Moon size={20} />
+      </div>
     </div>
   );
 }
