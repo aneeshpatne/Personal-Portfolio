@@ -2,8 +2,8 @@
 import { useState, useEffect } from 'react';
 import styles from './style/graphs.module.css';
 export default function Stats({theme}) {
-    const radius = 137.5; // Radius of the inner circle
-    const circumference = 2 * Math.PI * radius; // Circumference of the circle
+    const radius = 137.5; 
+    const circumference = 2 * Math.PI * radius; 
     const [values, setValues] = useState({
         val1: 22,
         val2: 291,
@@ -42,7 +42,6 @@ export default function Stats({theme}) {
         <div id={styles.container}>
             <div id={styles.leetCodeStats} className ={theme === 'LightMode' ? styles.LightMode : ''}>
             <svg width="312" height="312" viewBox="0 0 312 312" fill="none" xmlns="http://www.w3.org/2000/svg">
-                {/* Background Circle */}
                 <path fillRule="evenodd" clipRule="evenodd" d="M156 312C242.156 312 312 242.156 312 156C312 69.8436 242.156 0 156 0C69.8436 0 0 69.8436 0 156C0 242.156 69.8436 312 156 312ZM156 274C221.17 274 274 221.17 274 156C274 90.8304 221.17 38 156 38C90.8304 38 38 90.8304 38 156C38 221.17 90.8304 274 156 274Z" fill="#D9D9D9" />
                 <circle cx="156" cy="156" r="137.5" stroke="#f44336"
                     strokeWidth={35}
