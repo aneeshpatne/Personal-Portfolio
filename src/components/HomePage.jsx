@@ -16,7 +16,7 @@ export default function HomePage() {
     <>
       <NewHeader theme={theme} ThemeToggle={ThemeToggle} />
       <NameNew theme={theme} />
-      <ProjectNew />
+      <ProjectNew theme={theme} />
     </>
   );
 }
