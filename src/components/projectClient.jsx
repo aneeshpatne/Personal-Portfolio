@@ -1,7 +1,7 @@
 "use client";
 import TechPill from "./TechPill";
 import { ReadMoreText } from "./ProjectNew";
-import { ExternalLink } from "lucide-react";
+import { ExternalLink, ArrowDownNarrowWide, ArrowUpNarrowWide } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import styles from "./style/ProjectNew.module.css";
@@ -16,32 +16,44 @@ export function ProjectContainerWrapper({ processedData }) {
   return (
     <>
       <SortStatus setFilter={setFilter} filter={filter} />
-      {tempData.map((project, index) => (
-        <ProjectContainer
-          key={index}
-          stack={project.techStack}
-          name={project.title}
-          description={project.description}
-          image={project.image}
-          id={project.id}
-          isInProgress={project.isInProgress}
-        />
-      ))}
+      <div className={styles.projectBox}>
+        {tempData.map((project, index) => (
+          <ProjectContainer
+            key={index}
+            stack={project.techStack}
+            name={project.title}
+            description={project.description}
+            image={project.image}
+            id={project.id}
+            isInProgress={project.isInProgress}
+          />
+        ))}
+      </div>
     </>
   );
 }
 export function SortStatus({ setFilter, filter }) {
   return (
-    <button
-      onClick={() =>
-        setFilter((prev) => ({
-          ...prev,
-          sort: prev.sort === "reverse" ? "default" : "reverse",
-        }))
-      }
-    >
-      {filter.sort === "default" ? "Reverse Sort" : "Default"}
-    </button>
+    <div className={styles.sortContainer}>
+      <button
+        onClick={() => setFilter({ sort: "default" })}
+        className={`${styles.sortButton} ${
+          filter.sort === "default" ? styles.active : ""
+        }`}
+        title="Default Sort"
+      >
+        <ArrowDownNarrowWide size={20} />
+      </button>
+      <button
+        onClick={() => setFilter({ sort: "reverse" })}
+        className={`${styles.sortButton} ${
+          filter.sort === "reverse" ? styles.active : ""
+        }`}
+        title="Reverse Sort"
+      >
+        <ArrowUpNarrowWide size={20} />
+      </button>
+    </div>
   );
 }
 export function ProjectContainer({
