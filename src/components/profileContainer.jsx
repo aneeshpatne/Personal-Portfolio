@@ -7,6 +7,7 @@ export default function Container() {
         <div className={styles.linkItem}></div>
         <div className={styles.mainPageItem}></div>
         <div className={styles.cardItem}></div>
+        <div className={styles.cardMarqee}></div>
       </div>
     </div>
   );
