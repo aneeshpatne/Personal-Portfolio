@@ -28,13 +28,15 @@ export async function Weather() {
     console.error("Failed to fetch weather data:", error);
   }
 
-  const { temp, humidity, pressure } = weatherData || {};
+  const { temp, humidity, pressure, remark, alert_color } = weatherData || {};
 
   return (
     <WeatherClient
       temp={temp}
       humidity={humidity}
       pressure={pressure}
+      remark={remark}
+      alertColor={alert_color}
       fontClassName={firaCode.className}
     />
   );

@@ -3,12 +3,22 @@
 import styles from "./style/Weather.module.css";
 import { motion } from "framer-motion";
 
-export function WeatherClient({ temp, humidity, pressure, fontClassName }) {
-  // Logic to determine a simple remark
-  let remark = "Clear skies expected";
-  if (temp > 30) remark = "It's quite hot outside";
-  else if (temp < 10) remark = "Chilly weather today";
-  else remark = "Pleasant conditions";
+export function WeatherClient({ temp, humidity, pressure, remark, alertColor, fontClassName }) {
+  // Use the API-provided remark, or fallback logic if missing
+  const displayRemark = remark || (temp > 30 ? "It's quite hot outside" : (temp < 10 ? "Chilly weather today" : "Pleasant conditions"));
+  
+  // Map alert colors to hex values
+  const getAlertColor = (color) => {
+    switch(color?.toLowerCase()) {
+      case 'green': return '#22c55e'; // green-500
+      case 'orange': return '#f97316'; // orange-500
+      case 'red': return '#ef4444'; // red-500
+      case 'yellow': return '#eab308'; // yellow-500
+      default: return '#38bdf8'; // Default blue
+    }
+  };
+
+  const accentColor = getAlertColor(alertColor);
 
   return (
     <div className={styles.wrapper}>
@@ -18,12 +28,12 @@ export function WeatherClient({ temp, humidity, pressure, fontClassName }) {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4, ease: "easeOut" }}
       >
-        <div className={styles.spotlight} />
+        <div className={styles.spotlight} style={{ background: accentColor }} />
 
         {/* Header */}
         <div className={styles.header}>
           <div className={styles.titleGroup}>
-            <div className={styles.iconBox}>
+            <div className={styles.iconBox} style={{ color: accentColor }}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="20"
@@ -171,7 +181,9 @@ export function WeatherClient({ temp, humidity, pressure, fontClassName }) {
 
         {/* Footer: Remark */}
         <div className={styles.footer}>
-          <span className={styles.remark}>{remark}</span>
+          <span className={styles.remark} style={{ color: accentColor }}>
+            {displayRemark}
+          </span>
         </div>
       </motion.div>
     </div>
