@@ -6,7 +6,7 @@ export async function PM25({
   alertColor = "red",
 } = {}) {
   const apiKey = process.env.ANEESH_API_KEY;
-
+  let fetchedData = null;
   try {
     const response = await fetch("https://api.aneeshpatne.com/api/v1/pm25", {
       headers: {
@@ -19,6 +19,7 @@ export async function PM25({
 
     if (response.ok) {
       fetchedData = await response.json();
+      fetchedData.value = Number(fetchedData?.value?.toFixed(2));
     }
   } catch {
     fetchedData = null;
