@@ -1,7 +1,11 @@
 "use client";
 import TechPill from "./TechPill";
 import { ReadMoreText } from "./ProjectNew";
-import { ExternalLink, ArrowDownNarrowWide, ArrowUpNarrowWide } from "lucide-react";
+import {
+  ExternalLink,
+  ArrowDownNarrowWide,
+  ArrowUpNarrowWide,
+} from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import styles from "./style/ProjectNew.module.css";
@@ -9,9 +13,12 @@ import { mapper } from "./data";
 import { useState } from "react";
 
 export function ProjectContainerWrapper({ processedData }) {
-  const [filter, setFilter] = useState({ sort: "default" });
-  const tempData =
+  const [filter, setFilter] = useState({ sort: "default", filter: [] });
+  let tempData =
     filter.sort === "reverse" ? [...processedData].reverse() : processedData;
+  if (filter.filter.length > 0) {
+    filter.filter.reduce((acc, f) => {});
+  }
 
   return (
     <>
@@ -32,6 +39,7 @@ export function ProjectContainerWrapper({ processedData }) {
     </>
   );
 }
+export function FilterStatus() {}
 export function SortStatus({ setFilter, filter }) {
   return (
     <div className={styles.sortContainer}>
