@@ -19,23 +19,63 @@
 
 .title {
   margin: 0;
-  font-size: 3rem;
+  font-size: 2.6rem;
   font-weight: 700;
 }
 
 .list {
   display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
+  gap: 12px;
+  flex-direction: column; /* stack categories vertically */
+  flex: 1 1 auto; /* expand to fill available vertical space */
+  min-height: 0; /* allow flex children to overflow properly */
+  overflow-y: auto;
+  padding-right: 6px; /* room for scrollbar */
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
+.category {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.categoryTitle {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.categoryList {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap; /* allow items to wrap within the category */
+}
+
+/* Scrollbar styling for WebKit */
+.list::-webkit-scrollbar {
+  width: 8px;
+}
+.list::-webkit-scrollbar-track {
+  background: transparent;
+}
+.list::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 9999px;
+}
+
+/* Optional: scrollbar for Firefox */
+.list {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.06) transparent;
+}
+
 .item {
   background: rgba(255, 255, 255, 0.02);
-  padding: 6px 10px;
   border-radius: 9999px;
-  font-size: 0.75rem;
+  padding: 3px 7px;
+  font-size: 0.7rem;
   border: 1px solid rgba(255, 255, 255, 0.03);
 }
