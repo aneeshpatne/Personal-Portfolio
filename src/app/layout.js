@@ -1,12 +1,13 @@
-import { Inter, Raleway, Lato, Noto_Sans } from "next/font/google";
+import { Inter, Raleway } from "next/font/google";
 import "./globals.css";
 import "../components/style/header.css";
 import ThemeProvider from "@/components/ThemeContext";
 import Footer from "@/components/Footer";
-import { GeistSans } from "geist/font/sans";
-const raleway = Noto_Sans({
+
+//Noto_Sans
+const raleway = Raleway({
   subsets: ["latin"],
-  weight: ["100", "300", "300", "700", "900"],
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
   style: ["normal", "italic"],
   display: "swap",
 });
