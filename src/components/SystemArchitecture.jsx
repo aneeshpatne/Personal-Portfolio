@@ -93,7 +93,7 @@ const SystemArchitecture = () => {
                 borderTop: "1px solid rgba(255,255,255,0.1)",
               }}
             >
-              <p className={styles.ProjectText}>
+              <p className={styles.ProjectText} style={{ maxWidth: 800 }}>
                 <span className={styles.HighlightTitle}>Practice Coder</span> is
                 a scalable remote code execution engine capable of handling
                 thousands of submissions safely. It orchestrates Docker
