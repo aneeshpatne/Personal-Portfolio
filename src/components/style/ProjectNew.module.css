@@ -1,7 +1,7 @@
 .projectBox {
   display: flex;
   width: 100%;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   gap: 10px;
   flex: 0;
@@ -79,8 +79,6 @@
   padding: 2%;
 }
 .projectLearnMore {
-  position: absolute;
-  bottom: 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -90,11 +88,10 @@
   border-radius: 0.5rem;
   background-color: var(--light-bg);
   color: var(--dark-bg);
-  left: 50%;
-  transform: translateX(-50%);
-  margin-bottom: 1rem;
+  margin: 1rem auto 1rem; /* centers horizontally and gives top margin */
   cursor: pointer;
 }
+
 .projectLearnMore.LightMode {
   background-color: var(--dark-bg);
   color: var(--light-bg);
