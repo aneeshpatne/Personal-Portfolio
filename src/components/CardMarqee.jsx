@@ -64,30 +64,22 @@ export default function CardMarqee() {
   );
 }
 const ICON_MAP = {
+  // Frontend
   nextjs: { Icon: SiNextdotjs, color: "#FFFFFF", title: "Next.js" },
   react: { Icon: SiReact, color: "#61DAFB", title: "React" },
   tailwind: { Icon: SiTailwindcss, color: "#38BDF8", title: "Tailwind CSS" },
-  sveltekit: { Icon: SiSvelte, color: "#FF3E00", title: "SvelteKit" },
-  reactnative: { Icon: SiReact, color: "#61DAFB", title: "React Native" },
 
-  // Backend
   nodejs: { Icon: SiNodedotjs, color: "#8CC84B", title: "Node.js" },
-  express: { Icon: SiExpress, color: "#FFFFFF", title: "Express.js" },
-  fastapi: { Icon: SiFastapi, color: "#00C7B7", title: "FastAPI" },
-  flask: { Icon: SiFlask, color: "#FFFFFF", title: "Flask" },
   django: { Icon: SiDjango, color: "#2CA977", title: "Django" },
-  kotlin: { Icon: SiKotlin, color: "#7F52FF", title: "Kotlin" },
+  fastapi: { Icon: SiFastapi, color: "#00C7B7", title: "FastAPI" },
 
-  // Databases
   postgres: { Icon: SiPostgresql, color: "#4EA1EC", title: "PostgreSQL" },
-  mysql: { Icon: SiMysql, color: "#00758F", title: "MySQL" },
   mongodb: { Icon: SiMongodb, color: "#4DB33D", title: "MongoDB" },
-  redis: { Icon: SiRedis, color: "#FF4438", title: "Redis" },
-  sqlite: { Icon: SiSqlite, color: "#56A4DA", title: "SQLite" },
 
-  // Infra / Cloud
   docker: { Icon: SiDocker, color: "#2496ED", title: "Docker" },
   gcp: { Icon: SiGooglecloud, color: "#FFFFFF", title: "Google Cloud" },
+
+  redis: { Icon: SiRedis, color: "#FF4438", title: "Redis" },
 };
 
 function Item({ name }) {
