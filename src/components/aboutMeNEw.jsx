@@ -1,6 +1,6 @@
 import styles from "./style/newAboutMe.module.css"; // Import your CSS module
 
-const Profile = () => {
+export default function Profile() {
   return (
     <div className={styles.profileContainer}>
       <div className={styles.container}>
@@ -34,6 +34,4 @@ const Profile = () => {
       </div>
     </div>
   );
-};
-
-export default Profile;
+}

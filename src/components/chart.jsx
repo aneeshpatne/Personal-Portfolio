@@ -1,4 +1,5 @@
-import React, { useMemo } from "react";
+"use client";
+import React, { useState, useEffect, useMemo } from "react";
 import { Pie, PieChart, Cell, Tooltip, Label } from "recharts";
 import styles from "./style/chart.module.css";
 
@@ -38,9 +39,18 @@ const Legend = ({ data }) => (
 );
 
 export default function DoughnutChart() {
-  const totalSolved = useMemo(() => {
-    return chartData.reduce((acc, curr) => acc + curr.solved, 0);
+  // Always call your hooks at the top.
+  const [mounted, setMounted] = useState(false);
+  const totalSolved = useMemo(
+    () => chartData.reduce((acc, curr) => acc + curr.solved, 0),
+    []
+  );
+  useEffect(() => {
+    setMounted(true);
   }, []);
+
+  // Now, conditionally render after all hooks have been called.
+  if (!mounted) return null;
 
   return (
     <div className={styles.chartCard}>
@@ -86,6 +96,7 @@ export default function DoughnutChart() {
                     </text>
                   );
                 }
+                return null;
               }}
             />
           </Pie>
