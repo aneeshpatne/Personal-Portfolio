@@ -1,14 +1,12 @@
 'use client';
 import Photoframe from './PhotoFrame';
 import styles from './style/aboutPhotoFrame.module.css';
-import { UseThemeContext } from './ThemeContext';
-export default function Aboutme(){
-    const {theme, ThemeToggle} = UseThemeContext(); 
+export default function Aboutme({theme}){
     return(
     <div id="AboutContainerMain">
         <h1 className={styles.MainTitle}>About Me</h1>
     <div id={styles.AboutContainer}>
-        <Photoframe/>
+        <Photoframe theme= {theme}/>
         <div id={styles.AboutTextContainer} className={theme ==='LightMode' ? styles.LightMode : ''}>
             <div id={styles.AboutTextBox}>
             <p className={styles.AboutText}>I am a Masters student with a strong foundation in Full Stack Web Development &amp; Data Structures and Algorithms (DSA).</p>
