@@ -1,5 +1,6 @@
 import { Inter, Raleway } from "next/font/google";
 import "./globals.css";
+import "../components/style/header.css";
 import ThemeProvider from "@/components/ThemeContext";
 import Footer from "@/components/Footer";
 
@@ -13,6 +14,11 @@ const raleway = Raleway({
 export const metadata = {
   title: "Aneesh Patne - Professional Portfolio",
   description: "Masters student with a strong foundation in Full Stack Web Development & Data Structures and Algorithms.",
+  link:[{
+    rel: 'preload',
+    href: "../components/style/header.css",
+    as: 'style',
+  }]
 };
 
 export default function RootLayout({ children }) {
