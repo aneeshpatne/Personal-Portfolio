@@ -2,7 +2,6 @@ export const revalidate = 86400;
 
 import styles from "./style/ProjectNew.module.css";
 import { Title } from "./ProjectNew";
-import { PrismaClient } from "@/generated/prisma";
 import { TechStack } from "./WebDev";
 import { ReadMoreText } from "./ProjectNew";
 import { ExternalLink } from "lucide-react";
