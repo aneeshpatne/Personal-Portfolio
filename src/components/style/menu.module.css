@@ -1,0 +1,31 @@
+.MenuContainer {
+  display: flex;
+  position: fixed;
+  height: 40px;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgb(255, 255, 255);
+  border: rgb(255, 255, 255) 1px solid;
+  border-radius: 10px;
+  color: black;
+  overflow: hidden;
+  z-index: 9999;
+}
+.menuItem {
+  display: flex;
+  height: inherit;
+  border-radius: inherit;
+  padding: 0 10px;
+  overflow: hidden;
+  color: black;
+  align-items: center;
+}
+.active {
+  color: white;
+  background-color: black;
+}
+.menuItem h1 {
+  font-size: 1rem;
+  font-weight: 600;
+}

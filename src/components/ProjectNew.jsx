@@ -1,10 +1,11 @@
+"use client";
 import styles from "./style/ProjectNew.module.css";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { ExternalLink } from "lucide-react";
 import { TechStack } from "./WebDev";
 import { mapper } from "./data";
-import { use, useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 
 export const project = [
   {
