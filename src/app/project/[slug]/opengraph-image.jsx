@@ -22,11 +22,12 @@ function formatSlug(slug = "") {
     .trim();
 }
 
-export default function Image({ params }) {
+export default async function Image({ params }) {
   const slug = params?.slug || "untitled";
   const accent = hashToMuted(slug);
   const projectTitle = formatSlug(slug) || "Untitled";
   const shortTagline = "Explore build details, stack choices & learnings";
+  const data = await fetch(`http://localhost:3000/project/og-data/${slug}`);
 
   return new ImageResponse(
     (
