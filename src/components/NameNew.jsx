@@ -17,7 +17,7 @@ export default function NameNew({ theme }) {
   return (
     <div className={styles.name}>
       <div className={styles.introduction}>
-        <p className={styles.boldText}>Hi, I'm Aneesh</p>
+        <p className={styles.boldText}>Hi, I&apos;m Aneesh</p>
         <p className={styles.secText}>
           I&apos;m passionate about coding and building exciting projects
         </p>
