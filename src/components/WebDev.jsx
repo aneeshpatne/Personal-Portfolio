@@ -1,7 +1,15 @@
 import styles from "./style/WebDev.module.css";
 import { mapper } from "./data.jsx";
+import Image from "next/image";
+import { Instrument_Serif } from "next/font/google";
 
-// Flat list of skills (now rendered statically server-side)
+const instrumentSerif = Instrument_Serif({
+  subsets: ["latin"],
+  weight: "400",
+  style: ["normal", "italic"],
+  variable: "--font-instrument-serif",
+});
+
 const skills = [
   { name: "React", cat: "Web UI" },
   { name: "Next.js", cat: "Web UI" },
@@ -28,13 +36,21 @@ const categoryOrder = ["Web UI", "Backend & APIs", "Mobile", "Databases"];
 export default function WebDev() {
   return (
     <div className={styles.Container}>
-      <h1 className={styles.Text}>
-        &lt;<span className={styles.web}>Full&nbsp;Stack</span> Dev
-        <span className={styles.bigText}>elopment</span>/&gt;
-      </h1>
-      <p className={styles.secText}>
-        elegant UIs, resilient services, smart data & modern mobile experiences.
-      </p>
+      <div className={styles.heading}>
+        <div className={styles.headingMedia}>
+          <Image
+            src="/assets/img/retro_heading.png"
+            alt="Retro graphic"
+            fill={true}
+            className={styles.headingImg}
+            style={{ objectFit: "fill" }}
+          />
+        </div>
+        <div className={styles.headingOverlay} aria-hidden="true" />
+        <h1 className={`${styles.headingText} ${instrumentSerif.className}`}>
+          Development
+        </h1>
+      </div>
       <div className={styles.content}>
         <div className={styles.right}>
           <div className={styles.groupsWrapper}>
