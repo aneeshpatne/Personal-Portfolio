@@ -74,4 +74,25 @@ function TechStack({ name, color = null, icon = null }) {
     </div>
   );
 }
-export { TechStack };
+1;
+function TechStack1({ name, color = null, icon = null }) {
+  return (
+    <div
+      className={styles.techStack1}
+      style={{
+        backgroundColor: color,
+        borderColor: color ?? "var(--dark-bg-accent)",
+      }}
+    >
+      <div
+        className={styles.techStackLogo1}
+        style={{ display: icon ? "flex" : "none" }}
+      >
+        {icon}
+      </div>
+      <span className={styles.techStackName}>{name}</span>
+    </div>
+  );
+}
+
+export { TechStack, TechStack1 };
