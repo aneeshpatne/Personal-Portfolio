@@ -1,16 +1,19 @@
 .projectBox {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  display: flex;
   width: 100%;
   align-items: center;
-  justify-items: center;
-  gap: 13px;
+  justify-content: center;
+  gap: 10px;
+  flex: 0;
+  flex-wrap: wrap;
 }
 .projectContainer {
-  height: 350px;
+  position: relative;
+  height: 380px;
   width: 280px;
   border: 1px solid var(--dark-bg-accent);
   border-radius: 15px;
+  margin: 2%;
 }
 .ImageContaier {
   position: relative;
@@ -37,4 +40,134 @@
   left: 0;
   margin: 5px;
   font-size: 24px;
+}
+.projectTitle {
+  margin: 2%;
+}
+.projectTitleContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 30vh;
+  text-align: center;
+  padding: 2rem;
+  color: white;
+}
+
+.projectTechStackContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 0.3rem 0 0 0.4rem;
+}
+.projectTechStack {
+  border: 1px solid var(--dark-bg-accent);
+  padding: 0.3rem;
+  border-radius: 5px;
+}
+
+.projectTitle {
+  font-size: 4rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+.lowerContainer {
+  padding: 0.3rem;
+}
+.projectDescription {
+  padding: 0.3rem;
+}
+.projectLearnMore {
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid var(--dark-bg-accent);
+  height: 40px;
+  width: 200px;
+  border-radius: 0.5rem;
+  background-color: var(--light-bg);
+  color: var(--dark-bg);
+  left: 50%;
+  transform: translateX(-50%);
+  margin-bottom: 1rem;
+  cursor: pointer;
+}
+.projectLearnMore.LightMode {
+  background-color: var(--dark-bg);
+  color: var(--light-bg);
+}
+.projectLearnMoreText {
+  font-size: 1.2rem;
+  padding: 0.3rem;
+}
+.gradientText {
+  background: linear-gradient(270deg, #ff00de, #00fff9, #ff00de);
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientMove 5s linear infinite;
+}
+.gradientText.LightMode {
+  background: linear-gradient(270deg, #6600ff, #00b7ff, #6600ff);
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientMove 5s linear infinite;
+}
+
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 200% 50%;
+  }
+}
+
+.subtitleContainer {
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+.projectSubtitle {
+  font-size: 1.5rem;
+  color: #a0a0a0;
+  transition: color 0.3s ease;
+}
+
+.subtitleContainer::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(to right, #ff00de, #00fff9);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.subtitleContainer:hover::after {
+  transform: scaleX(1);
+}
+
+.subtitleContainer:hover .projectSubtitle {
+  color: white;
+}
+.subtitleContainer:hover.LightMode .projectSubtitle.LightMode {
+  color: rgb(0, 0, 0);
+}
+
+@media (max-width: 768px) {
+  .projectTitle {
+    font-size: 3rem;
+  }
+  .projectSubtitle {
+    font-size: 1.2rem;
+  }
 }
