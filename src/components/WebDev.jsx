@@ -4,6 +4,7 @@ import TechStackName from "./techStackNameItem";
 import { Instrument_Serif, Space_Grotesk } from "next/font/google";
 import CardMarqee from "./CardMarqee";
 import TechStackItem from "./TechStackItem";
+import NasaTile from "./NasaTile";
 
 const instrumentSerif = Instrument_Serif({
   subsets: ["latin"],
@@ -37,7 +38,7 @@ export default function WebDev() {
         </h1>
       </div>
       <div className={`${styles.mainContainer} ${spaceGrotesk.className}`}>
-        <div className={styles.gridContainer}>
+  <div className={styles.gridContainer}>
           <div className={styles.techStackTextItem}>
             <TechStackName />
           </div>
@@ -46,6 +47,9 @@ export default function WebDev() {
           </div>
           <div className={styles.techStackItem}>
             <TechStackItem />
+          </div>
+          <div className={styles.nasaTile}>
+            <NasaTile />
           </div>
         </div>
       </div>
