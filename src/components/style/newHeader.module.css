@@ -1,5 +1,15 @@
 .headerContainer {
+  display: flex;
   width: 100%;
-  height: 35px;
+  height: 40px;
   border-bottom: 0.3px solid var(--dark-bg-accent);
+  align-items: center;
+  justify-content: end;
+}
+.themeToggle {
+  height: 30px;
+  width: 30px;
+  margin: 10px;
+  border: 1px solid var(--dark-bg-accent);
+  border-radius: 5px;
 }
