@@ -21,7 +21,23 @@ import {
   SiDjango,
   SiGooglecloud,
   SiFirebase,
+  SiApachekafka,
+  SiSupabase,
+  SiCloudflare,
+  SiKotlin,
+  SiEspressif,
+  SiFfmpeg,
+  SiOpensearch,
 } from "react-icons/si";
+import {
+  TbBrandRedhat,
+  TbTerminal2,
+  TbBrandRadixUi,
+  TbDroplet,
+  TbComponents,
+} from "react-icons/tb";
+import { VscBroadcast } from "react-icons/vsc";
+import { RiRobot2Line } from "react-icons/ri";
 import {
   FaRocket,
   FaDatabase,
@@ -252,5 +268,69 @@ export const mapper = {
   "Gamified Learning": {
     color: "#1a262c",
     icon: <FaGamepad size={16} />,
+  },
+  Kafka: {
+    color: "#1a1a1a",
+    icon: <SiApachekafka size={16} />,
+  },
+  Redpanda: {
+    color: "#2c1a1a",
+    icon: <TbBrandRedhat size={16} />,
+  },
+  SSH: {
+    color: "#1a2a1a",
+    icon: <TbTerminal2 size={16} />,
+  },
+  Zustand: {
+    color: "#2a1a1a",
+    icon: <TbBrandRadixUi size={16} />,
+  },
+  "Pub/Sub": {
+    color: "#1a1a2c",
+    icon: <VscBroadcast size={16} />,
+  },
+  Playwright: {
+    color: "#2c1a2a",
+    icon: <FaCode size={16} />,
+  },
+  "Shadcn/ui": {
+    color: "#1a1a1a",
+    icon: <TbComponents size={16} />,
+  },
+  Supabase: {
+    color: "#1a2c2a",
+    icon: <SiSupabase size={16} />,
+  },
+  Drizzle: {
+    color: "#1a2a2a",
+    icon: <TbDroplet size={16} />,
+  },
+  "Vercel AI SDK": {
+    color: "#1a1a1c",
+    icon: <RiRobot2Line size={16} />,
+  },
+  Cloudflare: {
+    color: "#2a2a1a",
+    icon: <SiCloudflare size={16} />,
+  },
+  Kotlin: {
+    color: "#1a1a2c",
+    icon: <SiKotlin size={16} />,
+  },
+  ESP32: {
+    color: "#2c1a1a",
+    icon: <SiEspressif size={16} />,
+  },
+  Express: {
+    color: "#1a1a1c", // Same as Express.js
+    icon: <SiExpress size={16} />,
+  },
+  FFmpeg: {
+    color: "#1a2c1a",
+    icon: <SiFfmpeg size={16} />,
+  },
+  Opensearch: {
+    color: "#1a1f2c",
+    icon: <SiOpensearch size={16} />,
   },
 };
