@@ -11,7 +11,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   const jsonLdData = {
     "@context": "https://schema.org",
-    "@type": "Person",
+    "@type": "ProfilePage",
     "name": "Aneesh Patne",
     "url": "https://www.aneeshpatne.com",
     "sameAs": [
