@@ -1,3 +1,5 @@
+export const revalidate = 86400;
+
 import styles from "./style/ProjectNew.module.css";
 import { ProjectContainer } from "./ProjectNew";
 import { Title } from "./ProjectNew";
@@ -5,14 +7,8 @@ import { PrismaClient } from "@/generated/prisma";
 const prisma = new PrismaClient();
 
 export default async function ProjectNew() {
-  const data = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/data/`, {
-    method: "GET",
-    headers: {
-      "Content-Type": "application/json",
-    },
-  });
-  const project = await data.json();
-  if (!data.ok) {
+  const project = await prisma.projects.findMany();
+  if (!project) {
     return <div>Project not found</div>;
   }
   const processedData = project.map((project) => ({
