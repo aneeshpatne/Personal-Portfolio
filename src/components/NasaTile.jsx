@@ -1,12 +1,18 @@
-// app/components/NasaTile.jsx  (Server Component)
 import Image from "next/image";
 import styles from "./style/nasaTile.module.css";
+import { Instrument_Serif } from "next/font/google";
+const instrumentSerif = Instrument_Serif({
+  subsets: ["latin"],
+  weight: "400",
+  style: ["normal", "italic"],
+  variable: "--font-instrument-serif",
+});
 
 export default async function NasaTile() {
   const res = await fetch(
-    `https://api.nasa.gov/planetary/apod?api_key=${process.env.NASA_API_KEY}`
+    `https://api.nasa.gov/planetary/apod?api_key=${process.env.NASA_API_KEY}`,
     // refresh every 24h (ISR). Use { cache: "no-store" } if you want it fresh each request.
-    // { next: { revalidate: 60 * 60 * 24 } }
+    { next: { revalidate: 60 * 60 * 24 } }
   );
 
   if (!res.ok) return <div className="tile">Failed to load NASA APOD</div>;
@@ -17,7 +23,6 @@ export default async function NasaTile() {
   const date = data.date ?? "";
   const imageSrc = data.url ?? null; // use url instead of hdurl
 
-  // If no url or media is not an image, show a simple fallback with title + date
   if (!imageSrc || data.media_type !== "image") {
     return (
       <div className={`${styles.tile} ${styles.fallback}`}>
@@ -33,7 +38,9 @@ export default async function NasaTile() {
   return (
     <div className={styles.tile}>
       <div className={styles.container}>
-        {/* Image layer (lower z-index) */}
+        <h1 className={`${styles.headerText} ${instrumentSerif.className}`}>
+          Limitless Ambition
+        </h1>
         <div className={styles.imageWrapper}>
           <Image
             src={imageSrc}
@@ -46,7 +53,7 @@ export default async function NasaTile() {
           />
         </div>
 
-        {/* Overlay header on top of the image */}
+        <div className={styles.topShade} />
         <div className={styles.overlay}>
           <div className={styles.title}>{title}</div>
           {date && <div className={styles.date}>{date}</div>}
