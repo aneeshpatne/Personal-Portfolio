@@ -38,7 +38,7 @@ export default function NameCompoenent(){
       
       <div className={styles.LinkLogo}>
         <a href="https://github.com/aneeshpatne" target="_blank" rel="noopener noreferrer">
-        <Image src={theme ==='LightMode' ? "/assets/img/github.svg" : "/assets/img/githubLight.svg"} alt="LeetCode" width={45} height={45} />
+        <Image src={theme ==='LightMode' ? "/assets/img/github.svg" : "/assets/img/githubLight.svg"} alt="github" width={45} height={45} />
         </a>
       </div>
              </div>
