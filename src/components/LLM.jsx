@@ -71,20 +71,47 @@ const data = [
   "\n\n",
 ];
 
-const MatrixLLM = () => {
+function MatrixLLM() {
+  const [input, setInput] = useState("");
+  const chatEndRef = useRef(null);
+
+  useEffect(() => {
+    chatEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  }, []);
+
+  const sendMessage = () => {
+    if (input.trim() === "") return;
+    setInput("");
+  };
+
   return (
     <div className={styles.Container}>
       <div className={styles.Content}>
-        <div className={styles.contentHeader}>LLM</div>
+        <div className={styles.contentHeader}>Artificial Intelligence</div>
         <div className={styles.contentBody}>
           <SentMessage />
           <ReceiveMessage />
+          <div ref={chatEndRef} />
+        </div>
+        <div className={styles.chatInputContainer}>
+          <div className={styles.chatInput}>
+            <input
+              type="text"
+              value={input}
+              onChange={(e) => setInput(e.target.value)}
+              placeholder="Type a message..."
+              className={styles.chatInputField}
+            />
+            <button onClick={sendMessage} className={styles.chatSendButton}>
+              Send
+            </button>
+          </div>
         </div>
         <AICarousel />
       </div>
     </div>
   );
-};
+}
 
 const SentMessage = function () {
   return (
