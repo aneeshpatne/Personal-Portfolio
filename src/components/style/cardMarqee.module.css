@@ -22,28 +22,17 @@
 }
 
 .social {
-  --ring: rgba(255, 255, 255, 0.18);
   position: relative;
   width: 48px;
   height: 48px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  /* spacing between marquee items */
-  /* reduced vertical spacing */
   margin: 3px 12px;
   border-radius: 12px;
-  background: linear-gradient(
-    180deg,
-    rgba(255, 255, 255, 0.06),
-    rgba(255, 255, 255, 0.02)
-  );
+  background: rgba(255, 255, 255, 0.06);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.32),
-    inset 0 1px 0 rgba(255, 255, 255, 0.05);
   color: #d6d6db;
-  transition: transform 180ms ease, box-shadow 220ms ease, background 220ms ease,
-    border-color 220ms ease, color 180ms ease;
   text-decoration: none;
   outline: none;
   will-change: transform;
