@@ -6,6 +6,7 @@ import { Fira_Code } from "next/font/google";
 import TechBadge from "./TechBadge";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { HeatMap } from "./HeatMap";
 const words = ["Perseverance", "Mastery", "Dedication"];
 const dsaData = [
   "Arrays & Hashing",
@@ -59,6 +60,9 @@ export default function DSA() {
       <h1 className={`${styles.heading} ${ibm_font.className}`}>
         Coding <Bug size={30} />
       </h1>
+      <div>
+        <HeatMap />
+      </div>
       <div className={styles.Content}>
         <div className={styles.chart}>
           <DoughnutChart />
