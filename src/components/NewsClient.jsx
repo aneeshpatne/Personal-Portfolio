@@ -1,14 +1,19 @@
 "use client";
-import { motion } from "framer-motion";
-import { ArrowUpRight, Clock } from "lucide-react";
+import { AnimatePresence, motion } from "framer-motion";
+import { Clock } from "lucide-react";
 import styles from "./style/News.module.css";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 export function NewsClient({ data }) {
-  const displayTitle = data[0]?.title || "Waiting for headlines...";
-  const displayDesc = data[0]?.description || "Waiting for News..";
-  let length = data.length;
-  console.log(length);
+  const [index, setIndex] = useState(0);
+  const hasNews = data.length > 0;
+  const displayTitle = hasNews
+    ? data[index]?.title
+    : "Waiting for news...";
+  const displayDesc = hasNews
+    ? data[index]?.description
+    : "We will retry fetching headlines shortly.";
+  const displayKey = hasNews ? index : "waiting";
   const displayDate = new Date().toLocaleDateString("en-US", {
     month: "long",
     day: "numeric",
@@ -16,8 +21,14 @@ export function NewsClient({ data }) {
   });
 
   useEffect(() => {
-    const intreval = setInterval(() => {}, 1000);
-  }, []);
+    if (!hasNews) {
+      return undefined;
+    }
+    const interval = setInterval(() => {
+      setIndex((current) => (current + 1) % data.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, [hasNews, data.length]);
 
   return (
     <motion.div
@@ -29,6 +40,7 @@ export function NewsClient({ data }) {
       <div className={styles.glow} />
 
       <div className={styles.header}>
+        <span className={styles.liveBadge}>Live News</span>
         <div className={styles.dateContainer}>
           <Clock size={12} className={styles.dateIcon} />
           <span className={styles.date}>{displayDate}</span>
@@ -36,8 +48,18 @@ export function NewsClient({ data }) {
       </div>
 
       <div className={styles.content}>
-        <h3 className={styles.title}>{displayTitle}</h3>
-        <p className={styles.description}>{displayDesc}</p>
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={displayKey}
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -8 }}
+            transition={{ duration: 0.35, ease: "easeOut" }}
+          >
+            <h3 className={styles.title}>{displayTitle}</h3>
+            <p className={styles.description}>{displayDesc}</p>
+          </motion.div>
+        </AnimatePresence>
       </div>
 
       <div className={styles.footerWrapper}>
