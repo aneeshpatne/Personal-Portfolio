@@ -7,7 +7,8 @@ import remarkGfm from "remark-gfm";
 import rehypeHighlight from "rehype-highlight";
 import "highlight.js/styles/github-dark.css";
 import { useState, useEffect, useRef } from "react";
-import { FaComments } from "react-icons/fa";
+import { FaComments, FaExclamationTriangle } from "react-icons/fa";
+import { IoMdRefresh } from "react-icons/io";
 
 // Loading animation component
 function LoadingAnimation() {
@@ -22,27 +23,82 @@ function LoadingAnimation() {
   );
 }
 
+// Error message component
+function ErrorMessage({ message, onRetry }) {
+  const isRateLimitError = message?.includes("Daily limit reached");
+
+  return (
+    <div className={styles.errorContainer}>
+      <FaExclamationTriangle className={styles.errorIcon} />
+      <h3>
+        {isRateLimitError ? "Daily Limit Reached" : "Something went wrong"}
+      </h3>
+      <p>
+        {isRateLimitError
+          ? "You've reached your chat limit for today. Please check back tomorrow."
+          : message ||
+            "There was an error processing your request. Please try again later."}
+      </p>
+      {!isRateLimitError && (
+        <button onClick={onRetry} className={styles.retryButton}>
+          <IoMdRefresh className={styles.refreshIcon} /> Try Again
+        </button>
+      )}
+    </div>
+  );
+}
+
 export default function Chat({ dataDump }) {
   const [tokenMap, setTokenMap] = useState({});
   const chatBoxRef = useRef(null);
+  const [errorState, setErrorState] = useState({ isError: false, message: "" });
 
-  const { messages, input, handleInputChange, handleSubmit, status, stop } =
-    useChat({
-      initialMessages: [
-        {
-          role: "system",
-          content:
-            "This is all the data you have about the project you are working on: " +
-            dataDump,
-        },
-      ],
-      onFinish: (message, options) => {
-        setTokenMap((prev) => ({
-          ...prev,
-          [message.id]: options.usage.promptTokens,
-        }));
+  const {
+    messages,
+    input,
+    handleInputChange,
+    handleSubmit,
+    status,
+    stop,
+    error,
+    reload,
+  } = useChat({
+    initialMessages: [
+      {
+        role: "system",
+        content:
+          "This is all the data you have about the project you are working on: " +
+          dataDump,
       },
-    });
+    ],
+    onFinish: (message, options) => {
+      setTokenMap((prev) => ({
+        ...prev,
+        [message.id]: options.usage.promptTokens,
+      }));
+    },
+    onError: (error) => {
+      setErrorState({
+        isError: true,
+        message: error.message || "An error occurred during the chat.",
+      });
+    },
+  });
+
+  // Check if error exists
+  useEffect(() => {
+    if (error) {
+      setErrorState({
+        isError: true,
+        message: error.message || "An error occurred during the chat.",
+      });
+    }
+  }, [error]);
+
+  const handleRetry = () => {
+    setErrorState({ isError: false, message: "" });
+    reload();
+  };
 
   const renderedText =
     status === "submitted"
@@ -71,9 +127,11 @@ export default function Chat({ dataDump }) {
       </div>
 
       <div className={styles.chatBox} ref={chatBoxRef}>
-        {messages.some(
-          (msg) => msg.role === "user" || msg.role === "assistant"
-        ) ? (
+        {errorState.isError ? (
+          <ErrorMessage message={errorState.message} onRetry={handleRetry} />
+        ) : messages.some(
+            (msg) => msg.role === "user" || msg.role === "assistant"
+          ) ? (
           <>
             {renderedText
               .filter(
@@ -128,11 +186,23 @@ export default function Chat({ dataDump }) {
             value={input}
             placeholder="Type your message..."
             onChange={handleInputChange}
+            disabled={
+              errorState.isError && errorState.message?.includes("Daily limit")
+            }
           />
         </form>
         <button
-          className={`${styles.chatButton} ${status === "streaming" ? styles.stop : ""}`}
+          className={`${styles.chatButton} ${
+            status === "streaming" ? styles.stop : ""
+          } ${
+            errorState.isError && errorState.message?.includes("Daily limit")
+              ? styles.disabled
+              : ""
+          }`}
           onClick={status === "streaming" ? stop : handleSubmit}
+          disabled={
+            errorState.isError && errorState.message?.includes("Daily limit")
+          }
         >
           {status === "streaming" ? "Stop" : "Send"}
         </button>
@@ -140,6 +210,7 @@ export default function Chat({ dataDump }) {
     </div>
   );
 }
+
 function IntroChatBot() {
   return (
     <div className={styles.introChatBot}>

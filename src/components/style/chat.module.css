@@ -62,6 +62,7 @@
   background-color: #111;
   border-bottom: 1px solid #222;
   border-radius: 0.5rem 0.5rem 0 0;
+  position: relative;
 }
 
 .chatHeaderIcon {
@@ -75,6 +76,44 @@
   font-weight: 500;
   color: #f4f4f5;
   margin: 0;
+}
+
+/* Rate limit counter styles */
+.rateLimitCounter {
+  margin-left: auto;
+  font-size: 0.75rem;
+  color: #888;
+  padding: 0.2rem 0.5rem;
+  border-radius: 0.25rem;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.rateLimitCounter .limitReached {
+  color: #ef4444;
+}
+
+/* Limit reached message styles */
+.limitReachedMessage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 100%;
+  padding: 2rem;
+}
+
+.limitReachedMessage h3 {
+  color: #ef4444;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+}
+
+.limitReachedMessage p {
+  color: #d1d5db;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  max-width: 90%;
 }
 
 .chatBox {
@@ -153,6 +192,16 @@
   background-color: #b91c1c; /* Red-700 */
 }
 
+.chatButton.disabled {
+  background-color: #4b5563;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.chatButton.disabled:hover {
+  background-color: #4b5563;
+}
+
 .introChatBot {
   display: flex;
   flex-direction: column;
@@ -212,4 +261,58 @@
   margin-top: 0.5rem;
   font-size: 0.75rem;
   color: #aaa;
+}
+
+/* Error UI styles */
+.errorContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 100%;
+  padding: 2rem;
+}
+
+.errorIcon {
+  color: #ef4444;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.errorContainer h3 {
+  color: #ef4444;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+}
+
+.errorContainer p {
+  color: #d1d5db;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  max-width: 90%;
+  margin-bottom: 1.5rem;
+}
+
+.retryButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1.25rem;
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.retryButton:hover {
+  background-color: #1e40af;
+}
+
+.refreshIcon {
+  font-size: 1.2rem;
 }

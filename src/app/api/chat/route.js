@@ -1,9 +1,23 @@
 import { openai } from "@ai-sdk/openai";
 import { streamText } from "ai";
+import { Redis } from "@upstash/redis";
 
 export const maxDuration = 30;
 
+const redis = Redis.fromEnv();
+
 export async function POST(req) {
+  const today = new Date().toISOString().split("T")[0];
+  const key = `chat:${today}`;
+  const count = parseInt((await redis.get(key)) || 0);
+  if (count > 5) {
+    return new Response(JSON.stringify({ error: "Daily limit reached" }), {
+      status: 429,
+      headers: { "Content-Type": "application/json" },
+    });
+  }
+  await redis.incr(key);
+  await redis.expire(key, 86400); // Set expiration to 24 hours
   // Get the request origin
   const origin = req.headers.get("origin") || "";
   // Get the allowed origin from environment variable
