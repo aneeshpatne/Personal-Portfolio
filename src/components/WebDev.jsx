@@ -5,6 +5,7 @@ import { Instrument_Serif, Space_Grotesk } from "next/font/google";
 import CardMarqee from "./CardMarqee";
 import TechStackItem from "./TechStackItem";
 import NasaTile from "./NasaTile";
+import { Suspense } from "react";
 
 const instrumentSerif = Instrument_Serif({
   subsets: ["latin"],
@@ -50,7 +51,23 @@ export default function WebDev() {
             <CardMarqee />
           </div>
           <div className={styles.nasaTile}>
-            <NasaTile />
+            <Suspense
+              fallback={
+                <div
+                  style={{
+                    background: "var(--dark-bg-accent)",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    height: "100%",
+                  }}
+                >
+                  Loading NASA image...
+                </div>
+              }
+            >
+              <NasaTile />
+            </Suspense>
           </div>
         </div>
       </div>
