@@ -69,8 +69,6 @@ export default async function Image({ params }) {
   const fallbackTitle = formatSlug(slug) || "Untitled";
   const defaultTagline = "Explore build details, stack choices & learnings";
 
-  // Determine canonical base: prefer deployment domain, fallback to env, finally forced prod domain.
-  // Next.js dynamic headers API must be awaited in Edge runtime
   const hdrs = await headers();
   const forcedProd = "www.aneeshpatne.com"; // always deployed here
   const headerHost =
@@ -134,13 +132,11 @@ export default async function Image({ params }) {
     projectData?.endDate
   );
 
-  // Resolve project image (supports absolute URL or /public relative path)
   let imageUrl = null;
   if (projectData?.image) {
     const img = projectData.image.trim();
-    if (/^https?:\/\//i.test(img)) imageUrl = img; // already absolute
+    if (/^https?:\/\//i.test(img)) imageUrl = img;
     else {
-      // ensure single leading slash then prefix base
       const normalized = img.startsWith("/") ? img : `/${img}`;
       imageUrl = `${base}${normalized}`;
     }
