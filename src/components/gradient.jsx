@@ -3,12 +3,20 @@ import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 
 export default function BlobsBackground() {
-  const [mounted, setMounted] = useState(false);
+  const [showBlobs, setShowBlobs] = useState(false);
+
   useEffect(() => {
-    setMounted(true);
+    const checkScreenSize = () => {
+      setShowBlobs(window.innerWidth > 768); // Tailwind's md breakpoint
+    };
+
+    checkScreenSize(); // initial check
+    window.addEventListener("resize", checkScreenSize); // re-check on resize
+
+    return () => window.removeEventListener("resize", checkScreenSize);
   }, []);
 
-  if (!mounted) return null;
+  if (!showBlobs) return null;
 
   return (
     <div
@@ -27,8 +35,8 @@ export default function BlobsBackground() {
         alt="blob"
         style={{
           position: "absolute",
-          top: "-10%", // pull it up a bit
-          left: "-10%", // push left to bleed more
+          top: "-10%",
+          left: "-10%",
           width: "1000px",
           opacity: 0.25,
           pointerEvents: "none",
