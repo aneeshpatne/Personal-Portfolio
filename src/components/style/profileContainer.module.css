@@ -58,11 +58,14 @@
 
 .mainPageItem {
   grid-column: 7 / 9;
-  grid-row: 3/ 5;
+  grid-row: 3/ 6;
   background: #4f46e5;
   color: white;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 0.5rem;
+}
+
+.cardItem {
 }

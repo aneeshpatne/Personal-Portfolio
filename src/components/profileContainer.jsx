@@ -6,6 +6,7 @@ export default function Container() {
         <div className={styles.techStackItem}></div>
         <div className={styles.linkItem}></div>
         <div className={styles.mainPageItem}></div>
+        <div className={styles.cardItem}></div>
       </div>
     </div>
   );
