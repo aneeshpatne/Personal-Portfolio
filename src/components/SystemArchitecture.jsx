@@ -8,6 +8,7 @@ import ArchitectureSVG from "./svg/ArchitectureSVG";
 import LockSVG from "./svg/LockSVG";
 import SurakshaFlowSVG from "./svg/SurakshaFlowSVG";
 import Judge0FlowSVG from "./svg/Judge0FlowSVG";
+import CCTVFlowSVG from "./svg/CCTVFlowSVG";
 import { SystemArchitectureImage } from "./SystemArchitectureImage";
 
 const instrumentSerif = Instrument_Serif({
@@ -122,6 +123,7 @@ const SystemArchitecture = () => {
                 automated nightly motion summaries via Telegram.
               </div>
             </div>
+            <CCTVFlowSVG />
           </div>
         </div>
       </div>
