@@ -44,7 +44,7 @@ function ProjectContainer({
     <div className={`${styles.projectContainer}`}>
       <div className={styles.projectImage}>
         <div className={styles.projectOverlay}>
-          <p className={styles.projectTitle}>hi</p>
+          <p className={styles.projectTitle}>{title}</p>
         </div>
       </div>
     </div>
