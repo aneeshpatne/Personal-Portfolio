@@ -27,20 +27,23 @@ html {
   --background-color: #000000;
   --binary-bg-start: rgba(30, 58, 138, 0.2);
   --binary-bg-end: rgba(15, 118, 110, 0.2);
+  /* Global app background (synced with project page) */
+  --app-bg: #050507;
 }
 
 body {
-  background-color: var(--dark-bg);
+  background-color: var(--app-bg);
   color: var(--dark-text);
   transition: background-color var(--transition-time) ease,
     color var(--transition-time) ease;
   font-style: normal;
 }
 
-body.LightMode {
+/* Light mode disabled (locked to dark). Retain block commented for possible future use */
+/* body.LightMode {
   background-color: var(--light-bg);
   color: var(--light-text);
-}
+} */
 
 * {
   margin: 0;
