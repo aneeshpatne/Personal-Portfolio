@@ -3,6 +3,8 @@ import styles from './page.module.css'
 import { UseThemeContext } from "@/components/ThemeContext";
 import { TechStack } from '@/components/Project';
 import Image from 'next/image';
+
+import React from "react";
 const data = {'professional_portfolio':{
     'Name':'Professional Portfolio',
     'ImgSrc': '/assets/img/personalPortfolio.png',
@@ -84,39 +86,75 @@ const logoMapper = {
     'MongoDB': '/assets/img/mongoDB.svg',
 
   };
-export default function ProjectInfo({params}){
-    const {theme, setTheme} = UseThemeContext();
-    const {projectID} = params ; 
-    if (!(projectID in data)){
-        return(<div>Invalid URL</div>)
+  export default function ProjectInfo({ params }) {
+    // Use React.use() to unwrap the params Promise
+    const { projectID } = React.use(params);
+  
+    const { theme, setTheme } = UseThemeContext();
+  
+    if (!(projectID in data)) {
+      return <div>Invalid URL</div>;
     }
-    return(<div id={styles.ProjectContainer} >
-        <div id = {styles.ProjectInfoContainer} className={theme ==='LightMode' ? styles.LightMode : ''}>
-            <div id={styles.ProjectInfo} className={theme ==='LightMode' ? styles.LightMode : ''}>
-                <div id={styles.ProjectImageContainer }>
-                    <Image src={theme ==='LightMode' ? data[projectID]?.ImgLightSrc : data[projectID]?.ImgSrc} width = {500} height = {500}/>
-                </div>
+  
+    return (
+      <div id={styles.ProjectContainer}>
+        <div
+          id={styles.ProjectInfoContainer}
+          className={theme === "LightMode" ? styles.LightMode : ""}
+        >
+          <div
+            id={styles.ProjectInfo}
+            className={theme === "LightMode" ? styles.LightMode : ""}
+          >
+            <div id={styles.ProjectImageContainer}>
+              <Image
+                src={
+                  theme === "LightMode"
+                    ? data[projectID]?.ImgLightSrc
+                    : data[projectID]?.ImgSrc
+                }
+                width={500}
+                height={500}
+                alt={data[projectID]?.Name}
+              />
+            </div>
             <h1 className={styles.MainHeader}>{data[projectID]?.Name}</h1>
-            <p className={styles.TechStackText}>Tools and Technologies used for development</p>
+            <p className={styles.TechStackText}>
+              Tools and Technologies used for development
+            </p>
             <div className={styles.TechStackContainer}>
-               {data[projectID]?.techstack.map((data,index) => (<TechStack Name={data} imgSrc={logoMapper[data]} key = {index}/>))}
+              {data[projectID]?.techstack.map((tech, index) => (
+                <TechStack
+                  Name={tech}
+                  imgSrc={logoMapper[tech]}
+                  key={index}
+                />
+              ))}
             </div>
-            </div><div
-             id={styles.projectDesription} className={theme ==='LightMode' ? styles.LightMode : ''}>
-                {data[projectID]?.desc?.map((data,index)=> 
-                <div className ={styles.ProjectTextBox} key={index}>
-                    <p>{data}</p>
-                    <br />
-                </div>
-            )}
-            {data[projectID].link.map((data,index) =>  <DeployContainer imgSrc ={logoMapper[data.Name]} Name={data.Name} URL={data.URL} key={index}/>)}
-            </div>
-            
+          </div>
+          <div
+            id={styles.projectDesription}
+            className={theme === "LightMode" ? styles.LightMode : ""}
+          >
+            {data[projectID]?.desc?.map((descItem, index) => (
+              <div className={styles.ProjectTextBox} key={index}>
+                <p>{descItem}</p>
+                <br />
+              </div>
+            ))}
+            {data[projectID]?.link?.map((linkItem, index) => (
+              <DeployContainer
+                imgSrc={logoMapper[linkItem.Name]}
+                Name={linkItem.Name}
+                URL={linkItem.URL}
+                key={index}
+              />
+            ))}
+          </div>
         </div>
-
-    </div>
-    )
-}
+      </div>
+    );
+  }
 function DeployContainer({imgSrc, Name, URL}){
     const {theme, setTheme} = UseThemeContext();
     return(<div className={`${styles.deployContainer} ${theme ==='LightMode' ? styles.LightMode : ''}`}>
