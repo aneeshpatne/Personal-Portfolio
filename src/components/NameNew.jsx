@@ -41,9 +41,9 @@ const socialLinks = [
   "https://leetcode.com/aneeshpatne",
 ];
 
-export default function NameNew({ theme }) {
-  const isLight = theme === "LightMode";
+export default function NameNew() {
   const [idx, setIndex] = useState(0);
+  const maxUrlLength = Math.max(...socials.map((s) => s.url.length));
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -83,9 +83,7 @@ export default function NameNew({ theme }) {
 
         <div className={styles.introWrapper}>
           <motion.h1
-            className={`${styles.introName} ${instrumentSerif.className} ${
-              isLight ? styles.introNameLight : ""
-            }`}
+            className={`${styles.introName} ${instrumentSerif.className}`}
             initial={{ opacity: 0, y: 30, filter: "blur(10px)" }}
             animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
             transition={{ delay: 0.4, duration: 1, ease: [0.16, 1, 0.3, 1] }}
@@ -94,9 +92,7 @@ export default function NameNew({ theme }) {
           </motion.h1>
 
           <motion.p
-            className={`${styles.introTextSmall} ${ibm_font.className} ${
-              isLight ? styles.introTextSmallLight : ""
-            }`}
+            className={`${styles.introTextSmall} ${ibm_font.className}`}
             initial={{ opacity: 0, letterSpacing: "0em" }}
             animate={{ opacity: 1, letterSpacing: "0.2em" }}
             transition={{ delay: 0.8, duration: 1, ease: "easeOut" }}
@@ -105,9 +101,7 @@ export default function NameNew({ theme }) {
           </motion.p>
 
           <motion.div
-            className={`${styles.locationBadge} ${ibm_font.className} ${
-              isLight ? styles.locationBadgeLight : ""
-            }`}
+            className={`${styles.locationBadge} ${ibm_font.className}`}
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1.0, duration: 1, ease: "easeOut" }}
@@ -118,7 +112,7 @@ export default function NameNew({ theme }) {
         </div>
 
         <motion.div
-          className={`${styles.divider} ${isLight ? styles.dividerLight : ""}`}
+          className={styles.divider}
           initial={{ scaleX: 0, opacity: 0 }}
           animate={{ scaleX: 1, opacity: 1 }}
           transition={{ delay: 1.2, duration: 1 }}
@@ -137,8 +131,8 @@ export default function NameNew({ theme }) {
               target="_blank"
               rel="noopener noreferrer"
               className={`${styles.socialLink} ${
-                isLight ? styles.socialLinkLight : ""
-              } ${index === idx ? styles.active : ""}`}
+                index === idx ? styles.active : ""
+              }`}
               whileHover={{ scale: 1.2, rotate: 0 }}
               whileTap={{ scale: 0.9 }}
               initial={{ opacity: 0, y: 20 }}
@@ -153,9 +147,7 @@ export default function NameNew({ theme }) {
 
         {/* Rotating URL Section */}
         <motion.div
-          className={`${styles.urlContainer} ${ibm_font.className} ${
-            isLight ? styles.urlContainerLight : ""
-          }`}
+          className={`${styles.urlContainer} ${ibm_font.className}`}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 2, duration: 1 }}
@@ -168,6 +160,7 @@ export default function NameNew({ theme }) {
               overflow: "hidden",
               display: "flex",
               alignItems: "center",
+              width: `${maxUrlLength}ch`,
             }}
           >
             <AnimatePresence mode="wait">
@@ -176,9 +169,7 @@ export default function NameNew({ theme }) {
                 href={socialLinks[idx]}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${styles.dynamicUrl} ${
-                  isLight ? styles.dynamicUrlLight : ""
-                }`}
+                className={styles.dynamicUrl}
                 initial={{ y: 20, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 exit={{ y: -20, opacity: 0 }}
