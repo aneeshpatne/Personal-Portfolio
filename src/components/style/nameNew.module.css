@@ -65,7 +65,7 @@
   position: relative;
   overflow: hidden;
   height: 1.5em;
-  min-width: 70px;
+  min-width: 90px;
   display: flex;
   align-items: center;
 }
