@@ -1,4 +1,5 @@
 import { ImageResponse } from "next/og";
+import { headers } from "next/headers";
 
 export const runtime = "edge";
 export const size = { width: 1200, height: 630 };
@@ -68,21 +69,45 @@ export default async function Image({ params }) {
   const fallbackTitle = formatSlug(slug) || "Untitled";
   const defaultTagline = "Explore build details, stack choices & learnings";
 
-  // Build base URL (works locally + in production). Fallback to localhost.
-  const base = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
+  // Determine canonical base: prefer deployment domain, fallback to env, finally forced prod domain.
+  const hdrs = headers();
+  const forcedProd = "www.aneeshpatne.com"; // always deployed here
+  const headerHost =
+    hdrs.get("x-forwarded-host") || hdrs.get("host") || forcedProd;
+  const normalizedHost = /localhost(:\d+)?/i.test(headerHost)
+    ? forcedProd
+    : headerHost;
+  const base = (
+    process.env.NEXT_PUBLIC_SITE_URL || `https://${normalizedHost}`
+  ).replace(/\/$/, "");
 
   let projectData = null;
+  const dataUrlPrimary = `${base}/project/og-data/${slug}`;
+  const dataUrlFallback = `https://${forcedProd}/project/og-data/${slug}`;
   try {
-    const res = await fetch(`${base}/project/og-data/${slug}`, {
-      // Leverage caching so many OG hits don't hammer DB
+    const res = await fetch(dataUrlPrimary, {
       headers: { Accept: "application/json" },
-      next: { revalidate: 60 * 60 * 24 }, // 24h
+      next: { revalidate: 60 * 60 * 12 },
     });
     if (res.ok) {
       projectData = await res.json();
+    } else if (dataUrlPrimary !== dataUrlFallback) {
+      const res2 = await fetch(dataUrlFallback, {
+        headers: { Accept: "application/json" },
+        next: { revalidate: 60 * 60 * 12 },
+      });
+      if (res2.ok) projectData = await res2.json();
     }
-  } catch (e) {
-    // swallow – keep graceful fallback
+  } catch (_) {
+    try {
+      if (!projectData && dataUrlPrimary !== dataUrlFallback) {
+        const res3 = await fetch(dataUrlFallback, {
+          headers: { Accept: "application/json" },
+          next: { revalidate: 60 * 60 * 12 },
+        });
+        if (res3.ok) projectData = await res3.json();
+      }
+    } catch (_) {}
   }
 
   const title = projectData?.title?.trim() || fallbackTitle;
@@ -333,10 +358,7 @@ export default async function Image({ params }) {
           >
             {(() => {
               try {
-                const absoluteLogo = `${base.replace(
-                  /\/$/,
-                  ""
-                )}/assets/img/logo.png`;
+                const absoluteLogo = `${base}/assets/img/logo.png`;
                 return (
                   <img
                     src={absoluteLogo}
