@@ -141,6 +141,10 @@
     margin: 2% 2%;
     gap: 10px;
 }
+.topicButton.LightMode{
+    color: black;
+    background-color: var(--light-secondary-color);
+}
 .topicButton{
     color: white;
     padding: 8px;
@@ -148,7 +152,9 @@
     border: none;
     border-radius: 5px;
 }
-
+.topicButton.LightMode.active{
+    background-color: #a6efaa;
+}
 .topicButton.active{
     background-color: #090d10;
 }

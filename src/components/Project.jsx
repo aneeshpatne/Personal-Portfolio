@@ -54,7 +54,7 @@ function ProjectContainer({ imgSrc, title, desc, tech, id, logoMapper }) {
     )
 }
 import { ClipLoader } from 'react-spinners';
-function TopicSelector({topic, ogData, projectData, setData}) {
+function TopicSelector({topic, ogData, projectData, setData, theme}) {
     const [topicState, setTopicState] = useState(false);
     function changeTopic(){
     if(!topicState){
@@ -70,7 +70,7 @@ function TopicSelector({topic, ogData, projectData, setData}) {
     }
     return(
     
-    <button className={`${styles.topicButton} ${topicState ===true ? styles.active : ""}`}onClick={() => changeTopic()}>{topic}</button>
+    <button className={`${styles.topicButton} ${theme === 'LightMode' ? styles.LightMode : ''} ${topicState ===true ? styles.active : ""}`}onClick={() => changeTopic()}>{topic}</button>
     
 )
 
@@ -147,8 +147,8 @@ export default function Project() {
                         </select>
                     </div>
                     <div className={styles.topicContainer}>
-                    <TopicSelector topic="ML" ogData = {ogData} projectData = {projectData} setData = {setData}/>
-                    <TopicSelector topic="Web Development" ogData = {ogData} projectData = {projectData} setData = {setData}/>
+                    <TopicSelector topic="ML" ogData = {ogData} projectData = {projectData} setData = {setData} theme= {theme}/>
+                    <TopicSelector topic="Web Development" ogData = {ogData} projectData = {projectData} setData = {setData} theme={theme}/>
                     </div>
                     <div id={styles.ProjectContainerMain}>
                         {projectData.map((data, index) => (
