@@ -16,6 +16,7 @@ model projects {
   image       String?
   startDate   DateTime? @db.Date
   endDate     DateTime? @db.Date
+  topic       String?
 }
 
 /// This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.
