@@ -4,7 +4,7 @@ import styles from "./style/menu.module.css";
 import { MessageSquareMore, X } from "lucide-react";
 import Chat from "./chatResume";
 const sections = ["home", "skills", "project"];
-import { resumeData } from "./resume_data";
+
 export default function Menu() {
   const [activeSection, setActiveSection] = useState("home");
   const [isChatOpen, setIsChatOpen] = useState(false);
@@ -67,7 +67,7 @@ export default function Menu() {
             className={styles.chatBoxMain}
             onClick={(e) => e.stopPropagation()}
           >
-            <Chat dataDump={resumeData} />
+            <Chat />
           </div>
         </div>
       )}
