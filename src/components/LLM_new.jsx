@@ -1,5 +1,7 @@
+"use client";
 import { Instrument_Serif } from "next/font/google";
 import styles from "./style/LLM_new.module.css";
+import { useEffect, useState } from "react";
 
 const instrumentSerif = Instrument_Serif({
   weight: "400",
@@ -7,6 +9,14 @@ const instrumentSerif = Instrument_Serif({
 });
 
 export function LLM_new() {
+  const [index, setIndex] = useState(0);
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setIndex((i) => i + 1);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, []);
+
   return (
     <div className={styles.LLMContainer}>
       <div className={styles.HeadingContainer}>
@@ -23,6 +33,7 @@ export function LLM_new() {
           architectures, vector databases, multi-LLM orchestration, real-time
           streaming, and agentic tool calling.
         </p>
+        {index}
         <h1 className={styles.HeadingText}>Automated Systems</h1>
         <p className={styles.MausamText}>
           Mausam is a AI weather intelligence platform that has a data pipeline
