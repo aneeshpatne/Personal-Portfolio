@@ -17,7 +17,9 @@ export function ProjectContainerWrapper({ processedData }) {
   let tempData =
     filter.sort === "reverse" ? [...processedData].reverse() : processedData;
   if (filter.filter.length > 0) {
-    filter.filter.reduce((acc, f) => {});
+    tempData = filter.filter.reduce((acc, f) => {
+      return acc.filter((p) => p.tags.includes(f));
+    }, tempData);
   }
 
   return (
