@@ -36,6 +36,7 @@ export default async function ProjectNew() {
   const processedData = project.map((project) => ({
     ...project,
     techStack: project.techStack.split(",").map((tech) => tech.trim()),
+    tags: project.tags.split(",").map((tag) => tag.trim()),
     isInProgress: project.endDate === null,
   }));
   return (
