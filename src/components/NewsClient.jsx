@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 
 export function NewsClient({ data }) {
   const [index, setIndex] = useState(0);
-  const hasNews = data.length > 0;
+  const hasNews = data && data.length > 0;
   const displayTitle = hasNews
     ? data[index]?.title
     : "Waiting for news...";

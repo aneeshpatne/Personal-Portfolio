@@ -36,7 +36,7 @@ export default function Menu() {
 
   const handleNavigate = useCallback((id) => {
     const el = document.getElementById(id);
-    if (el) el.scrollIntoView({ behavior: "smooth" });
+    if (el) el.scrollIntoView({ behavior: "auto" });
   }, []);
 
   return (

@@ -17,7 +17,7 @@ export async function Weather() {
         authorization: `Bearer ${apiKey}`,
       },
       next: {
-        revalidate: 3600,
+        revalidate: 60,
       },
     });
 

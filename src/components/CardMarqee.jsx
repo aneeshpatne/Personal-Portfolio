@@ -31,7 +31,7 @@ const WANT = [
   "redis",
 ];
 
-const DISPLAY = ICONS.filter((i) => WANT.includes(i.name));
+const DISPLAY = ICONS.filter((i) => !WANT.includes(i.name));
 
 // Memoize individual items
 const Item = memo(({ title, src }) => {
