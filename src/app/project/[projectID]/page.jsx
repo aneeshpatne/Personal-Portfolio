@@ -28,9 +28,9 @@ const logoMapper = {
 export default function ProjectInfo({params}){
     const {theme, setTheme} = UseThemeContext();
     const {projectID} = params ; 
-    return(<div id={styles.ProjectContainer}>
-        <div id = {styles.ProjectInfoContainer}>
-            <div id={styles.ProjectInfo}>
+    return(<div id={styles.ProjectContainer} >
+        <div id = {styles.ProjectInfoContainer} className={theme ==='LightMode' ? styles.LightMode : ''}>
+            <div id={styles.ProjectInfo} className={theme ==='LightMode' ? styles.LightMode : ''}>
                 <div id={styles.ProjectImageContainer}>
                     <img src={data[projectID]?.ImgSrc}></img>
                 </div>
@@ -40,7 +40,7 @@ export default function ProjectInfo({params}){
                {data[projectID]?.techstack.map((data,index) => (<TechStack Name={data} imgSrc={logoMapper[data]} key = {index}/>))}
             </div>
             </div>
-            <div id={styles.projectDesription}>
+            <div id={styles.projectDesription} className={theme ==='LightMode' ? styles.LightMode : ''}>
                 {data[projectID]?.desc?.map((data,index)=> 
                 <div className ={styles.ProjectTextBox} key={index}>
                     <p>{data}</p>
