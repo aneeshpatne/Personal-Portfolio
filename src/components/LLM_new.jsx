@@ -29,7 +29,6 @@ export function LLM_new() {
           to generate consise reporting. It invokes tools to send mail, send
           message on telegram and issue alerts based on weather conditions.
         </p>
-
 {/* Mausam Pipeline Flowchart */}
         <svg
           viewBox="0 0 860 320"
@@ -37,39 +36,38 @@ export function LLM_new() {
           xmlns="http://www.w3.org/2000/svg"
         >
           <defs>
-            {/* Gradient for nodes */}
-            <linearGradient id="nodeGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-              <stop offset="0%" stopColor="rgba(255,255,255,0.12)" />
-              <stop offset="100%" stopColor="rgba(255,255,255,0.04)" />
+            {/* Premium Glass Gradient */}
+            <linearGradient id="glassGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stopColor="rgba(255,255,255,0.08)" />
+              <stop offset="100%" stopColor="rgba(255,255,255,0.02)" />
             </linearGradient>
 
-            {/* Glow effect */}
-            <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
-              <feGaussianBlur stdDeviation="4" result="coloredBlur" />
-              <feMerge>
-                <feMergeNode in="coloredBlur" />
-                <feMergeNode in="SourceGraphic" />
-              </feMerge>
+            {/* Subtle Glow - Elegant & Minimal */}
+            <filter id="subtleGlow" x="-50%" y="-50%" width="200%" height="200%">
+              <feGaussianBlur stdDeviation="3" result="coloredBlur" />
+              <feComposite in="coloredBlur" operator="over" in2="SourceGraphic"/>
             </filter>
 
-            {/* Arrow marker */}
+            {/* Refined Arrow Marker - Sharper & smaller */}
             <marker
               id="arrowhead"
-              markerWidth="10"
-              markerHeight="8"
-              refX="9"
-              refY="4"
+              markerWidth="6"
+              markerHeight="6"
+              refX="5"
+              refY="3"
               orient="auto"
             >
-              <polygon
-                points="0 0, 10 4, 0 8"
-                fill="rgba(255,255,255,0.5)"
+              <path
+                d="M 0 0 L 6 3 L 0 6"
+                fill="none"
+                stroke="rgba(255,255,255,0.3)"
+                strokeWidth="1"
               />
             </marker>
           </defs>
 
-{/* Connection lines with arrows */}
-          <g stroke="rgba(255,255,255,0.25)" strokeWidth="2" fill="none">
+          {/* Connection lines - Ultra-thin & sleek */}
+          <g stroke="rgba(255,255,255,0.15)" strokeWidth="1" fill="none">
             {/* Images to R2 */}
             <line x1="110" y1="85" x2="170" y2="85" markerEnd="url(#arrowhead)" />
             
@@ -79,32 +77,30 @@ export function LLM_new() {
             {/* LLM to Tools Hub */}
             <line x1="450" y1="85" x2="500" y2="85" markerEnd="url(#arrowhead)" />
             
-            {/* Tools Hub to Tools (Telegram, Mail, Alert moved to x=730) */}
+            {/* Tools Hub to Tools */}
             <path d="M 610 85 C 650 85, 650 27.5, 720 27.5" markerEnd="url(#arrowhead)" />
             <path d="M 610 85 C 650 85, 650 92.5, 720 92.5" markerEnd="url(#arrowhead)" />
             <path d="M 610 85 C 650 85, 650 157.5, 720 157.5" markerEnd="url(#arrowhead)" />
             
-            {/* Live Data to LLM (Upward only) */}
-            <line x1="400" y1="200" x2="400" y2="140" markerEnd="url(#arrowhead)" strokeDasharray="5,5" stroke="rgba(34,197,94,0.4)" />
+            {/* Live Data to LLM */}
+            <line x1="400" y1="200" x2="400" y2="140" markerEnd="url(#arrowhead)" strokeDasharray="3,3" stroke="rgba(34,197,94,0.3)" />
 
-            {/* LLM to PostgreSQL (Smoothed Curve avoiding Live Data) */}
+            {/* LLM to PostgreSQL */}
             <path d="M 450 85 L 470 85 Q 490 85, 490 105 L 490 220 Q 490 242.5, 530 242.5" markerEnd="url(#arrowhead)" />
             
             {/* PostgreSQL to Webpage */}
             <line x1="640" y1="242.5" x2="690" y2="242.5" markerEnd="url(#arrowhead)" />
           </g>
 
-          {/* Animated flowing particles */}
+          {/* Animated Particles - Glowing & Vivid */}
           <g>
-            {/* Particle 1: Main Flow (Images -> R2 -> LLM -> Tools -> Mail) */}
-            <circle r="4" fill="#60a5fa" filter="url(#glow)">
+            <circle r="3" fill="#60a5fa" filter="url(#subtleGlow)">
               <animateMotion dur="4s" repeatCount="indefinite">
                 <mpath href="#mainPath" />
               </animateMotion>
             </circle>
             
-            {/* Particle 2: DB Flow (Images -> R2 -> LLM -> PostgreSQL -> Webpage) */}
-            <circle r="4" fill="#8b5cf6" filter="url(#glow)">
+            <circle r="3" fill="#a78bfa" filter="url(#subtleGlow)">
               <animateMotion dur="5s" repeatCount="indefinite" begin="2s">
                 <mpath href="#dbPath" />
               </animateMotion>
@@ -116,186 +112,73 @@ export function LLM_new() {
 
           {/* Node: Images */}
           <g transform="translate(20, 50)">
-            <rect
-              width="90"
-              height="70"
-              rx="10"
-              fill="url(#nodeGradient)"
-              stroke="rgba(255,255,255,0.2)"
-              strokeWidth="1.5"
-            />
-            <text x="45" y="28" textAnchor="middle" fill="rgba(255,255,255,0.95)" fontSize="18">
-              📷
-            </text>
-            <text x="45" y="52" textAnchor="middle" fill="rgba(255,255,255,0.85)" fontSize="14" fontWeight="500">
-              Images
-            </text>
+            <rect width="90" height="70" rx="12" fill="url(#glassGradient)" stroke="rgba(255,255,255,0.1)" strokeWidth="1" />
+            <text x="45" y="28" textAnchor="middle" fill="rgba(255,255,255,0.9)" fontSize="18">📷</text>
+            <text x="45" y="52" textAnchor="middle" fill="rgba(255,255,255,0.7)" fontSize="13" fontWeight="400" letterSpacing="0.5">Images</text>
           </g>
 
           {/* Node: R2 */}
           <g transform="translate(180, 50)">
-            <rect
-              width="100"
-              height="70"
-              rx="10"
-              fill="url(#nodeGradient)"
-              stroke="rgba(249,115,22,0.5)"
-              strokeWidth="1.5"
-            />
-            <text x="50" y="28" textAnchor="middle" fill="rgba(249,115,22,1)" fontSize="16" fontWeight="600">
-              R2
-            </text>
-            <text x="50" y="52" textAnchor="middle" fill="rgba(255,255,255,0.7)" fontSize="12">
-              Storage
-            </text>
+            <rect width="100" height="70" rx="12" fill="url(#glassGradient)" stroke="rgba(255,255,255,0.1)" strokeWidth="1" />
+            <text x="50" y="28" textAnchor="middle" fill="#fdba74" fontSize="15" fontWeight="500" letterSpacing="0.5">R2</text>
+            <text x="50" y="52" textAnchor="middle" fill="rgba(255,255,255,0.6)" fontSize="11" fontWeight="300">Storage</text>
           </g>
 
-          {/* Node: LLM (central, highlighted) */}
+          {/* Node: LLM */}
           <g transform="translate(350, 40)">
-            <rect
-              width="100"
-              height="90"
-              rx="12"
-              fill="url(#nodeGradient)"
-              stroke="rgba(139,92,246,0.6)"
-              strokeWidth="2"
-              filter="url(#glow)"
-            />
-            <text x="50" y="32" textAnchor="middle" fill="rgba(139,92,246,1)" fontSize="20">
-              🧠
-            </text>
-            <text x="50" y="56" textAnchor="middle" fill="rgba(139,92,246,1)" fontSize="16" fontWeight="600">
-              LLM
-            </text>
-            <text x="50" y="76" textAnchor="middle" fill="rgba(255,255,255,0.6)" fontSize="11">
-              Processing
-            </text>
+            <rect width="100" height="90" rx="16" fill="rgba(139,92,246,0.05)" stroke="rgba(139,92,246,0.3)" strokeWidth="1" filter="url(#subtleGlow)" />
+            <text x="50" y="32" textAnchor="middle" fill="#a78bfa" fontSize="22">🧠</text>
+            <text x="50" y="56" textAnchor="middle" fill="#ddd6fe" fontSize="15" fontWeight="500" letterSpacing="0.5">LLM</text>
+            <text x="50" y="76" textAnchor="middle" fill="rgba(255,255,255,0.5)" fontSize="10" fontWeight="300">Processing</text>
           </g>
 
           {/* Node: Live Data */}
           <g transform="translate(350, 200)">
-            <rect
-              width="100"
-              height="70"
-              rx="10"
-              fill="url(#nodeGradient)"
-              stroke="rgba(34,197,94,0.5)"
-              strokeWidth="1.5"
-            />
-            <text x="50" y="28" textAnchor="middle" fill="rgba(34,197,94,1)" fontSize="16">
-              🌡️
-            </text>
-            <text x="50" y="52" textAnchor="middle" fill="rgba(255,255,255,0.85)" fontSize="13" fontWeight="500">
-              Live Data
-            </text>
+            <rect width="100" height="70" rx="12" fill="url(#glassGradient)" stroke="rgba(255,255,255,0.1)" strokeWidth="1" />
+            <text x="50" y="28" textAnchor="middle" fill="#86efac" fontSize="16">🌡️</text>
+            <text x="50" y="52" textAnchor="middle" fill="rgba(255,255,255,0.7)" fontSize="12" fontWeight="400">Live Data</text>
           </g>
 
           {/* Node: Tools Hub */}
           <g transform="translate(510, 55)">
-            <rect
-              width="100"
-              height="60"
-              rx="10"
-              fill="url(#nodeGradient)"
-              stroke="rgba(255,255,255,0.3)"
-              strokeWidth="1.5"
-            />
-            <text x="50" y="24" textAnchor="middle" fill="rgba(255,255,255,0.95)" fontSize="16">
-              ⚡
-            </text>
-            <text x="50" y="46" textAnchor="middle" fill="rgba(255,255,255,0.8)" fontSize="13" fontWeight="500">
-              Tools
-            </text>
+            <rect width="100" height="60" rx="12" fill="url(#glassGradient)" stroke="rgba(255,255,255,0.1)" strokeWidth="1" />
+            <text x="50" y="24" textAnchor="middle" fill="#fff" fontSize="16">⚡</text>
+            <text x="50" y="46" textAnchor="middle" fill="rgba(255,255,255,0.7)" fontSize="12" fontWeight="400">Tools</text>
           </g>
 
           {/* Tool: Telegram */}
           <g transform="translate(730, 0)">
-            <rect
-              width="100"
-              height="55"
-              rx="8"
-              fill="url(#nodeGradient)"
-              stroke="rgba(59,130,246,0.5)"
-              strokeWidth="1.5"
-            />
-            <text x="50" y="22" textAnchor="middle" fill="rgba(59,130,246,1)" fontSize="14">
-              ✈️
-            </text>
-            <text x="50" y="42" textAnchor="middle" fill="rgba(255,255,255,0.8)" fontSize="12">
-              Telegram
-            </text>
+            <rect width="100" height="55" rx="10" fill="url(#glassGradient)" stroke="rgba(255,255,255,0.08)" strokeWidth="1" />
+            <text x="50" y="22" textAnchor="middle" fill="#60a5fa" fontSize="14">✈️</text>
+            <text x="50" y="42" textAnchor="middle" fill="rgba(255,255,255,0.6)" fontSize="11" fontWeight="300">Telegram</text>
           </g>
 
           {/* Tool: Mail */}
           <g transform="translate(730, 65)">
-            <rect
-              width="100"
-              height="55"
-              rx="8"
-              fill="url(#nodeGradient)"
-              stroke="rgba(239,68,68,0.5)"
-              strokeWidth="1.5"
-            />
-            <text x="50" y="22" textAnchor="middle" fill="rgba(239,68,68,1)" fontSize="14">
-              ✉️
-            </text>
-            <text x="50" y="42" textAnchor="middle" fill="rgba(255,255,255,0.8)" fontSize="12">
-              Mail
-            </text>
+            <rect width="100" height="55" rx="10" fill="url(#glassGradient)" stroke="rgba(255,255,255,0.08)" strokeWidth="1" />
+            <text x="50" y="22" textAnchor="middle" fill="#f87171" fontSize="14">✉️</text>
+            <text x="50" y="42" textAnchor="middle" fill="rgba(255,255,255,0.6)" fontSize="11" fontWeight="300">Mail</text>
           </g>
 
           {/* Tool: Alert */}
           <g transform="translate(730, 130)">
-            <rect
-              width="100"
-              height="55"
-              rx="8"
-              fill="url(#nodeGradient)"
-              stroke="rgba(251,191,36,0.5)"
-              strokeWidth="1.5"
-            />
-            <text x="50" y="22" textAnchor="middle" fill="rgba(251,191,36,1)" fontSize="14">
-              🔔
-            </text>
-            <text x="50" y="42" textAnchor="middle" fill="rgba(255,255,255,0.8)" fontSize="12">
-              Alert
-            </text>
+            <rect width="100" height="55" rx="10" fill="url(#glassGradient)" stroke="rgba(255,255,255,0.08)" strokeWidth="1" />
+            <text x="50" y="22" textAnchor="middle" fill="#facc15" fontSize="14">🔔</text>
+            <text x="50" y="42" textAnchor="middle" fill="rgba(255,255,255,0.6)" fontSize="11" fontWeight="300">Alert</text>
           </g>
 
           {/* Node: PostgreSQL */}
           <g transform="translate(530, 210)">
-            <rect
-              width="110"
-              height="65"
-              rx="10"
-              fill="url(#nodeGradient)"
-              stroke="rgba(59,130,246,0.5)"
-              strokeWidth="1.5"
-            />
-            <text x="55" y="26" textAnchor="middle" fill="rgba(59,130,246,1)" fontSize="16">
-              🗄️
-            </text>
-            <text x="55" y="50" textAnchor="middle" fill="rgba(255,255,255,0.85)" fontSize="13" fontWeight="500">
-              PostgreSQL
-            </text>
+            <rect width="110" height="65" rx="12" fill="url(#glassGradient)" stroke="rgba(255,255,255,0.1)" strokeWidth="1" />
+            <text x="55" y="26" textAnchor="middle" fill="#60a5fa" fontSize="16">🗄️</text>
+            <text x="55" y="50" textAnchor="middle" fill="rgba(255,255,255,0.7)" fontSize="12" fontWeight="400">PostgreSQL</text>
           </g>
 
           {/* Node: Webpage */}
           <g transform="translate(700,220)">
-            <rect
-              width="110"
-              height="55"
-              rx="8"
-              fill="url(#nodeGradient)"
-              stroke="rgba(34,197,94,0.5)"
-              strokeWidth="1.5"
-            />
-            <text x="55" y="22" textAnchor="middle" fill="rgba(34,197,94,1)" fontSize="14">
-              🌐
-            </text>
-            <text x="55" y="42" textAnchor="middle" fill="rgba(255,255,255,0.85)" fontSize="12" fontWeight="500">
-              Webpage
-            </text>
+            <rect width="110" height="55" rx="10" fill="url(#glassGradient)" stroke="rgba(255,255,255,0.1)" strokeWidth="1" />
+            <text x="55" y="22" textAnchor="middle" fill="#4ade80" fontSize="14">🌐</text>
+            <text x="55" y="42" textAnchor="middle" fill="rgba(255,255,255,0.7)" fontSize="11" fontWeight="300">Webpage</text>
           </g>
 
           {/* Branch Labels */}
