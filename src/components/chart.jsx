@@ -54,7 +54,7 @@ export default function DoughnutChart() {
             nameKey="difficulty"
             innerRadius={60}
             outerRadius={80}
-            paddingAngle={5}
+            strokeWidth={0}
           >
             {chartData.map((entry, index) => (
               <Cell key={`cell-${index}`} fill={entry.fill} />
