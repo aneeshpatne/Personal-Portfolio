@@ -16,7 +16,7 @@ const logoMapper = {
     'Figma': '/assets/img/figma.svg',
     'Express': '/assets/img/express.svg',
     'Firebase': '/assets/img/firebase.svg',
-    'µC':'/assets/img/muc.png',
+    'ES':'/assets/img/muc.png',
     'MongoDB':'/assets/img/mongoDB.svg',
     'Python':'/assets/img/python.svg'
   };
@@ -70,7 +70,7 @@ const d1 = [ {'Title' : 'Professional Portfolio' , 'Img':'/assets/img/personalPo
     'id':'naturenest'},
     {'Title' : 'IoT and ML based Agriculture System' ,  'Img':'/assets/img/IOTML.png', 'ImgLight':'/assets/img/IOTMLLight.png',
     'desc' : 'Conducted data preprocessing on environmental data collected by an ESP8266 microcontroller, involving cleaning, feature engineering, and analysis for predictive modeling', 
-    'tech': ['React','µC','ML'],
+    'tech': ['React','ES','ML'],
     'id':'iot_and_ml_based_agri_sys'},
     {'Title' : 'Football Statistics App' ,  'Img':'/assets/img/FootBall.png', 'ImgLight':'/assets/img/FootBallLight.png',
         'desc' : 'A MongoDB-based football data CRUD app that simplifies data management for teams, players, matches, and stats.', 
@@ -79,7 +79,7 @@ const d1 = [ {'Title' : 'Professional Portfolio' , 'Img':'/assets/img/personalPo
     {'Title' : 'Face Recognition Based Attendance System' ,  'Img':'/assets/img/Face.png', 'ImgLight':'/assets/img/FaceLight.png',
     'desc' : 'Attendance System preprocesses images using bounding box, thresholding and Haar transform, extracts features with a face recognition library, and applies machine learning models for reliable face-based attendance solution.', 
     'tech': ['Python','ML'],
-    'id':'football_stats'}
+    'id':'face_id'}
         ];
 
 export default function Project(){

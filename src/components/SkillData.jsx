@@ -20,10 +20,11 @@ const logoMapper = {
     'Pandas':'/assets/img/pandas.png',
     'Numpy':'/assets/img/numpy.png',
     'AutoML':'/assets/img/automl.svg',
-    'Scikit Learn':'/assets/img/scikit.png'
+    'Scikit Learn':'/assets/img/scikit.png',
+    'AWS':'/assets/img/aws.svg'
   };
   
-const skills =[['React', 'NextJS','SvelteKit','Express','Django','Vercel','Figma', 'Firebase'],['Python','Javascript','Java'],['Python','Pandas','Numpy','Scikit Learn','AutoML']]
+const skills =[['React', 'NextJS','SvelteKit','Express','Django','Vercel','Figma', 'Firebase'],['Python','Javascript','Java'],['Python','Pandas','Numpy','Scikit Learn','AutoML'], ['GCP','AWS','Vercel','Firebase',,'AutoML']]
 const data = [['I am an expert in crafting elegant and high-performance websites, By leveraging my deep expertise in HTML, CSS, and JavaScript. I have a deep interest and experience in modern web development frameworks like React, Next.js, and Vue and in the backend i have experience in working with Django and Express.JS' ,
 'I design and develop websites that boast sleek, intuitive user interfaces and exceptional user experiences. The designs are rooted in modern design principles,  ensuring that each website is not only visually appealing but also highly functional and user-friendly.',
 'Towards the development of a application I make sure to go through extensive prototyping from tools such as Figma and many other tools tohelp in the process of prototyping the color pallet and the UI/UX Elements, A careful and deliberate apporach is employed towards the design to ensure that the website is highly perfomant.',
@@ -39,7 +40,10 @@ const data = [['I am an expert in crafting elegant and high-performance websites
         'I leverage my extensive knowledge of Python and its powerful libraries to perform data preprocessing and data visualization, which are crucial steps in the Machine Learning workflow. Using libraries such as Pandas and NumPy',
         'I have extensive experience working with a wide range of Machine Learning models, including both supervised and unsupervised learning techniques. My expertise spans from foundational algorithms like Linear Regression (LR), Support Vector Regression (SVR), Support Vector Classification (SVC), and K-Nearest Neighbors (KNN) to more advanced ensemble methods such as Random Forest (RF). Additionally, I have hands-on experience with neural network architectures, particularly Extreme Learning Machines (ELM). ',
         '"I also have experience using Google Cloud AutoML, which has enabled me to automate the process of training and deploying machine learning models with ease. Additionally, I am currently in the process of learning TensorFlow.'        
-        ]];
+        ],
+        [   'I have a foundational understanding of cloud computing, having worked with both AWS and GCP. I\'ve utilized key services like compute instances, storage buckets, and different storage tiers, while also deploying applications on platforms such as App Engine and Firebase.',     
+            'I have worked with several Google APIs, including Google Maps, Google Translate, and Google OAuth, integrating these tools into various applications to enhance functionality and user experience.'
+            ]];
 
 export default function SkillData({state}){
     return (<div>
