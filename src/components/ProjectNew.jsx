@@ -6,6 +6,7 @@ import { ExternalLink } from "lucide-react";
 import { TechStack } from "./WebDev";
 import { mapper } from "./data";
 import { useState, useEffect } from "react";
+import Link from "next/link";
 import Loading from "@/app/loading";
 export const project = [
   {
@@ -180,6 +181,7 @@ export default function ProjectNew() {
             name={project.title}
             description={project.description}
             image={project.image}
+            id={project.id}
           />
         ))}
       </div>
@@ -241,7 +243,7 @@ function ReadMoreText({ text, wordlimit = 13, speed = 50 }) {
   );
 }
 
-export function ProjectContainer({ name, stack, description, image }) {
+export function ProjectContainer({ name, stack, description, image, id }) {
   return (
     <div className={styles.projectContainer}>
       <div className={styles.ImageContaier}>
@@ -271,15 +273,10 @@ export function ProjectContainer({ name, stack, description, image }) {
         <div className={styles.projectDescription}>
           <ReadMoreText text={description} />
         </div>
-        <button
-          className={styles.projectLearnMore}
-          onClick={() => {
-            console.log("Learn More");
-          }}
-        >
+        <Link className={styles.projectLearnMore} href={`project/${id}`}>
           <p className={styles.projectLearnMoreText}>Learn More</p>
           <ExternalLink size={20} />
-        </button>
+        </Link>
       </div>
     </div>
   );
