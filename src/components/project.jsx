@@ -10,7 +10,7 @@ import Image from "next/image";
 import { mapper } from "./data";
 import { db } from "@/lib/db";
 import { projectList } from "@/lib/schema";
-import { desc } from "drizzle-orm";
+import { desc, asc, sql } from "drizzle-orm";
 
 export default async function ProjectNew() {
   let project = null;
@@ -19,7 +19,11 @@ export default async function ProjectNew() {
     project = await db
       .select()
       .from(projectList)
-      .orderBy(desc(projectList.startDate));
+      .orderBy(
+        sql`CASE WHEN ${projectList.endDate} IS NULL THEN 0 ELSE 1 END`,
+        sql`CASE WHEN ${projectList.endDate} IS NULL THEN ${projectList.startDate} END DESC`,
+        desc(projectList.endDate)
+      );
   } catch (error) {
     console.error("Error fetching project data:", error);
     return <div>Fetching Error</div>;
@@ -31,6 +35,7 @@ export default async function ProjectNew() {
   const processedData = project.map((project) => ({
     ...project,
     techStack: project.techStack.split(",").map((tech) => tech.trim()),
+    isInProgress: project.endDate === null,
   }));
   return (
     <div className={styles.projects}>
@@ -44,6 +49,7 @@ export default async function ProjectNew() {
             description={project.description}
             image={project.image}
             id={project.id}
+            isInProgress={project.isInProgress}
           />
         ))}
       </div>
@@ -51,10 +57,22 @@ export default async function ProjectNew() {
   );
 }
 
-export function ProjectContainer({ name, stack, description, image, id }) {
+export function ProjectContainer({
+  name,
+  stack,
+  description,
+  image,
+  id,
+  isInProgress,
+}) {
   return (
     <div className={styles.projectContainer}>
       <div className={styles.ImageContaier}>
+        {isInProgress && (
+          <div className={styles.ongoingBadge}>
+            <span>Ongoing</span>
+          </div>
+        )}
         <Image
           src={image}
           width={300}

@@ -237,3 +237,29 @@
 .readMore:hover {
   color: #0056b3; /* Subtle dark blue */
 }
+
+.ongoingBadge {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  z-index: 2;
+  padding: 4px 8px;
+  background: rgba(20, 30, 48, 0.75);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border-radius: 4px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ongoingBadge span {
+  color: rgba(147, 197, 253, 0.95);
+  font-size: 0.65rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  line-height: 1;
+}
