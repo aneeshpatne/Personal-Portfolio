@@ -13,6 +13,7 @@
     align-items: center;
     justify-content: space-between;
     min-height: 25px;
+    z-index: 1;
 }
 #LeftHeader{
     display: flex;
