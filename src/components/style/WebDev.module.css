@@ -1,0 +1,37 @@
+.Container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.Text {
+  font-family: "Arial", sans-serif;
+  font-size: 4rem;
+  font-weight: 800;
+  color: transparent;
+  background: linear-gradient(to right, #3b82f6, #8b5cf6, #ec4899);
+  background-size: 200% 200%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  animation: gradient-shift 5s ease infinite, pulse 2s ease-in-out infinite;
+}
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
