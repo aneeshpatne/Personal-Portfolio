@@ -106,6 +106,31 @@
     justify-content: center;
     align-items: center;
 }
+.SortContainer {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    margin: 2% 2%;
+    
+}
+
+.SortDropdown {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff;
+    cursor: pointer;
+    transition: border-color 0.3s ease;
+}
+
+.SortDropdown:hover {
+    border-color: #d9f0d7;
+}
+
+.SortDropdown:focus {
+    outline: none;
+    border-color: #d9f0d7;
+}
 @media screen and (max-width: 950px){
     #ProjectContainerMain{
         grid-template-columns: repeat(2,1fr);
