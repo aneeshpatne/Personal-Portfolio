@@ -37,7 +37,6 @@ export default async function ProjectPage({ params }) {
     ? projectData.topic.split(",").map((topic) => topic.trim())
     : [];
 
-  // Check if GitHub link exists
   const hasGithubLink =
     projectData.github && projectData.github.trim().length > 0;
 
