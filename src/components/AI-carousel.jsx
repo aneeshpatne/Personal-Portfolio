@@ -33,7 +33,7 @@ const response = await openai.chat.completions.create({
   {
     title: "Prompt Engineering",
     content: "Craft effective prompts for optimal AI output",
-    code: `const engineeredPrompt = \n
+    code: `const engineeredPrompt = 
 \`You are an helpful resume based asistant.\nTask: Basesd on the context provided answer the question.\nContext: [RELEVANT_INFORMATION]\nOutput format: [DESIRED_FORMAT]\n\nUser query: [USER_INPUT]\n\``,
     color: "#ffff00",
   },
