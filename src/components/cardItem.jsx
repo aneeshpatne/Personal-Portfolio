@@ -1,6 +1,15 @@
 import Image from "next/image";
 import styles from "./style/cardItem.module.css";
 
+import { Instrument_Serif } from "next/font/google";
+
+const instrumentSerif = Instrument_Serif({
+  subsets: ["latin"],
+  weight: "400",
+  style: ["normal", "italic"],
+  variable: "--font-instrument-serif",
+});
+
 export default function CardItem() {
   return (
     <article className={styles.card}>
@@ -23,8 +32,9 @@ export default function CardItem() {
             />
           </div>
           <div className={styles.titleBlock}>
-            <h2 className={styles.name}>Aneesh Patne</h2>
-            <p className={styles.username}>@aneeshpatne</p>
+            <h2 className={`${styles.name} ${instrumentSerif.className}`}>
+              Aneesh Patne
+            </h2>
           </div>
         </header>
         <p className={styles.tagline}>I build Webpages</p>
