@@ -1,13 +1,7 @@
 "use client";
 import { useMemo } from "react";
 import { motion } from "framer-motion";
-import {
-  Cloud,
-  Wind,
-  AlertTriangle,
-  Leaf,
-  Activity,
-} from "lucide-react";
+import { Cloud, Wind, AlertTriangle, Leaf, Activity } from "lucide-react";
 import styles from "./style/PM25.module.css";
 
 const STATUS_COLORS = {
@@ -69,10 +63,11 @@ const getAQIData = (val, alertColor) => {
 
 export function PM25Client({ value, remark, alertColor }) {
   const hasValue = value !== null && value !== undefined && value !== "";
-  const { color, label: autoLabel, icon: Icon } = useMemo(
-    () => getAQIData(value, alertColor),
-    [value, alertColor]
-  );
+  const {
+    color,
+    label: autoLabel,
+    icon: Icon,
+  } = useMemo(() => getAQIData(value, alertColor), [value, alertColor]);
   const displayRemark = remark || autoLabel;
 
   return (
@@ -107,7 +102,7 @@ export function PM25Client({ value, remark, alertColor }) {
           >
             {hasValue ? value : "NILL"}
           </motion.span>
-          <span className={styles.unit}>AQI</span>
+          <span className={styles.unit}>PM 2.5</span>
         </div>
       </div>
 
