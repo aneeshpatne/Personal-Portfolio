@@ -1,6 +1,6 @@
 import Image from "next/image";
 import styles from "./style/cardItem.module.css";
-
+import ChangingWord from "./clientCardItem";
 import { Instrument_Serif } from "next/font/google";
 
 const instrumentSerif = Instrument_Serif({
@@ -37,7 +37,9 @@ export default function CardItem() {
             </h2>
           </div>
         </header>
-        <p className={styles.tagline}>I build Webpages</p>
+        <p className={styles.tagline}>
+          I build <ChangingWord />
+        </p>
         <p className={styles.about}>
           I craft clean, fast, accessible web experiences.
         </p>
