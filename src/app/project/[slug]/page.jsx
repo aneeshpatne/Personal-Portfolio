@@ -5,15 +5,20 @@ import style from "./project.module.css";
 import Image from "next/image";
 import Link from "next/link";
 import { mapper } from "@/components/data";
-import { PrismaClient } from "@/generated/prisma";
-const prisma = new PrismaClient();
+import { prisma } from "@/libs/db";
 export default async function ProjectPage({ params }) {
   const { slug } = await params;
-  const projectData = await prisma.projects.findUnique({
-    where: {
-      id: slug,
-    },
-  });
+  let projectData = null;
+  try {
+    projectData = await prisma.projects.findUnique({
+      where: {
+        id: slug,
+      },
+    });
+  } catch (error) {
+    console.error("Error fetching project data:", error);
+    throw new Error("Failed to fetch project data");
+  }
   if (!projectData) {
     return <div>Project not found</div>;
   }

@@ -9,7 +9,7 @@ import { ExternalLink } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import { mapper } from "./data";
-const prisma = new PrismaClient();
+import { prisma } from "@/libs/db";
 
 export default async function ProjectNew() {
   const project = await prisma.projectList.findMany({
