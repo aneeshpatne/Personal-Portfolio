@@ -2,6 +2,18 @@ import styles from "./style/ProjectNew.module.css";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { ExternalLink } from "lucide-react";
+import { TechStack } from "./WebDev";
+import { mapper } from "./data";
+const data = [
+  {
+    id: "personalportfolio",
+    title: "Personal Portfolio",
+    techStack: ["React", "Next.js", "Framer Motion"],
+    description:
+      "Elegant and responsive personal portfolio website showcasing my skills and projects.",
+    image: "/assets/img/personalPortfolio.png",
+  },
+];
 export default function ProjectNew({ theme }) {
   return (
     <div className={styles.projects}>
@@ -38,41 +50,46 @@ export default function ProjectNew({ theme }) {
         </motion.div>
       </div>
       <div className={styles.projectBox}>
-        <ProjectContainer theme={theme} />
-        <ProjectContainer theme={theme} />
-        <ProjectContainer theme={theme} />
-        <ProjectContainer theme={theme} />
+        {data.map((project, index) => (
+          <ProjectContainer
+            key={index}
+            theme={theme}
+            stack={project.techStack}
+            name={project.title}
+          />
+        ))}
       </div>
     </div>
   );
 }
 
-export function ProjectContainer({ theme }) {
+export function ProjectContainer({ name, stack, theme }) {
   return (
     <div className={styles.projectContainer}>
       <div className={styles.ImageContaier}>
         <Image
           src={"/assets/img/personalPortfolio.png"}
-          width={280}
+          width={300}
           height={180}
           style={{ objectFit: "cover" }}
           draggable={false}
           alt="Project Image"
         />
         <div className={styles.overlay}>
-          <h2 className={styles.overlayText}>Example Project</h2>
+          <h2 className={styles.overlayText}>{name}</h2>
         </div>
       </div>
       <div className={styles.lowerContainer}>
         <div className={styles.projectTechStackContainer}>
-          <ProjectTechStack
-            name={"React"}
-            color={"#1A365D"}
-            lightColor={"#E6F3FF"}
-            theme={theme}
-          />
-          <ProjectTechStack name={"React"} theme={theme} />
-          <ProjectTechStack name={"React"} theme={theme} />
+          {stack.map((tech, index) => (
+            <TechStack
+              key={index}
+              name={tech}
+              color={mapper[tech]?.color}
+              icon={mapper[tech]?.icon}
+              theme={theme}
+            />
+          ))}
         </div>
         <div className={styles.projectDescription}>
           <p>
