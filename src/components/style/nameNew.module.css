@@ -74,7 +74,8 @@
   animation: urlSlideUp 0.3s ease-out;
   white-space: nowrap;
 }
-
+@media (max-width: 768px) {
+}
 @keyframes urlSlideUp {
   from {
     transform: translateY(50%);
