@@ -56,21 +56,22 @@ export function LLM_new() {
             </motion.div>
           </AnimatePresence>
         </h1>
-        <p className={`${styles.projectText} ${instrumentSerif.className}`}>
-          Some of My AI Powered Creations
-        </p>
-        <p className={styles.MausamText}>
-          Mausam is a AI weather intelligence platform that has a data pipeline
-          to fetch and process radar images, combines it with live weather data
-          to generate consise reporting. It invokes tools to send mail, send
-          message on telegram and issue alerts based on weather conditions.
-        </p>
-        {/* Mausam Pipeline Flowchart */}
-        <svg
-          viewBox="0 0 860 320"
-          className={styles.FlowchartSvg}
-          xmlns="http://www.w3.org/2000/svg"
-        >
+        <div className={styles.CreationsBlock}>
+          <p className={`${styles.projectText} ${instrumentSerif.className}`}>
+            Some of My AI Powered Creations
+          </p>
+          <p className={styles.MausamText}>
+            Mausam is a AI weather intelligence platform that has a data pipeline
+            to fetch and process radar images, combines it with live weather data
+            to generate consise reporting. It invokes tools to send mail, send
+            message on telegram and issue alerts based on weather conditions.
+          </p>
+          {/* Mausam Pipeline Flowchart */}
+          <svg
+            viewBox="0 0 860 320"
+            className={styles.FlowchartSvg}
+            xmlns="http://www.w3.org/2000/svg"
+          >
           <defs>
             {/* Premium Glass Gradient */}
             <linearGradient
@@ -555,6 +556,7 @@ export function LLM_new() {
             reporting
           </text>
         </svg>
+        </div>
       </div>
     </div>
   );
