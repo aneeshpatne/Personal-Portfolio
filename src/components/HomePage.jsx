@@ -21,6 +21,7 @@ export default function HomePage() {
       <NameNew theme={theme} />
       <Profile theme={theme} />
       <Skills theme={theme} />
+      <WebDev theme={theme} />
       <ProjectNew theme={theme} />
     </>
   );
