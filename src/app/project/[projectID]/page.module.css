@@ -82,6 +82,9 @@ background-color: var(--light-bg);
     margin: 2% 2%;
     align-items: center;
 }
+.deployContainer.LightMode{
+    background-color: rgb(179, 204, 169);
+}
 .logoContainer{
     width: 50px;
     height: 65%;
@@ -94,6 +97,9 @@ background-color: var(--light-bg);
 .logoText a{
     color: #FFFFFF;
     text-decoration: none;
+}
+.logoText.LightMode a{
+    color: #000000;
 }
 @keyframes slideInFromLeft {
     0% {
