@@ -7,11 +7,13 @@
   font-family: "Arial", sans-serif;
   font-size: 4rem;
   font-weight: 800;
-  color: transparent;
+  color: #3b82f6; /* Fallback for unsupported browsers */
   background: linear-gradient(to right, #3b82f6, #8b5cf6, #ec4899);
   background-size: 200% 200%;
   background-clip: text;
   -webkit-background-clip: text;
+  color: transparent;
+  will-change: opacity, background-position;
   animation: gradient-shift 5s ease infinite, pulse 2s ease-in-out infinite;
 }
 @keyframes gradient-shift {
@@ -25,7 +27,6 @@
     background-position: 0% 50%;
   }
 }
-
 @keyframes pulse {
   0%,
   100% {
@@ -33,5 +34,10 @@
   }
   50% {
     opacity: 0.8;
+  }
+}
+@media screen and (max-width: 400px) {
+  .Text {
+    font-size: 2rem;
   }
 }
