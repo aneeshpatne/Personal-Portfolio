@@ -1,132 +1,87 @@
 .tile {
-  --radius: 12px;
-  position: relative;
   width: 100%;
-  /* Don't inherit 100% height from parent (can be zero in stacked/mobile layouts).
-     Provide a sensible minimum so the image has room to render on vertical viewports. */
-  height: auto;
-  min-height: 220px;
-  border-radius: var(--radius);
+  height: 100%;
+  position: relative;
   overflow: hidden;
-  background: #000; /* fallback while image loads */
+  /* No border radius here, parent handles it */
 }
 
 .container {
-  position: relative;
   width: 100%;
   height: 100%;
-  /* increase base min-height so image has visible area on small screens */
-  min-height: 220px;
-  isolation: isolate;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .imageWrapper {
-  position: relative;
-  width: 100%;
-  /* let the wrapper grow to the container min-height; also ensure a minimum
-     so Next/Image fill has a definite height on narrow screens */
-  height: 100%;
-  min-height: 160px;
+  position: absolute;
+  inset: 0;
   z-index: 0;
+  transition: transform 0.7s ease;
+}
+
+.tile:hover .imageWrapper {
+  transform: scale(1.05);
 }
 
 .topShade {
   position: absolute;
   top: 0;
   left: 0;
-  right: 0;
-  height: 40%; /* darken top 40% of the image */
-  z-index: 10; /* sit above image but below content overlay */
+  width: 100%;
+  height: 40%;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.6), transparent);
+  z-index: 1;
   pointer-events: none;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0));
-  border-top-left-radius: var(--radius);
-  border-top-right-radius: var(--radius);
 }
 
 .overlay {
   position: absolute;
   bottom: 0;
   left: 0;
-  right: 0;
-  z-index: 20;
-  padding: 5px;
-  color: #fff;
-  background: rgba(0, 0, 0, 0.6);
-  pointer-events: none; /* text overlay should not block interactions */
-  -webkit-backdrop-filter: blur(2px);
-  backdrop-filter: blur(2px);
-  border-bottom-left-radius: var(--radius);
-  border-bottom-right-radius: var(--radius);
-}
-
-.title {
-  font-size: 11px; /* match date size for a more subtle look */
-  font-weight: 600; /* slightly less bold */
-  line-height: 1.1;
-  margin: 0;
-  margin-bottom: 6px; /* push title slightly down within the overlay */
-  opacity: 0.95;
-}
-
-.date {
-  font-size: 11px;
-  opacity: 0.9;
-  margin-top: 4px;
-}
-
-.fallback {
+  width: 100%;
+  height: 60%;
+  background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.6) 50%, transparent 100%);
+  z-index: 1;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(0, 0, 0, 0.4);
-  color: #fff;
-  padding: 5px;
-  font-size: 0.9rem;
-}
-
-.fallbackTitle {
-  font-weight: 700;
+  align-items: flex-end;
+  padding: 2rem;
 }
 
 .headerText {
   position: absolute;
-  padding: 12px;
-  /* Reverted: use the original fixed size for larger displays so the heading
-     remains consistent and doesn't grow excessively. Mobile rules still apply. */
-  font-size: 2.6rem;
-  z-index: 12;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 3.5rem; /* Increased from 2rem */
+  font-style: italic;
+  margin: 1.5rem;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+  pointer-events: none;
 }
 
-@media (max-width: 480px) {
-  .container {
-    /* give a bit more vertical room on very small devices */
-    min-height: 240px;
+.title {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.9rem;
+  font-weight: 300;
+  letter-spacing: 0.02em;
+  line-height: 1.4;
+  max-width: 90%;
+}
+
+@media (max-width: 768px) {
+  .headerText {
+    font-size: 2.5rem; /* Increased from 1.5rem */
+    margin: 1rem;
+  }
+  .overlay {
+    padding: 1rem;
+    height: 50%; /* Reduced gradient height */
   }
   .title {
-    font-size: 12px;
+    font-size: 0.8rem;
   }
-}
-
-/* Portrait / narrow but tall viewports: ensure image area is large enough */
-@media (orientation: portrait) and (max-width: 700px) {
-  .tile {
-    min-height: 300px;
-  }
-  .imageWrapper {
-    min-height: 220px;
-  }
-}
-
-/* Keep the tile large on wide displays so it looks long and dramatic */
-@media (min-width: 1024px) {
-  .tile {
-    min-height: 420px;
-  }
-  .container {
-    min-height: 420px;
-  }
-  .imageWrapper {
-    min-height: 420px;
-  }
-  /* No large-screen override for the header text — keep the fixed 2.6rem size */
 }
