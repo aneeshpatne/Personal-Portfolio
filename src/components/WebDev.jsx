@@ -37,13 +37,14 @@ export default function WebDev() {
           Development
         </h1>
       </div>
+
       <div className={`${styles.mainContainer} ${spaceGrotesk.className}`}>
-  <div className={styles.gridContainer}>
+        <div className={styles.marqueeItem}>
+          <CardMarqee />
+        </div>
+        <div className={styles.gridContainer}>
           <div className={styles.techStackTextItem}>
             <TechStackName />
-          </div>
-          <div className={styles.marqueeItem}>
-            <CardMarqee />
           </div>
           <div className={styles.techStackItem}>
             <TechStackItem />
