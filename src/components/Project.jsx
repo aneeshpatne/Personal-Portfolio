@@ -61,6 +61,14 @@ export default function Project() {
     const [mounted, setMounted] = useState(false);
     const [loading, setLoading] = useState(true);
     const [logoMapper, setLogoMapper] = useState([]);
+    const [sort, setSort] = useState("asc");
+    function SortbyDate(){
+        if (sort === "asc") {
+            setData(projectData.sort((a, b) => new Date(a.date) - new Date(b.date)));
+        } else {
+            setData(projectData.sort((a, b) => new Date(b.date) - new Date(a.date)));
+        }
+    }
 
     useEffect(() => {
         const fetchProject = async () => {
@@ -77,7 +85,7 @@ export default function Project() {
                 const data = await res.json();
                 const data1 = await res1.json();
                 setLogoMapper(data1);
-                setData(data);
+                setData(data.sort((a, b) => new Date(b.date) - new Date(a.date)));
             } catch (err) {
                 console.error(err);
             } finally {
@@ -86,6 +94,7 @@ export default function Project() {
             }
         }
         fetchProject();
+        
     }, []);
 
     return (
@@ -96,9 +105,20 @@ export default function Project() {
                     <ClipLoader color="#f11946" loading={loading} size={50} />
                 </div>
             ) : (
-
                 <>
-                    
+                    <div id={styles.SortContainer}>
+                        <select
+                            className={styles.SortDropdown}
+                            onChange={(e) => {
+                                setSort(e.target.value);
+                                SortbyDate();
+                            }}
+                            value={sort}
+                        >
+                            <option value="asc">Sort by Date (Newest)</option>
+                            <option value="desc">Sort by Date (Oldest)</option>
+                        </select>
+                    </div>
                     <div id={styles.ProjectContainerMain}>
                         {projectData.map((data, index) => (
                             <ProjectContainer
