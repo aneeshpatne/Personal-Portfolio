@@ -1,17 +1,1 @@
-#FooterContainer {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 50px;
-  width: 100%;
-  margin-top: 2%;
-  border-top: 1px solid var(--dark-bg-accent);
-  margin-top: 20px;
-}
-#FooterContainer.LightMode {
-  border-top: 1px solid var(--light-bg-accent);
-}
-#Footer {
-  position: absolute;
-  bottom: 0;
-}
+.container { background: #ff0000; border: 5px solid red; }
