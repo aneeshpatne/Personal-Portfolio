@@ -28,6 +28,7 @@ import {
   SiEspressif,
   SiFfmpeg,
   SiOpensearch,
+  SiTypescript,
 } from "react-icons/si";
 import {
   TbBrandRedhat,
@@ -332,5 +333,9 @@ export const mapper = {
   Opensearch: {
     color: "#1a1f2c",
     icon: <SiOpensearch size={16} />,
+  },
+  TypeScript: {
+    color: "#1a262c",
+    icon: <SiTypescript size={16} />,
   },
 };
