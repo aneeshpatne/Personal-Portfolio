@@ -42,7 +42,7 @@ export default function ProjectInfo({params}){
             </div>
             <div id={styles.projectDesription}>
                 {data[projectID]?.desc?.map((data,index)=> 
-                <div className ={styles.ProjectTextBox}>
+                <div className ={styles.ProjectTextBox} key={index}>
                     <p>{data}</p>
                     <br />
                 </div>)}
