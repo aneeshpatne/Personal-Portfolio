@@ -8,8 +8,10 @@ const CustomTooltip = ({ active, payload }) => {
     const data = payload[0].payload;
     return (
       <div className={styles.tooltipContainer}>
-        <p className={styles.tooltipTitle}>{data.difficulty}</p>
-        <p>Solved: {data.solved}</p>
+        <p className={styles.tooltipTitle} style={{ color: data.fill }}>
+          {data.difficulty}
+        </p>
+        <p className={styles.tooltipValue}>Solved: {data.solved}</p>
       </div>
     );
   }
@@ -21,12 +23,13 @@ const Legend = ({ data }) => (
     {data.map((entry, index) => (
       <div key={`legend-${index}`} className={styles.legendItem}>
         <div
-          className={styles.legendColor}
+          className={styles.legendDot}
           style={{ backgroundColor: entry.fill }}
         />
-        <span>
-          {entry.difficulty}: {entry.solved}
-        </span>
+        <div className={styles.legendInfo}>
+          <span className={styles.legendText}>{entry.difficulty}</span>
+          <span className={styles.legendValue}>{entry.solved}</span>
+        </div>
       </div>
     ))}
   </div>
@@ -34,10 +37,12 @@ const Legend = ({ data }) => (
 
 export default function DoughnutChart({ chartData }) {
   const [mounted, setMounted] = useState(false);
+  
   const totalSolved = useMemo(
     () => chartData.reduce((acc, curr) => acc + curr.solved, 0),
     [chartData],
   );
+
   useEffect(() => {
     setMounted(true);
   }, []);
@@ -45,7 +50,7 @@ export default function DoughnutChart({ chartData }) {
   if (!mounted) {
     return (
       <div className={styles.chartCard}>
-        <div className={styles.chartHeader}>DSA Questions Solved</div>
+        <div className={styles.chartHeader}>DSA Progress</div>
         <div className={styles.chartContent}>
           <div className={styles.skeletonChart}>
             <div className={styles.skeletonCircle}>
@@ -64,20 +69,26 @@ export default function DoughnutChart({ chartData }) {
 
   return (
     <div className={styles.chartCard}>
-      <div className={styles.chartHeader}>DSA Questions Solved</div>
+      <div className={styles.chartHeader}>DSA Progress</div>
       <div className={styles.chartContent}>
         <PieChart width={300} height={300}>
-          <Tooltip content={<CustomTooltip />} />
+          <Tooltip content={<CustomTooltip />} cursor={{ fill: "transparent" }} />
           <Pie
             data={chartData}
             dataKey="solved"
             nameKey="difficulty"
-            innerRadius={60}
-            outerRadius={80}
-            strokeWidth={0}
+            innerRadius={90}
+            outerRadius={105}
+            stroke="none"
+            paddingAngle={5}
+            cornerRadius={4}
           >
             {chartData.map((entry, index) => (
-              <Cell key={`cell-${index}`} fill={entry.fill} />
+              <Cell 
+                key={`cell-${index}`} 
+                fill={entry.fill}
+                stroke="rgba(0,0,0,0)"
+              />
             ))}
             <Label
               content={({ viewBox }) => {
@@ -91,17 +102,17 @@ export default function DoughnutChart({ chartData }) {
                     >
                       <tspan
                         x={viewBox.cx}
-                        y={viewBox.cy - 10}
+                        y={viewBox.cy - 8}
                         className={styles.chartTotal}
                       >
                         {totalSolved}
                       </tspan>
                       <tspan
                         x={viewBox.cx}
-                        y={viewBox.cy + 15}
+                        y={viewBox.cy + 22}
                         className={styles.chartSubtext}
                       >
-                        Total Solved
+                        SOLVED
                       </tspan>
                     </text>
                   );
