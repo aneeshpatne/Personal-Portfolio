@@ -6,7 +6,7 @@ import { ExternalLink } from "lucide-react";
 import { TechStack } from "./WebDev";
 import { mapper } from "./data";
 import { useState, useEffect } from "react";
-
+import Loading from "@/app/loading";
 export const project = [
   {
     id: "deep-search",
@@ -151,7 +151,7 @@ export default function ProjectNew() {
   useEffect(() => {
     setMounted(true);
   }, []);
-  if (!mounted) return <p>Loading...</p>;
+  if (!mounted) return <Loading />;
   return (
     <div className={styles.projects}>
       <div className={styles.projectTitleContainer}>
