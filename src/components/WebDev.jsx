@@ -118,8 +118,8 @@ export default function WebDev() {
           </div>
         </div>
         <div className={styles.right}>
-          {data.map((d) => (
-            <SkillBox name={d.name} tech={d.tech} />
+          {data.map((d, index) => (
+            <SkillBox name={d.name} tech={d.tech} key={index} />
           ))}
         </div>
       </div>
@@ -131,8 +131,13 @@ function SkillBox({ name, tech }) {
     <div className={styles.skillBox}>
       <div className={styles.skillBoxHeader}>{name}</div>
       <div className={styles.skillBoxContent}>
-        {tech.map((t) => (
-          <TechStack name={t} color={mapper[t]?.color} icon={mapper[t]?.icon} />
+        {tech.map((t, index) => (
+          <TechStack
+            name={t}
+            color={mapper[t]?.color}
+            icon={mapper[t]?.icon}
+            key={index}
+          />
         ))}
       </div>
     </div>
