@@ -86,9 +86,8 @@
   }
 }
 .HeatMapContainer {
-  padding: 20px;
-  border: 1px solid #616161;
-  border-radius: 15px;
+  display: flex;
+  justify-content: center;
 }
 .SlidingTextContainer {
   padding: 1%;
