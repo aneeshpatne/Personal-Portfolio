@@ -113,7 +113,11 @@ const ICON_MAP = {
 };
 
 function Item({ name }) {
-  const entry = ICON_MAP[name] || { Icon: SiGithub, color: "#F5F5F5", title: name };
+  const entry = ICON_MAP[name] || {
+    Icon: SiGithub,
+    color: "#F5F5F5",
+    title: name,
+  };
   const { Icon, color, title } = entry;
 
   // keep the DOM lightweight — prefer transform-based animation and hint the browser
