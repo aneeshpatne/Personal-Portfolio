@@ -4,6 +4,7 @@ import styles from "./style/menu.module.css";
 const sections = ["home", "skills", "project"];
 export default function Menu() {
   const [activeSection, setActiveSection] = useState("home");
+  const [isChatOpen, setIsChatOpen] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -31,14 +32,28 @@ export default function Menu() {
     return () => observer.disconnect();
   }, []);
 
+  const toggleChat = () => {
+    setIsChatOpen(!isChatOpen);
+    // You can add additional logic here later for showing/hiding chat
+  };
+
   return (
-    <div className={styles.MenuContainer}>
-      <MenuItem title="Home" active={activeSection === "home"} />
-      <MenuItem title="Skills" active={activeSection === "skills"} />
-      <MenuItem title="Project" active={activeSection === "project"} />
+    <div className={styles.lowerContainer}>
+      <div className={styles.MenuContainer}>
+        <MenuItem title="Home" active={activeSection === "home"} />
+        <MenuItem title="Skills" active={activeSection === "skills"} />
+        <MenuItem title="Project" active={activeSection === "project"} />
+      </div>
+      <button
+        className={`${styles.chatButton} ${isChatOpen ? styles.active : ""}`}
+        onClick={toggleChat}
+      >
+        <span>{isChatOpen ? "Close Chat" : "Chat"}</span>
+      </button>
     </div>
   );
 }
+
 function MenuItem({ title, active }) {
   const handleClick = () => {
     const id = title.toLowerCase();
