@@ -1,6 +1,3 @@
-export const dynamic = "force-static";
-export const revalidate = 86400;
-
 import styles from "./style/profileContainer.module.css";
 import CardItem from "./cardItem";
 import CardMarqee from "./CardMarqee";

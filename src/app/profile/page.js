@@ -1,3 +1,5 @@
+export const dynamic = "force-static";
+export const revalidate = 86400;
 import styles from "./styles/background.module.css";
 import Container from "@/components/profileContainer";
 export default function Home() {
