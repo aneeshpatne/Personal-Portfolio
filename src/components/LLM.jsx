@@ -1,5 +1,5 @@
 "use client";
-
+import styles from "./style/LLM.module.css";
 import { useEffect, useRef } from "react";
 
 const MatrixLLM = () => {
@@ -12,8 +12,11 @@ const MatrixLLM = () => {
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+    // Set canvas dimensions
+    const parentElement = canvas.parentElement;
+    const { width, height } = parentElement.getBoundingClientRect();
+    canvas.width = width;
+    canvas.height = height;
 
     const fontSize = 16;
     const columns = canvas.width / fontSize;
@@ -45,20 +48,14 @@ const MatrixLLM = () => {
 
         drops[i]++;
       }
-
-      // Draw large "LLM" text
-      ctx.fillStyle = "#FFF";
-      ctx.font = "bold 120px Arial";
-      ctx.textAlign = "center";
-      ctx.textBaseline = "middle";
-      ctx.fillText("LLM", canvas.width / 2, canvas.height / 2);
     }
 
     const intervalId = setInterval(draw, 33);
 
     const handleResize = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
+      const { width, height } = parentElement.getBoundingClientRect();
+      canvas.width = width;
+      canvas.height = height;
     };
 
     window.addEventListener("resize", handleResize);
@@ -70,17 +67,32 @@ const MatrixLLM = () => {
   }, []);
 
   return (
-    <canvas
-      ref={canvasRef}
-      style={{
-        position: "fixed",
-        top: 0,
-        left: 0,
-        width: "100vw",
-        height: "100vh",
-      }}
-    />
+    <div className={styles.Container}>
+      <canvas className={styles.Canvas} ref={canvasRef} />
+      <div className={styles.Content}>
+        <div className={styles.contentHeader}>LLM</div>
+        <div className={styles.contentBody}>
+          <SentMessage />
+          <ReceiveMessage />
+        </div>
+      </div>
+    </div>
   );
 };
-
+const SentMessage = function () {
+  return (
+    <div className={styles.sentMessage}>
+      <p style={{ display: "inline-block" }}>
+        Tell me about Aneesh's Skills in LLM ?
+      </p>
+    </div>
+  );
+};
+const ReceiveMessage = function () {
+  return (
+    <div className={styles.ReceiveMessage}>
+      <p style={{ display: "inline-block" }}>Aneesh's Skills</p>
+    </div>
+  );
+};
 export default MatrixLLM;
