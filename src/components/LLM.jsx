@@ -2,6 +2,7 @@
 import styles from "./style/LLM.module.css";
 import { useEffect, useRef, useState } from "react";
 import ReactMarkdown from "react-markdown";
+import AICarousel from "./AI-carousel";
 const data = [
   "#",
   "Aneesh's",
@@ -143,6 +144,7 @@ const MatrixLLM = () => {
           <SentMessage />
           <ReceiveMessage />
         </div>
+        <AICarousel />
       </div>
     </div>
   );
