@@ -101,7 +101,12 @@
     padding: 2%;
     font-size: 0.85rem;
 }
-
+.LoaderContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
 @media screen and (max-width: 950px){
     #ProjectContainerMain{
         grid-template-columns: repeat(2,1fr);
