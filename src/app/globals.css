@@ -1,93 +1,58 @@
 html {
-  visibility: visible;
-  opacity: 1;
-  transition: opacity 0.25s linear;
+  visibility: hidden;
+  opacity: 0;
 }
 
 :root {
-  --dark-bg: #010104;
-  --dark-bg-btn: #f5f5f5;
-  --dark-bg-accent: #616161;
-  --dark-bg-sec: #e9ecef;
-  --dark-bg-outline: #010104;
-  --dark-text: #ffffff;
-  --dark-secondary-color: #1e2831;
-  --light-bg: #f6f9fc;
-  --light-bg-btn: #010104;
-  --light-bg-accent: #c1bebe;
-  --light-bg-backup: #f5f0e1;
-  --light-text: #000000;
-  --light-secondary-color: #d9f0d7;
-  --light-secondary-color-backup: #fce7a9;
-  --transition-time: 0.3s;
-  --gradient-start: #60a5fa;
-  --gradient-mid: #22d3ee;
-  --gradient-end: #5eead4;
-  --text-color: #e5e7eb;
-  --background-color: #000000;
-  --binary-bg-start: rgba(30, 58, 138, 0.2);
-  --binary-bg-end: rgba(15, 118, 110, 0.2);
-  /* Global app background (synced with project page) */
-  --app-bg: #0c0c0d;
+  --dark-bg: #ffffff;
+  --dark-bg-btn: #000000;
+  --dark-bg-accent: #cccccc;
+  --dark-bg-sec: #f0f0f0;
+  --dark-bg-outline: #ffffff;
+  --dark-text: #000000;
+  --dark-secondary-color: #e0e0e0;
+  --light-bg: #000000;
+  --light-bg-btn: #ffffff;
+  --light-bg-accent: #333333;
+  --light-bg-backup: #0a0a0a;
+  --light-text: #ffffff;
+  --light-secondary-color: #1a1a1a;
+  --light-secondary-color-backup: #050505;
+  --transition-time: 0.1s;
+  --gradient-start: #ff0000;
+  --gradient-mid: #00ff00;
+  --gradient-end: #0000ff;
+  --text-color: #333333;
+  --background-color: #ffffff;
+  --binary-bg-start: rgba(255, 0, 0, 0.3);
+  --binary-bg-end: rgba(0, 0, 255, 0.3);
+  --app-bg: #f5f5f5;
 }
 
 body {
   background-color: var(--app-bg);
   color: var(--dark-text);
-  transition: background-color var(--transition-time) ease,
-    color var(--transition-time) ease;
-  font-style: normal;
+  font-style: italic;
+  font-family: 'Comic Sans MS', 'Chalkboard SE', sans-serif;
 }
 
-/* Light mode disabled (locked to dark). Retain block commented for possible future use */
-/* body.LightMode {
-  background-color: var(--light-bg);
-  color: var(--light-text);
-} */
-
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+  margin: 5px;
+  padding: 5px;
+  box-sizing: content-box;
 }
 
 html,
 body {
-  width: 100%;
-  height: 100%;
+  width: 90%;
+  height: 90%;
+  overflow: scroll;
 }
 
 img {
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  -webkit-touch-callout: none;
+  display: none;
 }
 
-/* Adapt to your needs */
 .react-activity-calendar__tooltip {
-  width: max-content;
-  max-width: calc(100vw - 20px);
-  padding: 0.2em 0.5em;
-  border-radius: 0.25em;
-  background-color: hsl(0 0% 10%);
-  color: hsl(0 0% 94%);
-  font-size: 13px;
-
-  /* See the `withArrow` setting. */
-  .react-activity-calendar__tooltip-arrow {
-    fill: hsl(0 0% 10%);
-  }
-
-  /* Use this instead of a media query - the component theme can be set */
-  /* independent of the system color scheme. */
-  &[data-color-scheme='dark'] {
-    background-color: hsl(0 0% 94%);
-    color: hsl(0 0% 6%);
-
-    .react-activity-calendar__tooltip-arrow {
-      fill: hsl(0 0% 94%);
-    }
-  }
+  display: none;
 }

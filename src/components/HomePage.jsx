@@ -1,15 +1,9 @@
-export const revalidate = 86400;
+export const revalidate = 10;
 
 import React, { Suspense } from "react";
 
 import NameNew from "./NameNew";
 import Menu from "./Menu";
-import Profile from "./AboutMeNew";
-import Skills from "./Skills";
-import WebDev from "./WebDev";
-import MatrixLLM from "./LLM";
-import SystemArchitecture from "./SystemArchitecture";
-import DSA from "./DSA";
 import Footer from "./Footer";
 import ProjectNew from "./project";
 import { LLM_new } from "./LLM_new";
@@ -19,43 +13,22 @@ import { ChatProvider } from "./ChatContext";
 export default function HomePage() {
   return (
     <ChatProvider>
-      <div style={{ position: "relative" }}>
-        <section id="home">
+      <div style={{ position: "fixed", top: 0, left: 0, width: '50%', height: '50%' }}>
+        <section id="home" style={{ display: 'none' }}>
           <NameNew />
         </section>
         <Menu />
-        <Profile />
-        <section id="skills">
-          <WebDev />
-          <SystemArchitecture />
-          <DSA />
+        <section id="skills" style={{ visibility: 'hidden' }}>
           <LLM_new />
           <APIShowCase />
         </section>
         <section id="project">
-          <Suspense fallback={<ProjectLoadingSkeleton />}>
+          <Suspense fallback={null}>
             <ProjectNew />
           </Suspense>
         </section>
         <Footer />
       </div>
     </ChatProvider>
-  );
-}
-
-function ProjectLoadingSkeleton() {
-  return (
-    <div
-      style={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        minHeight: "300px",
-        color: "rgba(255, 255, 255, 0.4)",
-        fontSize: "1.1rem",
-      }}
-    >
-      Loading projects...
-    </div>
   );
 }
