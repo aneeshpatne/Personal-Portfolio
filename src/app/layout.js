@@ -31,6 +31,20 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
+      <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                const theme = localStorage.getItem('theme');
+                if (theme === 'LightMode') {
+                  document.body.classList.add('LightMode');
+                } else {
+                  document.body.classList.remove('LightMode');
+                }
+              })();
+            `,
+          }}
+        />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
