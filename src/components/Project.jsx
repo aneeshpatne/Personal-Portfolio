@@ -196,7 +196,7 @@ export default function Project() {
             <h1 className={styles.MainTitle}>Projects</h1>
             {loading ? (
                 <div className={styles.LoaderContainer}>
-                    
+                    <h1>Fetching</h1>
                 </div>
             ) : (
                 <>
