@@ -15,4 +15,9 @@
   border-radius: 5px;
   align-items: center;
   justify-content: center;
+  background-color: inherit;
+  color: var(--dark-bg-btn);
+}
+.themeToggle.LightMode {
+  color: black;
 }
