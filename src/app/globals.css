@@ -1,3 +1,10 @@
+body {
+  visibility: hidden;
+}
+
+body[data-theme-set="true"] {
+  visibility: visible;
+}
 
 :root {
   --dark-bg:#2F363E;
