@@ -11,6 +11,13 @@
   gap: 3rem;
 }
 
+.projectText {
+  text-align: left;
+  align-self: flex-start;
+  width: 100%;
+  font-size: 2rem;
+}
+
 .HeadingText {
   font-size: clamp(2.5rem, 5vw, 4rem);
   font-weight: 800;
