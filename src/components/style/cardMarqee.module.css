@@ -82,25 +82,26 @@
   --accent: rgba(130, 130, 140, 0.55);
 }
 
+/* style/cardMarqee.module.css */
+
 .icon {
-  width: 22px;
-  height: 22px;
+  width: 24px;
+  height: 24px;
   display: inline-block;
-  vertical-align: middle;
-  /* allow inline style color to show */
-  color: inherit;
+  line-height: 1;
+  /* remove heavy filters, shadows, blurs */
+  filter: none;
+  box-shadow: none;
+  background: none;
+  will-change: transform; /* hint for GPU compositing */
 }
 
 .iconBg {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 32px;
-  height: 32px;
-  padding: 4px;
-  background: transparent;
-  border-radius: 0;
+  /* previously used for background styling */
+  background: none;
+  filter: none;
   box-shadow: none;
+  border: none;
 }
 
 .iconBg svg {

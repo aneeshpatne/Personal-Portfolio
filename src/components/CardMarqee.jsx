@@ -33,22 +33,22 @@ export default function CardMarqee() {
     "reactnative",
     "nodejs",
     "express",
-    // "fastapi",
-    // "flask",
-    // "django",
-    // "kotlin",
-    // "postgres",
-    // "mysql",
-    // "mongodb",
-    // "redis",
-    // "sqlite",
-    // "docker",
-    // "gcp",
+    "fastapi",
+    "flask",
+    "django",
+    "kotlin",
+    "postgres",
+    "mysql",
+    "mongodb",
+    "redis",
+    "sqlite",
+    "docker",
+    "gcp",
   ];
 
   const displayed = items.filter((name) => ICON_MAP[name]);
 
-  const speed = 12;
+  const speed = 10;
 
   return (
     <div className={styles.cardMarqeeInner}>
