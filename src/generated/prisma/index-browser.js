@@ -124,7 +124,8 @@ exports.Prisma.ProjectsScalarFieldEnum = {
   description: 'description',
   image: 'image',
   startDate: 'startDate',
-  endDate: 'endDate'
+  endDate: 'endDate',
+  topic: 'topic'
 };
 
 exports.Prisma.ShortUrlScalarFieldEnum = {

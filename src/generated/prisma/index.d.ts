@@ -978,6 +978,7 @@ export namespace Prisma {
     image: string | null
     startDate: Date | null
     endDate: Date | null
+    topic: string | null
   }
 
   export type ProjectsMaxAggregateOutputType = {
@@ -988,6 +989,7 @@ export namespace Prisma {
     image: string | null
     startDate: Date | null
     endDate: Date | null
+    topic: string | null
   }
 
   export type ProjectsCountAggregateOutputType = {
@@ -998,6 +1000,7 @@ export namespace Prisma {
     image: number
     startDate: number
     endDate: number
+    topic: number
     _all: number
   }
 
@@ -1010,6 +1013,7 @@ export namespace Prisma {
     image?: true
     startDate?: true
     endDate?: true
+    topic?: true
   }
 
   export type ProjectsMaxAggregateInputType = {
@@ -1020,6 +1024,7 @@ export namespace Prisma {
     image?: true
     startDate?: true
     endDate?: true
+    topic?: true
   }
 
   export type ProjectsCountAggregateInputType = {
@@ -1030,6 +1035,7 @@ export namespace Prisma {
     image?: true
     startDate?: true
     endDate?: true
+    topic?: true
     _all?: true
   }
 
@@ -1113,6 +1119,7 @@ export namespace Prisma {
     image: string | null
     startDate: Date | null
     endDate: Date | null
+    topic: string | null
     _count: ProjectsCountAggregateOutputType | null
     _min: ProjectsMinAggregateOutputType | null
     _max: ProjectsMaxAggregateOutputType | null
@@ -1140,6 +1147,7 @@ export namespace Prisma {
     image?: boolean
     startDate?: boolean
     endDate?: boolean
+    topic?: boolean
   }, ExtArgs["result"]["projects"]>
 
   export type projectsSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -1150,6 +1158,7 @@ export namespace Prisma {
     image?: boolean
     startDate?: boolean
     endDate?: boolean
+    topic?: boolean
   }, ExtArgs["result"]["projects"]>
 
   export type projectsSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -1160,6 +1169,7 @@ export namespace Prisma {
     image?: boolean
     startDate?: boolean
     endDate?: boolean
+    topic?: boolean
   }, ExtArgs["result"]["projects"]>
 
   export type projectsSelectScalar = {
@@ -1170,9 +1180,10 @@ export namespace Prisma {
     image?: boolean
     startDate?: boolean
     endDate?: boolean
+    topic?: boolean
   }
 
-  export type projectsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "title" | "techStack" | "description" | "image" | "startDate" | "endDate", ExtArgs["result"]["projects"]>
+  export type projectsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "title" | "techStack" | "description" | "image" | "startDate" | "endDate" | "topic", ExtArgs["result"]["projects"]>
 
   export type $projectsPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "projects"
@@ -1185,6 +1196,7 @@ export namespace Prisma {
       image: string | null
       startDate: Date | null
       endDate: Date | null
+      topic: string | null
     }, ExtArgs["result"]["projects"]>
     composites: {}
   }
@@ -1615,6 +1627,7 @@ export namespace Prisma {
     readonly image: FieldRef<"projects", 'String'>
     readonly startDate: FieldRef<"projects", 'DateTime'>
     readonly endDate: FieldRef<"projects", 'DateTime'>
+    readonly topic: FieldRef<"projects", 'String'>
   }
     
 
@@ -2984,7 +2997,8 @@ export namespace Prisma {
     description: 'description',
     image: 'image',
     startDate: 'startDate',
-    endDate: 'endDate'
+    endDate: 'endDate',
+    topic: 'topic'
   };
 
   export type ProjectsScalarFieldEnum = (typeof ProjectsScalarFieldEnum)[keyof typeof ProjectsScalarFieldEnum]
@@ -3085,6 +3099,7 @@ export namespace Prisma {
     image?: StringNullableFilter<"projects"> | string | null
     startDate?: DateTimeNullableFilter<"projects"> | Date | string | null
     endDate?: DateTimeNullableFilter<"projects"> | Date | string | null
+    topic?: StringNullableFilter<"projects"> | string | null
   }
 
   export type projectsOrderByWithRelationInput = {
@@ -3095,6 +3110,7 @@ export namespace Prisma {
     image?: SortOrderInput | SortOrder
     startDate?: SortOrderInput | SortOrder
     endDate?: SortOrderInput | SortOrder
+    topic?: SortOrderInput | SortOrder
   }
 
   export type projectsWhereUniqueInput = Prisma.AtLeast<{
@@ -3108,6 +3124,7 @@ export namespace Prisma {
     image?: StringNullableFilter<"projects"> | string | null
     startDate?: DateTimeNullableFilter<"projects"> | Date | string | null
     endDate?: DateTimeNullableFilter<"projects"> | Date | string | null
+    topic?: StringNullableFilter<"projects"> | string | null
   }, "id">
 
   export type projectsOrderByWithAggregationInput = {
@@ -3118,6 +3135,7 @@ export namespace Prisma {
     image?: SortOrderInput | SortOrder
     startDate?: SortOrderInput | SortOrder
     endDate?: SortOrderInput | SortOrder
+    topic?: SortOrderInput | SortOrder
     _count?: projectsCountOrderByAggregateInput
     _max?: projectsMaxOrderByAggregateInput
     _min?: projectsMinOrderByAggregateInput
@@ -3134,6 +3152,7 @@ export namespace Prisma {
     image?: StringNullableWithAggregatesFilter<"projects"> | string | null
     startDate?: DateTimeNullableWithAggregatesFilter<"projects"> | Date | string | null
     endDate?: DateTimeNullableWithAggregatesFilter<"projects"> | Date | string | null
+    topic?: StringNullableWithAggregatesFilter<"projects"> | string | null
   }
 
   export type shortUrlWhereInput = {
@@ -3191,6 +3210,7 @@ export namespace Prisma {
     image?: string | null
     startDate?: Date | string | null
     endDate?: Date | string | null
+    topic?: string | null
   }
 
   export type projectsUncheckedCreateInput = {
@@ -3201,6 +3221,7 @@ export namespace Prisma {
     image?: string | null
     startDate?: Date | string | null
     endDate?: Date | string | null
+    topic?: string | null
   }
 
   export type projectsUpdateInput = {
@@ -3211,6 +3232,7 @@ export namespace Prisma {
     image?: NullableStringFieldUpdateOperationsInput | string | null
     startDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     endDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    topic?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type projectsUncheckedUpdateInput = {
@@ -3221,6 +3243,7 @@ export namespace Prisma {
     image?: NullableStringFieldUpdateOperationsInput | string | null
     startDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     endDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    topic?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type projectsCreateManyInput = {
@@ -3231,6 +3254,7 @@ export namespace Prisma {
     image?: string | null
     startDate?: Date | string | null
     endDate?: Date | string | null
+    topic?: string | null
   }
 
   export type projectsUpdateManyMutationInput = {
@@ -3241,6 +3265,7 @@ export namespace Prisma {
     image?: NullableStringFieldUpdateOperationsInput | string | null
     startDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     endDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    topic?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type projectsUncheckedUpdateManyInput = {
@@ -3251,6 +3276,7 @@ export namespace Prisma {
     image?: NullableStringFieldUpdateOperationsInput | string | null
     startDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     endDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    topic?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type shortUrlCreateInput = {
@@ -3356,6 +3382,7 @@ export namespace Prisma {
     image?: SortOrder
     startDate?: SortOrder
     endDate?: SortOrder
+    topic?: SortOrder
   }
 
   export type projectsMaxOrderByAggregateInput = {
@@ -3366,6 +3393,7 @@ export namespace Prisma {
     image?: SortOrder
     startDate?: SortOrder
     endDate?: SortOrder
+    topic?: SortOrder
   }
 
   export type projectsMinOrderByAggregateInput = {
@@ -3376,6 +3404,7 @@ export namespace Prisma {
     image?: SortOrder
     startDate?: SortOrder
     endDate?: SortOrder
+    topic?: SortOrder
   }
 
   export type StringWithAggregatesFilter<$PrismaModel = never> = {
