@@ -7,7 +7,6 @@ import { MainItem } from "./MainItem";
 import NasaTile from "./NasaTile";
 import MausamCard from "./MausamCard";
 import ProjectItem from "./projectItem";
-import { Suspense } from "react";
 export default function Container() {
   return (
     <div className={styles.mainContainer}>
@@ -28,23 +27,7 @@ export default function Container() {
           <CardMarqee />
         </div>
         <div className={styles.nasaImageCard}>
-          <Suspense
-            fallback={
-              <div
-                className={styles.nasaImageCard}
-                style={{
-                  background: "var(--dark-bg-accent)",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                }}
-              >
-                Loading NASA image...
-              </div>
-            }
-          >
-            <NasaTile />
-          </Suspense>
+          <NasaTile />
         </div>
         <div className={styles.mausamCard}>
           <MausamCard />
