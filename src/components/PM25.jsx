@@ -5,7 +5,8 @@ import {
   Cloud, 
   Wind, 
   AlertTriangle, 
-  Leaf
+  Leaf,
+  Activity
 } from "lucide-react";
 import styles from "./style/PM25.module.css";
 
@@ -18,76 +19,73 @@ const STATUS_COLORS = {
 
 const getAQIData = (val, alertColor) => {
   const v = Number(val);
-  
-  // Resolve color: use alertColor prop (mapped or raw) or auto-detect
-  let finalColor = "#94a3b8"; // Default gray
-  
+  let finalColor = "#525252"; 
+  let label = "Unknown";
+  let icon = Activity;
+
+  // Resolve color & label
   if (alertColor) {
-    // If user passed a color name (red, orange...), use mapped hex, otherwise use the string as-is
-    finalColor = STATUS_COLORS[alertColor.toLowerCase()] || alertColor;
+    const key = alertColor.toLowerCase();
+    finalColor = STATUS_COLORS[key] || alertColor;
+    if (key === 'green') { label = "Excellent"; icon = Leaf; }
+    else if (key === 'yellow') { label = "Moderate"; icon = Wind; }
+    else if (key === 'orange') { label = "Sensitive"; icon = Cloud; }
+    else if (key === 'red') { label = "Unhealthy"; icon = AlertTriangle; }
   } else if (!isNaN(v)) {
-    // Auto-detect based on value
-    if (v <= 12) finalColor = STATUS_COLORS.green;
-    else if (v <= 35) finalColor = STATUS_COLORS.yellow;
-    else if (v <= 55) finalColor = STATUS_COLORS.orange;
-    else if (v <= 150) finalColor = STATUS_COLORS.red;
-    else finalColor = "#8B5CF6"; // Hazardous (Purple)
+    if (v <= 12) { finalColor = STATUS_COLORS.green; label = "Excellent"; icon = Leaf; }
+    else if (v <= 35) { finalColor = STATUS_COLORS.yellow; label = "Moderate"; icon = Wind; }
+    else if (v <= 55) { finalColor = STATUS_COLORS.orange; label = "Sensitive"; icon = Cloud; }
+    else if (v <= 150) { finalColor = STATUS_COLORS.red; label = "Unhealthy"; icon = AlertTriangle; }
+    else { finalColor = "#8B5CF6"; label = "Hazardous"; icon = AlertTriangle; }
   }
-
-  // Resolve Icon based on finalColor (heuristic match)
-  let icon = Cloud;
-  const c = finalColor.toUpperCase();
-  if (c === STATUS_COLORS.green.toUpperCase()) icon = Leaf;
-  else if (c === STATUS_COLORS.yellow.toUpperCase()) icon = Wind;
-  else if (c === STATUS_COLORS.orange.toUpperCase()) icon = Cloud;
-  else if (c === STATUS_COLORS.red.toUpperCase()) icon = AlertTriangle;
-  else if (c === "#8B5CF6") icon = AlertTriangle;
-
-  return { color: finalColor, icon };
+  
+  return { color: finalColor, label, icon };
 };
 
 export function PM25({ value, remark, alertColor }) {
-  const { color, icon: Icon } = useMemo(() => getAQIData(value, alertColor), [value, alertColor]);
+  const { color, label: autoLabel, icon: Icon } = useMemo(() => getAQIData(value, alertColor), [value, alertColor]);
+  const displayRemark = remark || autoLabel;
 
   return (
     <motion.div 
       className={styles.card}
-      initial={{ opacity: 0, y: 20 }}
+      initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5 }}
+      transition={{ duration: 0.4, ease: "easeOut" }}
       style={{ "--status-color": color }}
     >
-      <div className={styles.glow} />
+      <div className={styles.spotlight} />
       
+      {/* Header: Label + Icon */}
       <div className={styles.header}>
-        <div className={styles.label}>
-          <span className={styles.title}>Air Quality</span>
-          <span className={styles.subtitle}>PM 2.5 Index</span>
-        </div>
-        <div className={styles.iconWrapper}>
-          <Icon size={19} strokeWidth={2.5} />
+        <div className={styles.titleGroup}>
+          <div className={styles.iconBox}>
+            <Icon size={16} strokeWidth={2.5} />
+          </div>
+          <span className={styles.label}>Air Quality</span>
         </div>
       </div>
 
-      <div className={styles.content}>
-        <div className={styles.valueWrapper}>
+      {/* Main Content: Huge Number */}
+      <div className={styles.mainContent}>
+        <div className={styles.valueRow}>
           <motion.span 
             className={styles.value}
-            initial={{ scale: 0.9 }}
-            animate={{ scale: 1 }}
-            transition={{ type: "spring", stiffness: 200, damping: 10, delay: 0.1 }}
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.1, duration: 0.4 }}
           >
             {value}
           </motion.span>
-          <span className={styles.unit}>µg/m³</span>
+          <span className={styles.unit}>AQI</span>
         </div>
-        
-        {remark && (
-          <div className={styles.remarkBadge}>
-            <span className={styles.indicator} />
-            {remark}
-          </div>
-        )}
+      </div>
+
+      {/* Footer: Remark Only */}
+      <div className={styles.footer}>
+        <div className={styles.statusRow}>
+          <span className={styles.remark}>{displayRemark}</span>
+        </div>
       </div>
     </motion.div>
   );
