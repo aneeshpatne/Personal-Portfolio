@@ -1,8 +1,5 @@
 import { NextResponse } from "next/server";
 const redis = require('redis');
-console.log('REDIS_HOST:', process.env.REDIS_HOST);
-console.log('REDIS_PORT:', process.env.REDIS_PORT);
-console.log('REDIS_PASSWORD:', process.env.REDIS_PASSWORD);
 
 const client = redis.createClient({
     password:process.env.REDIS_PASSWORD,
