@@ -12,10 +12,11 @@ import styles from "./style/ProjectNew.module.css";
 import { mapper } from "./data";
 import { useState } from "react";
 
-export function ProjectContainerWrapper({ processedData }) {
+export function ProjectContainerWrapper({ processedData, tags }) {
   const [filter, setFilter] = useState({ sort: "default", filter: [] });
   let tempData =
     filter.sort === "reverse" ? [...processedData].reverse() : processedData;
+
   if (filter.filter.length > 0) {
     tempData = filter.filter.reduce((acc, f) => {
       return acc.filter((p) => p.tags.includes(f));
@@ -25,6 +26,9 @@ export function ProjectContainerWrapper({ processedData }) {
   return (
     <>
       <SortStatus setFilter={setFilter} filter={filter} />
+      {tags.map((tag, index) => (
+        <div key={index}>{tag}</div>
+      ))}
       <div className={styles.projectBox}>
         {tempData.map((project, index) => (
           <ProjectContainer
