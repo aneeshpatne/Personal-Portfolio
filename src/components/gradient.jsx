@@ -29,8 +29,8 @@ export default function BlobsBackground() {
           position: "absolute",
           top: "-10%", // pull it up a bit
           left: "-10%", // push left to bleed more
-          width: "700px",
-          opacity: 0.4,
+          width: "1000px",
+          opacity: 0.25,
           pointerEvents: "none",
         }}
         animate={{ x: [0, 40, -30, 20, 0], y: [0, -30, 20, -10, 0] }}
@@ -42,10 +42,10 @@ export default function BlobsBackground() {
           position: "absolute",
           top: "30%",
           left: "55%",
-          width: "600px",
-          height: "600px",
+          width: "750px",
+          height: "750px",
           objectFit: "cover",
-          opacity: 0.35,
+          opacity: 0.25,
           pointerEvents: "none",
         }}
         animate={{ x: [0, -40, 20, -30, 0], y: [0, 25, -20, 10, 0] }}
@@ -58,9 +58,9 @@ export default function BlobsBackground() {
           position: "absolute",
           top: "5%",
           left: "35%",
-          width: "600px",
-          height: "600px",
-          opacity: 0.3,
+          width: "750px",
+          height: "750px",
+          opacity: 0.25,
           pointerEvents: "none",
         }}
         animate={{ x: [0, 20, -25, 15, 0], y: [0, -20, 30, -15, 0] }}
