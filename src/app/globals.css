@@ -7,27 +7,26 @@ body.body-visible {
 }
 
 :root {
-  --dark-bg:#2F363E;
-  --dark-text:#FFFFFF;
-  --dark-secondary-color:#1E2831;
+  --dark-bg: #2f363e;
+  --dark-text: #ffffff;
+  --dark-secondary-color: #1e2831;
   --light-bg: #f0faef;
-  --light-bg-backup: #F5F0E1;
+  --light-bg-backup: #f5f0e1;
   --light-text: #000000;
   --light-secondary-color: #d9f0d7;
-  --light-secondary-color-backup:#FCE7A9;
-  --transition-time:0.3s;
+  --light-secondary-color-backup: #fce7a9;
+  --transition-time: 0.3s;
 }
 
 body {
   background-color: var(--dark-bg);
   color: var(--dark-text);
-  transition: background-color var(--transition-time) ease, 
-  color var(--transition-time) ease;
+  transition: background-color var(--transition-time) ease,
+    color var(--transition-time) ease;
   font-style: normal;
-
 }
 
-body.LightMode{
+body.LightMode {
   background-color: var(--light-bg);
   color: var(--light-text);
 }
@@ -37,14 +36,15 @@ body.LightMode{
   box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
   width: 100%;
   height: 100%;
 }
 img {
-  -webkit-user-select: none; 
-  -moz-user-select: none;    
-  -ms-user-select: none;    
-  user-select: none;        
-  -webkit-touch-callout: none; 
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
 }
