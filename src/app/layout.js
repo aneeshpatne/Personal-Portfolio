@@ -81,10 +81,7 @@ export default function RootLayout({ children }) {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdData) }}
         />
       </head>
-      <body>
-        {children}
-        <Footer />
-      </body>
+      <body>{children}</body>
       <GoogleAnalytics gaId="G-2ZB3L8XV5X" />
     </html>
   );
