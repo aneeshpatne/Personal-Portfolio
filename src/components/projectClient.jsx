@@ -15,16 +15,7 @@ export function ProjectContainerWrapper({ processedData }) {
 
   return (
     <>
-      <button
-        onClick={() =>
-          setFilter((prev) => ({
-            ...prev,
-            sort: prev.sort === "reverse" ? "default" : "reverse",
-          }))
-        }
-      >
-        {filter.sort === "default" ? "Reverse Sort" : "Default"}
-      </button>
+      <SortStatus setFilter={setFilter} filter={filter} />
       {tempData.map((project, index) => (
         <ProjectContainer
           key={index}
@@ -37,6 +28,20 @@ export function ProjectContainerWrapper({ processedData }) {
         />
       ))}
     </>
+  );
+}
+export function SortStatus({ setFilter, filter }) {
+  return (
+    <button
+      onClick={() =>
+        setFilter((prev) => ({
+          ...prev,
+          sort: prev.sort === "reverse" ? "default" : "reverse",
+        }))
+      }
+    >
+      {filter.sort === "default" ? "Reverse Sort" : "Default"}
+    </button>
   );
 }
 export function ProjectContainer({
