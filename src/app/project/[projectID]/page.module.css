@@ -59,6 +59,7 @@
         align-items: center;
     }
     #projectDesription{
+        min-width: 350px;
         width: auto;
     }
 }
