@@ -33,6 +33,11 @@
   position: relative;
   display: inline-block;
   width: fit-content;
+  transition: transform 0.3s ease;
+}
+
+.photoFrame:hover {
+  transform: scale(1.05);
 }
 
 .photoFrame::before {
@@ -74,6 +79,11 @@
 .highlight {
   position: relative;
   display: inline-block;
+  transition: text-shadow 0.3s ease;
+}
+
+.highlight:hover {
+  text-shadow: 0 0 8px rgba(102, 126, 234, 0.8);
 }
 
 .highlight::after {
@@ -107,7 +117,7 @@
   content: "010104010104010104010104010104010104010104010104010104010104010104010104010104010104010104010104010104010104010104010104";
   position: absolute;
   inset: 0;
-  opacity: 0.05;
+  opacity: 0.03;
   font-family: monospace;
   font-size: 0.75rem;
   white-space: wrap;
