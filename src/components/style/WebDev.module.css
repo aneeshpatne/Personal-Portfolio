@@ -6,9 +6,8 @@
 }
 .Text {
   font-family: "Arial", sans-serif;
-  font-size: clamp(2rem, 3vw, 4rem);
+  font-size: clamp(1.9rem, 4.2vw, 3.6rem); /* slightly smaller overall */
   font-weight: 900;
-  color: #3b82f6; /* Fallback for unsupported browsers */
   background: linear-gradient(to right, #3b82f6, #8b5cf6, #ec4899);
   background-size: 200% 200%;
   background-clip: text;
@@ -16,6 +15,9 @@
   color: transparent;
   will-change: opacity, background-position;
   animation: gradient-shift 5s ease infinite, pulse 2s ease-in-out infinite;
+  text-align: center; /* center by default */
+  line-height: 1.05;
+  padding: 0 0.5rem;
 }
 @keyframes gradient-shift {
   0% {
@@ -84,12 +86,21 @@
   text-align: center;
 }
 
-@media (max-width: 768px) {
-  .bigText {
-    display: none;
-  }
+@media (max-width: 900px) {
   .Text {
-    font-size: clamp(3.5rem, 8vw, 6rem);
+    font-size: clamp(1.8rem, 6vw, 3.1rem);
+  }
+}
+@media (max-width: 640px) {
+  .Text {
+    font-size: clamp(1.65rem, 7.5vw, 2.6rem);
+    letter-spacing: 0.5px;
+  }
+  .bigText { display:none; }
+}
+@media (max-width: 420px) {
+  .Text {
+    font-size: clamp(1.55rem, 8.5vw, 2.3rem);
   }
 }
 
@@ -245,5 +256,70 @@
 @keyframes shine {
   to {
     left: 100%;
+  }
+}
+
+/* ---- Added for new grouped / A-Z mode ---- */
+.modeSwitch {
+  display: flex;
+  gap: 0.6rem;
+  margin: 1rem 0 1.25rem;
+  flex-wrap: wrap;
+}
+.modeSwitch button {
+  background: #111;
+  border: 1px solid #272727;
+  color: #b8b8b8;
+  padding: 0.4rem 0.9rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 0.25s, border-color 0.25s, color 0.25s;
+}
+.modeSwitch button:hover {
+  color: #fff;
+  border-color: #3d3d3d;
+}
+.activeMode {
+  background: linear-gradient(90deg, #5b63ff, #a455ff);
+  color: #fff !important;
+  border-color: transparent !important;
+}
+
+.groupsWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+.categoryTitle {
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #a7a7a7;
+  margin: 0 0 0.55rem;
+  position: relative;
+}
+.categoryTitle:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 60px;
+  height: 1px;
+  background: #262626;
+}
+
+.skillsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(125px, 1fr));
+  gap: 0.55rem 0.65rem;
+}
+
+@media (min-width: 900px) {
+  .skillsGrid {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
   }
 }
