@@ -74,7 +74,6 @@ export function LLM_new() {
                 conditions.
               </p>
             </div>
-
             <MausamFlowchart />
           </div>
         </div>
