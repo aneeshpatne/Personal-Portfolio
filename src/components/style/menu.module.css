@@ -26,33 +26,70 @@
   position: absolute;
   right: 50px;
   height: 40px;
+  width: 100px; /* Set constant width */
   background-color: rgb(255, 255, 255);
   border: rgb(255, 255, 255) 1px solid;
   border-radius: 10px;
   color: black;
-  font-weight: 600;
+  font-weight: 500;
   font-size: 1rem;
-  padding: 0 20px;
+  padding: 0;
   cursor: pointer;
   transition: all 0.2s ease;
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 8px;
 }
 
-.chatButton:hover {
-  color: white;
-  background-color: black;
+.aiIcon {
+  background: linear-gradient(90deg, #9c27b0 0%, #e91e63 50%, #9c27b0 100%);
+  background-size: 200% auto;
+  animation: gradientMove 3s linear infinite;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  stroke: url(#gradient);
+  transition: all 0.3s ease;
+}
+
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 200% 50%;
+  }
 }
 
 .chatButton.active {
   color: white;
   background-color: #ff0000;
   border-color: #ff0000;
+  animation: none;
 }
 
-.chatButton:active {
-  transform: translateY(1px);
+.closeIcon {
+  color: white;
+}
+
+@media (min-width: 769px) {
+  .chatButton:hover {
+    color: white;
+    background-color: black;
+  }
+
+  .chatButton:hover .aiIcon {
+    -webkit-text-fill-color: white;
+    animation: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .chatButton {
+    position: relative;
+    right: 0;
+  }
 }
 
 .menuItem {
