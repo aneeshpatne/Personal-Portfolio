@@ -1,5 +1,6 @@
 'use client';
 import styles from './style/Skill.module.css';
+import Image from 'next/image';
 const logoMapper = {
     'JS': '/assets/img/js.svg',
     'ML': '/assets/img/ML.svg',
@@ -40,7 +41,7 @@ export default function SkillData({state}){
 function ToolContainter({name, img}){
     return(<div id={styles.ToolBox}>
         <div id={styles.LogoContainer}>
-            <img src={img} alt={name}></img>
+            <Image src={img} alt={name} width={40} height={40}/>
         </div>
         <div id={styles.LogoName}>{name}</div>
     </div>)
