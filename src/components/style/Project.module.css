@@ -4,7 +4,7 @@
   width: 270px;
   border-radius: 10px;
   background-color: var(--dark-bg-sec);
-  border: 1px solid var(--dark-bg-outline);
+  border: 1px solid var(--dark-bg-accent);
   box-shadow: 0 2px 4px rgba(47, 54, 62, 0.1);
 }
 
