@@ -54,7 +54,7 @@ export default function RootLayout({ children }) {
       </head>
       <body>
         <ThemeProvider>{children}
-          
+        <Footer />
         </ThemeProvider>
         </body>
     </html>
