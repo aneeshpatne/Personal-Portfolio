@@ -1,3 +1,4 @@
+import React from "react";
 import {
   SiNextdotjs,
   SiReact,
@@ -13,10 +14,32 @@ import {
   SiMongodb,
   SiSqlite,
   SiRedis,
+  SiJavascript,
+  SiPython,
+  SiVercel,
+  SiFramer,
+  SiDjango,
+  SiGooglecloud,
+  SiFirebase,
 } from "react-icons/si";
-import { FaRocket, FaDatabase } from "react-icons/fa";
+import {
+  FaRocket,
+  FaDatabase,
+  FaBolt,
+  FaBrain,
+  FaNetworkWired,
+  FaMapMarkedAlt,
+  FaMicrochip,
+  FaRobot,
+  FaCogs,
+  FaProjectDiagram,
+  FaImage,
+  FaShapes,
+} from "react-icons/fa";
+import { FiFigma } from "react-icons/fi";
 
 export const mapper = {
+  // Existing mappings
   "Next.js": {
     color: "#1a1a1a",
     icon: <SiNextdotjs size={16} />,
@@ -80,5 +103,92 @@ export const mapper = {
   Redis: {
     color: "#2c1a1a",
     icon: <SiRedis size={16} />,
+  },
+
+  // New mappings for techs used in projects
+  WebSocket: {
+    color: "#2c2a1a",
+    icon: <FaBolt size={16} />,
+  },
+  LLM: {
+    color: "#2c2a2a",
+    icon: <FaBrain size={16} />,
+  },
+  "Vector Databases": {
+    color: "#2a2c1a",
+    icon: <FaShapes size={16} />,
+  },
+  "REST APIs": {
+    color: "#2a2a2c",
+    icon: <FaNetworkWired size={16} />,
+  },
+  JavaScript: {
+    color: "#2a2c2a",
+    icon: <SiJavascript size={16} />,
+  },
+  Python: {
+    color: "#2a2a1a",
+    icon: <SiPython size={16} />,
+  },
+  Vercel: {
+    color: "#2a2a29",
+    icon: <SiVercel size={16} />,
+  },
+  "Framer Motion": {
+    color: "#2c2a2a",
+    icon: <SiFramer size={16} />,
+  },
+  // Map "React.js" to the same as "React"
+  "React.js": {
+    color: "#1a2c2c",
+    icon: <SiReact size={16} />,
+  },
+  Django: {
+    color: "#2a2c29",
+    icon: <SiDjango size={16} />,
+  },
+  GCP: {
+    color: "#2a292a",
+    icon: <SiGooglecloud size={16} />,
+  },
+  Firebase: {
+    color: "#2c2a29",
+    icon: <SiFirebase size={16} />,
+  },
+  "Google Maps API": {
+    color: "#292a2c",
+    icon: <FaMapMarkedAlt size={16} />,
+  },
+  SQL: {
+    color: "#2a292c",
+    icon: <FaDatabase size={16} />,
+  },
+  IoT: {
+    color: "#2c2a1a",
+    icon: <FaMicrochip size={16} />,
+  },
+  ESP8266: {
+    color: "#2c2a1a",
+    icon: <FaMicrochip size={16} />,
+  },
+  "Machine Learning": {
+    color: "#2a2c1a",
+    icon: <FaRobot size={16} />,
+  },
+  DLIB: {
+    color: "#2a2a29",
+    icon: <FaCogs size={16} />,
+  },
+  KNN: {
+    color: "#2a2929",
+    icon: <FaProjectDiagram size={16} />,
+  },
+  "Digital Image Processing": {
+    color: "#2a2a2a",
+    icon: <FaImage size={16} />,
+  },
+  Figma: {
+    color: "#2a2c2a",
+    icon: <FiFigma size={16} />,
   },
 };

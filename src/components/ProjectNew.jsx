@@ -19,13 +19,7 @@ export const project = [
   {
     id: "resumeai",
     title: "Resume.AI",
-    techStack: [
-      "Large Language Models (LLM)",
-      "Next.js",
-      "Vector Databases",
-      "WebSocket",
-      "ChromaDB",
-    ],
+    techStack: ["LLM", "Next.js", "Vector Databases", "WebSocket", "ChromaDB"],
     description:
       "Dynamic resume chatbot integrating LLMs and RAG to effectively showcase my professional capabilities.",
     image: "/assets/img/resumeAI.png",
@@ -35,13 +29,7 @@ export const project = [
   {
     id: "tldr",
     title: "TLDR",
-    techStack: [
-      "Large Language Models (LLM)",
-      "Flask",
-      "REST APIs",
-      "JavaScript",
-      "Python",
-    ],
+    techStack: ["LLM", "Flask", "JavaScript", "Python"],
     description:
       "Chrome extension summarizing web pages by leveraging LLM and Flask for concise, clear summaries.",
     image: "/assets/img/tldr.png",
