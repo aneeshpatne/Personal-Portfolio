@@ -108,7 +108,7 @@
 }
 .SortContainer {
     display: flex;
-    justify-content: start;
+    justify-content: flex-start;
     align-items: center;
     margin: 2% 2%;
     
@@ -135,6 +135,22 @@
 .SortDropdown:focus {
     outline: none;
     border-color: #d9f0d7;
+}
+.topicContainer{
+    display:flex;
+    margin: 2% 2%;
+    gap: 10px;
+}
+.topicButton{
+    color: white;
+    padding: 8px;
+    background-color: var(--dark-secondary-color);
+    border: none;
+    border-radius: 5px;
+}
+
+.topicButton.active{
+    background-color: #090d10;
 }
 @media screen and (max-width: 950px){
     #ProjectContainerMain{
