@@ -1,7 +1,8 @@
 "use client";
 
 import { useChat } from "@ai-sdk/react";
-import styles from "./style/resume.module.css";
+// Reuse the unified chat styles for consistent look & feel
+import styles from "./style/chat.module.css";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import rehypeHighlight from "rehype-highlight";
@@ -48,7 +49,7 @@ function ErrorMessage({ message, onRetry }) {
   );
 }
 
-export default function Chat() {
+export default function Chat({ theme = "black" }) {
   const [tokenMap, setTokenMap] = useState({});
   const chatBoxRef = useRef(null);
   const [errorState, setErrorState] = useState({ isError: false, message: "" });
@@ -112,8 +113,12 @@ export default function Chat() {
     }
   }, [messages, status]);
 
+  const containerClass = `${styles.chatContainer} ${
+    theme === "black" ? styles.blackTheme : ""
+  }`;
+
   return (
-    <div className={styles.chatContainer}>
+    <div className={containerClass}>
       <div className={styles.chatHeader}>
         <FaComments className={styles.chatHeaderIcon} />
         <h2 className={styles.chatHeaderTitle}>Resume.AI</h2>
