@@ -23,7 +23,7 @@ const SystemArchitecture = () => {
         className={styles.headerContainer}
       >
         <h2 className={`${instrumentSerif.className} ${styles.title}`}>
-          What I am Good at
+          Systems I Build
         </h2>
       </motion.div>
 
@@ -99,9 +99,10 @@ const ArchitectureSVG = () => {
         <path d="M200 260 L320 260" stroke={lineColor} strokeWidth="2" />
         <path d="M200 260 L320 420" stroke={lineColor} strokeWidth="2" />
         <path d="M440 100 L580 100" stroke={lineColor} strokeWidth="2" />
-        <path d="M440 260 L580 180" stroke={lineColor} strokeWidth="2" />
+        <path d="M440 260 L580 220" stroke={lineColor} strokeWidth="2" />
+        <path d="M440 260 L580 335" stroke={lineColor} strokeWidth="2" />
         <path d="M440 420 L540 420" stroke={lineColor} strokeWidth="2" />
-        <path d="M600 420 L720 340" stroke={lineColor} strokeWidth="2" />
+        <path d="M640 335 L720 335" stroke={lineColor} strokeWidth="2" />
 
         {/* 1. Client */}
         <g transform="translate(40, 225)">
@@ -170,8 +171,60 @@ const ArchitectureSVG = () => {
           >
             Auth Service
           </text>
-          <rect x="20" y="45" width="80" height="4" rx="2" fill={accentColor} opacity="0.5" />
-          <rect x="20" y="55" width="60" height="4" rx="2" fill={accentColor} opacity="0.3" />
+          <rect
+            x="20"
+            y="45"
+            width="80"
+            height="4"
+            rx="2"
+            fill={accentColor}
+            opacity="0.5"
+          />
+          <rect
+            x="20"
+            y="55"
+            width="60"
+            height="4"
+            rx="2"
+            fill={accentColor}
+            opacity="0.3"
+          />
+        </g>
+
+        {/* Auth DB */}
+        <g transform="translate(580, 60)">
+          <path
+            d="M0 15 C0 5 70 5 70 15 L70 75 C70 85 0 85 0 75 Z"
+            fill="#1a1a1a"
+            stroke={accentColor}
+            strokeWidth="2"
+          />
+          <ellipse
+            cx="35"
+            cy="15"
+            rx="35"
+            ry="10"
+            fill="none"
+            stroke={accentColor}
+            strokeWidth="2"
+            strokeOpacity="0.5"
+          />
+          <path
+            d="M0 45 C0 55 70 55 70 45"
+            fill="none"
+            stroke={accentColor}
+            strokeWidth="2"
+            strokeOpacity="0.5"
+          />
+          <text
+            x="35"
+            y="100"
+            textAnchor="middle"
+            fill={textColor}
+            fontSize="12"
+          >
+            Auth DB
+          </text>
         </g>
 
         {/* 4. Core API */}
@@ -193,8 +246,24 @@ const ArchitectureSVG = () => {
           >
             Core API
           </text>
-          <rect x="20" y="45" width="80" height="4" rx="2" fill={secondaryAccent} opacity="0.5" />
-          <rect x="20" y="55" width="60" height="4" rx="2" fill={secondaryAccent} opacity="0.3" />
+          <rect
+            x="20"
+            y="45"
+            width="80"
+            height="4"
+            rx="2"
+            fill={secondaryAccent}
+            opacity="0.5"
+          />
+          <rect
+            x="20"
+            y="55"
+            width="60"
+            height="4"
+            rx="2"
+            fill={secondaryAccent}
+            opacity="0.3"
+          />
         </g>
 
         {/* 5. Data Service (New) */}
@@ -216,27 +285,64 @@ const ArchitectureSVG = () => {
           >
             Data Service
           </text>
-          <rect x="20" y="45" width="80" height="4" rx="2" fill={accentColor} opacity="0.5" />
-          <rect x="20" y="55" width="60" height="4" rx="2" fill={accentColor} opacity="0.3" />
+          <rect
+            x="20"
+            y="45"
+            width="80"
+            height="4"
+            rx="2"
+            fill={accentColor}
+            opacity="0.5"
+          />
+          <rect
+            x="20"
+            y="55"
+            width="60"
+            height="4"
+            rx="2"
+            fill={accentColor}
+            opacity="0.3"
+          />
         </g>
 
         {/* 6. Distributed DB */}
-        <g transform="translate(580, 60)">
+        <g transform="translate(540, 380)">
           <path
             d="M0 15 C0 5 70 5 70 15 L70 75 C70 85 0 85 0 75 Z"
             fill="#1a1a1a"
             stroke={accentColor}
             strokeWidth="2"
           />
-          <ellipse cx="35" cy="15" rx="35" ry="10" fill="none" stroke={accentColor} strokeWidth="2" strokeOpacity="0.5" />
-          <path d="M0 45 C0 55 70 55 70 45" fill="none" stroke={accentColor} strokeWidth="2" strokeOpacity="0.5" />
-          <text x="35" y="110" textAnchor="middle" fill={textColor} fontSize="12">
+          <ellipse
+            cx="35"
+            cy="15"
+            rx="35"
+            ry="10"
+            fill="none"
+            stroke={accentColor}
+            strokeWidth="2"
+            strokeOpacity="0.5"
+          />
+          <path
+            d="M0 45 C0 55 70 55 70 45"
+            fill="none"
+            stroke={accentColor}
+            strokeWidth="2"
+            strokeOpacity="0.5"
+          />
+          <text
+            x="35"
+            y="110"
+            textAnchor="middle"
+            fill={textColor}
+            fontSize="12"
+          >
             Dist. DB
           </text>
         </g>
 
         {/* 7. Cache/Redis */}
-        <g transform="translate(580, 150)">
+        <g transform="translate(580, 190)">
           <rect
             width="70"
             height="55"
@@ -245,13 +351,19 @@ const ArchitectureSVG = () => {
             stroke={secondaryAccent}
             strokeWidth="2"
           />
-          <text x="35" y="32" textAnchor="middle" fill={textColor} fontSize="12">
+          <text
+            x="35"
+            y="32"
+            textAnchor="middle"
+            fill={textColor}
+            fontSize="12"
+          >
             Redis
           </text>
         </g>
 
         {/* 8. Message Queue */}
-        <g transform="translate(540, 395)">
+        <g transform="translate(580, 310)">
           <rect
             width="60"
             height="50"
@@ -260,7 +372,13 @@ const ArchitectureSVG = () => {
             stroke={secondaryAccent}
             strokeDasharray="4 2"
           />
-          <text x="30" y="30" textAnchor="middle" fill={textColor} fontSize="11">
+          <text
+            x="30"
+            y="30"
+            textAnchor="middle"
+            fill={textColor}
+            fontSize="11"
+          >
             RabbitMQ
           </text>
         </g>
@@ -274,7 +392,13 @@ const ArchitectureSVG = () => {
             fill="url(#hboxGradient)"
             stroke={lineColor}
           />
-          <text x="50" y="40" textAnchor="middle" fill={textColor} fontSize="12">
+          <text
+            x="50"
+            y="40"
+            textAnchor="middle"
+            fill={textColor}
+            fontSize="12"
+          >
             Internal Service
           </text>
         </g>
@@ -292,7 +416,7 @@ const ArchitectureSVG = () => {
             dur="4s"
             begin="1s"
             repeatCount="indefinite"
-            path="M110 260 L200 260 L320 420 L440 420 L540 420 L600 420 L720 340"
+            path="M110 260 L200 260 L320 260 L440 260 L580 335 L640 335 L720 335"
           />
         </circle>
         <circle r="3" fill={secondaryAccent} filter="url(#hglow)">
@@ -300,30 +424,42 @@ const ArchitectureSVG = () => {
             dur="3.5s"
             begin="0.5s"
             repeatCount="indefinite"
-            path="M110 260 L200 260 L320 260 L440 260 L580 180"
+            path="M110 260 L200 260 L320 260 L440 260 L580 220"
+          />
+        </circle>
+        <circle r="3" fill="#fff" filter="url(#hglow)">
+          <animateMotion
+            dur="4s"
+            begin="2s"
+            repeatCount="indefinite"
+            path="M110 260 L200 260 L320 420 L440 420 L540 420"
           />
         </circle>
       </svg>
 
       {/* Vertical Layout - Mobile */}
       <svg
-        viewBox="0 0 300 750"
+        viewBox="0 0 380 820"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
         className={`${styles.svg} ${styles.svgVertical}`}
       >
         <SVGDefs prefix="v" />
-        {/* Connecting Lines - Vertical */}
-        <path d="M150 70 L150 110" stroke={lineColor} strokeWidth="2" />
-        <path d="M150 180 L150 220" stroke={lineColor} strokeWidth="2" />
-        <path d="M150 290 L150 330" stroke={lineColor} strokeWidth="2" />
-        <path d="M150 400 L150 440" stroke={lineColor} strokeWidth="2" />
-        <path d="M150 510 L80 550" stroke={lineColor} strokeWidth="2" />
-        <path d="M150 510 L220 550" stroke={lineColor} strokeWidth="2" />
-        <path d="M150 620 L150 660" stroke={lineColor} strokeWidth="2" />
+        {/* Connecting Lines - Fan-out from API */}
+        <path d="M190 70 L190 100" stroke={lineColor} strokeWidth="2" />
+        <path d="M190 170 L80 210" stroke={lineColor} strokeWidth="2" />
+        <path d="M190 170 L200 210" stroke={lineColor} strokeWidth="2" />
+        <path d="M190 170 L320 210" stroke={lineColor} strokeWidth="2" />
+
+        {/* Service Connectors */}
+        <path d="M80 290 L40 340" stroke={lineColor} strokeWidth="2" />
+        <path d="M200 290 L150 340" stroke={lineColor} strokeWidth="2" />
+        <path d="M200 290 L250 340" stroke={lineColor} strokeWidth="2" />
+        <path d="M320 290 L375 330" stroke={lineColor} strokeWidth="2" />
+        <path d="M250 400 L210 450" stroke={lineColor} strokeWidth="2" />
 
         {/* 1. Client */}
-        <g transform="translate(115, 20)">
+        <g transform="translate(155, 20)">
           <rect
             width="70"
             height="50"
@@ -346,7 +482,7 @@ const ArchitectureSVG = () => {
         </g>
 
         {/* 2. API Gateway */}
-        <g transform="translate(115, 110)">
+        <g transform="translate(155, 100)">
           <rect
             width="70"
             height="70"
@@ -369,92 +505,252 @@ const ArchitectureSVG = () => {
         </g>
 
         {/* 3. Auth Service */}
-        <g transform="translate(90, 220)">
+        <g transform="translate(25, 210)">
           <rect
-            width="120"
-            height="70"
+            width="110"
+            height="80"
             rx="8"
             fill="url(#vboxGradient)"
             stroke="rgba(255,255,255,0.2)"
           />
-          <text x="60" y="28" textAnchor="middle" fill={textColor} fontSize="12" fontWeight="bold">
+          <text
+            x="55"
+            y="30"
+            textAnchor="middle"
+            fill={textColor}
+            fontSize="12"
+            fontWeight="bold"
+          >
             Auth Service
           </text>
-          <rect x="20" y="42" width="80" height="4" rx="2" fill={accentColor} opacity="0.5" />
-          <rect x="20" y="52" width="60" height="4" rx="2" fill={accentColor} opacity="0.3" />
-        </g>
-
-        {/* 4. Core API */}
-        <g transform="translate(90, 330)">
           <rect
-            width="120"
-            height="70"
-            rx="8"
-            fill="url(#vboxGradient)"
-            stroke="rgba(255,255,255,0.2)"
+            x="15"
+            y="48"
+            width="80"
+            height="4"
+            rx="2"
+            fill={accentColor}
+            opacity="0.5"
           />
-          <text x="60" y="28" textAnchor="middle" fill={textColor} fontSize="12" fontWeight="bold">
-            Core API
-          </text>
-          <rect x="20" y="42" width="80" height="4" rx="2" fill={secondaryAccent} opacity="0.5" />
-          <rect x="20" y="52" width="60" height="4" rx="2" fill={secondaryAccent} opacity="0.3" />
-        </g>
-
-        {/* 5. Data Service */}
-        <g transform="translate(90, 440)">
           <rect
-            width="120"
-            height="70"
-            rx="8"
-            fill="url(#vboxGradient)"
-            stroke="rgba(255,255,255,0.2)"
+            x="25"
+            y="58"
+            width="60"
+            height="4"
+            rx="2"
+            fill={accentColor}
+            opacity="0.3"
           />
-          <text x="60" y="28" textAnchor="middle" fill={textColor} fontSize="12" fontWeight="bold">
-            Data Service
-          </text>
-          <rect x="20" y="42" width="80" height="4" rx="2" fill={accentColor} opacity="0.5" />
-          <rect x="20" y="52" width="60" height="4" rx="2" fill={accentColor} opacity="0.3" />
         </g>
 
-        {/* 6. Distributed DB */}
-        <g transform="translate(30, 550)">
+        {/* Auth DB - Side */}
+        <g transform="translate(15, 340)">
           <path
-            d="M0 12 C0 4 50 4 50 12 L50 52 C50 60 0 60 0 52 Z"
+            d="M0 10 C0 3 50 3 50 10 L50 55 C50 62 0 62 0 55 Z"
             fill="#1a1a1a"
             stroke={accentColor}
             strokeWidth="2"
           />
-          <ellipse cx="25" cy="12" rx="25" ry="8" fill="none" stroke={accentColor} strokeWidth="2" strokeOpacity="0.5" />
-          <text x="25" y="78" textAnchor="middle" fill={textColor} fontSize="10">
-            Dist. DB
+          <ellipse
+            cx="25"
+            cy="10"
+            rx="25"
+            ry="7"
+            fill="none"
+            stroke={accentColor}
+            strokeWidth="2"
+            strokeOpacity="0.5"
+          />
+          <path
+            d="M0 33 C0 40 50 40 50 33"
+            fill="none"
+            stroke={accentColor}
+            strokeWidth="2"
+            strokeOpacity="0.5"
+          />
+          <text
+            x="25"
+            y="72"
+            textAnchor="middle"
+            fill={textColor}
+            fontSize="9"
+          >
+            Auth DB
           </text>
         </g>
 
-        {/* 7. RabbitMQ */}
-        <g transform="translate(200, 555)">
+        {/* 4. Core API */}
+        <g transform="translate(145, 210)">
+          <rect
+            width="110"
+            height="80"
+            rx="8"
+            fill="url(#vboxGradient)"
+            stroke="rgba(255,255,255,0.2)"
+          />
+          <text
+            x="55"
+            y="30"
+            textAnchor="middle"
+            fill={textColor}
+            fontSize="12"
+            fontWeight="bold"
+          >
+            Core API
+          </text>
+          <rect
+            x="15"
+            y="48"
+            width="80"
+            height="4"
+            rx="2"
+            fill={secondaryAccent}
+            opacity="0.5"
+          />
+          <rect
+            x="25"
+            y="58"
+            width="60"
+            height="4"
+            rx="2"
+            fill={secondaryAccent}
+            opacity="0.3"
+          />
+        </g>
+
+        {/* Redis - Side */}
+        <g transform="translate(120, 340)">
+          <rect
+            width="55"
+            height="60"
+            rx="6"
+            fill="#1a1a1a"
+            stroke={secondaryAccent}
+            strokeWidth="2"
+          />
+          <text
+            x="27.5"
+            y="36"
+            textAnchor="middle"
+            fill={textColor}
+            fontSize="10"
+          >
+            Redis
+          </text>
+        </g>
+
+        {/* 5. Data Service */}
+        <g transform="translate(265, 210)">
+          <rect
+            width="110"
+            height="80"
+            rx="8"
+            fill="url(#vboxGradient)"
+            stroke="rgba(255,255,255,0.2)"
+          />
+          <text
+            x="55"
+            y="30"
+            textAnchor="middle"
+            fill={textColor}
+            fontSize="12"
+            fontWeight="bold"
+          >
+            Data Service
+          </text>
+          <rect
+            x="15"
+            y="48"
+            width="80"
+            height="4"
+            rx="2"
+            fill={accentColor}
+            opacity="0.5"
+          />
+          <rect
+            x="25"
+            y="58"
+            width="60"
+            height="4"
+            rx="2"
+            fill={accentColor}
+            opacity="0.3"
+          />
+        </g>
+
+        {/* RabbitMQ - Side */}
+        <g transform="translate(220, 340)">
           <rect
             width="60"
-            height="45"
+            height="60"
             rx="4"
             fill="#222"
             stroke={secondaryAccent}
             strokeDasharray="4 2"
           />
-          <text x="30" y="28" textAnchor="middle" fill={textColor} fontSize="10">
+          <text
+            x="30"
+            y="36"
+            textAnchor="middle"
+            fill={textColor}
+            fontSize="9"
+          >
             RabbitMQ
           </text>
         </g>
 
-        {/* 8. Internal Service */}
-        <g transform="translate(100, 660)">
+        {/* 6. Distributed DB */}
+        <g transform="translate(340, 330)">
+          <path
+            d="M0 12 C0 4 70 4 70 12 L70 70 C70 78 0 78 0 70 Z"
+            fill="#1a1a1a"
+            stroke={accentColor}
+            strokeWidth="2"
+          />
+          <ellipse
+            cx="35"
+            cy="12"
+            rx="35"
+            ry="8"
+            fill="none"
+            stroke={accentColor}
+            strokeWidth="2"
+            strokeOpacity="0.5"
+          />
+          <path
+            d="M0 40 C0 48 70 48 70 40"
+            fill="none"
+            stroke={accentColor}
+            strokeWidth="2"
+            strokeOpacity="0.5"
+          />
+          <text
+            x="35"
+            y="100"
+            textAnchor="middle"
+            fill={textColor}
+            fontSize="10"
+          >
+            Dist. DB
+          </text>
+        </g>
+
+        {/* 7. Internal Service */}
+        <g transform="translate(160, 450)">
           <rect
             width="100"
-            height="60"
+            height="70"
             rx="8"
             fill="url(#vboxGradient)"
             stroke={lineColor}
           />
-          <text x="50" y="35" textAnchor="middle" fill={textColor} fontSize="11">
+          <text
+            x="50"
+            y="40"
+            textAnchor="middle"
+            fill={textColor}
+            fontSize="11"
+          >
             Internal Service
           </text>
         </g>
@@ -462,17 +758,33 @@ const ArchitectureSVG = () => {
         {/* Animated Particles */}
         <circle r="3" fill="#fff" filter="url(#vglow)">
           <animateMotion
-            dur="4s"
+            dur="3s"
             repeatCount="indefinite"
-            path="M150 70 L150 110 L150 180 L150 220 L150 290 L150 330 L150 400 L150 440 L150 510 L80 550"
+            path="M190 70 L190 100 L190 170 L80 210 L80 290 L40 340"
           />
         </circle>
         <circle r="3" fill={accentColor} filter="url(#vglow)">
           <animateMotion
-            dur="4.5s"
+            dur="4s"
             begin="1s"
             repeatCount="indefinite"
-            path="M150 70 L150 110 L150 180 L150 220 L150 290 L150 330 L150 400 L150 440 L150 510 L220 550 L150 620 L150 660"
+            path="M190 70 L190 100 L190 170 L200 210 L200 290 L150 340"
+          />
+        </circle>
+        <circle r="3" fill={secondaryAccent} filter="url(#vglow)">
+          <animateMotion
+            dur="3.5s"
+            begin="0.5s"
+            repeatCount="indefinite"
+            path="M190 70 L190 100 L190 170 L200 210 L200 290 L250 340 L250 400 L210 450"
+          />
+        </circle>
+        <circle r="3" fill="#fff" filter="url(#vglow)">
+          <animateMotion
+            dur="4.5s"
+            begin="2s"
+            repeatCount="indefinite"
+            path="M190 70 L190 100 L190 170 L320 210 L320 290 L375 330"
           />
         </circle>
       </svg>
