@@ -125,7 +125,8 @@ exports.Prisma.ProjectsScalarFieldEnum = {
   image: 'image',
   startDate: 'startDate',
   endDate: 'endDate',
-  topic: 'topic'
+  topic: 'topic',
+  LLMdump: 'LLMdump'
 };
 
 exports.Prisma.ShortUrlScalarFieldEnum = {
@@ -133,6 +134,16 @@ exports.Prisma.ShortUrlScalarFieldEnum = {
   shortUrl: 'shortUrl',
   longUrl: 'longUrl',
   createdAt: 'createdAt'
+};
+
+exports.Prisma.ProjectListScalarFieldEnum = {
+  id: 'id',
+  title: 'title',
+  techStack: 'techStack',
+  description: 'description',
+  image: 'image',
+  startDate: 'startDate',
+  endDate: 'endDate'
 };
 
 exports.Prisma.SortOrder = {
@@ -153,7 +164,8 @@ exports.Prisma.NullsOrder = {
 
 exports.Prisma.ModelName = {
   projects: 'projects',
-  shortUrl: 'shortUrl'
+  shortUrl: 'shortUrl',
+  projectList: 'projectList'
 };
 
 /**
