@@ -48,7 +48,7 @@ function ErrorMessage({ message, onRetry }) {
   );
 }
 
-export default function Chat({ dataDump }) {
+export default function Chat({ dataDump, theme = "black" }) {
   const [tokenMap, setTokenMap] = useState({});
   const chatBoxRef = useRef(null);
   const [errorState, setErrorState] = useState({ isError: false, message: "" });
@@ -119,8 +119,12 @@ export default function Chat({ dataDump }) {
     }
   }, [messages, status]);
 
+  const containerClass = `${styles.chatContainer} ${
+    theme === "black" ? styles.blackTheme : ""
+  }`;
+
   return (
-    <div className={styles.chatContainer}>
+    <div className={containerClass}>
       <div className={styles.chatHeader}>
         <FaComments className={styles.chatHeaderIcon} />
         <h2 className={styles.chatHeaderTitle}>Project Chat</h2>
