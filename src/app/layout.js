@@ -1,7 +1,6 @@
 import { Raleway } from "next/font/google";
 import "./globals.css";
 import "../components/style/header.css";
-import ThemeProvider from "@/components/ThemeContext";
 import Footer from "@/components/Footer";
 
 const raleway = Raleway({
@@ -87,10 +86,8 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body>
-        <ThemeProvider>
-          {children}
-          <Footer />
-        </ThemeProvider>
+        {children}
+        <Footer />
       </body>
     </html>
   );
