@@ -12,7 +12,7 @@ const nextConfig = {
       },
       {
         source: '/leetcode', 
-        destination: 'https://leecode.com/u/aneeshpatne',
+        destination: 'https://leetcode.com/u/aneeshpatne',
         permanent: true,   
       },
       {
