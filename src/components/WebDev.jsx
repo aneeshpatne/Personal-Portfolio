@@ -1,7 +1,7 @@
 import styles from "./style/WebDev.module.css";
-import { mapper } from "./data.jsx";
 import Image from "next/image";
-import { Instrument_Serif } from "next/font/google";
+import TechStackName from "./techStackNameItem";
+import { Instrument_Serif, Space_Grotesk } from "next/font/google";
 
 const instrumentSerif = Instrument_Serif({
   subsets: ["latin"],
@@ -10,28 +10,11 @@ const instrumentSerif = Instrument_Serif({
   variable: "--font-instrument-serif",
 });
 
-const skills = [
-  { name: "React", cat: "Web UI" },
-  { name: "Next.js", cat: "Web UI" },
-  { name: "Sveltekit", cat: "Web UI" },
-  { name: "HTML", cat: "Web UI" },
-  { name: "CSS", cat: "Web UI" },
-  { name: "Tailwind CSS", cat: "Web UI" },
-  { name: "Node.js", cat: "Backend & APIs" },
-  { name: "Express.js", cat: "Backend & APIs" },
-  { name: "FastAPI", cat: "Backend & APIs" },
-  { name: "Flask", cat: "Backend & APIs" },
-  { name: "Kotlin", cat: "Mobile" },
-  { name: "React Native", cat: "Mobile" },
-  { name: "MySQL", cat: "Databases" },
-  { name: "PostgreSQL", cat: "Databases" },
-  { name: "MongoDB", cat: "Databases" },
-  { name: "SQLite", cat: "Databases" },
-  { name: "ChromaDB", cat: "Databases" },
-  { name: "Redis", cat: "Databases" },
-];
-
-const categoryOrder = ["Web UI", "Backend & APIs", "Mobile", "Databases"];
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  display: "swap",
+});
 
 export default function WebDev() {
   return (
@@ -51,31 +34,34 @@ export default function WebDev() {
           Development
         </h1>
       </div>
-      <div className={styles.content}>
-        <div className={styles.right}>
-          <div className={styles.groupsWrapper}>
-            {categoryOrder.map((cat) => (
-              <CategoryGroup
-                key={cat}
-                title={cat}
-                items={skills
-                  .filter((s) => s.cat === cat)
-                  .sort((a, b) => a.name.localeCompare(b.name))}
-              />
-            ))}
+      <div className={`${styles.mainContainer} ${spaceGrotesk.className}`}>
+        <div className={styles.gridContainer}>
+          <div className={styles.techStackTextItem}>
+            <TechStackName />
           </div>
-        </div>
-        <div className={styles.left}>
-          <div className={`${styles.word} ${styles.stylish}`}>STYLISH</div>
-          <div className={`${styles.word} ${styles.elegant}`}>ELEGANT</div>
-          <div className={`${styles.word} ${styles.performant}`}>
-            PERFORMANT
-          </div>
+          <div className={styles.marqueeItem}></div>
+          <div className={styles.techStackItem}></div>
         </div>
       </div>
     </div>
   );
 }
+
+function TechStack({ name, color = null, icon = null }) {
+  return (
+    <div className={styles.techStack} style={{ backgroundColor: color }}>
+      <div
+        className={styles.techStackLogo}
+        style={{ display: icon ? "block" : "none" }}
+      >
+        {icon}
+      </div>
+      {name}
+    </div>
+  );
+}
+
+export { TechStack };
 
 function TechStack1({ name, color = null, icon = null }) {
   return (
@@ -98,38 +84,3 @@ function TechStack1({ name, color = null, icon = null }) {
 }
 
 export { TechStack1 };
-
-function CategoryGroup({ title, items }) {
-  if (!items.length) return null;
-  return (
-    <div className={styles.categoryGroup}>
-      <div className={styles.categoryTitle}>{title}</div>
-      <div className={styles.skillBoxContent}>
-        {items.map((s, idx) => (
-          <TechStack
-            key={idx}
-            name={s.name}
-            color={mapper[s.name]?.color}
-            icon={mapper[s.name]?.icon}
-          />
-        ))}
-      </div>
-    </div>
-  );
-}
-
-function TechStack({ name, color = null, icon = null }) {
-  return (
-    <div className={styles.techStack} style={{ backgroundColor: color }}>
-      <div
-        className={styles.techStackLogo}
-        style={{ display: icon ? "block" : "none" }}
-      >
-        {icon}
-      </div>
-      {name}
-    </div>
-  );
-}
-
-export { TechStack };
