@@ -1,11 +1,8 @@
-"use client";
 import styles from "./style/DSA.module.css";
 import DoughnutChart from "./chart";
 import { Bug } from "lucide-react";
 import { Fira_Code } from "next/font/google";
 import TechBadge from "./TechBadge";
-import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
 import { HeatMap } from "./HeatMap";
 const words = ["Perseverance", "Mastery", "Dedication"];
 const dsaData = [
