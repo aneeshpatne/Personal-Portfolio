@@ -32,7 +32,11 @@ export default function ProjectChatWrapper({ dataDump }) {
         Chat
       </button>
       {open && (
-        <div className={style.mobileChatOverlay} role="dialog" aria-modal="true">
+        <div
+          className={style.mobileChatOverlay}
+          role="dialog"
+          aria-modal="true"
+        >
           <div className={style.mobileChatHeader}>
             <span className={style.mobileChatTitle}>Project Chat</span>
             <button
