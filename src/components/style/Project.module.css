@@ -39,9 +39,11 @@
     display: flex;
     align-items: center;
     margin: 2% 2%;
-    width: 80px;
-    height: 30px;
+    min-width: 80px;
+    min-height: 30px;
     background-color: white;
+    overflow: hidden; /* Ensure overflow is hidden */
+    white-space: normal; /* Ensure text can wrap */
 }
 
 #TechstackContainer{
@@ -52,7 +54,7 @@
 
 }
 #TechstackLogo{
-    width: 22px;
+    min-width: 22px;
     height: 22px;
     margin-left: 5%;
 }
@@ -64,6 +66,11 @@
 #TechstackName{
     color: rgb(0, 0, 0);
     margin-left: 5%;
+    white-space: normal; /* Allow text to wrap */
+    overflow-wrap: break-word; /* Break long words */
+    word-wrap: break-word; /* Break long words */
+    overflow: hidden; /* Ensure overflow is hidden */
+    text-overflow: ellipsis;
 }
 #ProjectContainerMain{
     display: grid;
