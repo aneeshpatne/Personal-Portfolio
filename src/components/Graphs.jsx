@@ -1,6 +1,7 @@
 'use client';
 import { useState, useEffect } from 'react';
 import styles from './style/graphs.module.css';
+import { getValues } from '@/app/services/api';
 export default function Stats({theme}) {
     const radius = 137.5; 
     const circumference = 2 * Math.PI * radius; 
@@ -12,6 +13,16 @@ export default function Stats({theme}) {
     const [Mounted, setMounted] = useState(false);
     useEffect(() => {
         setMounted(true);
+        const fetchData = async () => {
+            try {
+                const data = await getValues(); 
+                console.log(data);
+                setValues(data);  
+            } catch (error) {
+                console.error('Failed to fetch values:', error);
+            }
+        };
+        fetchData();
     }, []);
     const total = values.val1 + values.val2 + values.val3 ;
 
