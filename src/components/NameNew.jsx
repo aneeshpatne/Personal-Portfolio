@@ -30,9 +30,7 @@ export default function NameNew({ theme }) {
 
   return (
     <div
-      className={`${styles.name} ${
-        theme === "LightMode" ? styles.lightMode : ""
-      }`}
+      className={styles.name}
       style={{ position: "relative", overflow: "hidden" }} // Important
     >
       <BlobsBackground />
