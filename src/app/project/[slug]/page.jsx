@@ -129,7 +129,17 @@ export default async function ProjectPage({ params }) {
               <h3 className={style.metaTitle}>Topics</h3>
               <div className={style.topics}>
                 {topicsArray.map((topic, index) => (
-                  <span key={index} className={style.topic}>
+                  <span
+                    key={index}
+                    className={style.topic}
+                    style={{
+                      backgroundColor:
+                        mapper[topic]?.color || "rgba(255, 255, 255, 0.1)",
+                    }}
+                  >
+                    {mapper[topic]?.icon && (
+                      <span className={style.techIcon}>{mapper[topic].icon}</span>
+                    )}
                     {topic}
                   </span>
                 ))}
