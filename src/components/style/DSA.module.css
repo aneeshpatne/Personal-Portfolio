@@ -28,6 +28,9 @@
   font-size: clamp(2rem, 3vw, 4rem);
 }
 .Container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   width: 100%;
 }
 
