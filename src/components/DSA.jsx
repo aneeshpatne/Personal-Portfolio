@@ -14,7 +14,10 @@ export default function DSA() {
         Coding <Bug size={30} />
       </h1>
       <div className={styles.Content}>
-        <DoughnutChart />
+        <div className={styles.chart}>
+          <DoughnutChart />
+        </div>
+        <div className={styles.topics}></div>
       </div>
     </div>
   );
