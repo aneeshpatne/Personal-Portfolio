@@ -1,11 +1,17 @@
+"use client";
 import styles from "./style/newHeader.module.css";
-import { Moon } from "lucide-react";
-export default function NewHeader({ theme, themeToggle }) {
+import { Moon, Sun } from "lucide-react";
+export default function NewHeader({ theme, ThemeToggle }) {
   return (
     <div className={styles.headerContainer}>
-      <div className={styles.themeToggle}>
-        <Moon size={20} />
-      </div>
+      <button
+        className={`${styles.themeToggle} ${
+          theme === "LightMode" ? styles.LightMode : ""
+        }`}
+        onClick={ThemeToggle}
+      >
+        {theme === "LightMode" ? <Sun size={20} /> : <Moon size={20} />}
+      </button>
     </div>
   );
 }
