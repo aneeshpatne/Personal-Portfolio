@@ -2,7 +2,7 @@
 import { Fira_Code } from "next/font/google";
 import { LuGithub, LuLinkedin, LuCodeXml } from "react-icons/lu";
 import styles from "./style/nameNew.module.css";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef, useLayoutEffect } from "react";
 const ibm_font = Fira_Code({
   subsets: ["latin"],
   weight: ["400", "500"],
@@ -13,20 +13,41 @@ const socials = [
   { name: "Linkedin", icon: <LuLinkedin />, url: "linkedin" },
   { name: "LeetCode", icon: <LuCodeXml />, url: "leetcode" },
 ];
+
 export default function NameNew({ theme }) {
   const [idx, setIndex] = useState(0);
+
   useEffect(() => {
     const interval = setInterval(() => {
       setIndex((prevIndex) => (prevIndex + 1) % 3);
     }, 3000);
+
+    return () => {
+      clearInterval(interval);
+    };
   }, []);
+
   return (
-    <div className={styles.name}>
+    <div
+      className={`${styles.name} ${
+        theme === "LightMode" ? styles.lightMode : ""
+      }`}
+    >
+      <div className={styles.upperText}>
+        <div className={styles.introWrapper}>
+          <p className={styles.introName}>Hi, I&apos;m Aneesh</p>
+          <p className={styles.introText}>
+            I&apos;m passionate about{" "}
+            <span className={styles.gradientUnderline}>web development</span>,
+            innovative <span className={styles.gradientUnderline}>LLM</span>{" "}
+            solutions, strong in{" "}
+            <span className={styles.gradientUnderline}>data structures</span>,
+            and passionate about turning challenging ideas into impactful,
+            real-world implementations.
+          </p>
+        </div>
+      </div>
       <div className={styles.introduction}>
-        <p className={styles.boldText}>Hi, I&apos;m Aneesh</p>
-        <p className={styles.secText}>
-          I&apos;m passionate about coding and building exciting projects
-        </p>
         <div className={styles.skillBoxContainer}>
           <div className={styles.skillBox}>
             {socials.map((data, index) => {

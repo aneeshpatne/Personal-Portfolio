@@ -80,7 +80,7 @@ export function ProjectContainer({ theme }) {
             skills and projects.
           </p>
         </div>
-        <btn
+        <button
           className={`${styles.projectLearnMore} ${
             theme === "LightMode" ? styles.LightMode : ""
           }`}
@@ -90,7 +90,7 @@ export function ProjectContainer({ theme }) {
         >
           <p className={`${styles.projectLearnMoreText}`}>Learn More</p>
           <ExternalLink size={20} />
-        </btn>
+        </button>
       </div>
     </div>
   );
