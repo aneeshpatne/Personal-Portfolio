@@ -106,9 +106,9 @@ export default function Project() {
                 </div>
             ) : (
                 <>
-                    <div className={styles.SortContainer}>
+                    <div className={`${styles.SortContainer} ${theme === 'LightMode' ? styles.LightMode : ''}`}>
                         <select
-                            className={styles.SortDropdown}
+                            className={`${styles.SortDropdown} ${theme === 'LightMode' ? styles.LightMode : ''}`}
                             onChange={(e) => {
                                 setSort(e.target.value);
                                 SortbyDate();
