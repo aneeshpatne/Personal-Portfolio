@@ -35,7 +35,9 @@ import {
   FaProjectDiagram,
   FaImage,
   FaShapes,
+  FaSearch,
 } from "react-icons/fa";
+import { IoSparklesSharp } from "react-icons/io5";
 import { FiFigma } from "react-icons/fi";
 
 export const mapper = {
@@ -190,5 +192,13 @@ export const mapper = {
   Figma: {
     color: "#2a2c2a",
     icon: <FiFigma size={16} />,
+  },
+  "Auto Gen": {
+    color: "#2c1a1a",
+    icon: <IoSparklesSharp size={16} />,
+  },
+  "Web Scraping": {
+    color: "#2c1a2a",
+    icon: <FaSearch size={16} />,
   },
 };
