@@ -35,7 +35,8 @@ export async function POST(req) {
         You will not answer any questions about yourself.
         You will not answer any questions about the project that are not related to the project.
         You must politely decline to answer any questions that are not related to the project.
-        You will only answer questions about the project.`,
+        You will only answer questions about the project.
+        you will answer in SHORT PRECISE answers.`,
       },
       ...messages,
     ],
