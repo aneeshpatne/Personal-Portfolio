@@ -30,7 +30,12 @@ const data = [['I am an expert in crafting elegant and high-performance websites
     'In JavaScript, I have extensive experience with frameworks and libraries such as React, SvelteKit, Next.js, and Express, enabling me to build dynamic, modern, and efficient web applications',
     'I use Java for practicing Data Structures and Algorithms, and to deepen my understanding of Object-Oriented Programming (OOP) principles.',
     'Over the years i have solved 350+ problems spanning languages and coding platforms.'        
-    ]];
+    ],
+    ['I possess a deep and comprehensive understanding of Machine Learning due to thorough grasp of the underlying principles and theories that drive the use of various ML algorithms,  Additionally, I am well-versed in the nuances of different Machine Learning models, their appropriate use cases, and the techniques for evaluating their performance. This knowledge allows me to effectively harness the power of Machine Learning to derive meaningful insights. ' ,
+        'I leverage my extensive knowledge of Python and its powerful libraries to perform data preprocessing and data visualization, which are crucial steps in the Machine Learning workflow. Using libraries such as Pandas and NumPy',
+        'I have extensive experience working with a wide range of Machine Learning models, including both supervised and unsupervised learning techniques. My expertise spans from foundational algorithms like Linear Regression (LR), Support Vector Regression (SVR), Support Vector Classification (SVC), and K-Nearest Neighbors (KNN) to more advanced ensemble methods such as Random Forest (RF). Additionally, I have hands-on experience with neural network architectures, particularly Extreme Learning Machines (ELM). ',
+        '"I also have experience using Google Cloud AutoML, which has enabled me to automate the process of training and deploying machine learning models with ease. Additionally, I am currently in the process of learning TensorFlow.'        
+        ]];
 
 export default function SkillData({state}){
     return (<div>
