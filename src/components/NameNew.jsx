@@ -1,5 +1,6 @@
 "use client";
 import { Fira_Code } from "next/font/google";
+import { Instrument_Serif } from "next/font/google";
 import Image from "next/image";
 import { LuGithub, LuLinkedin, LuCodeXml } from "react-icons/lu";
 import styles from "./style/nameNew.module.css";
@@ -9,6 +10,12 @@ const ibm_font = Fira_Code({
   subsets: ["latin"],
   weight: ["400", "500"],
   display: "swap",
+});
+const instrumentSerif = Instrument_Serif({
+  subsets: ["latin"],
+  weight: "400",
+  style: ["normal", "italic"],
+  variable: "--font-instrument-serif",
 });
 const socials = [
   { name: "Github", icon: <LuGithub />, url: "github" },
@@ -47,7 +54,9 @@ export default function NameNew({ theme }) {
               className={styles.logo}
             />
           </div>
-          <p className={styles.introName}>Hi, I&apos;m Aneesh</p>
+          <p className={`${styles.introName} ${instrumentSerif.className}`}>
+            Hi, I&apos;m Aneesh
+          </p>
           <p className={`${styles.introTextSmall} ${ibm_font.className}`}>
             I&apos;m a Full Stack Engineer
           </p>
