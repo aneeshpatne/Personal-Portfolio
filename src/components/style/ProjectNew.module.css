@@ -9,8 +9,8 @@
 }
 .projectContainer {
   position: relative;
-  height: 380px;
-  width: 280px;
+  min-height: 400px;
+  width: 300px;
   border: 1px solid var(--dark-bg-accent);
   border-radius: 15px;
   margin: 2%;
@@ -76,7 +76,7 @@
   padding: 0.3rem;
 }
 .projectDescription {
-  padding: 0.3rem;
+  padding: 2%;
 }
 .projectLearnMore {
   position: absolute;
