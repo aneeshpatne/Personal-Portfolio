@@ -3,14 +3,14 @@ export default function TechStack() {
   const tech = ["React", "Next.js", "Tailwind", "Node", "MongoDB"];
   return (
     <aside className={styles.stack}>
-      <h3 className={styles.title}>Tech Stack</h3>
-      <ul className={styles.list}>
+      <h3 className={styles.title}>TECH STACK</h3>
+      <div className={styles.list}>
         {tech.map((t) => (
-          <li key={t} className={styles.item}>
+          <div key={t} className={styles.item}>
             {t}
-          </li>
+          </div>
         ))}
-      </ul>
+      </div>
     </aside>
   );
 }
