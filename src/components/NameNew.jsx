@@ -6,7 +6,6 @@ import {
   LuGithub,
   LuLinkedin,
   LuCodeXml,
-  LuMail,
   LuMapPin,
 } from "react-icons/lu";
 import styles from "./style/nameNew.module.css";
@@ -48,7 +47,7 @@ export default function NameNew() {
   useEffect(() => {
     const interval = setInterval(() => {
       setIndex((prevIndex) => (prevIndex + 1) % socials.length);
-    }, 3000);
+    }, 5000);
 
     return () => {
       clearInterval(interval);
@@ -73,9 +72,9 @@ export default function NameNew() {
         >
           <Image
             src="/assets/img/logo.png"
-            alt="Aneesh Logo"
-            width={90}
-            height={90}
+            alt="Logo"
+            width={60}
+            height={60}
             priority
             className={styles.logo}
           />
@@ -88,7 +87,7 @@ export default function NameNew() {
             animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
             transition={{ delay: 0.4, duration: 1, ease: [0.16, 1, 0.3, 1] }}
           >
-            Aneesh Patne
+            John Doe
           </motion.h1>
 
           <motion.p
@@ -97,7 +96,7 @@ export default function NameNew() {
             animate={{ opacity: 1, letterSpacing: "0.2em" }}
             transition={{ delay: 0.8, duration: 1, ease: "easeOut" }}
           >
-            Full Stack Engineer
+            Software Developer
           </motion.p>
 
           <motion.div
@@ -107,7 +106,7 @@ export default function NameNew() {
             transition={{ delay: 1.0, duration: 1, ease: "easeOut" }}
           >
             <LuMapPin />
-            Mumbai, India
+            New York, USA
           </motion.div>
         </div>
 
@@ -152,7 +151,7 @@ export default function NameNew() {
           animate={{ opacity: 1 }}
           transition={{ delay: 2, duration: 1 }}
         >
-          <span>aneeshpatne.com/</span>
+          <span>example.com/</span>
           <div
             style={{
               position: "relative",
