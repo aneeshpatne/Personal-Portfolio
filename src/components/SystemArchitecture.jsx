@@ -60,7 +60,26 @@ const SystemArchitecture = () => {
         </motion.div>
       </div>
       <div className={styles.contentContainer}>
-        <LockSVG />
+        <div className={styles.ShowcaseSection}>
+          <div className={styles.ShowcaseCard}>
+            <h2
+              className={`${styles.ShowcaseTitle} ${instrumentSerif.className}`}
+            >
+              Examples of my work
+            </h2>
+            <div className={styles.ShowCaseProject}>
+              <LockSVG />
+              <p className={styles.ProjectText}>
+                <span className={styles.HighlightTitle}>Mausam</span> is a AI
+                weather intelligence platform that has a data pipeline to fetch
+                and process radar images, combines it with live weather data to
+                generate consise reporting. It invokes tools to send mail, send
+                message on telegram and issue alerts based on weather
+                conditions.
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );
