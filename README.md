@@ -1,6 +1,6 @@
 # My Portfolio
 <a href="https://aneeshpatne.com">
-<img src="./public/assets/img/preview.png" alt="Portfolio Screenshot" width="800" height="350" />
+<img src="./public/assets/img/preview.png" alt="Portfolio Screenshot" style="width:100%; max-width:800px; height:auto;" />
 </a>
 
 ## Overview
@@ -24,7 +24,5 @@ Experience the live version of my portfolio:
 
 ## Technologies Used
 
-- [Next.js](https://nextjs.org/) - React framework for production
-- [Vercel](https://vercel.com/) - Deployment and hosting platform
-
+![Tech Stack](https://skillicons.dev/icons?i=nextjs,vercel)
 
