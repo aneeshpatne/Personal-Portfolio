@@ -58,7 +58,7 @@ export default function RootLayout({ children }) {
         <meta property="og:url" content="https://www.aneeshpatne.com/" />
         <meta
           property="og:image"
-          content="https://www.aneeshpatne.com/assets/img/header.png"
+          content="https://www.aneeshpatne.com/assets/img/header.jpg"
         />
         <meta
           property="og:description"
