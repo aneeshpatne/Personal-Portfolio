@@ -1,29 +1,25 @@
 "use client";
 
-import React, { lazy, Suspense } from "react";
+import React from "react";
 import NameNew from "./NameNew";
 import Loading from "@/app/loading"; // Adjust the path if needed
-
-// Lazy load the components
-const LazyProfile = lazy(() => import("./aboutMeNew"));
-const LazySkills = lazy(() => import("./Skills"));
-const LazyWebDev = lazy(() => import("./WebDev"));
-const LazyMatrixLLM = lazy(() => import("./LLM"));
-const LazyDSA = lazy(() => import("./DSA"));
-const LazyProjectNew = lazy(() => import("./ProjectNew"));
+import Profile from "./aboutMeNew";
+import Skills from "./Skills";
+import WebDev from "./WebDev";
+import MatrixLLM from "./LLM";
+import DSA from "./DSA";
+import ProjectNew from "./ProjectNew";
 
 export default function HomePage() {
   return (
     <>
       <NameNew />
-      <Suspense fallback={<Loading />}>
-        <LazyProfile />
-        <LazySkills />
-        <LazyWebDev />
-        <LazyMatrixLLM />
-        <LazyDSA />
-        <LazyProjectNew />
-      </Suspense>
+      <Profile />
+      <Skills />
+      <WebDev />
+      <MatrixLLM />
+      <DSA />
+      <ProjectNew />
     </>
   );
 }
