@@ -33,11 +33,6 @@ function ProjectContainer({
   theme,
 }) {
   const router = useRouter();
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
 
   function redirect(id) {
     if (mounted) {
@@ -45,14 +40,12 @@ function ProjectContainer({
     }
   }
 
-  if (!mounted) {
-    return null;
-  }
-
   return (
-    <div className={styles.projectContainer}>
+    <div className={`${styles.projectContainer}`}>
       <div className={styles.projectImage}>
-        <p className={styles.projectTitle}>Project Title</p>
+        <div className={styles.projectOverlay}>
+          <p className={styles.projectTitle}>hi</p>
+        </div>
       </div>
     </div>
   );
