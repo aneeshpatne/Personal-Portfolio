@@ -192,13 +192,24 @@ function ReadMoreText({ text, wordlimit = 13, speed = 50 }) {
           clearInterval(interval);
         }
       }, speed);
-    } else {
-      setDisplayText(truncatedText);
     }
-
     return () => clearInterval(interval);
-  }, [isExpanded, text, truncatedText, speed]);
-
+  }, [isExpanded]);
+  useEffect(() => {
+    let interval;
+    if (!isExpanded) {
+      let i = text.length;
+      let interval = setInterval(() => {
+        if (i > truncatedText.length) {
+          setDisplayText(text.slice(0, i - 1));
+          i--;
+        } else {
+          clearInterval(interval);
+        }
+      }, speed);
+    }
+    return () => clearInterval(interval);
+  }, [isExpanded]);
   return (
     <p>
       {displayText}
