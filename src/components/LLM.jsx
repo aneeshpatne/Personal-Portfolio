@@ -8,18 +8,18 @@ const data = [
   "# AI & LLM Expertise\n\n",
   "## 🤖 Large Language Models\n",
   "- Expert in **GPT-4, Claude, and open-source LLMs**\n",
-  "- Developed **production-ready AI applications** with advanced prompting techniques\n",
-  "- Implemented **RAG (Retrieval-Augmented Generation)** systems\n\n",
+  "- Developed **production-ready AI applications**\n",
+  "- Implemented **RAG systems**\n\n",
 
   "## 🛠️ Technical Integration\n",
-  "- Proficient with **OpenAI, Anthropic, and Hugging Face APIs**\n",
-  "- Built **scalable AI infrastructure** with proper rate limiting and error handling\n",
-  "- Experience with **vector databases** (Pinecone, Weaviate) for semantic search\n\n",
+  "- Proficient with **OpenAI and Hugging Face**\n",
+  "- Built **scalable AI infrastructure**\n",
+  "- Experience with **vector databases**\n\n",
 
-  "## 🎯 Practical Applications\n",
-  "- Created **AI-powered chatbots** with context awareness\n",
-  "- Developed **document analysis systems** using LLMs\n",
-  "- Implemented **content generation** and **summarization** solutions\n",
+  "## 🎯 Applications\n",
+  "- Created **AI chatbots**\n",
+  "- Developed **document analysis**\n",
+  "- Built **content generation tools**\n",
 ];
 
 function MatrixLLM() {
