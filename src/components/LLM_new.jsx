@@ -68,12 +68,11 @@ export function LLM_new() {
             </h2>
             <div className={styles.CardTextContent}>
               <p className={styles.ProjectText}>
-                <span className={styles.HighlightTitle}>Mausam</span> is a AI
-                weather intelligence platform that has a data pipeline to fetch
-                and process radar images, combines it with live weather data to
-                generate consise reporting. It invokes tools to send mail, send
-                message on telegram and issue alerts based on weather
-                conditions.
+                <span className={styles.HighlightTitle}>Mausam</span> is an AI
+                weather intelligence platform with a pipeline that fetches and
+                processes radar images, blends live weather data, and generates
+                concise reporting. It triggers tools to send email, post Telegram
+                alerts, and notify based on conditions.
               </p>
             </div>
             <MausamFlowchart />
@@ -81,13 +80,11 @@ export function LLM_new() {
             <div className={styles.CardTextContent}>
               <p className={styles.ProjectText}>
                 <span className={styles.HighlightTitle}>Chat</span> is a
-                multi-model AI chat application that provides a unified
-                interface for multiple AI providers. Users select their
-                preferred model, and the system ensures a consistent experience
-                across providers. The backend dynamically routes requests to the
-                chosen AI provider, handling authentication, formatting, and
-                response normalization. This architecture makes Chat scalable,
-                flexible, and easily extensible with new AI models.
+                multi-model AI chat app with a unified interface for providers.
+                Users pick a model and the system keeps the experience
+                consistent. The backend routes requests to the chosen provider,
+                handling auth, formatting, and response normalization. The
+                architecture keeps Chat scalable, flexible, and easy to extend.
               </p>
             </div>
             <ChatFlowchart />
@@ -95,18 +92,12 @@ export function LLM_new() {
             <div className={styles.CardTextContent}>
               <p className={styles.ProjectText}>
                 <span className={styles.HighlightTitle}>Taza Khabar</span> is an
-                AI-powered investigative news platform designed to deliver
-                deeper, unbiased insights beyond the headlines. It continuously
-                scrapes and analyzes news from multiple trusted sources to
-                generate context-rich, transparent reports in real time.
-                <br />
-                <br />
-                The platform leverages agentic web search and automated
-                verification pipelines to cross-check information and reduce
-                bias. A scalable backend powered by FastAPI and a robust
-                PostgreSQL database ensures fast data processing and reliable
-                storage, while a modern Next.js frontend provides a seamless
-                reading experience.
+                AI investigative news platform that delivers unbiased insights
+                beyond headlines. It continuously scrapes and analyzes trusted
+                sources to produce context-rich reports, using agentic web search
+                and automated verification to reduce bias. A scalable FastAPI
+                backend with PostgreSQL enables fast processing and reliable
+                storage, while a Next.js frontend keeps reading smooth.
               </p>
             </div>
             <TazaKhabarFlowchart />
