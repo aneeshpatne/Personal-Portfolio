@@ -1,3 +1,4 @@
+"use client";
 import React, { memo } from "react";
 import styles from "./style/cardMarqee.module.css";
 import Marquee from "react-fast-marquee";
