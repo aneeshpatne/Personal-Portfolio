@@ -49,6 +49,7 @@ function ProjectContainer({imgSrc, title, desc, tech, id}){
         </div>
         <h1 id={styles.ProjectName} className={theme ==='LightMode'  ? styles.LightMode  : ''}>{title}</h1>
         <div id={styles.ProjectDesc} className={theme ==='LightMode'  ? styles.LightMode  : ''}>{desc}</div>
+        <p className={styles.smallText}>Tools and Technologies</p>
         <div id={styles.TechstackContainer}>
         {tech.map((val, index) => (<TechStack Name ={val} imgSrc={logoMapper[val]} key={index}/>))}
         </div>
