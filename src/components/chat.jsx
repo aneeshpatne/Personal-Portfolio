@@ -131,7 +131,7 @@ export default function Chat({ dataDump }) {
           />
         </form>
         <button
-          className={styles.chatButton}
+          className={`${styles.chatButton} ${status === "streaming" ? styles.stop : ""}`}
           onClick={status === "streaming" ? stop : handleSubmit}
         >
           {status === "streaming" ? "Stop" : "Send"}
