@@ -11,6 +11,7 @@ export default function ThemeProvider({children}){
         if (prevTheme){
             setTheme(prevTheme);
         }
+        document.body.classList.add('body-visible');
     },[]);
     useEffect(() => {
         if (mount){

@@ -5,7 +5,7 @@ import Footer from "@/components/Footer";
 
 const raleway = Raleway({
   subsets: ['latin'],
-  weights: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
+  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
   style: ['normal', 'italic'],
   display: 'swap',
 });
@@ -16,6 +16,8 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
+  
+
   const jsonLdData = {
     "@context": "https://schema.org",
     "@type": "ProfilePage",
@@ -36,43 +38,17 @@ export default function RootLayout({ children }) {
     }
   };
 
+
   return (
     <html lang="en" className={raleway.className}>
       <head>
-        {/* 
-          Instead of hiding the body via CSS, we hide it using JavaScript
-          and reveal it when the page is fully loaded.
-        */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              (function() {
-                // Hide the body initially
-                document.body.style.visibility = 'hidden';
-
-                // Load the theme from localStorage and apply it
-                const theme = localStorage.getItem('theme');
-                if (theme === 'LightMode') {
-                  document.body.classList.add('LightMode');
-                } else {
-                  document.body.classList.remove('LightMode');
-                }
-
-                // Wait for the window to fully load and then reveal the body
-                window.addEventListener('load', function() {
-                  document.body.style.visibility = 'visible';
-                });
-              })();
-            `,
-          }}
-        />
+        
         <meta property="og:title" content="Aneesh Patne - Professional Portfolio" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://www.aneeshpatne.com/" />
         <meta property="og:image" content="https://www.aneeshpatne.com/assets/img/header.png" />
         <meta property="og:description" content="Masters student with a strong foundation in Full Stack Web Development & Data Structures and Algorithms." />
         <meta property="og:site_name" content="Aneesh Patne - Professional Portfolio" />
-
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@aneeshpatne" />
         <meta name="twitter:title" content="Aneesh Patne - Professional Portfolio" />
@@ -81,6 +57,7 @@ export default function RootLayout({ children }) {
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdData) }}></script>
       </head>
       <body>
+      <script>0</script>
         <ThemeProvider>
           {children}
           <Footer />
