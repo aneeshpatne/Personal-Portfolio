@@ -15,10 +15,6 @@ const ibm_font = Fira_Code({
 export default function DSA() {
   return (
     <div className={styles.Container}>
-      <h1 className={`${styles.heading} ${ibm_font.className}`}>
-        Coding <Bug size={30} />
-      </h1>
-
       <div className={styles.Content}>
         <div className={styles.LeftPanel}>
            <div className={styles.chart}>
