@@ -49,9 +49,9 @@ function MatrixLLM() {
       <div className={styles.gridOverlay} />
       
       <header className={styles.header}>
-        <h1 className={styles.title}>Artificial Intelligence</h1>
+        <h1 className={styles.title}>Engineering Intelligence</h1>
         <p className={styles.subtitle}>
-          Building reliable autonomous systems that solve real problems. Turning raw models into practical software.
+          I build reliable autonomous systems that solve real problems. My focus is on turning raw models into practical, production-ready software.
         </p>
       </header>
 
@@ -70,9 +70,9 @@ function MatrixLLM() {
             </div>
           </div>
           <div>
-            <h3 className={styles.cardTitle}>Autonomous Agents</h3>
+            <h3 className={styles.cardTitle}>Agentic Architecture</h3>
             <p className={styles.cardDesc}>
-              Creating workflows that plan and execute tasks. These systems handle complex logic and correct their own errors without human intervention.
+              I design workflows that plan and execute tasks autonomously. My agents handle complex logic and correct their own errors without human intervention.
             </p>
           </div>
           <AgentVisual />
@@ -89,7 +89,7 @@ function MatrixLLM() {
           </div>
           <h3 className={styles.cardTitle}>MCP Integration</h3>
           <p className={styles.cardDesc}>
-            Connecting AI models to external tools and databases. I build custom servers that allow assistants to interact with your actual data.
+            I build custom servers that connect AI models to external tools and databases, allowing assistants to interact with your actual data.
           </p>
           <div className={styles.tagContainer} style={{ marginTop: '1rem' }}>
             <span className={styles.tag}>Context Awareness</span>
@@ -108,7 +108,7 @@ function MatrixLLM() {
           </div>
           <h3 className={styles.cardTitle}>Vector Memory</h3>
           <p className={styles.cardDesc}>
-            Building search systems that find the right context. I use hybrid search and reranking to ensure high accuracy for RAG applications.
+            I implement hybrid search systems that find the right context. Using advanced reranking, I ensure high accuracy for RAG applications.
           </p>
           <div className={styles.tagContainer} style={{ marginTop: '1rem' }}>
             <span className={styles.tag}>Embeddings</span>
@@ -126,9 +126,9 @@ function MatrixLLM() {
             </div>
             <span className={styles.tag}>Stack</span>
           </div>
-          <h3 className={styles.cardTitle}>AI Tech Stack</h3>
+          <h3 className={styles.cardTitle}>My AI Tech Stack</h3>
           <p className={styles.cardDesc}>
-            Leveraging the most powerful tools and frameworks in the AI ecosystem to build production-ready applications.
+            I leverage the most powerful tools and frameworks in the ecosystem to build production-ready applications.
           </p>
           <div className={styles.techGrid}>
             {["Vercel AI SDK", "LangChain", "LangGraph", "OpenAI", "Pinecone", "Hugging Face", "Next.js", "Tailwind"].map((tech) => (
@@ -151,9 +151,9 @@ function MatrixLLM() {
           </div>
           <div style={{ display: 'flex', gap: '2rem' }}>
             <div style={{ flex: 1 }}>
-              <h3 className={styles.cardTitle}>ML Ops & Tooling</h3>
+              <h3 className={styles.cardTitle}>ML Ops & Production</h3>
               <p className={styles.cardDesc}>
-                Deploying reliable AI applications. I focus on testing, evaluation, and monitoring to ensure systems work in production.
+                I focus on deploying reliable AI systems. From testing and evaluation to monitoring, I ensure your agents work in the real world.
               </p>
             </div>
             <div style={{ flex: 1, background: 'rgba(0,0,0,0.3)', borderRadius: '8px', padding: '1rem' }}>
