@@ -1,172 +1,169 @@
-#ProjectContainer{
-    height: 500px;
-    width: 300px;
-    background-color: #1E2831;
+#ProjectContainer {
+  min-height: 500px;
+  overflow-y: auto;
+  width: 300px;
+  background-color: #1e2831;
 }
-#ProjectContainer.LightMode{
-    background-color: var(--light-secondary-color);
+#ProjectContainer.LightMode {
+  background-color: var(--light-secondary-color);
 }
-#ProjectImg{
-    position: relative;
-    display: inline-block;
-    width: 100%;
-    height: 180px;
-    background-color: azure;
+#ProjectImg {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  height: 180px;
+  background-color: azure;
 }
 #ProjectImg img {
-    width: 100%;
-    height: 100%;
-    display: block;
-    object-fit: cover; 
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
 }
-#ProjectName{
-    margin: 2% 2%;
-    color: white;
+#ProjectName {
+  margin: 2% 2%;
+  color: white;
 }
-#ProjectName.LightMode{
-    color: #000000;
+#ProjectName.LightMode {
+  color: #000000;
 }
-#ProjectDesc{
-    font-size: 0.8rem;
-    color: white;
-    padding: 10px;
-    text-align: left;
+#ProjectDesc {
+  font-size: 0.8rem;
+  color: white;
+  padding: 10px;
+  text-align: left;
 }
-#ProjectDesc.LightMode{
-    color: #000000;
+#ProjectDesc.LightMode {
+  color: #000000;
 }
-#TechStack{
-    display: flex;
-    align-items: center;
-    margin: 2% 2%;
-    min-width: 85px;
-    min-height: 30px;
-    background-color: white;
-    overflow: hidden; 
-    white-space: normal; 
-}
-
-#TechstackContainer{
-    margin: 2% 2%;
-    display: grid;
-    grid-template-columns: repeat(3,1fr);
-    gap: 5px; 
-
-}
-#TechstackLogo{
-    min-width: 22px;
-    height: 22px;
-    margin-left: 5%;
+#TechStack {
+  display: flex;
+  align-items: center;
+  margin: 2% 2%;
+  min-width: 85px;
+  min-height: 30px;
+  background-color: white;
+  overflow: hidden;
+  white-space: normal;
 }
 
-#TechstackName{
-    color: rgb(0, 0, 0);
-    margin-left: 2%;
-    white-space: normal;
-    overflow-wrap: break-word; 
-    word-wrap: break-word; 
-    overflow: hidden; 
-    text-overflow: ellipsis;
+#TechstackContainer {
+  margin: 1rem 1rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 5px;
 }
-#ProjectContainerMain{
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    align-items: center;
-    justify-items: center;
-    gap: 20px;
+#TechstackLogo {
+  min-width: 22px;
+  height: 22px;
+  margin-left: 5%;
 }
-.ProjectBtn{
-    height: 30px;
-    width: 30px;
-    top: 10px;
-    right: 10px;
-    position: absolute;
-    background: none;
-    border: none;
+
+#TechstackName {
+  color: rgb(0, 0, 0);
+  margin-left: 2%;
+  white-space: normal;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
-.ProjectBtn:hover{
-    cursor: pointer;
+#ProjectContainerMain {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: center;
+  justify-items: center;
+  gap: 20px;
 }
-.ProjectBtn img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    filter: invert(1); 
+.ProjectBtn {
+  height: 30px;
+  width: 30px;
+  top: 10px;
+  right: 10px;
+  position: absolute;
+  background: none;
+  border: none;
 }
-.MainTitle{
-    padding: 20px;
-    font-weight: 800;
+.ProjectBtn:hover {
+  cursor: pointer;
 }
-.smallText{
-    padding: 2%;
-    font-size: 0.85rem;
+.ProjectBtn img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: invert(1);
+}
+.MainTitle {
+  padding: 20px;
+  font-weight: 800;
+}
+.smallText {
+  padding: 2%;
+  font-size: 0.85rem;
 }
 .LoaderContainer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .SortContainer {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    margin: 2% 2%;
-    
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 2% 2%;
 }
 
 .SortDropdown {
-    color: white;
-    padding: 10px;
-    border: none;
-    border-radius: 4px;
-    background-color: #1E2831;
-    cursor: pointer;
-    transition: border-color 0.3s ease;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  background-color: #1e2831;
+  cursor: pointer;
+  transition: border-color 0.3s ease;
 }
-.SortDropdown.LightMode{
-    color: black;
-    background-color: var(--light-secondary-color);
+.SortDropdown.LightMode {
+  color: black;
+  background-color: var(--light-secondary-color);
 }
 
 .SortDropdown:hover {
-    border-color: #d9f0d7;
+  border-color: #d9f0d7;
 }
 
 .SortDropdown:focus {
-    outline: none;
-    border-color: #d9f0d7;
+  outline: none;
+  border-color: #d9f0d7;
 }
-.topicContainer{
-    display:flex;
-    margin: 2% 2%;
-    gap: 10px;
+.topicContainer {
+  display: flex;
+  margin: 2% 2%;
+  gap: 10px;
 }
-.topicButton.LightMode{
-    color: black;
-    background-color: var(--light-secondary-color);
+.topicButton.LightMode {
+  color: black;
+  background-color: var(--light-secondary-color);
 }
-.topicButton{
-    color: white;
-    padding: 8px;
-    background-color: var(--dark-secondary-color);
-    border: none;
-    border-radius: 5px;
+.topicButton {
+  color: white;
+  padding: 8px;
+  background-color: var(--dark-secondary-color);
+  border: none;
+  border-radius: 5px;
 }
-.topicButton.LightMode.active{
-    background-color: #a6efaa;
+.topicButton.LightMode.active {
+  background-color: #a6efaa;
 }
-.topicButton.active{
-    background-color: #090d10;
+.topicButton.active {
+  background-color: #090d10;
 }
-@media screen and (max-width: 950px){
-    #ProjectContainerMain{
-        grid-template-columns: repeat(2,1fr);
-    }
-    
+@media screen and (max-width: 950px) {
+  #ProjectContainerMain {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
-@media screen and (max-width: 600px){
-    #ProjectContainerMain{
-        grid-template-columns: repeat(1,1fr);
-    }
-    
+@media screen and (max-width: 600px) {
+  #ProjectContainerMain {
+    grid-template-columns: repeat(1, 1fr);
+  }
 }
