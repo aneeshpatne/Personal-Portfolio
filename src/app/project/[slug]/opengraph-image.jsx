@@ -184,9 +184,10 @@ export default async function Image({ params }) {
             </div>
             <div
               style={{
-                fontSize: 54,
-                fontWeight: 600,
-                lineHeight: 1.05,
+                // Increased font size for stronger visual impact in OG images
+                fontSize: 72,
+                fontWeight: 700,
+                lineHeight: 1.02,
                 color: accent,
                 display: "flex",
               }}
@@ -246,10 +247,11 @@ export default async function Image({ params }) {
           <div
             style={{
               display: "flex",
-              fontSize: 20,
+              // Increased description size to match larger title
+              fontSize: 26,
               lineHeight: 1.35,
               color: "#9fb2c0",
-              maxWidth: 680,
+              maxWidth: 760,
             }}
           >
             {description}
