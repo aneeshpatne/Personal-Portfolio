@@ -1,6 +1,10 @@
+"use client";
+
 import Image from "next/image";
 import styles from "./style/nasaTile.module.css";
 import { Instrument_Serif } from "next/font/google";
+import { useState, useEffect } from "react";
+
 const instrumentSerif = Instrument_Serif({
   subsets: ["latin"],
   weight: "400",
@@ -8,20 +12,57 @@ const instrumentSerif = Instrument_Serif({
   variable: "--font-instrument-serif",
 });
 
-export default async function NasaTile() {
-  const res = await fetch(
-    `https://api.nasa.gov/planetary/apod?api_key=${process.env.NASA_API_KEY}`,
-    // Using dynamic fetch with no-store to prevent blocking
-    { cache: "no-store" }
-  );
+export default function NasaTile() {
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
 
-  if (!res.ok) return <div className="tile">Failed to load NASA APOD</div>;
-  const data = await res.json();
+  useEffect(() => {
+    fetch(
+      `https://api.nasa.gov/planetary/apod?api_key=${process.env.NEXT_PUBLIC_NASA_API_KEY}`
+    )
+      .then((res) => {
+        if (!res.ok) throw new Error("Failed to fetch");
+        return res.json();
+      })
+      .then((data) => {
+        setData(data);
+        setLoading(false);
+      })
+      .catch(() => {
+        setError(true);
+        setLoading(false);
+      });
+  }, []);
 
-  // Only use title, url and date from the API response
+  if (loading) {
+    return (
+      <div className={`${styles.tile} ${styles.fallback}`}>
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            height: "100%",
+          }}
+        >
+          Loading NASA image...
+        </div>
+      </div>
+    );
+  }
+
+  if (error || !data) {
+    return (
+      <div className={`${styles.tile} ${styles.fallback}`}>
+        Failed to load NASA APOD
+      </div>
+    );
+  }
+
   const title = data.title ?? "NASA APOD";
   const date = data.date ?? "";
-  const imageSrc = data.url ?? null; // use url instead of hdurl
+  const imageSrc = data.url ?? null;
 
   if (!imageSrc || data.media_type !== "image") {
     return (
