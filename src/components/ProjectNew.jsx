@@ -14,7 +14,7 @@ const data = [
     image: "/assets/img/personalPortfolio.png",
   },
 ];
-export default function ProjectNew({ theme }) {
+export default function ProjectNew() {
   return (
     <div className={styles.projects}>
       <div className={styles.projectTitleContainer}>
@@ -24,36 +24,21 @@ export default function ProjectNew({ theme }) {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
-          <span
-            className={`${styles.gradientText}  ${
-              theme === "LightMode" ? styles.LightMode : ""
-            }`}
-          >
-            Projects
-          </span>
+          <span className={styles.gradientText}>Projects</span>
         </motion.h1>
         <motion.div
-          className={`${styles.subtitleContainer} ${
-            theme === "LightMode" ? styles.LightMode : ""
-          }`}
+          className={styles.subtitleContainer}
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
         >
-          <p
-            className={`${styles.projectSubtitle}   ${
-              theme === "LightMode" ? styles.LightMode : ""
-            }`}
-          >
-            Quantifying my progress!
-          </p>
+          <p className={styles.projectSubtitle}>Quantifying my progress!</p>
         </motion.div>
       </div>
       <div className={styles.projectBox}>
         {data.map((project, index) => (
           <ProjectContainer
             key={index}
-            theme={theme}
             stack={project.techStack}
             name={project.title}
           />
@@ -63,7 +48,7 @@ export default function ProjectNew({ theme }) {
   );
 }
 
-export function ProjectContainer({ name, stack, theme }) {
+export function ProjectContainer({ name, stack }) {
   return (
     <div className={styles.projectContainer}>
       <div className={styles.ImageContaier}>
@@ -87,7 +72,6 @@ export function ProjectContainer({ name, stack, theme }) {
               name={tech}
               color={mapper[tech]?.color}
               icon={mapper[tech]?.icon}
-              theme={theme}
             />
           ))}
         </div>
@@ -98,26 +82,21 @@ export function ProjectContainer({ name, stack, theme }) {
           </p>
         </div>
         <button
-          className={`${styles.projectLearnMore} ${
-            theme === "LightMode" ? styles.LightMode : ""
-          }`}
+          className={styles.projectLearnMore}
           onClick={() => {
             console.log("Learn More");
           }}
         >
-          <p className={`${styles.projectLearnMoreText}`}>Learn More</p>
+          <p className={styles.projectLearnMoreText}>Learn More</p>
           <ExternalLink size={20} />
         </button>
       </div>
     </div>
   );
 }
-export function ProjectTechStack({ name, color, lightColor, theme }) {
+export function ProjectTechStack({ name, color }) {
   return (
-    <div
-      className={styles.projectTechStack}
-      style={{ backgroundColor: theme === "LightMode" ? lightColor : color }}
-    >
+    <div className={styles.projectTechStack} style={{ backgroundColor: color }}>
       <p>{name}</p>
     </div>
   );
