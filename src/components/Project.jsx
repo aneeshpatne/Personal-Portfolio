@@ -4,6 +4,7 @@ import { UseThemeContext } from './ThemeContext';
 import styles from './style/Project.module.css';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
+
 const logoMapper = {
     'JS': 'https://cdn.sanity.io/images/gbe5l3wg/production/a8180eeb1e496596ea0be5506635b7462b3f20e9-48x48.svg',
     'ML': 'https://cdn.sanity.io/images/gbe5l3wg/production/8be8b60d543b408caa669963362664d9871e4f96-256x256.svg',
@@ -35,7 +36,25 @@ function ProjectContainer({imgSrc, title, desc, tech, id}){
     const {theme, ThemeToggle} = UseThemeContext();
     const [mounted, setMounted] = useState(false);
     useEffect(()=>{
+        const fetchProject = async () => {
+        try{
         setMounted(true);
+        const res = await fetch('api/project');
+        if (!res.ok){
+            throw new Error("Failed to fetch data");
+        }
+        let data = res.json();4
+        console.log(data);
+        }
+        catch(err){
+            console.error(err);
+        }
+        finally{
+            setMounted(false);
+        }
+        
+    }
+    fetchProject();
     },[]);
     function redirect(id) {
         if (mounted){
