@@ -48,7 +48,7 @@ function ErrorMessage({ message, onRetry }) {
   );
 }
 
-export default function Chat({ dataDump }) {
+export default function Chat() {
   const [tokenMap, setTokenMap] = useState({});
   const chatBoxRef = useRef(null);
   const [errorState, setErrorState] = useState({ isError: false, message: "" });
@@ -63,15 +63,7 @@ export default function Chat({ dataDump }) {
     error,
     reload,
   } = useChat({
-    initialMessages: [
-      {
-        role: "system",
-        content:
-          "This is all the data you have about the project you are working on: " +
-          dataDump,
-      },
-    ],
-    api: "/api/chat",
+    api: "/api/resume",
     onFinish: (message, options) => {
       setTokenMap((prev) => ({
         ...prev,
