@@ -43,9 +43,8 @@ const SystemArchitecture = () => {
           className={styles.descriptionContainer}
         >
           <p className={styles.description}>
-            I have made enterprise-grade backend systems with microservices,
-            message queues, distributed databases, and production-ready
-            authentication.
+            I build enterprise backend systems with microservices, queues,
+            distributed databases, and production-ready authentication.
           </p>
         </motion.div>
 
@@ -75,12 +74,11 @@ const SystemArchitecture = () => {
               <LockSVG />
               <p className={styles.ProjectText}>
                 <span className={styles.HighlightTitle}>Suraksha</span> is an
-                enterprise-grade, multi-tenant authentication service built with
-                Spring Boot. It supports email/password login, passwordless
-                magic URLs, and optional OTP-based 2FA, with secure RS256-signed
-                JWTs, refresh token rotation, and org-level isolation. It uses
-                PostgreSQL for persistence, Redis for token/OTP caching with
-                TTL, and RabbitMQ for asynchronous email delivery.
+                enterprise, multi-tenant auth service built on Spring Boot. It
+                supports email/password, magic links, optional OTP 2FA, RS256
+                JWTs, refresh rotation, and org-level isolation. PostgreSQL
+                stores data, Redis caches tokens/OTPs, and RabbitMQ delivers
+                email.
               </p>
             </div>
             <SurakshaFlowSVG />
@@ -95,12 +93,10 @@ const SystemArchitecture = () => {
             >
               <p className={styles.ProjectText} style={{ maxWidth: 800 }}>
                 <span className={styles.HighlightTitle}>Practice Coder</span> is
-                a scalable remote code execution engine capable of handling
-                thousands of submissions safely. It orchestrates Docker
-                containers via RabbitMQ to execute untrusted user code in
-                isolated environments. The system features a Spring Boot API
-                gateway, a PostgreSQL database for submission tracking, and a
-                dynamic worker pool that auto-scales based on queue depth.
+                a scalable remote execution engine for safe, high-volume
+                submissions. It orchestrates Docker containers via RabbitMQ for
+                isolated runs, with a Spring Boot API gateway, PostgreSQL
+                tracking, and an auto-scaling worker pool.
               </p>
             </div>
             <Judge0FlowSVG />
@@ -115,12 +111,10 @@ const SystemArchitecture = () => {
               <SystemArchitectureImage />
               <div className={styles.ProjectText}>
                 <span className={styles.HighlightTitle}>DIY CCTV</span> is a
-                fully self-hosted, end-to-end CCTV automation stack. It captures
-                and processes live camera streams, overlays time and system
-                health metrics, records segmented video, restreams low-latency
-                RTSP feeds, logs motion events, exposes everything through a
-                FastAPI service, and delivers automated motion summaries via
-                Telegram Bot.
+                self-hosted CCTV automation stack. It captures streams, overlays
+                time and health metrics, records segments, restreams RTSP feeds,
+                logs motion, exposes a FastAPI service, and sends Telegram
+                summaries.
               </div>
             </div>
             <CCTVFlowSVG />
