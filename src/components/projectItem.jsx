@@ -59,7 +59,7 @@ export default async function ProjectItem() {
         className={`${styles.heading} ${instrumentSerif.className}`}
         style={{
           fontSize: `${getFontSizePx(title.length)}px`,
-          lineHeight: 1,
+          lineHeight: 1.1,
         }}
       >
         {title}
