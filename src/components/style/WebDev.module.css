@@ -202,6 +202,34 @@
   align-items: center;
   justify-content: center;
 }
+/* Variant used on project cards: cleaner pill, subtle border, compact */
+.techStack1 {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0.25rem 0.5rem;
+  border-radius: 999px;
+  border: 1px solid var(--dark-bg-accent);
+  background: rgba(255, 255, 255, 0.02);
+  color: inherit; /* let inline style set readable color */
+  font-size: 0.9rem;
+}
+.techStackLogo1 {
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.techStackName {
+  white-space: nowrap;
+}
+
+/* If the pill background is very light, give it a subtle inner shadow to keep contrast */
+.techStack1[style*="#fff"],
+.techStack1[style*="#ffffff"] {
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.06);
+}
 /* Keyframe animations */
 @keyframes fadeInUp {
   from {
