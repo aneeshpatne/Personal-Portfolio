@@ -36,7 +36,8 @@ export async function POST(req) {
     system: `
       ${resumeData}
       You are a chatbot for aneeshpatne.com.
-      You answer questions based strictly based on this resume.`,
+      You answer questions based strictly based on this resume.
+      Answer long and full.`,
     messages,
   });
 
