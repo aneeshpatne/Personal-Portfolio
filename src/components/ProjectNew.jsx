@@ -1,15 +1,9 @@
 "use client";
 import styles from "./style/ProjectNew.module.css";
-import Image from "next/image";
 import { motion } from "framer-motion";
-import { ExternalLink } from "lucide-react";
-import { TechStack } from "./WebDev";
-import { mapper } from "./data";
 import { useState, useEffect } from "react";
-import Link from "next/link";
-import Loading from "@/app/loading";
 
-function ReadMoreText({ text, wordlimit = 13, speed = 50 }) {
+export function ReadMoreText({ text, wordlimit = 13, speed = 50 }) {
   const words = text.split(" ");
   const truncatedText =
     words.length > wordlimit
@@ -61,52 +55,6 @@ function ReadMoreText({ text, wordlimit = 13, speed = 50 }) {
         </button>
       )}
     </p>
-  );
-}
-
-export function ProjectContainer({ name, stack, description, image, id }) {
-  return (
-    <div className={styles.projectContainer}>
-      <div className={styles.ImageContaier}>
-        <Image
-          src={image}
-          width={300}
-          height={180}
-          style={{ objectFit: "cover" }}
-          draggable={false}
-          alt="Project Image"
-        />
-        <div className={styles.overlay}>
-          <h2 className={styles.overlayText}>{name}</h2>
-        </div>
-      </div>
-      <div className={styles.lowerContainer}>
-        <div className={styles.projectTechStackContainer}>
-          {stack.map((tech, index) => (
-            <TechStack
-              key={index}
-              name={tech}
-              color={mapper[tech]?.color}
-              icon={mapper[tech]?.icon}
-            />
-          ))}
-        </div>
-        <div className={styles.projectDescription}>
-          <ReadMoreText text={description} />
-        </div>
-        <Link className={styles.projectLearnMore} href={`project/${id}`}>
-          <p className={styles.projectLearnMoreText}>Learn More</p>
-          <ExternalLink size={20} />
-        </Link>
-      </div>
-    </div>
-  );
-}
-export function ProjectTechStack({ name, color }) {
-  return (
-    <div className={styles.projectTechStack} style={{ backgroundColor: color }}>
-      <p>{name}</p>
-    </div>
   );
 }
 
