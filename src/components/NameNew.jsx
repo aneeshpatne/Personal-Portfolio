@@ -39,11 +39,14 @@ export default function NameNew({ theme }) {
       <div className={styles.upperText}>
         <div className={styles.introWrapper}>
           <p className={styles.introName}>Hi, I&apos;m Aneesh</p>
-          <p className={styles.introText}>
+          {/* <p className={styles.introText}>
             Passionate about{" "}
             <span className={styles.gradientText}>Full Stack Dev</span>,{" "}
             <span className={styles.gradientText}>LLM solutions</span>, and{" "}
             <span className={styles.gradientText}>Data Structures</span>.
+          </p> */}
+          <p className={`${styles.introTextSmall} ${ibm_font.className}`}>
+            Turning ideas into code
           </p>
         </div>
       </div>
