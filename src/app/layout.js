@@ -1,10 +1,10 @@
-import { Inter, Raleway } from "next/font/google";
+import { Raleway } from "next/font/google";
 import "./globals.css";
 import "../components/style/header.css";
 import ThemeProvider from "@/components/ThemeContext";
 import Footer from "@/components/Footer";
+import PageLoad from "@/components/PageLoad";
 
-//Noto_Sans
 const raleway = Raleway({
   subsets: ["latin"],
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
@@ -85,10 +85,10 @@ export default function RootLayout({ children }) {
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdData) }}
-        ></script>
+        />
       </head>
-      <body>
-        <script>0</script>
+      <body style={{ visibility: "hidden" }}>
+        <PageLoad />
         <ThemeProvider>
           {children}
           <Footer />

@@ -1,0 +1,20 @@
+.projectBox {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-content: center;
+  margin: 5%;
+  gap: 20px;
+}
+.projectContainer {
+  height: 350px;
+  width: 300px;
+  border: 1px solid var(--dark-bg-accent);
+  border-radius: 20px;
+}
+.ImageContaier {
+  border-radius: inherit;
+  background-color: aqua;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  height: 180px;
+}
