@@ -22,8 +22,9 @@ export default function HomePage() {
       <Profile />
       <section id="skills">
         <WebDev />
-        <MatrixLLM />
         <DSA />
+        <MatrixLLM />
+  
       </section>
       <section id="project">
         <Suspense fallback={<ProjectLoadingSkeleton />}>
