@@ -162,12 +162,12 @@ export default function Stats({ theme }) {
                 <div className={styles.imgContainer}>
                     {theme === 'LightMode' ? (
                         <img
-                            src="https://github-readme-activity-graph.vercel.app/graph?username=aneeshpatne&bg_color=d9f0d7&color=000&line=419236&point=419236&days=10&radius=6&height=550&hide_border=true"
+                            src="https://github-readme-activity-graph.vercel.app/graph?username=aneeshpatne&bg_color=d9f0d7&color=000&line=419236&point=419236&days=10&radius=6&height=550&hide_border=true&custom_title=GitHub%20Activity%20Graph"
                             alt="GitHub Activity Graph"
                         />
                     ) : (
                         <img
-                            src="https://github-readme-activity-graph.vercel.app/graph?username=aneeshpatne&bg_color=1E2831&color=FFF&line=366492&point=FFF&days=10&radius=6&height=550&hide_border=true"
+                            src="https://github-readme-activity-graph.vercel.app/graph?username=aneeshpatne&bg_color=1E2831&color=FFF&line=366492&point=FFF&days=10&radius=6&height=550&hide_border=true&custom_title=GitHub%20Activity%20Graph"
                             alt="GitHub Activity Graph"
                         />
                     )}
