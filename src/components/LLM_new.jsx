@@ -2,18 +2,28 @@
 import { Instrument_Serif } from "next/font/google";
 import styles from "./style/LLM_new.module.css";
 import { useEffect, useState } from "react";
+import { AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 
 const instrumentSerif = Instrument_Serif({
   weight: "400",
   subsets: ["latin"],
 });
 
+const headings = [
+  "Automated Systems",
+  "End to End Pipelines",
+  "Model Agnostic",
+  "Agentic Workflows",
+  "Predictive Analytics",
+];
+
 export function LLM_new() {
   const [index, setIndex] = useState(0);
   useEffect(() => {
     const timer = setInterval(() => {
-      setIndex((i) => i + 1);
-    }, 5000);
+      setIndex((i) => (i + 1) % headings.length);
+    }, 2000);
     return () => clearInterval(timer);
   }, []);
 
@@ -33,8 +43,22 @@ export function LLM_new() {
           architectures, vector databases, multi-LLM orchestration, real-time
           streaming, and agentic tool calling.
         </p>
-        {index}
-        <h1 className={styles.HeadingText}>Automated Systems</h1>
+        <h1 className={styles.HeadingText}>
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={headings[index]}
+              initial={{ opacity: 0, scale: 0.92, filter: "blur(6px)" }}
+              animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
+              exit={{ opacity: 0, scale: 1.06, filter: "blur(6px)" }}
+              transition={{ duration: 0.2, ease: "easeOut" }}
+            >
+              {headings[index]}
+            </motion.div>
+          </AnimatePresence>
+        </h1>
+        <p className={`${styles.projectText} ${instrumentSerif.className}`}>
+          Some of My AI Powered Creations
+        </p>
         <p className={styles.MausamText}>
           Mausam is a AI weather intelligence platform that has a data pipeline
           to fetch and process radar images, combines it with live weather data
