@@ -19,6 +19,17 @@
 #NameContainer p{
     margin: 0;
 }
+#LinkBox{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    width: 200px;
+    height: 45px;
+    margin-top: 2% ;
+}
+#LinkLogo{
+    height: 100%;
+   object-fit: cover; 
+}
 @media screen and (max-width : 400px) {
     
     #NameBox{
