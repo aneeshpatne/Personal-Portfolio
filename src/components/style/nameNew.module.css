@@ -39,13 +39,14 @@
   display: flex;
   padding: 5px;
   border-radius: 5px;
-  border: 2px solid var(--dark-bg-outline);
+  border: 1px solid var(--dark-bg-accent);
 }
 .socialContainer.light {
   border: 2px solid var(--light-bg-outline);
 }
 .socialContainer.active {
-  background-color: var(--dark-bg-outline);
+  color: black;
+  background-color: var(--dark-bg-accent);
 }
 .socialContainer.active.light {
   background-color: var(--light-bg-outline);

@@ -1,7 +1,8 @@
 "use client";
-import Header from "./Header";
+
 import { useState, useEffect } from "react";
 import NameCompoenent from "./Name";
+import NewHeader from "./NewHeader";
 import { UseThemeContext } from "./ThemeContext";
 import Aboutme from "./About";
 import NameNew from "./NameNew";
@@ -28,7 +29,7 @@ export default function HomePage() {
   if (!Mount) return null;
   return (
     <>
-      <Header theme={theme} ThemeToggle={ThemeToggle} />
+      <NewHeader theme={theme} ThemeToggle={ThemeToggle} />
       <NameNew theme={theme} />
       <Aboutme theme={theme} />
       <LazyStats theme={theme} />
