@@ -3,7 +3,7 @@
 import React from "react";
 import NameNew from "./NameNew";
 import Loading from "@/app/loading"; // Adjust the path if needed
-import Profile from "./Aboutmenew";
+import Profile from "./AboutMeNew";
 import Skills from "./Skills";
 import WebDev from "./WebDev";
 import MatrixLLM from "./LLM";
