@@ -5,9 +5,9 @@ export default function Stats({theme}) {
     const radius = 137.5; 
     const circumference = 2 * Math.PI * radius; 
     const [values, setValues] = useState({
-        val1: 22,
-        val2: 291,
-        val3: 184
+        val1: 23,
+        val2: 290,
+        val3: 185
     });
     const [Mounted, setMounted] = useState(false);
     useEffect(() => {
