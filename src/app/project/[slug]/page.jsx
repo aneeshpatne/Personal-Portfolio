@@ -28,10 +28,8 @@ export async function generateMetadata({ params }) {
   const url = `${SITE_DOMAIN}/project/${slug}`;
   const ogImage = `${url}/opengraph-image`;
   const title = project.title || slug;
-  const desc = project.shortDesc
-    .replace(/\r?\n+/g, " ")
-    .replace(/\s+/g, " ")
-    .slice(0, 220);
+  const desc = project.shortDesc;
+  console.log(desc);
   const techList = project.techStack
     ? project.techStack
         .split(/[,|]/)
