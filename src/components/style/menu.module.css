@@ -23,9 +23,9 @@
 .chatBoxMain {
   position: fixed;
   bottom: 50%;
-  z-index: 9999;
   left: 50%;
   transform: translate(-50%, 50%);
+  z-index: 10000; /* Increased z-index to be above backdrop */
 }
 
 .MenuContainer {
