@@ -9,15 +9,25 @@ import "highlight.js/styles/github-dark.css";
 import { useState, useEffect, useRef } from "react";
 import { FaComments, FaExclamationTriangle } from "react-icons/fa";
 import { IoMdRefresh } from "react-icons/io";
+import { motion, AnimatePresence } from "framer-motion";
 
 // Loading animation component
 function LoadingAnimation() {
   return (
     <div className={styles.loadingContainer}>
       <div className={styles.typingIndicator}>
-        <span></span>
-        <span></span>
-        <span></span>
+        <motion.span
+          animate={{ scale: [0.8, 1, 0.8], opacity: [0.3, 1, 0.3] }}
+          transition={{ duration: 1.2, repeat: Infinity, delay: 0 }}
+        />
+        <motion.span
+          animate={{ scale: [0.8, 1, 0.8], opacity: [0.3, 1, 0.3] }}
+          transition={{ duration: 1.2, repeat: Infinity, delay: 0.15 }}
+        />
+        <motion.span
+          animate={{ scale: [0.8, 1, 0.8], opacity: [0.3, 1, 0.3] }}
+          transition={{ duration: 1.2, repeat: Infinity, delay: 0.3 }}
+        />
       </div>
     </div>
   );
@@ -28,25 +38,60 @@ function ErrorMessage({ message, onRetry }) {
   const isRateLimitError = message?.includes("Daily limit reached");
 
   return (
-    <div className={styles.errorContainer}>
-      <FaExclamationTriangle className={styles.errorIcon} />
-      <h3>
-        {isRateLimitError ? "Daily Limit Reached" : "Something went wrong"}
-      </h3>
+    <motion.div
+      className={styles.errorContainer}
+      initial={{ opacity: 0, scale: 0.95 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 0.3, ease: "easeOut" }}
+    >
+      <motion.div
+        initial={{ scale: 0 }}
+        animate={{ scale: 1 }}
+        transition={{ delay: 0.1, type: "spring", stiffness: 200 }}
+      >
+        <FaExclamationTriangle className={styles.errorIcon} />
+      </motion.div>
+      <h3>{isRateLimitError ? "Limit Reached" : "Something went wrong"}</h3>
       <p>
         {isRateLimitError
-          ? "You've reached your chat limit for today. Please check back tomorrow."
-          : message ||
-            "There was an error processing your request. Please try again later."}
+          ? "You've reached your daily limit. Please try again tomorrow."
+          : message || "An error occurred. Please try again."}
       </p>
       {!isRateLimitError && (
-        <button onClick={onRetry} className={styles.retryButton}>
-          <IoMdRefresh className={styles.refreshIcon} /> Try Again
-        </button>
+        <motion.button
+          onClick={onRetry}
+          className={styles.retryButton}
+          whileHover={{ scale: 1.02 }}
+          whileTap={{ scale: 0.98 }}
+        >
+          <IoMdRefresh className={styles.refreshIcon} /> Retry
+        </motion.button>
       )}
-    </div>
+    </motion.div>
   );
 }
+
+// Message animation variants
+const messageVariants = {
+  hidden: (isUser) => ({
+    opacity: 0,
+    x: isUser ? 20 : -20,
+    y: 10,
+  }),
+  visible: {
+    opacity: 1,
+    x: 0,
+    y: 0,
+    transition: {
+      duration: 0.3,
+      ease: [0.25, 0.46, 0.45, 0.94],
+    },
+  },
+  exit: {
+    opacity: 0,
+    transition: { duration: 0.2 },
+  },
+};
 
 export default function Chat({ dataDump, theme = "black" }) {
   const [tokenMap, setTokenMap] = useState({});
@@ -123,79 +168,117 @@ export default function Chat({ dataDump, theme = "black" }) {
     theme === "black" ? styles.blackTheme : ""
   }`;
 
+  const hasMessages = messages.some(
+    (msg) => msg.role === "user" || msg.role === "assistant"
+  );
+
   return (
-    <div className={containerClass}>
-      <div className={styles.chatHeader}>
+    <motion.div
+      className={containerClass}
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
+    >
+      <motion.div
+        className={styles.chatHeader}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.1, duration: 0.3 }}
+      >
         <FaComments className={styles.chatHeaderIcon} />
-        <h2 className={styles.chatHeaderTitle}>Project Chat</h2>
-      </div>
+        <h2 className={styles.chatHeaderTitle}>Chat</h2>
+      </motion.div>
 
       <div className={styles.chatBox} ref={chatBoxRef}>
-        {errorState.isError ? (
-          <ErrorMessage message={errorState.message} onRetry={handleRetry} />
-        ) : messages.some(
-            (msg) => msg.role === "user" || msg.role === "assistant"
-          ) ? (
-          <>
-            {renderedText
-              .filter(
-                (message) =>
-                  message.role === "user" || message.role === "assistant"
-              )
-              .map((message) => (
-                <div
-                  key={message.id}
-                  className={`${styles.messageText} ${
-                    message.role === "user" ? styles.user : ""
-                  }`}
-                >
-                  {message.id === "loading" ? (
-                    <LoadingAnimation />
-                  ) : (
-                    <div>
-                      {message.parts.map((part, i) => {
-                        if (part.type === "text") {
-                          return (
-                            <div key={`${message.id}-${i}`}>
-                              <ReactMarkdown
-                                remarkPlugins={[remarkGfm]}
-                                rehypePlugins={[rehypeHighlight]}
-                              >
-                                {part.text}
-                              </ReactMarkdown>
-                            </div>
-                          );
-                        }
-                        return null;
-                      })}
-                    </div>
-                  )}
-                  {message.role === "assistant" && tokenMap[message.id] && (
-                    <div className={styles.tokenCount}>
-                      <small>Tokens used: {tokenMap[message.id]}</small>
-                    </div>
-                  )}
-                </div>
-              ))}
-          </>
-        ) : (
-          <IntroChatBot />
-        )}
+        <AnimatePresence mode="wait">
+          {errorState.isError ? (
+            <ErrorMessage
+              key="error"
+              message={errorState.message}
+              onRetry={handleRetry}
+            />
+          ) : hasMessages ? (
+            <motion.div
+              key="messages"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              style={{ display: "contents" }}
+            >
+              {renderedText
+                .filter(
+                  (message) =>
+                    message.role === "user" || message.role === "assistant"
+                )
+                .map((message, index) => (
+                  <motion.div
+                    key={message.id}
+                    custom={message.role === "user"}
+                    variants={messageVariants}
+                    initial="hidden"
+                    animate="visible"
+                    className={`${styles.messageText} ${
+                      message.role === "user" ? styles.user : ""
+                    }`}
+                  >
+                    {message.id === "loading" ? (
+                      <LoadingAnimation />
+                    ) : (
+                      <div>
+                        {message.parts.map((part, i) => {
+                          if (part.type === "text") {
+                            return (
+                              <div key={`${message.id}-${i}`}>
+                                <ReactMarkdown
+                                  remarkPlugins={[remarkGfm]}
+                                  rehypePlugins={[rehypeHighlight]}
+                                >
+                                  {part.text}
+                                </ReactMarkdown>
+                              </div>
+                            );
+                          }
+                          return null;
+                        })}
+                      </div>
+                    )}
+                    {message.role === "assistant" && tokenMap[message.id] && (
+                      <motion.div
+                        className={styles.tokenCount}
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ delay: 0.3 }}
+                      >
+                        <small>Tokens used: {tokenMap[message.id]}</small>
+                      </motion.div>
+                    )}
+                  </motion.div>
+                ))}
+            </motion.div>
+          ) : (
+            <IntroChatBot key="intro" />
+          )}
+        </AnimatePresence>
       </div>
 
-      <div className={styles.chatInputContainer}>
+      <motion.div
+        className={styles.chatInputContainer}
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.2, duration: 0.3 }}
+      >
         <form onSubmit={handleSubmit} style={{ display: "flex", flexGrow: 1 }}>
           <input
             className={styles.chatInput}
             value={input}
-            placeholder="Type your message..."
+            placeholder="Ask something..."
             onChange={handleInputChange}
             disabled={
               errorState.isError && errorState.message?.includes("Daily limit")
             }
           />
         </form>
-        <button
+        <motion.button
           className={`${styles.chatButton} ${
             status === "streaming" ? styles.stop : ""
           } ${
@@ -207,28 +290,88 @@ export default function Chat({ dataDump, theme = "black" }) {
           disabled={
             errorState.isError && errorState.message?.includes("Daily limit")
           }
+          whileHover={{ scale: 1.02 }}
+          whileTap={{ scale: 0.98 }}
         >
           {status === "streaming" ? "Stop" : "Send"}
-        </button>
-      </div>
-    </div>
+        </motion.button>
+      </motion.div>
+    </motion.div>
   );
 }
 
 function IntroChatBot() {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.1,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 15 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.4,
+        ease: [0.25, 0.46, 0.45, 0.94],
+      },
+    },
+  };
+
+  const listItemVariants = {
+    hidden: { opacity: 0, x: -10 },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        duration: 0.3,
+        ease: "easeOut",
+      },
+    },
+  };
+
   return (
-    <div className={styles.introChatBot}>
-      <h1 className={styles.headerText}>Welcome to the Project Chat!</h1>
-      <p className={styles.introText}>
-        I&apos;m your AI assistant with knowledge about this project&apos;s
-        codebase and documentation.
-      </p>
-      <p className={styles.exampleHeader}>Example questions:</p>
-      <ul className={styles.exampleList}>
-        <li>What technologies does this project use?</li>
-        <li>How is the application structured?</li>
-        <li>Can you explain how it works?</li>
-      </ul>
-    </div>
+    <motion.div
+      className={styles.introChatBot}
+      variants={containerVariants}
+      initial="hidden"
+      animate="visible"
+    >
+      <motion.h1 className={styles.headerText} variants={itemVariants}>
+        Ask me anything
+      </motion.h1>
+      <motion.p className={styles.introText} variants={itemVariants}>
+        I can answer questions about this project&apos;s code, architecture, and
+        how it works.
+      </motion.p>
+      <motion.p className={styles.exampleHeader} variants={itemVariants}>
+        Try asking
+      </motion.p>
+      <motion.ul className={styles.exampleList} variants={containerVariants}>
+        {[
+          "What technologies does this use?",
+          "How is it structured?",
+          "Explain how it works",
+        ].map((question, index) => (
+          <motion.li
+            key={index}
+            variants={listItemVariants}
+            whileHover={{
+              x: 4,
+              backgroundColor: "var(--chat-surface-hover)",
+              transition: { duration: 0.15 },
+            }}
+          >
+            {question}
+          </motion.li>
+        ))}
+      </motion.ul>
+    </motion.div>
   );
 }
