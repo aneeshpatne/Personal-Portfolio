@@ -61,7 +61,6 @@ export default function WebDev() {
   );
 }
 
-// Keep TechStack1 here since other components (e.g., project.jsx) import it from WebDev
 function TechStack1({ name, color = null, icon = null }) {
   return (
     <div
@@ -84,7 +83,6 @@ function TechStack1({ name, color = null, icon = null }) {
 
 export { TechStack1 };
 
-// Local CategoryGroup & TechStack (previously in client component)
 function CategoryGroup({ title, items }) {
   if (!items.length) return null;
   return (
