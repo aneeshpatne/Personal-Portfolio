@@ -1,3 +1,61 @@
+.ShowcaseSection {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  margin-top: 3rem;
+  align-items: center;
+}
+
+.ShowcaseCard {
+  width: 100%;
+  border-radius: 24px;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.03) 0%,
+    rgba(255, 255, 255, 0.01) 100%
+  );
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  box-shadow: 0 4px 24px -1px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
+  position: relative;
+  overflow: hidden;
+}
+
+.ShowcaseTitle {
+  font-size: clamp(1.5rem, 5vw, 3rem);
+  text-align: left;
+  color: #fff;
+  margin: 0;
+  line-height: 1.2;
+  width: 100%;
+}
+
+.ShowCaseProject {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.ProjectText {
+  font-size: clamp(1.1rem, 1.5vw, 1.25rem);
+  line-height: 1.7;
+  color: rgba(226, 232, 240, 0.85);
+  margin: 0;
+  text-align: justify;
+}
+
+.HighlightTitle {
+  color: #fff;
+  font-weight: 600;
+  font-size: 1.1em;
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+}
+
 .section {
   width: 100%;
   max-width: 1400px;
@@ -92,11 +150,37 @@
 
   .contentContainer {
     flex-direction: column;
+    gap: 2.5rem;
+  }
+
+  .ShowcaseSection {
+    margin-top: 1.5rem;
+    gap: 2rem;
   }
 
   .descriptionContainer {
     flex: 1 1 100%;
     min-width: 100%;
     text-align: center;
+  }
+
+  .ShowcaseCard {
+    padding: 1.5rem;
+    gap: 1rem;
+  }
+
+  .ShowcaseTitle {
+    text-align: center;
+  }
+
+  .ShowCaseProject {
+    flex-direction: column;
+    text-align: center;
+    gap: 1.5rem;
+  }
+
+  .ProjectText {
+    text-align: center;
+    font-size: 1rem;
   }
 }
