@@ -3,24 +3,35 @@
   height: 350px;
   width: 270px;
   border-radius: 10px;
-  background-color: rgb(255, 255, 255);
+  background-color: var(--dark-bg-sec);
+  border: 1px solid var(--dark-bg-outline);
+  box-shadow: 0 2px 4px rgba(47, 54, 62, 0.1);
 }
+
 .projectImage {
   position: relative;
   width: 100%;
   height: 170px;
-  background-color: #a6efaa;
+  background-color: #65a28a;
   border-radius: 10px 10px 0 0;
 }
 .projectTitle {
   position: absolute;
   bottom: 0;
+  left: 0;
   padding: 10px;
   font-size: 1.2rem;
   font-weight: 600;
-  color: #090d10;
+  color: #ffffff;
 }
-
+.projectOverlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 40px;
+  background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.7));
+}
 #ProjectContainerMain {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
