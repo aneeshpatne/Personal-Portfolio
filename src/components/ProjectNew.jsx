@@ -8,13 +8,23 @@ import { use, useState, useEffect } from "react";
 
 export const project = [
   {
-    id: "asapfiles",
-    title: "ASAPFiles",
-    techStack: ["Next.js", "Express.js", "WebSocket"],
+    id: "deep-search",
+    title: "Daily Deep Search Newsletter",
+    techStack: ["LLM", "Web Scraping", "Auto Gen"],
     description:
-      "Real-time file sharing app enabling low-latency, bidirectional communication through efficient chunk-based file transmission.",
+      "Automated newsletter generation using LLM and web scraping for daily updates on latest news.",
     image: "/assets/img/asapFiles.png",
-    startDate: "Dec 2024",
+    startDate: "April 2024",
+    endDate: "Present",
+  },
+  {
+    id: "curiosity",
+    title: "Curiosity",
+    techStack: ["LLM", "Web Scraping", "Next.js", "Express.js", "WebSocket"],
+    description:
+      "Automated web search and scraping system using Playwright and DuckDuckGo API, integrated with LLM for efficient data extraction",
+    image: "/assets/img/asapFiles.png",
+    startDate: "April 2024",
     endDate: "Present",
   },
   {
