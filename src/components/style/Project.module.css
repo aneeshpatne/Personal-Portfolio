@@ -58,18 +58,14 @@
     height: 22px;
     margin-left: 5%;
 }
-#TechstackLogo img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
+
 #TechstackName{
     color: rgb(0, 0, 0);
     margin-left: 5%;
-    white-space: normal; /* Allow text to wrap */
-    overflow-wrap: break-word; /* Break long words */
-    word-wrap: break-word; /* Break long words */
-    overflow: hidden; /* Ensure overflow is hidden */
+    white-space: normal;
+    overflow-wrap: break-word; 
+    word-wrap: break-word; 
+    overflow: hidden; 
     text-overflow: ellipsis;
 }
 #ProjectContainerMain{
