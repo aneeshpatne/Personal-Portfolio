@@ -63,8 +63,11 @@ export default function Menu() {
       </div>
       {isChatOpen && (
         <div className={styles.chatBackdrop} onClick={toggleChat}>
-          <div className={styles.chatBoxMain}>
-            <Chat dataDump="Just Reply that the chatbot is waiting for data pipelines, sorry for inconvenience" />
+          <div
+            className={styles.chatBoxMain}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <Chat dataDump="This is all the data you have about the project you are working on." />
           </div>
         </div>
       )}
