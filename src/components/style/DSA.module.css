@@ -1,10 +1,11 @@
 .Content {
   display: flex;
-  padding: 2%;
+  padding: 4%;
+  gap: 2%;
+  justify-content: center;
 }
 .heading {
   display: block;
-
   margin-left: auto;
   margin-right: auto;
   text-align: center;
@@ -12,4 +13,13 @@
 }
 .Container {
   width: 100%;
+}
+.chart {
+  align-self: flex-end;
+}
+.topics {
+  height: auto;
+  width: 800px;
+  border: 1px solid #fff;
+  border-radius: 10px;
 }
