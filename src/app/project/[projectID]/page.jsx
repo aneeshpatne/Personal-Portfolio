@@ -33,7 +33,7 @@ export default function ProjectInfo({params}){
             <h1 className={styles.MainHeader}>{data[projectID]?.Name}</h1>
             <p className={styles.TechStackText}>Tools and Technologies used for development</p>
             <div className={styles.TechStackContainer}>
-               {data[projectID]?.techstack.map((data) => (<TechStack Name={data} imgSrc={logoMapper[data]} />))}
+               {data[projectID]?.techstack.map((data,index) => (<TechStack Name={data} imgSrc={logoMapper[data]} key = {index}/>))}
             </div>
             </div>
             <div id={styles.projectDesription}></div>
