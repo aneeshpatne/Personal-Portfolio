@@ -49,8 +49,25 @@ export default function DoughnutChart() {
     setMounted(true);
   }, []);
 
-  // Now, conditionally render after all hooks have been called.
-  if (!mounted) return null;
+  if (!mounted) {
+    return (
+      <div className={styles.chartCard}>
+        <div className={styles.chartHeader}>DSA Questions Solved</div>
+        <div className={styles.chartContent}>
+          <div className={styles.skeletonChart}>
+            <div className={styles.skeletonCircle}>
+              <div className={styles.skeletonInnerCircle}></div>
+            </div>
+          </div>
+          <div className={styles.skeletonLegend}>
+            <div className={styles.skeletonLegendItem}></div>
+            <div className={styles.skeletonLegendItem}></div>
+            <div className={styles.skeletonLegendItem}></div>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className={styles.chartCard}>
