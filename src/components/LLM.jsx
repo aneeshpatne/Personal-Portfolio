@@ -3,14 +3,14 @@ import styles from "./style/LLM.module.css";
 import ReactMarkdown from "react-markdown";
 
 // Single static assistant content (condensed from previous multiple messages).
-const assistantContent = `## 🤖 Large Language Models\n- Expert in **GPT-4, Claude, and open-source LLMs**\n- Developed **production-ready AI applications**\n- Implemented **RAG systems**\n\n## 🛠️ Technical Integration\n- Proficient with **OpenAI and Hugging Face**\n- Built **scalable AI infrastructure**\n- Experience with **vector databases**\n\n## 🎯 Applications\n- Created **AI chatbots**\n- Developed **document analysis**\n- Built **content generation tools**`;
+const assistantContent = `## 🤖 Large Language Models\n- Expert in **GPT-5, Claude, and open-source LLMs**\n- Developed **production-ready AI applications**\n- Implemented **RAG systems**\n\n## 🛠️ Technical Integration\n- Proficient with **OpenAI and Hugging Face**\n- Built **scalable AI infrastructure**\n- Experience with **vector databases**\n\n## 🎯 Applications\n- Created **AI chatbots**\n- Developed **document analysis**\n- Built **content generation tools**`;
 
 function MatrixLLM() {
   return (
     <div className={styles.Container}>
       <div className={styles.Content}>
         <h2 className={styles.contentHeader}>
-          <span className={styles.gradientText}>AI</span> & LLM Assistant
+          <span className={styles.gradientText}>AI</span> & LLM Expertise
         </h2>
         <div className={styles.chatWindow}>
           <div className={styles.messagesArea}>
