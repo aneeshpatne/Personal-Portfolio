@@ -4,9 +4,81 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: #000;
+  position: relative;
+  overflow: hidden;
 }
+
 .loadingBox {
   border: 1px solid #ffffff;
   border-radius: 5px;
   padding: 10px;
+}
+
+.loadingContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.loadingWaves {
+  position: relative;
+  width: 120px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.wave {
+  width: 8px;
+  height: 32px;
+  background: linear-gradient(45deg, #3b82f6, #2563eb);
+  border-radius: 4px;
+  animation: wave 1s ease-in-out infinite;
+}
+
+.wave:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+.wave:nth-child(3) {
+  animation-delay: 0.2s;
+}
+
+@keyframes wave {
+  0%, 100% {
+    transform: scaleY(0.5);
+  }
+  50% {
+    transform: scaleY(1);
+  }
+}
+
+.loadingText {
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  position: relative;
+}
+
+.dots {
+  display: inline-block;
+  animation: dots 2s infinite;
+  margin-left: 2px;
+}
+
+@keyframes dots {
+  0%, 20% {
+    content: ".";
+  }
+  40% {
+    content: "..";
+  }
+  60%, 100% {
+    content: "...";
+  }
 }
