@@ -21,7 +21,6 @@ export default function HomePage() {
       <Menu />
       <Profile />
       <section id="skills">
-        <Skills />
         <WebDev />
         <MatrixLLM />
         <DSA />
