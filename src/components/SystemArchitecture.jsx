@@ -115,12 +115,12 @@ const SystemArchitecture = () => {
               <SystemArchitectureImage />
               <div className={styles.ProjectText}>
                 <span className={styles.HighlightTitle}>DIY CCTV</span> is a
-                fully self-hosted, end-to-end CCTV automation stack built around
-                ESP32-CAM devices. It captures and processes live camera
-                streams, overlays real-time health metrics, records segmented
-                video, restreams low-latency RTSP feeds, logs motion events,
-                exposes everything through a FastAPI service, and delivers
-                automated nightly motion summaries via Telegram.
+                fully self-hosted, end-to-end CCTV automation stack. It captures
+                and processes live camera streams, overlays time and system
+                health metrics, records segmented video, restreams low-latency
+                RTSP feeds, logs motion events, exposes everything through a
+                FastAPI service, and delivers automated motion summaries via
+                Telegram Bot.
               </div>
             </div>
             <CCTVFlowSVG />
