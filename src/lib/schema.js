@@ -10,6 +10,7 @@ export const projects = pgTable("projects", {
   endDate: date("endDate"),
   topic: text("topic"),
   LLMdump: text("LLMdump"),
+  shortDesc: text("shortDesc"),
 });
 
 export const projectList = pgTable("projectList", {
