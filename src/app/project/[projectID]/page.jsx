@@ -80,7 +80,7 @@ const logoMapper = {
     'HTML': '/assets/img/HTML.svg',
     'CSS': '/assets/img/css.svg',
     'SQL': '/assets/img/sql.svg',
-    'ES': '/assets/img/muc.png',
+    'ES': '/assets/img/muC.png',
     'MongoDB': '/assets/img/mongoDB.svg',
 
   };
