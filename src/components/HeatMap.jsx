@@ -7,9 +7,9 @@ export async function HeatMap() {
     headers: {
       authorization: `Bearer ${apiKey}`,
     },
-    // next: {
-    //   revalidate: 86400,
-    // },
+    next: {
+      revalidate: 86400,
+    },
   });
 
   if (!response.ok) {
@@ -26,7 +26,6 @@ export async function HeatMap() {
       level: 0,
     },
   ];
-  console.log(data);
 
   return <HeatMapClient data={data} />;
 }
