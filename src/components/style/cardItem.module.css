@@ -1,4 +1,5 @@
-/* Root card fills the grid cell entirely */
+/* cardItem.module.css — authoritative clean dark-gray glass styles */
+
 .card {
   position: absolute;
   inset: 0;
@@ -12,15 +13,17 @@
   flex-direction: column;
   justify-content: space-between;
   gap: 16px;
-  /* Dark glass look */
+  /* neutral dark-gray glass */
   background: linear-gradient(
     180deg,
-    rgba(2, 6, 23, 0.85),
-    rgba(2, 6, 23, 0.7)
+    rgba(12, 14, 16, 0.92),
+    rgba(24, 26, 28, 0.82)
   );
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
-  color: #e5e7eb;
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.55);
+  color: #e6e6e9;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
 }
 
 .section {
@@ -29,15 +32,15 @@
   gap: 14px;
 }
 
-/* Circular avatar (profile picture) */
 .avatar {
   width: 48px;
   height: 48px;
-  border-radius: 9999px;
+  border-radius: 10px;
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: 0 6px 22px rgba(0, 0, 0, 0.6);
 }
+
 .avatar img {
   width: 100%;
   height: 100%;
@@ -45,7 +48,6 @@
   display: block;
 }
 
-/* Small brand logo at the top-right */
 .brandLogo {
   position: absolute;
   top: 10px;
@@ -55,10 +57,10 @@
   border-radius: 6px;
   display: grid;
   place-items: center;
-  background: rgba(148, 163, 184, 0.08);
-  border: 1px solid rgba(148, 163, 184, 0.25);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.04);
   pointer-events: none;
 }
 
@@ -88,17 +90,6 @@
   color: #ffffff;
 }
 
-.handle {
-  margin: 2px 0 0;
-  font-size: 0.95rem;
-  color: #cbd5e1;
-}
-
-.em {
-  font-weight: 800;
-  color: #ffffff;
-}
-
 .about {
   margin: 4px 0 0;
   font-size: 0.98rem;
@@ -119,11 +110,6 @@
   gap: 8px;
   font-size: 0.85rem;
   color: #a3a3a3;
-}
-
-.quote {
-  font-style: italic;
-  color: #9ca3af;
 }
 
 .availability {

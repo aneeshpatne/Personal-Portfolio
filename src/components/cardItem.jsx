@@ -4,7 +4,6 @@ import styles from "./style/cardItem.module.css";
 export default function CardItem() {
   return (
     <article className={styles.card}>
-      {/* Top-right small brand logo */}
       <div className={styles.brandLogo}>
         <Image
           src="/assets/img/logo.png"
@@ -15,17 +14,16 @@ export default function CardItem() {
       </div>
       <div className={styles.section}>
         <header className={styles.header}>
-          {/* Left avatar (profile picture) */}
           <div className={styles.avatar}>
             <Image
-              src="/assets/img/pic.jpg"
+              src="/assets/img/aneesh100.png"
               alt="Aneesh portrait"
               width={48}
               height={48}
             />
           </div>
           <div className={styles.titleBlock}>
-            <h2 className={styles.name}>aneesh patne</h2>
+            <h2 className={styles.name}>Aneesh Patne</h2>
             <p className={styles.username}>@aneeshpatne</p>
           </div>
         </header>
