@@ -8,6 +8,7 @@ import Profile from "./AboutMeNew";
 import Skills from "./Skills";
 import WebDev from "./WebDev";
 import MatrixLLM from "./LLM";
+import SystemArchitecture from "./SystemArchitecture";
 import DSA from "./DSA";
 import Footer from "./Footer";
 import ProjectNew from "./project";
@@ -22,6 +23,7 @@ export default function HomePage() {
       <Profile />
       <section id="skills">
         <WebDev />
+        <SystemArchitecture />
         <DSA />
         <MatrixLLM />
   
