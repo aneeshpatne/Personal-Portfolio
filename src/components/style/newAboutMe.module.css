@@ -1,5 +1,5 @@
 .container {
-  max-width: 90%;
+  max-width: 100%;
   padding: 1.5rem;
 }
 .profileContainer {
@@ -26,7 +26,7 @@
   grid-template-columns: repeat(2, 1fr);
   align-items: center;
   justify-items: center;
-  gap: 4rem;
+  gap: 2rem;
 }
 
 .photoFrame {
@@ -58,6 +58,7 @@
 }
 
 .description {
+  margin: 2%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -114,6 +115,7 @@
 }
 
 .additionalInfo {
+  font-size: 1.2rem;
   position: relative;
   z-index: 1;
 }
