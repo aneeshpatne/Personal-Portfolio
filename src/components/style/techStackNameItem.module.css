@@ -1,16 +1,18 @@
 .headingText {
-  position: absolute;
-  font-size: 3rem;
+  font-size: clamp(1.4rem, 6vw, 3rem);
   text-align: left;
   padding: 12px 16px 8px 16px;
   line-height: 1;
-  bottom: 0;
 }
 .headingTextContainer {
+  /* On wider screens we want the container to overlay the tile area (absolute)
+     so it visually spans the left columns as before. On narrow screens we'll
+     switch it to relative to avoid overlaps. */
   position: absolute;
   bottom: 0;
   width: 100%;
   height: 55%;
+  min-height: 90px; /* guarantee minimum space even when absolute */
   border-radius: 0.5rem;
   background: linear-gradient(
     180deg,
@@ -19,6 +21,7 @@
   );
   border: 1px solid rgba(255, 255, 255, 0.04);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.42);
+  padding-bottom: 8px; /* preserve a small inner gap */
 }
 
 .inner {
@@ -34,4 +37,20 @@
   justify-content: flex-start;
   padding: 8px 16px 0 16px;
   color: #fff;
+}
+
+@media (max-width: 480px) {
+  .headingTextContainer {
+    min-height: 110px;
+  }
+}
+
+/* On narrow screens (stacked layout) make the heading container flow normally
+   so it doesn't overlap the Development banner / other content. Matches the
+   grid collapse behavior in WebDev.module.css. */
+@media (max-width: 799.98px) {
+  .headingTextContainer {
+    position: relative;
+    height: auto;
+  }
 }
