@@ -1,26 +1,49 @@
 .container {
   text-align: center;
-  padding: 20px;
+  padding: 48px 20px;
 }
 
 .lineContainer {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 30px; /* Adjust spacing as needed */
+  gap: 16px;
+  margin-bottom: 20px;
 }
 
 .gradientLine {
-  height: 4px;
-  width: 40%;
-  background: linear-gradient(90deg, #ff00ff, #00ffff, #ff00ff);
+  height: 2px;
+  width: clamp(48px, 20vw, 220px);
+  background: linear-gradient(
+    90deg,
+    #6e00ff,
+    #7f5bff,
+    #8b5cf6,
+    #60a5fa,
+    #06b6d4
+  );
   background-size: 200% 100%;
-  animation: moveGradient 3s ease infinite;
+  animation: moveGradient 4s ease infinite;
+  border-radius: 999px;
 }
 
-.text {
-  font-size: clamp(2rem, 5vw, 3.5rem);
-  font-weight: bold;
+.eyebrow {
+  font-size: clamp(0.8rem, 2vw, 1rem);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #a3a3a3;
+}
+
+.title {
+  margin: 8px auto 4px;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  font-size: clamp(2.2rem, 8vw, 4.5rem);
+  color: transparent;
+  background: linear-gradient(90deg, #93c5fd, #6366f1, #a78bfa, #7dd3fc);
+  -webkit-background-clip: text;
+  background-clip: text;
 }
 
 .left,
@@ -40,7 +63,7 @@
   }
 }
 @media screen and (max-width: 400px) {
-  .text {
-    font-size: 2rem;
+  .subtitle {
+    font-size: 0.95rem;
   }
 }
