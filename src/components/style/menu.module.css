@@ -1,10 +1,19 @@
+.lowerContainer {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Center the menu */
+  gap: 10px;
+  z-index: 9999;
+  bottom: 5px;
+  left: 0;
+  right: 0;
+  padding: 10px;
+}
+
 .MenuContainer {
   display: flex;
-  position: fixed;
   height: 40px;
-  bottom: 0;
-  left: 50%;
-  transform: translate(-50%, -50%);
   background-color: rgb(255, 255, 255);
   border: rgb(255, 255, 255) 1px solid;
   border-radius: 10px;
@@ -12,6 +21,40 @@
   overflow: hidden;
   z-index: 9999;
 }
+
+.chatButton {
+  position: absolute;
+  right: 50px;
+  height: 40px;
+  background-color: rgb(255, 255, 255);
+  border: rgb(255, 255, 255) 1px solid;
+  border-radius: 10px;
+  color: black;
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 0 20px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.chatButton:hover {
+  color: white;
+  background-color: black;
+}
+
+.chatButton.active {
+  color: white;
+  background-color: #ff0000;
+  border-color: #ff0000;
+}
+
+.chatButton:active {
+  transform: translateY(1px);
+}
+
 .menuItem {
   display: flex;
   height: inherit;
