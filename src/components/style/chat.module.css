@@ -44,6 +44,8 @@
   width: 100%;
   max-width: 480px;
   height: 560px;
+  max-height: calc(100vh - 120px); /* Prevent overflow on small height screens */
+  max-height: calc(100dvh - 120px); /* Use dvh for mobile browsers */
   position: relative;
   border-radius: var(--chat-radius);
   background: radial-gradient(
@@ -808,6 +810,8 @@
     max-width: 100%;
     width: 100%;
     height: 520px;
+    max-height: calc(100vh - 100px);
+    max-height: calc(100dvh - 100px);
   }
   .chatHeaderTitle {
     font-size: 0.95rem;
@@ -820,6 +824,8 @@
 @media (max-width: 640px) {
   .chatContainer {
     height: 500px;
+    max-height: calc(100vh - 100px);
+    max-height: calc(100dvh - 100px);
     border-radius: 16px;
   }
   .chatBox {
@@ -836,6 +842,8 @@
 @media (max-width: 470px) {
   .chatContainer {
     height: 480px;
+    max-height: calc(100vh - 100px);
+    max-height: calc(100dvh - 100px);
   }
   .chatInput {
     min-height: 44px;
@@ -854,9 +862,72 @@
 @media (max-width: 380px) {
   .chatContainer {
     height: 460px;
+    max-height: calc(100vh - 100px);
+    max-height: calc(100dvh - 100px);
   }
   .headerText {
     font-size: 1.35rem;
+  }
+}
+
+/* Small height screens - landscape or short devices */
+@media (max-height: 700px) {
+  .chatContainer {
+    height: auto;
+    max-height: calc(100vh - 100px);
+    max-height: calc(100dvh - 100px);
+  }
+  .chatBox {
+    min-height: 150px;
+  }
+  .headerText {
+    font-size: 1.4rem;
+  }
+  .introText {
+    font-size: 0.9rem;
+  }
+  .introChatBot {
+    padding: 1rem;
+    gap: 0.6rem;
+  }
+  .exampleList li {
+    padding: 0.5rem 0.8rem 0.5rem 1rem;
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-height: 550px) {
+  .chatContainer {
+    max-height: calc(100vh - 90px);
+    max-height: calc(100dvh - 90px);
+  }
+  .chatHeader {
+    padding: 0.6rem 1rem;
+  }
+  .chatInputContainer {
+    padding: 0.6rem 0.8rem;
+  }
+  .chatInput {
+    min-height: 40px;
+    padding: 0.6rem 0.9rem;
+  }
+  .chatButton {
+    height: 40px;
+  }
+  .headerText {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+  }
+  .introText {
+    margin-bottom: 0.6rem;
+  }
+}
+
+/* Mobile full-screen chat overlay */
+@media (max-width: 768px) {
+  .chatContainer {
+    max-height: calc(100vh - 100px);
+    max-height: calc(100dvh - 100px);
   }
 }
 
