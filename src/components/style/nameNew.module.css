@@ -39,6 +39,9 @@
 .socialContainer.active {
   background-color: var(--dark-bg-outline);
 }
+.socialContainer.active.light {
+  background-color: var(--light-bg-outline);
+}
 .socialText {
   padding: 4px;
 }

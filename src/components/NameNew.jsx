@@ -7,7 +7,7 @@ const socials = [
   { name: "Linkedin", icon: <LuLinkedin />, url: "linkedin" },
   { name: "LeetCode", icon: <LuCodeXml />, url: "leetcode" },
 ];
-export default function NameNew() {
+export default function NameNew({ theme }) {
   const [idx, setIndex] = useState(0);
   useEffect(() => {
     const interval = setInterval(() => {
@@ -31,6 +31,7 @@ export default function NameNew() {
                   icon={data.icon}
                   url={data.url}
                   state={idx}
+                  theme={theme}
                 />
               );
             })}
@@ -54,7 +55,7 @@ export default function NameNew() {
     </div>
   );
 }
-function Socials({ name, icon, url, state }) {
+function Socials({ name, icon, url, state, theme }) {
   return (
     <a
       href={url}
@@ -65,7 +66,7 @@ function Socials({ name, icon, url, state }) {
       <div
         className={`${styles.socialContainer} ${
           socials[state].name === name ? styles.active : ""
-        }`}
+        } ${theme === "LightMode" ? styles.light : ""}`}
       >
         <div className={styles.socialIcon}>{icon}</div>
         <p className={styles.socialText}>{name}</p>
