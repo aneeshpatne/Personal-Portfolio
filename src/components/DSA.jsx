@@ -20,16 +20,10 @@ export default function DSA() {
             <Chart />
           </div>
         </div>
-
         <div className={styles.RightPanel}>
           <div className={styles.HeatMapContainer}>
             <Suspense fallback={<div>Loading activity...</div>}>
               <HeatMap />
-            </Suspense>
-          </div>
-          <div className={styles.WeatherContainer}>
-            <Suspense fallback={<div>Loading weather...</div>}>
-              <Weather />
             </Suspense>
           </div>
         </div>
