@@ -16,9 +16,14 @@ export function ProjectContainerWrapper({ processedData }) {
   return (
     <>
       <button
-        onClick={() => setFilter((prev) => ({ ...prev, sort: "reverse" }))}
+        onClick={() =>
+          setFilter((prev) => ({
+            ...prev,
+            sort: prev.sort === "reverse" ? "default" : "reverse",
+          }))
+        }
       >
-        Reverse Sort
+        {filter.sort === "default" ? "Reverse Sort" : "Default"}
       </button>
       {tempData.map((project, index) => (
         <ProjectContainer
