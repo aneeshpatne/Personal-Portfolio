@@ -1,4 +1,7 @@
 .headingText {
-  font-size: 2rem;
-  color: #333;
+  position: absolute;
+  font-size: 4rem;
+  text-align: left;
+  padding: 10px 10px;
+  line-height: 0.9;
 }
