@@ -13,6 +13,7 @@ import DSA from "./DSA";
 import Footer from "./Footer";
 import ProjectNew from "./project";
 import { LLM_new } from "./LLM_new";
+import { APIShowCase } from "./APIShowCase";
 
 export default function HomePage() {
   return (
@@ -27,6 +28,7 @@ export default function HomePage() {
         <SystemArchitecture />
         <DSA />
         <LLM_new />
+        <APIShowCase />
       </section>
       <section id="project">
         <Suspense fallback={<ProjectLoadingSkeleton />}>
