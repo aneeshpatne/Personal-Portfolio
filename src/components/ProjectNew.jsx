@@ -13,7 +13,7 @@ export const project = [
     techStack: ["LLM", "Web Scraping", "Auto Gen"],
     description:
       "Automated newsletter generation using LLM and web scraping for daily updates on latest news.",
-    image: "/assets/img/asapFiles.png",
+    image: "/assets/img/deepsearch.png",
     startDate: "April 2024",
     endDate: "Present",
   },
@@ -23,7 +23,7 @@ export const project = [
     techStack: ["LLM", "Web Scraping", "Next.js", "Express.js", "WebSocket"],
     description:
       "Automated web search and scraping system using Playwright and DuckDuckGo API, integrated with LLM for efficient data extraction",
-    image: "/assets/img/asapFiles.png",
+    image: "/assets/img/curiosity.png",
     startDate: "April 2024",
     endDate: "Present",
   },
