@@ -1,11 +1,12 @@
 import { NextResponse } from "next/server";
 const redis = require('redis');
 const client = redis.createClient({
-    password: 'KErQmHhRDdDNdWnBtA0Dqf9JIhBYEoPp',
+    password:process.env.REDIS_PASSWORD,
     socket: {
-        host: 'redis-13874.c251.east-us-mz.azure.redns.redis-cloud.com',
-        port: 13874
-    }
+        host: process.env.REDIS_HOST,
+        port: process.env.REDIS_PORT,
+    },
+
 });
 (async () =>{
     try{
