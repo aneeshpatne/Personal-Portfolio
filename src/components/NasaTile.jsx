@@ -14,7 +14,7 @@ export default function NasaTile() {
     <div className={styles.tile}>
       <div className={styles.container}>
         <h1 className={`${styles.headerText} ${instrumentSerif.className}`}>
-          Limitless Ambition
+          Limitless Ambition.
         </h1>
         <div className={styles.imageWrapper}>
           <Image
