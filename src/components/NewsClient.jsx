@@ -1,6 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Clock } from "lucide-react";
 import styles from "./style/News.module.css";
 
 export function NewsClient({ 
@@ -9,10 +9,9 @@ export function NewsClient({
   date,
   url 
 }) {
-  // Fallback defaults if data is missing/loading
   const displayTitle = title || "Waiting for headlines...";
   const displayDesc = description || "Global markets are shifting as technology continues to evolve at a rapid pace. Stay tuned for updates.";
-  const displayDate = date || new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+  const displayDate = date || new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
 
   return (
     <motion.div
@@ -21,11 +20,13 @@ export function NewsClient({
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, ease: "easeOut" }}
     >
-      <div className={styles.accent} />
-
+      <div className={styles.glow} />
+      
       <div className={styles.header}>
-        <div className={styles.badge}>NEWS</div>
-        <span className={styles.date}>{displayDate}</span>
+        <div className={styles.dateContainer}>
+            <Clock size={12} className={styles.dateIcon} />
+            <span className={styles.date}>{displayDate}</span>
+        </div>
       </div>
 
       <div className={styles.content}>
@@ -33,21 +34,26 @@ export function NewsClient({
         <p className={styles.description}>{displayDesc}</p>
       </div>
 
-      <p className={styles.caution}>
-        Caution: This section surfaces real-time news from the Khoj API. Items
-        may be incomplete, inaccurate, or distressing and do not represent
-        Aneesh&apos;s views. This content is provided solely for informational
-        purposes and does not constitute advice, a recommendation, or an
-        endorsement. Any reliance on this information is at your own risk.
-        Please verify details with primary sources before acting.
-      </p>
+      <div className={styles.footerWrapper}>
+        <div className={styles.cautionContainer}>
+            <span className={styles.cautionHeader}>IMPORTANT NOTICE</span>
+            <p className={styles.cautionText}>
+                This section surfaces real-time news from the <strong>Khoj API</strong>. Items
+                may be incomplete, inaccurate, or distressing and <strong>do not represent
+                Aneesh&apos;s views</strong>. This content is provided solely for informational
+                purposes and does not constitute advice, a recommendation, or an
+                endorsement. Any reliance on this information is at your own risk.
+                Please <strong>verify details with primary sources</strong> before acting.
+            </p>
+        </div>
 
-      <div className={styles.footer}>
-        {url && (
-            <span className={styles.readMore}>
-                Read <ArrowUpRight size={14} />
-            </span>
-        )}
+        <div className={styles.actions}>
+            {url && (
+                <a href={url} target="_blank" rel="noopener noreferrer" className={styles.readMore}>
+                    Read Article <ArrowUpRight size={16} />
+                </a>
+            )}
+        </div>
       </div>
     </motion.div>
   );
