@@ -4,13 +4,8 @@ export async function PM25({
   value = 75,
   remark = "Hazardous Air Quality",
   alertColor = "red",
-  fallback,
 } = {}) {
   const apiKey = process.env.ANEESH_API_KEY;
-  let fetchedData = null;
-  const fallbackValue = fallback?.value ?? value;
-  const fallbackRemark = fallback?.remark ?? remark;
-  const fallbackAlertColor = fallback?.alertColor ?? alertColor;
 
   try {
     const response = await fetch("https://api.aneeshpatne.com/api/v1/pm25", {
@@ -31,9 +26,9 @@ export async function PM25({
 
   return (
     <PM25Client
-      value={fetchedData?.value ?? fallbackValue}
-      remark={fetchedData?.remark ?? fallbackRemark}
-      alertColor={fetchedData?.alert_color ?? fallbackAlertColor}
+      value={fetchedData?.value ?? value}
+      remark={fetchedData?.remark ?? remark}
+      alertColor={fetchedData?.alert_color ?? alertColor}
     />
   );
 }
