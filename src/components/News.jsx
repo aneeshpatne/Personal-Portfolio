@@ -26,7 +26,6 @@ export async function News({
     );
     if (response.ok) {
       data = await response.json();
-      console.log(data);
     }
     fetchedData = null;
   } catch (err) {
