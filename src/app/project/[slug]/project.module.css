@@ -1,11 +1,3 @@
-/* =============================
-   Project Page Styles (Overhaul)
-   - Design tokens
-   - Reduced duplication
-   - Enhanced accessibility & focus states
-   - Subtle motion & glass layering
-   ============================= */
-
 .ProjectPage {
   /* Design tokens scoped locally (avoids CSS Modules purity issue) */
   --page-bg: #050507;
@@ -736,7 +728,7 @@
 }
 
 /* ==== Gradient Removal Overrides (nuked) ==== */
-.ProjectPage,
+/* Removed root .ProjectPage from this list so its original gradient / --page-bg are restored */
 .ProjectPage .metaSection,
 .ProjectPage .button,
 .ProjectPage .tech,
