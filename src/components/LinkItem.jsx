@@ -3,15 +3,10 @@ import styles from "./style/linkItem.module.css";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { SiGmail } from "react-icons/si";
 
-// Contract
-// props:
-// - githubUrl?: string
-// - linkedinUrl?: string
-// - email?: string (used for mailto link)
 export default function LinkItem({
-  githubUrl = "https://github.com/aneeshpatne",
-  linkedinUrl = "https://www.linkedin.com/in/your-profile/",
-  email = "your@email.com",
+  githubUrl = "https://aneeshpatne.com/github",
+  linkedinUrl = "https://aneeshpatne.com/linkedin",
+  email = "contact@aneeshpatne.com",
 }) {
   return (
     <div className={styles.linkItemInner}>
