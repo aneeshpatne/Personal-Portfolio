@@ -1,5 +1,4 @@
 "use client";
-import { GeistMono } from "geist/font/mono";
 import { Fira_Code } from "next/font/google";
 import { LuGithub, LuLinkedin, LuCodeXml } from "react-icons/lu";
 import styles from "./style/nameNew.module.css";
