@@ -11,6 +11,18 @@
   gap: 3rem;
 }
 
+.HeadingText {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 800;
+  text-transform: uppercase;
+  color: #ffffff;
+  margin: 1.5rem 0;
+  text-align: center;
+  letter-spacing: 0.1em;
+  line-height: 1.2;
+  text-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
 .HeadingContainer {
   display: flex;
   flex-direction: column;
