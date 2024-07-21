@@ -1,0 +1,57 @@
+#ProjectContainer{
+    display: flex;
+    justify-content: center;
+    height: 90%;
+    width: 100%;
+}
+#ProjectInfoContainer{
+    display: flex;
+    flex-wrap: nowrap;
+    height: 100%;
+    width: 95%;
+    background-color: var(--dark-secondary-color);
+}
+#ProjectInfo{
+    margin: 2% 2%;
+    height: 500px;
+    width: 300px;
+    background-color: var(--dark-bg);
+}
+#projectDesription{
+    flex: 1;
+    margin: 2% 2%;
+    height: 500px;
+    width: 100%;
+    background-color: var(--dark-bg);
+}
+#ProjectImageContainer{
+    height: 40%;
+    width: 100%;
+    background-color: brown;
+}
+#ProjectImageContainer img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.MainHeader{
+    margin: 2% 2%;
+}
+.TechStackText{
+    margin: 2% 2%;
+    font-size: 0.8rem;
+}
+.TechStackContainer{
+    margin: 5% 5%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+@media screen and (max-width: 800px) {
+    #ProjectInfoContainer {
+        flex-direction: column;
+        align-items: center;
+    }
+    #projectDesription{
+        width: auto;
+    }
+}
