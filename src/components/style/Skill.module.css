@@ -1,0 +1,92 @@
+.SkillList{
+    font-size: 1.2rem;
+    list-style-type: none;
+    padding: none;
+}
+.SkillList li{
+    position: relative;
+    padding: 10px 15px 10px 30px;
+}
+.SkillList li::before{
+    content: '-';
+    position: absolute;
+    left: 10px;
+}
+#ToolContainer{
+    display: grid;
+    justify-items: center;
+    grid-template-columns: repeat(3,1fr);
+    gap: 25px;
+    
+}
+#ToolBox{
+    display: flex;
+    align-items: center;
+    width: 180px;
+    height: 70px;
+    background-color: #ffffff;
+}
+#LogoContainer{
+    height: 40px;
+    width: 40px;
+    margin-left: 13px;
+}
+#LogoContainer img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+#LogoName{
+    color: #000000;
+    margin-left: 5%;
+    font-size: 1em;
+    font-weight: 600;
+}
+.secText{
+    padding: 20px;
+}
+@media screen and (max-width:700px) {
+    .SkillList li{
+        padding: 10px 15px 10px 10px;
+    }
+    .SkillList li::before{
+        left: 0px;
+    }
+    #ToolBox{
+        width: 130px;
+        height: 50px;
+    }
+    #LogoName{
+        font-size: 0.8em;
+    }
+    #ToolContainer{
+        grid-template-columns: repeat(3,1fr);
+    }
+    .SkillList{
+        padding-left: 0;
+        font-size: 0.8em;
+    }
+    #LogoContainer{
+        height: 35px;
+        width: 35px;
+        margin-left: 10px;
+    }
+    
+}
+@media screen and (max-width:500px) {
+    #ToolContainer{
+        grid-template-columns: repeat(3,1fr);
+    }
+    .SkillList{
+        font-size: 0.65em;
+    }
+    #LogoContainer{
+        height: 30px;
+        width: 30px;
+        margin-left: 7px;
+    }
+    #ToolBox{
+        width: 100px;
+        height: 35px;
+    }
+}

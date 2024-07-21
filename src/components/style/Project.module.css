@@ -1,0 +1,106 @@
+#ProjectContainer{
+    height: 500px;
+    width: 300px;
+    background-color: #1E2831;
+}
+#ProjectContainer.LightMode{
+    background-color: var(--light-secondary-color);
+}
+#ProjectImg{
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    height: 180px;
+    background-color: azure;
+}
+#ProjectImg img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover; 
+}
+#ProjectName{
+    margin: 2% 2%;
+    color: white;
+}
+#ProjectName.LightMode{
+    color: #000000;
+}
+#ProjectDesc{
+    font-size: 0.8rem;
+    color: white;
+    padding: 10px;
+    text-align: justify;
+}
+#ProjectDesc.LightMode{
+    color: #000000;
+}
+#TechStack{
+    display: flex;
+    align-items: center;
+    margin: 2% 2%;
+    width: 80px;
+    height: 30px;
+    background-color: white;
+}
+
+#TechstackContainer{
+    margin: 2% 2%;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 5px; 
+
+}
+#TechstackLogo{
+    width: 22px;
+    height: 22px;
+    margin-left: 5%;
+}
+#TechstackLogo img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+#TechstackName{
+    color: rgb(0, 0, 0);
+    margin-left: 5%;
+}
+#ProjectContainerMain{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: center;
+    justify-items: center;
+    gap: 20px;
+}
+.ProjectBtn{
+    height: 30px;
+    width: 30px;
+    top: 10px;
+    right: 10px;
+    position: absolute;
+    background: none;
+    border: none;
+}
+.ProjectBtn img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: invert(1); 
+}
+.MainTitle{
+    padding: 20px;
+    font-weight: 800;
+}
+
+@media screen and (max-width: 950px){
+    #ProjectContainerMain{
+        grid-template-columns: repeat(2,1fr);
+    }
+    
+}
+@media screen and (max-width: 600px){
+    #ProjectContainerMain{
+        grid-template-columns: repeat(1,1fr);
+    }
+    
+}

@@ -1,0 +1,28 @@
+#FrontContainer{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 100%;
+    height: 95vh;
+}
+#NameContainer{
+    margin: 2% 2%;
+}
+#NameBox{
+    font-weight: 600;
+    font-size: 7em;
+    margin: 0;
+}
+#NameBox p{
+    margin: 0;
+}
+#NameContainer p{
+    margin: 0;
+}
+@media screen and (max-width : 400px) {
+    
+    #NameBox{
+        font-size: 5em;
+    }
+    
+}
