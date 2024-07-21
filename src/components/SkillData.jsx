@@ -26,7 +26,7 @@ export default function SkillData({state}){
     return (<div>
     <ul className={styles.SkillList}>
         {data[state]?.map((data, index) =>
-        <li index={index}>{data}</li>
+        <li key={index}>{data}</li>
         )}
     </ul>
     <h4 className={styles.secText}>Tools and Technologies:</h4>
