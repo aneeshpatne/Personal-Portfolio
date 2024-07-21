@@ -2,11 +2,11 @@
 import styles from './style/Skill.module.css';
 const logoMapper = {
     'JS': '/assets/img/js.svg',
-    'ML': '/assets/img/ml.svg',
-    'React': '/assets/img/React.svg',
+    'ML': '/assets/img/ML.svg',
+    'React': '/assets/img/react.svg',
     'GCP': '/assets/img/gcp.svg',
     'NextJS': '/assets/img/next.svg',
-    'Django': '/assets/img/django.svg',
+    'Django': '/assets/img/django.svg', 
     'Vue': '/assets/img/vue.svg',
     'Vercel': '/assets/img/vercel.svg',
     'Figma': '/assets/img/figma.svg',
