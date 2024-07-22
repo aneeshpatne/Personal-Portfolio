@@ -9,22 +9,26 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
-  const jsonLdData = {
+  const jsonLdData ={
     "@context": "https://schema.org",
     "@type": "ProfilePage",
-    "name": "Aneesh Patne",
-    "url": "https://www.aneeshpatne.com",
-    "sameAs": [
-      "https://www.linkedin.com/in/aneeshpatne",
-      "https://github.com/aneeshpatne"
-    ],
-    "image": "https://www.aneeshpatne.com/assets/img/placeholder.jpg",
-    "description": "Aneesh Patne is a software engineer with expertise in full stack web development, data structures, and algorithms.",
-    "alumniOf": {
-      "@type": "CollegeOrUniversity",
-      "name": "Veermata Jijabai Technological University"
-    }
-  };
+    "mainEntity": 
+      {
+        "@type": "Person",
+        "name": "Aneesh Patne",
+        "url": "https://www.aneeshpatne.com",
+        "image": "https://www.aneeshpatne.com/assets/img/placeholder.jpg",
+        "sameAs": [
+          "https://www.linkedin.com/in/aneeshpatne",
+          "https://github.com/aneeshpatne"
+        ],
+        "description": "Aneesh Patne is a software engineer with expertise in full stack web development, data structures, and algorithms.",
+        "alumniOf": {
+          "@type": "CollegeOrUniversity",
+          "name": "Veermata Jijabai Technological University"
+        }
+      }
+  }
   return (
     <html lang="en">
       <head>
