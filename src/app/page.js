@@ -5,7 +5,6 @@ import NameCompoenent from "@/components/Name";
 import Aboutme from "@/components/About";
 import Skills from "@/components/Skills";
 import Project from "@/components/Project";
-import Head from "next/head";
 export default function Home() {
   return (
 <>

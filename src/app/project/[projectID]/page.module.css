@@ -1,28 +1,30 @@
 #ProjectContainer{
     display: flex;
     justify-content: center;
-    height: 90%;
     width: 100%;
 }
 #ProjectInfoContainer{
     display: flex;
     flex-wrap: nowrap;
-    height: 100%;
+    height: auto;
     width: 95%;
     background-color: var(--dark-secondary-color);
 }
 #ProjectInfo{
+    flex-shrink: 0;
     margin: 2% 2%;
     height: 500px;
     width: 300px;
     background-color: var(--dark-bg);
 }
 #projectDesription{
-    flex: 1;
+    display: flex;
+    flex-direction: column;
     margin: 2% 2%;
-    height: 500px;
-    width: 100%;
+    width: 500px;
+    overflow-y: auto;
     background-color: var(--dark-bg);
+    flex-grow: 1; 
 }
 #ProjectImageContainer{
     height: 40%;
@@ -45,6 +47,11 @@
     margin: 5% 5%;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+}
+.ProjectTextBox{
+    padding: 2%;
+    flex-grow: 1;
+    flex-basis: auto;
 }
 @media screen and (max-width: 800px) {
     #ProjectInfoContainer {

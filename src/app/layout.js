@@ -2,7 +2,6 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import ThemeProvider from "@/components/ThemeContext";
 import Footer from "@/components/Footer";
-import Script from "next/script";
 export const metadata = {
   title: "Aneesh Patne - Professional Portfolio",
   description: "Masters student with a strong foundation in Full Stack Web Development & Data Structures and Algorithms.",
@@ -55,7 +54,7 @@ export default function RootLayout({ children }) {
       </head>
       <body>
         <ThemeProvider>{children}
-          <Footer />
+          
         </ThemeProvider>
         </body>
     </html>
