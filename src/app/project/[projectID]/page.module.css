@@ -14,7 +14,7 @@
     flex-shrink: 0;
     margin: 2% 2%;
     height: 500px;
-    width: 300px;
+    width: 280px;
     background-color: var(--dark-bg);
 }
 #projectDesription{
@@ -59,7 +59,8 @@
         align-items: center;
     }
     #projectDesription{
-        min-width: 350px;
+        margin: 5% 5%;
+        min-width: 300px;
         width: auto;
     }
 }
