@@ -24,6 +24,7 @@ const logoMapper = {
     'Figma': '/assets/img/figma.svg',
     'Express': '/assets/img/express.svg',
     'Firebase': '/assets/img/firebase.svg',
+    'GitHub': '/assets/img/github.svg'
   };
 export default function ProjectInfo({params}){
     const {theme, setTheme} = UseThemeContext();
@@ -45,11 +46,25 @@ export default function ProjectInfo({params}){
                 <div className ={styles.ProjectTextBox} key={index}>
                     <p>{data}</p>
                     <br />
-                </div>)}
-
+                </div>
+            )}
+            <DeployContainer imgSrc ={logoMapper['GitHub']} Name={'GitHub'} URL={'https://github.com/aneeshpatne/Next-Personal-Website'}/>
             </div>
+            
         </div>
 
     </div>
     )
+}
+function DeployContainer({imgSrc, Name, URL}){
+    return(<div className={styles.deployContainer}>
+        <div className={styles.logoContainer}>
+            <img src={imgSrc}></img>
+        </div>
+        <div className={styles.logoText}>
+        <a href={URL} target="_blank" rel="noopener noreferrer">
+            {Name}
+        </a>
+        </div>
+    </div>)
 }
