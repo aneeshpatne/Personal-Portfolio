@@ -3,10 +3,12 @@ import styles from './page.module.css'
 import { UseThemeContext } from "@/components/ThemeContext";
 import { TechStack } from '@/components/Project';
 const techstack =['Next','HTML','CSS','Vercel','Figma'];
+import Image from 'next/image';
 const data = {'personal_portfolio':{
     'Name':'Personal Portfolio',
     'ImgSrc': '/assets/img/placeholder.jpg',
     'techstack':['Next','HTML','CSS','Vercel','Figma'],
+    'link': [{"Name":'GitHub', "URL":'https://github.com/aneeshpatne/Next-Personal-Website' }],
     'desc':[`Lorem ipsum dolor sit amet, consectetur adipiscing elit. In mollis orci et odio interdum facilisis. Morbi dignissim enim et tellus ornare, nec tristique lorem lacinia. Quisque eget eleifend orci, sit amet efficitur tellus.`
         , `Suspendisse quam lacus, sodales ut vestibulum vitae, placerat sit amet nisl. Praesent bibendum ipsum massa, id scelerisque ligula aliquam nec. Integer rhoncus pulvinar faucibus. Aliquam ut lorem a ex condimentum molestie at et lacus. Nulla lacinia, massa nec congue finibus, sem lectus pulvinar nibh, sit amet interdum libero sapien aliquam justo. Maecenas euismod hendrerit leo, sit amet blandit diam fermentum et. Duis convallis mattis erat, eu mollis augue molestie eget. `,
          `Nam ante orci, cursus sed sodales ut, fermentum et massa. In feugiat, purus id vulputate maximus, nulla nibh cursus odio, et dapibus sem felis eget nisl. Cras ante lectus, vehicula et molestie sed, scelerisque at elit. Cras risus sem, efficitur vitae diam at, venenatis facilisis est. Nullam feugiat ex vel lacus rutrum`, 
@@ -36,7 +38,7 @@ export default function ProjectInfo({params}){
         <div id = {styles.ProjectInfoContainer} className={theme ==='LightMode' ? styles.LightMode : ''}>
             <div id={styles.ProjectInfo} className={theme ==='LightMode' ? styles.LightMode : ''}>
                 <div id={styles.ProjectImageContainer}>
-                    <img src={data[projectID]?.ImgSrc}></img>
+                    <Image src={data[projectID]?.ImgSrc} width = {500} height = {500}/>
                 </div>
             <h1 className={styles.MainHeader}>{data[projectID]?.Name}</h1>
             <p className={styles.TechStackText}>Tools and Technologies used for development</p>
@@ -51,7 +53,7 @@ export default function ProjectInfo({params}){
                     <br />
                 </div>
             )}
-            <DeployContainer imgSrc ={logoMapper['GitHub']} Name={'GitHub'} URL={'https://github.com/aneeshpatne/Next-Personal-Website'}/>
+            {data[projectID].link.map((data,index) =>  <DeployContainer imgSrc ={logoMapper[data.Name]} Name={data.Name} URL={data.URL} key={index}/>)}
             </div>
             
         </div>
@@ -60,11 +62,12 @@ export default function ProjectInfo({params}){
     )
 }
 function DeployContainer({imgSrc, Name, URL}){
-    return(<div className={styles.deployContainer}>
+    const {theme, setTheme} = UseThemeContext();
+    return(<div className={`${styles.deployContainer} ${theme ==='LightMode' ? styles.LightMode : ''}`}>
         <div className={styles.logoContainer}>
             <img src={imgSrc}></img>
         </div>
-        <div className={styles.logoText}>
+        <div className={`${styles.logoText} ${theme ==='LightMode' ? styles.LightMode : ''}`}>
         <a href={URL} target="_blank" rel="noopener noreferrer">
             {Name}
         </a>
