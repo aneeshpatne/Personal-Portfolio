@@ -16,13 +16,16 @@ const logoMapper = {
     'Figma': '/assets/img/figma.svg',
     'Express': '/assets/img/express.svg',
     'Firebase': '/assets/img/firebase.svg',
+    'µC':'/assets/img/muc.png',
+    'MongoDB':'/assets/img/mongoDB.svg',
+    'Python':'/assets/img/python.svg'
   };
   
 
 function TechStack({imgSrc, Name}){
     return (<div id={styles.TechStack}>
         <div id={styles.TechstackLogo}>
-        <img src={imgSrc} alt=''></img>
+        <Image src={imgSrc} height={22} width={22} alt={Name}/>
         </div>
         <div id={styles.TechstackName}>{Name}</div>
     </div>);
@@ -41,7 +44,7 @@ function ProjectContainer({imgSrc, title, desc, tech, id}){
     }
     return(<div id={styles.ProjectContainer} className={theme ==='LightMode' ? styles.LightMode : ''}>
         <div id={styles.ProjectImg}>
-            <Image src={imgSrc} alt='project description' width={300} height={180}/>
+            <Image src={imgSrc} alt={title} width={300} height={180} />
             <button className={styles.ProjectBtn} onClick={() => redirect(id)}><img src="/assets/img/arrow.svg"></img></button>
         </div>
         <h1 id={styles.ProjectName} className={theme ==='LightMode'  ? styles.LightMode  : ''}>{title}</h1>
@@ -52,10 +55,10 @@ function ProjectContainer({imgSrc, title, desc, tech, id}){
     </div>)
 };
 
-const d1 = [ {'Title' : 'Personal Portfolio' , 'Img':'/assets/img/personalPortfolio.png', 'ImgLight':'/assets/img/personalPortfolioLight.png',
+const d1 = [ {'Title' : 'Professional Portfolio' , 'Img':'/assets/img/personalPortfolio.png', 'ImgLight':'/assets/img/personalPortfolioLight.png',
     'desc' : 'A sleek and user-friendly personal portfolio website to showcase my projects, skills, and achievements, with intuitive navigation and modern design',
     'tech': ['Next','GCP'],
-    'id':'personal_portfolio'},
+    'id':'professional_portfolio'},
     {'Title' : 'Vishv' ,  'Img':'/assets/img/vishv.png', 'ImgLight':'/assets/img/vishvLight.png',
     'desc' : 'A web application to promote awareness on climate change and quality education, incorporating an inclusive color-blindness-friendly interface , featuring ML-driven AQI predictions',
     'tech': ['React','Django','GCP','ML'],
@@ -67,7 +70,15 @@ const d1 = [ {'Title' : 'Personal Portfolio' , 'Img':'/assets/img/personalPortfo
     {'Title' : 'IoT and ML based Agriculture System' ,  'Img':'/assets/img/IOTML.png', 'ImgLight':'/assets/img/IOTMLLight.png',
     'desc' : 'Conducted data preprocessing on environmental data collected by an ESP8266 microcontroller, involving cleaning, feature engineering, and analysis for predictive modeling', 
     'tech': ['React','µC','ML'],
-    'id':'iot_and_ml_based_agri_sys'}
+    'id':'iot_and_ml_based_agri_sys'},
+    {'Title' : 'Football Statistics App' ,  'Img':'/assets/img/FootBall.png', 'ImgLight':'/assets/img/FootBallLight.png',
+        'desc' : 'A MongoDB-based football data CRUD app that simplifies data management for teams, players, matches, and stats.', 
+        'tech': ['MongoDB','Express','ML'],
+        'id':'football_stats'},
+    {'Title' : 'Face Recognition Based Attendance System' ,  'Img':'/assets/img/Face.png', 'ImgLight':'/assets/img/FaceLight.png',
+    'desc' : 'Attendance System preprocesses images using bounding box, thresholding and Haar transform, extracts features with a face recognition library, and applies machine learning models for reliable face-based attendance solution.', 
+    'tech': ['Python','ML'],
+    'id':'football_stats'}
         ];
 
 export default function Project(){

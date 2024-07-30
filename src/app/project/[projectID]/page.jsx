@@ -2,12 +2,12 @@
 import styles from './page.module.css'
 import { UseThemeContext } from "@/components/ThemeContext";
 import { TechStack } from '@/components/Project';
-const techstack =['Next','HTML','CSS','Vercel','Figma'];
 import Image from 'next/image';
-const data = {'personal_portfolio':{
-    'Name':'Personal Portfolio',
-    'ImgSrc': '/assets/img/placeholder.jpg',
-    'techstack':['Next','HTML','CSS','Vercel','Figma'],
+const data = {'professional_portfolio':{
+    'Name':'Professional Portfolio',
+    'ImgSrc': '/assets/img/personalPortfolio.png',
+    'ImgLightSrc':'/assets/img/personalPortfolioLight.png',
+    'techstack':['Next','React','HTML','CSS','Vercel','Figma'],
     'link': [{"Name":'GitHub', "URL":'https://github.com/aneeshpatne/Next-Personal-Website' }],
     'desc':[`Lorem ipsum dolor sit amet, consectetur adipiscing elit. In mollis orci et odio interdum facilisis. Morbi dignissim enim et tellus ornare, nec tristique lorem lacinia. Quisque eget eleifend orci, sit amet efficitur tellus.`
         , `Suspendisse quam lacus, sodales ut vestibulum vitae, placerat sit amet nisl. Praesent bibendum ipsum massa, id scelerisque ligula aliquam nec. Integer rhoncus pulvinar faucibus. Aliquam ut lorem a ex condimentum molestie at et lacus. Nulla lacinia, massa nec congue finibus, sem lectus pulvinar nibh, sit amet interdum libero sapien aliquam justo. Maecenas euismod hendrerit leo, sit amet blandit diam fermentum et. Duis convallis mattis erat, eu mollis augue molestie eget. `,
@@ -26,7 +26,10 @@ const logoMapper = {
     'Figma': '/assets/img/figma.svg',
     'Express': '/assets/img/express.svg',
     'Firebase': '/assets/img/firebase.svg',
-    'GitHub': '/assets/img/github.svg'
+    'GitHub': '/assets/img/github.svg',
+    'HTML': '/assets/img/HTML.svg',
+    'CSS': '/assets/img/css.svg',
+
   };
 export default function ProjectInfo({params}){
     const {theme, setTheme} = UseThemeContext();
@@ -37,8 +40,8 @@ export default function ProjectInfo({params}){
     return(<div id={styles.ProjectContainer} >
         <div id = {styles.ProjectInfoContainer} className={theme ==='LightMode' ? styles.LightMode : ''}>
             <div id={styles.ProjectInfo} className={theme ==='LightMode' ? styles.LightMode : ''}>
-                <div id={styles.ProjectImageContainer}>
-                    <Image src={data[projectID]?.ImgSrc} width = {500} height = {500}/>
+                <div id={styles.ProjectImageContainer }>
+                    <Image src={theme ==='LightMode' ? data[projectID]?.ImgLightSrc : data[projectID]?.ImgSrc} width = {500} height = {500}/>
                 </div>
             <h1 className={styles.MainHeader}>{data[projectID]?.Name}</h1>
             <p className={styles.TechStackText}>Tools and Technologies used for development</p>
