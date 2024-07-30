@@ -25,7 +25,7 @@ const logoMapper = {
 function TechStack({imgSrc, Name}){
     return (<div id={styles.TechStack}>
         <div id={styles.TechstackLogo}>
-        <Image src={imgSrc} height={22} width={22} alt={Name}/>
+        <Image src={imgSrc} height={22} width={22} alt={Name} style={{ objectFit: 'cover' }}/>
         </div>
         <div id={styles.TechstackName}>{Name}</div>
     </div>);
