@@ -12,10 +12,11 @@ const logoMapper = {
     'Vercel': '/assets/img/vercel.svg',
     'Figma': '/assets/img/figma.svg',
     'Express': '/assets/img/express.svg',
-    'Firebase': '/assets/img/firebase.svg'
+    'Firebase': '/assets/img/firebase.svg',
+    'SvelteKit':'/assets/img/svelte.svg'
   };
   
-const skills =[['React', 'NextJS','Vue','Express','Django','Vercel','Figma', 'Firebase']]
+const skills =[['React', 'NextJS','SvelteKit','Express','Django','Vercel','Figma', 'Firebase']]
 const data = [['I am an expert in crafting elegant and high-performance websites, By leveraging my deep expertise in HTML, CSS, and JavaScript. I have a deep interest and experience in modern web development frameworks like React, Next.js, and Vue and in the backend i have experience in working with Django and Express.JS' ,
 'I design and develop websites that boast sleek, intuitive user interfaces and exceptional user experiences. The designs are rooted in modern design principles,  ensuring that each website is not only visually appealing but also highly functional and user-friendly.',
 'Towards the development of a application I make sure to go through extensive prototyping from tools such as Figma and many other tools tohelp in the process of prototyping the color pallet and the UI/UX Elements, A careful and deliberate apporach is employed towards the design to ensure that the website is highly perfomant.',
