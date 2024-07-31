@@ -14,7 +14,7 @@ export default function Header(){
         </div>
         <div className={styles.dropdown}>
             <button className={styles.drpClick}>
-                <Image src='/assets/img/btn.svg' width="30" height="30" color='white'></Image>
+                <Image src='/assets/img/btn.svg' width="30" height="30" color='white' draggable={false}></Image>
             </button>
             <div className={styles.DropdownContent}>
                 <button className='DrpContent' >About Me</button>

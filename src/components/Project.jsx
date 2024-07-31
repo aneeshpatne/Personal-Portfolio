@@ -25,7 +25,7 @@ const logoMapper = {
 function TechStack({imgSrc, Name}){
     return (<div id={styles.TechStack}>
         <div id={styles.TechstackLogo}>
-        <Image src={imgSrc} height={22} width={22} alt={Name} style={{ objectFit: 'cover' }}/>
+        <Image src={imgSrc} height={22} width={22} alt={Name} style={{ objectFit: 'cover' }} draggable={false}/>
         </div>
         <div id={styles.TechstackName}>{Name}</div>
     </div>);
@@ -44,7 +44,7 @@ function ProjectContainer({imgSrc, title, desc, tech, id}){
     }
     return(<div id={styles.ProjectContainer} className={theme ==='LightMode' ? styles.LightMode : ''}>
         <div id={styles.ProjectImg}>
-            <Image src={imgSrc} alt={title} width={300} height={180} />
+            <Image src={imgSrc} alt={title} width={300} height={180} draggable={false}/>
             <button className={styles.ProjectBtn} onClick={() => redirect(id)}><img src="/assets/img/arrow.svg"></img></button>
         </div>
         <h1 id={styles.ProjectName} className={theme ==='LightMode'  ? styles.LightMode  : ''}>{title}</h1>
