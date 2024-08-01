@@ -40,7 +40,7 @@ export default function RootLayout({ children }) {
         <meta property="og:title" content="Aneesh Patne - Professional Portfolio" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://www.aneeshpatne.com/" />
-        <meta property="og:image" content="https://www.aneeshpatne.com/assets/img/placeholder.jpg" />
+        <meta property="og:image" content="https://www.aneeshpatne.com/assets/img/aneesh.png" />
         <meta property="og:description" content="Masters student with a strong foundation in Full Stack Web Development & Data Structures and Algorithms." />
         <meta property="og:site_name" content="Aneesh Patne - Professional Portfolio" />
 
