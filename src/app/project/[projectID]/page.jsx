@@ -9,11 +9,31 @@ const data = {'professional_portfolio':{
     'ImgLightSrc':'/assets/img/personalPortfolioLight.png',
     'techstack':['Next','React','HTML','CSS','Vercel','Figma'],
     'link': [{"Name":'GitHub', "URL":'https://github.com/aneeshpatne/Next-Personal-Website' }],
-    'desc':[`Lorem ipsum dolor sit amet, consectetur adipiscing elit. In mollis orci et odio interdum facilisis. Morbi dignissim enim et tellus ornare, nec tristique lorem lacinia. Quisque eget eleifend orci, sit amet efficitur tellus.`
-        , `Suspendisse quam lacus, sodales ut vestibulum vitae, placerat sit amet nisl. Praesent bibendum ipsum massa, id scelerisque ligula aliquam nec. Integer rhoncus pulvinar faucibus. Aliquam ut lorem a ex condimentum molestie at et lacus. Nulla lacinia, massa nec congue finibus, sem lectus pulvinar nibh, sit amet interdum libero sapien aliquam justo. Maecenas euismod hendrerit leo, sit amet blandit diam fermentum et. Duis convallis mattis erat, eu mollis augue molestie eget. `,
-         `Nam ante orci, cursus sed sodales ut, fermentum et massa. In feugiat, purus id vulputate maximus, nulla nibh cursus odio, et dapibus sem felis eget nisl. Cras ante lectus, vehicula et molestie sed, scelerisque at elit. Cras risus sem, efficitur vitae diam at, venenatis facilisis est. Nullam feugiat ex vel lacus rutrum`, 
-         `Nam ante orci, cursus sed sodales ut, fermentum et massa. In feugiat, purus id vulputate maximus, nulla nibh cursus odio, et dapibus sem felis eget nisl. Cras ante lectus, vehicula et molestie sed, scelerisque at elit. Cras risus sem, efficitur vitae diam at, venenatis facilisis est. Nullam feugiat ex vel lacus rutrum`]
-}};
+    'desc':[`A professional portfolio website crafted with a minimalist approach, featuring light and dark themes and showcasing a polished, modern design`,
+         `The portfolio website serves as a comprehensive showcase of my professional journey, featuring all my skills, expertise, and accomplishments in one place. Each project is thoroughly documented, offering in-depth information on my work, process, and results. The site also highlights my skills and expertise across various domains, demonstrating my versatility and proficiency.`, 
+         `Built with Next.js utilizing the app router, the website offers a seamless, fast, and dynamic user experience, reflecting both the technical precision and creativity behind my work.`]
+},
+'vishv':{
+    'Name':'Vishv',
+    'ImgSrc': '/assets/img/vishv.png',
+    'ImgLightSrc':'/assets/img/vishvLight.png',
+    'techstack':[,'React','Django','GCP','ML',],
+    'link': [{"Name":'GitHub', "URL":'https://github.com/aneeshpatne/Vishv-GDSC-Solutions-Challenge-2024' }],
+    'desc':[`Vishv is a comprehensive and informative website designed to spread awareness about the United Nations' 21 Sustainable Development Goals. The site aims to educate users on the importance of these goals and how they contribute to global sustainability efforts.`
+        , `The website is built with React, providing a dynamic and responsive frontend that ensures a smooth user experience. On the backend, Django is utilized to offer a robust and scalable infrastructure, capable of handling a growing number of users and interactions efficiently. `,
+         `In addition to its technical features, Vishv prioritizes accessibility by supporting multiple languages and incorporating a color blindness-friendly interface. This ensures that the platform is welcoming and usable for a diverse global audience, regardless of language barriers or visual impairments.`]
+},
+'naturenest':{
+    'Name':'NatureNest',
+    'ImgSrc': '/assets/img/naturenest.png',
+    'ImgLightSrc':'/assets/img/naturenestLight.png',
+    'techstack':['React','Django','SQL','GCP'],
+    'link': [{"Name":'GitHub', "URL":'https://github.com/aneeshpatne/NatureNest' }],
+    'desc':[`Naturenest is a garden community app designed to track member activities, monitor harvests, and manage plot details with ease. The app brings together gardening enthusiasts in a collaborative environment where they can log their progress, stay updated on garden activities, and streamline the management of communal plots. Whether it's planning harvest schedules or documenting gardening efforts, Naturenest ensures that every detail is efficiently organized.`
+        , `At the core of Naturenest is the seamless interface between React, Django, and Google Cloud SQL. The app’s frontend, built with React, delivers a dynamic, responsive user experience, allowing for real-time updates and a smooth interaction. Meanwhile, Django powers the backend, offering robust integration with Google Cloud SQL `,
+         `The integration with Google Cloud Platform (GCP) and Google Cloud SQL ensures that Naturenest is scalable and reliable, making it capable of supporting both small gardening groups and larger communities.`]
+}
+};
 const logoMapper = {
     'JS': '/assets/img/js.svg',
     'ML': '/assets/img/ml.svg',
@@ -48,8 +68,8 @@ export default function ProjectInfo({params}){
             <div className={styles.TechStackContainer}>
                {data[projectID]?.techstack.map((data,index) => (<TechStack Name={data} imgSrc={logoMapper[data]} key = {index}/>))}
             </div>
-            </div>
-            <div id={styles.projectDesription} className={theme ==='LightMode' ? styles.LightMode : ''}>
+            </div><div
+             id={styles.projectDesription} className={theme ==='LightMode' ? styles.LightMode : ''}>
                 {data[projectID]?.desc?.map((data,index)=> 
                 <div className ={styles.ProjectTextBox} key={index}>
                     <p>{data}</p>
