@@ -16,7 +16,7 @@ const logoMapper = {
     'Figma': '/assets/img/figma.svg',
     'Express': '/assets/img/express.svg',
     'Firebase': '/assets/img/firebase.svg',
-    'ES':'/assets/img/muc.png',
+    'ES':'/assets/img/muC.png',
     'MongoDB':'/assets/img/mongoDB.svg',
     'Python':'/assets/img/python.svg'
   };
