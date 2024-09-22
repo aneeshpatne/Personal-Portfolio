@@ -2,7 +2,9 @@
 import { useEffect, useState } from 'react';
 import styles from './style/Name.module.css';
 import Image from 'next/image';
+import { UseThemeContext } from './ThemeContext';
 export default function NameCompoenent(){
+    const {theme, ThemeToggle} = UseThemeContext();
     const [greet, setGreet] = useState('');    
     useEffect(()=>{
         const now = new Date();
@@ -30,13 +32,13 @@ export default function NameCompoenent(){
       
       <div className={styles.LinkLogo}>
         <a href="https://leetcode.com/u/aneeshpatne" target="_blank" rel="noopener noreferrer">
-          <Image src="/assets/img/lc.png" alt="LeetCode" width={45} height={45} />
+          <Image src={theme ==='LightMode' ? "/assets/img/lc.svg" : "/assets/img/lc.svg"} alt="LeetCode" width={45} height={45} />
         </a>
       </div>
       
       <div className={styles.LinkLogo}>
         <a href="https://github.com/aneeshpatne" target="_blank" rel="noopener noreferrer">
-          <Image src="/assets/img/github.svg" alt="GitHub" width={45} height={45} />
+        <Image src={theme ==='LightMode' ? "/assets/img/github.svg" : "/assets/img/githubLight.svg"} alt="LeetCode" width={45} height={45} />
         </a>
       </div>
              </div>

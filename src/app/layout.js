@@ -21,7 +21,7 @@ export default function RootLayout({ children }) {
           "https://www.linkedin.com/in/aneeshpatne",
           "https://github.com/aneeshpatne"
         ],
-        "description": "Aneesh Patne is a software engineer with expertise in full stack web development, data structures, and algorithms.",
+        "description": "Aneesh Patne is a engineer with expertise in full stack web development, data structures, and algorithms.",
         "alumniOf": {
           "@type": "CollegeOrUniversity",
           "name": "Veermata Jijabai Technological University"
@@ -40,7 +40,7 @@ export default function RootLayout({ children }) {
         <meta property="og:title" content="Aneesh Patne - Professional Portfolio" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://www.aneeshpatne.com/" />
-        <meta property="og:image" content="https://www.aneeshpatne.com/assets/img/aneesh.png" />
+        <meta property="og:image" content="https://www.aneeshpatne.com/assets/img/header.png" />
         <meta property="og:description" content="Masters student with a strong foundation in Full Stack Web Development & Data Structures and Algorithms." />
         <meta property="og:site_name" content="Aneesh Patne - Professional Portfolio" />
 
