@@ -26,19 +26,19 @@ export default function NameCompoenent(){
              <div id= {styles.LinkBox}>
              <div className={styles.LinkLogo}>
         <a href="https://www.linkedin.com/in/aneeshpatne" target="_blank" rel="noopener noreferrer">
-          <Image src="/assets/img/linkedin.svg" alt="LinkedIn" width={45} height={45} />
+          <Image src="/assets/img/linkedin.svg" alt="LinkedIn" width={45} height={45} draggable={false}/>
         </a>
       </div>
       
       <div className={styles.LinkLogo}>
         <a href="https://leetcode.com/u/aneeshpatne" target="_blank" rel="noopener noreferrer">
-          <Image src={theme ==='LightMode' ? "/assets/img/lc.svg" : "/assets/img/lc.svg"} alt="LeetCode" width={45} height={45} />
+          <Image src={theme ==='LightMode' ? "/assets/img/lc.svg" : "/assets/img/lc.svg"} alt="LeetCode" width={45} height={45} draggable={false}/>
         </a>
       </div>
       
       <div className={styles.LinkLogo}>
         <a href="https://github.com/aneeshpatne" target="_blank" rel="noopener noreferrer">
-        <Image src={theme ==='LightMode' ? "/assets/img/github.svg" : "/assets/img/githubLight.svg"} alt="github" width={45} height={45} />
+        <Image src={theme ==='LightMode' ? "/assets/img/github.svg" : "/assets/img/githubLight.svg"} alt="github" width={45} height={45} draggable={false}/>
         </a>
       </div>
              </div>
