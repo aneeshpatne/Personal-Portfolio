@@ -1,7 +1,7 @@
 # My Portfolio
-
-<img src="./public/assets/img/preview.png" alt="Portfolio Screenshot" width="400" height="180" />
-
+<a href="https://aneeshpatne.com">
+<img src="./public/assets/img/preview.png" alt="Portfolio Screenshot" width="800" height="350" />
+</a>
 
 ## Overview
 
