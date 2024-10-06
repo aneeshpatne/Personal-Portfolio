@@ -4,8 +4,12 @@ import NameCompoenent from "@/components/Name";
 import Aboutme from "@/components/About";
 import Skills from "@/components/Skills";
 import Project from "@/components/Project";
-import { useRef } from "react";
+import { useRef, useState,useEffect } from "react";
 export default function Home() {
+  const [client, isClient] = useState(false);
+  useEffect(() => {
+    isClient(true);
+  }, []);
   const aboutRef = useRef(null);
   const skillRef = useRef(null);
   const projectRef = useRef(null);
@@ -17,6 +21,9 @@ export default function Home() {
   }
   const projectScroll = () =>{
     projectRef.current.scrollIntoView({ behavior: 'smooth' });
+  }
+  if (!client){
+    return null;
   }
   return (
 <>
