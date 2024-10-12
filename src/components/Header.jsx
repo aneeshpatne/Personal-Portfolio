@@ -12,7 +12,7 @@ export default function Header({ theme, ThemeToggle }) {
         </div>
         <div className="dropdown">
           <button className="drpClick">
-            <Image src="/assets/img/btn.svg" width="30" height="30" alt="menu button" draggable={false} />
+            <Image src="https://cdn.sanity.io/images/gbe5l3wg/production/c1ff15b03710fb117b9bcc4a2cadcf67c3deeec4-800x800.svg" width="30" height="30" alt="menu button" draggable={false} />
           </button>
           <div className="DropdownContent">
             <button className="DrpContent">About Me</button>
