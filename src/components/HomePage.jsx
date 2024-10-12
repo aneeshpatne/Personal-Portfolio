@@ -5,16 +5,17 @@ import NameCompoenent from "./Name";
 import { UseThemeContext } from "./ThemeContext";
 import Aboutme from "./About";
 import dynamic from "next/dynamic";
+import Loading from "@/app/loading";
 const LazyStats = dynamic(() =>import("./Graphs"),{
-    loading: () => <h1>Waiting</h1>,
+    loading: () => <Loading />,
     ssr:false
 })
 const LazyProject = dynamic(() =>import("../components/Project"),{
-    loading: () => <h1>Waiting</h1>,
+    loading: () => <Loading />,
     ssr:false
 })
 const LazySkills = dynamic(() =>import("../components/Skills"),{
-    loading: () => <h1>Waiting</h1>,
+    loading: () => <Loading />,
     ssr:false
 })
 export default function HomePage(){
