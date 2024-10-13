@@ -17,7 +17,7 @@
 }
 #LeftHeader{
     
-    display: flex;
+    display: none;
     align-items: center;
 }
 .HeaderButton.light-mode{
@@ -48,6 +48,7 @@
     display: inline-block;
 }
 .drpClick {
+    display: none;
     border: none;
     background: none;
     cursor: pointer;
