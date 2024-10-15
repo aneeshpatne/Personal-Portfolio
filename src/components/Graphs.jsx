@@ -6,7 +6,7 @@ export default function Stats({theme}) {
     const circumference = 2 * Math.PI * radius; 
     const [values, setValues] = useState({
         val1: 23,
-        val2: 290,
+        val2: 292,
         val3: 185
     });
     const [Mounted, setMounted] = useState(false);
