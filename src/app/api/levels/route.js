@@ -27,6 +27,7 @@ export async function GET() {
         })
     }catch(err){
         console.error('Error Fetching', err);
+        console.log(err);
         return NextResponse.json({error: 'Faild to fetch levels'}, {status:500})
     }
 }
