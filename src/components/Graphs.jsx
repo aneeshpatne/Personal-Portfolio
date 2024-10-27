@@ -15,7 +15,8 @@ export default function Stats({theme}) {
         setMounted(true);
         const fetchData = async () => {
             try {
-                const data = await getValues(); 
+                const response = await fetch('/api/levels');
+                const data = await response.json();
                 console.log(data);
                 setValues(data);  
             } catch (error) {
