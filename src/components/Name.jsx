@@ -37,7 +37,7 @@ export default function NameCompoenent(){
       </div>
       
       <div className={styles.LinkLogo}>
-        <a href="https://github.com/aneeshpatne" target="_blank" rel="noopener noreferrer">
+        <a href="www.aneeshpatne.com/github" target="_blank" rel="noopener noreferrer">
         <Image src={theme ==='LightMode' ? "https://cdn.sanity.io/images/gbe5l3wg/production/6f1ea04e60f95e08e08c7f937efb67ac02547894-48x48.svg" : "https://cdn.sanity.io/images/gbe5l3wg/production/00cf75869fa49dd6f961477066f87570747c0969-48x48.svg"} alt="github" width={45} height={45} draggable={false}/>
         </a>
       </div>
