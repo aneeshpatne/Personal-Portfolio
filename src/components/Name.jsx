@@ -25,19 +25,19 @@ export default function NameCompoenent(){
              <p>A Full Stack developer with excellent grasp on Data Structures and Algorithms</p>
              <div id= {styles.LinkBox}>
              <div className={styles.LinkLogo}>
-        <a href="https://www.linkedin.com/in/aneeshpatne" target="_blank" rel="noopener noreferrer">
+        <a href="/linkedin" target="_blank" rel="noopener noreferrer">
           <Image src="https://cdn.sanity.io/images/gbe5l3wg/production/90bcacd53eeaffd607748d6ba734cc6b9dcdb442-48x48.svg" alt="LinkedIn" width={45} height={45} draggable={false}/>
         </a>
       </div>
       
       <div className={styles.LinkLogo}>
-        <a href="https://leetcode.com/u/aneeshpatne" target="_blank" rel="noopener noreferrer">
+        <a href="/leetcode" target="_blank" rel="noopener noreferrer">
           <Image src={theme ==='LightMode' ? "https://cdn.sanity.io/images/gbe5l3wg/production/f48638fd1af616e5f9d12e0370cc7366358fb3c0-25x25.svg" : "https://cdn.sanity.io/images/gbe5l3wg/production/f48638fd1af616e5f9d12e0370cc7366358fb3c0-25x25.svg"} alt="LeetCode" width={45} height={45} draggable={false}/>
         </a>
       </div>
       
       <div className={styles.LinkLogo}>
-        <a href="www.aneeshpatne.com/github" target="_blank" rel="noopener noreferrer">
+        <a href="/github" target="_blank" rel="noopener noreferrer">
         <Image src={theme ==='LightMode' ? "https://cdn.sanity.io/images/gbe5l3wg/production/6f1ea04e60f95e08e08c7f937efb67ac02547894-48x48.svg" : "https://cdn.sanity.io/images/gbe5l3wg/production/00cf75869fa49dd6f961477066f87570747c0969-48x48.svg"} alt="github" width={45} height={45} draggable={false}/>
         </a>
       </div>
