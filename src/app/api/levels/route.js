@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import redis from 'redis';
+const redis = require('redis');
 
 let client;
 
