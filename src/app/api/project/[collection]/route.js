@@ -8,7 +8,7 @@ export async function GET(req,  { params }) {
         const data = await db.collection(collection).find({}).toArray();
         return NextResponse.json(data, { status: 200 });
        }
-         catch(err){
-              return NextResponse.json({ message: err.message }, { status: 500 });
+         catch(error){
+              return NextResponse.json({ message: error.message }, { status: 500 });
          }
 }
