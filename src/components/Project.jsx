@@ -35,27 +35,7 @@ function ProjectContainer({imgSrc, title, desc, tech, id}){
     const router = useRouter();
     const {theme, ThemeToggle} = UseThemeContext();
     const [mounted, setMounted] = useState(false);
-    useEffect(()=>{
-        const fetchProject = async () => {
-        try{
-        setMounted(true);
-        const res = await fetch('api/project');
-        if (!res.ok){
-            throw new Error("Failed to fetch data");
-        }
-        let data = res.json();4
-        console.log(data);
-        }
-        catch(err){
-            console.error(err);
-        }
-        finally{
-            setMounted(false);
-        }
-        
-    }
-    fetchProject();
-    },[]);
+    useEffect(()=>{setMounted(true);},[]);
     function redirect(id) {
         if (mounted){
         router.push(`project/${id}`);
@@ -75,39 +55,38 @@ function ProjectContainer({imgSrc, title, desc, tech, id}){
     </div>)
 };
 
-const d1 = [ {'Title' : 'Professional Portfolio' , 'Img':'/assets/img/personalPortfolio.png', 'ImgLight':'/assets/img/personalPortfolioLight.png',
-    'desc' : 'A sleek and user-friendly personal portfolio website to showcase my projects, skills, and achievements, with intuitive navigation and modern design',
-    'tech': ['Next','GCP'],
-    'id':'professional_portfolio'},
-    {'Title' : 'Vishv' ,  'Img':'/assets/img/vishv.png', 'ImgLight':'/assets/img/vishvLight.png',
-    'desc' : 'A web application to promote awareness on climate change and quality education, incorporating an inclusive color-blindness-friendly interface , featuring ML-driven AQI predictions',
-    'tech': ['React','Django','GCP','ML'],
-    'id':'vishv'},
-    {'Title' : 'NatureNest' ,  'Img':'/assets/img/naturenest.png', 'ImgLight':'/assets/img/naturenestLight.png',
-    'desc' : 'A garden community app designed to track member activities, integration with a cloudSQL database, enabling real-time data retrieval and updates through a user-friendly interface.',
-    'tech': ['React','GCP','ML'],
-    'id':'naturenest'},
-    {'Title' : 'IoT and ML based Agriculture System' ,  'Img':'/assets/img/IOTML.png', 'ImgLight':'/assets/img/IOTMLLight.png',
-    'desc' : 'Conducted data preprocessing on environmental data collected by an ESP8266 microcontroller, involving cleaning, feature engineering, and analysis for predictive modeling', 
-    'tech': ['React','ES','ML'],
-    'id':'iot_and_ml_based_agri_sys'},
-    {'Title' : 'Football Statistics App' ,  'Img':'/assets/img/FootBall.png', 'ImgLight':'/assets/img/FootBallLight.png',
-        'desc' : 'A MongoDB-based football data CRUD app that simplifies data management for teams, players, matches, and stats.', 
-        'tech': ['MongoDB','Express','ML'],
-        'id':'football_stats'},
-    {'Title' : 'Face Recognition Based Attendance System' ,  'Img':'/assets/img/Face.png', 'ImgLight':'/assets/img/FaceLight.png',
-    'desc' : 'Attendance System preprocesses images using bounding box, thresholding and Haar transform, extracts features with a face recognition library, and applies machine learning models for reliable face-based attendance solution.', 
-    'tech': ['Python','ML'],
-    'id':'face_id'}
-        ];
 
 export default function Project(){
     const {theme, ThemeToggle} = UseThemeContext();
+    const [projectData, setData] = useState([]);
+    const [mounted, setMounted] = useState(false);
+    useEffect(()=>{
+        const fetchProject = async () => {
+        try{
+        setMounted(true);
+        const res = await fetch('api/project');
+        if (!res.ok){
+            throw new Error("Failed to fetch data");
+        }
+        const data = await res.json();
+        setData(data);
+        }
+        catch(err){
+            console.error(err);
+        }
+        finally{
+            setMounted(false);
+        }
+        
+    }
+    fetchProject();
+    },[]);
+
     return(
         <div id={styles.ProjectContainerFull}>
             <h1 className={styles.MainTitle}>Projects</h1>
         <div id={styles.ProjectContainerMain}>
-        {d1.map((data,index) => <ProjectContainer imgSrc={theme ==='LightMode' ? data.ImgLight : data.Img} title = {data.Title} desc = {data.desc} tech={data.tech} key={index} id = {data.id}/>)}
+        {projectData.map((data,index) => <ProjectContainer imgSrc={theme ==='LightMode' ? data.ImgLight : data.Img} title = {data.Title} desc = {data.desc} tech={data.tech} key={index} id = {data.id}/>)}
         </div>
         </div>
     )
