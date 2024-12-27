@@ -19,33 +19,13 @@ function TechStack({ imgSrc, Name }) {
     );
 }
 
-function ProjectContainer({ imgSrc, title, desc, tech, id }) {
+function ProjectContainer({ imgSrc, title, desc, tech, id, logoMapper }) {
     const router = useRouter();
     const [mounted, setMounted] = useState(false);
-    const [logoMapper, setLogoMapper] = useState([]);
     const { theme, setTheme } = UseThemeContext();
-    const [progress, setProgress] = useState(0);
 
     useEffect(() => {
-        const fetchLogoMapper = async () => {
-            try {
-                setMounted(false);
-                setProgress(30);
-                const res = await fetch('/api/project/logoMapper');
-                if (!res.ok) {
-                    throw new Error("Failed to fetch data");
-                }
-                const data = await res.json();
-                setLogoMapper(data);
-                setProgress(100);
-            } catch (err) {
-                console.error(err);
-                setProgress(100);
-            } finally {
-                setMounted(true);
-            }
-        }
-        fetchLogoMapper();
+        setMounted(true);
     }, []);
 
     function redirect(id) {
@@ -80,16 +60,23 @@ export default function Project() {
     const [projectData, setData] = useState([]);
     const [mounted, setMounted] = useState(false);
     const [loading, setLoading] = useState(true);
+    const [logoMapper, setLogoMapper] = useState([]);
 
     useEffect(() => {
         const fetchProject = async () => {
             try {
                 setMounted(true);
                 const res = await fetch('api/project/projectMainPage');
+                const res1 = await fetch('/api/project/logoMapper');
                 if (!res.ok) {
                     throw new Error("Failed to fetch data");
                 }
+                if (!res1.ok) {
+                    throw new Error("Failed to fetch data");
+                }
                 const data = await res.json();
+                const data1 = await res1.json();
+                setLogoMapper(data1);
                 setData(data);
             } catch (err) {
                 console.error(err);
@@ -121,6 +108,7 @@ export default function Project() {
                                 tech={data.tech}
                                 key={index}
                                 id={data.id}
+                                logoMapper={logoMapper}
                             />
                         ))}
                     </div>
