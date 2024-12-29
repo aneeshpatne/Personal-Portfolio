@@ -106,7 +106,7 @@ export default function Project() {
                 </div>
             ) : (
                 <>
-                    <div id={styles.SortContainer}>
+                    <div className={styles.SortContainer}>
                         <select
                             className={styles.SortDropdown}
                             onChange={(e) => {
