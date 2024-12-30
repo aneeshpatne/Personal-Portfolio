@@ -54,19 +54,44 @@ function ProjectContainer({ imgSrc, title, desc, tech, id, logoMapper }) {
     )
 }
 import { ClipLoader } from 'react-spinners';
+function TopicSelector({topic, ogData, projectData, setData}) {
+    const [topicState, setTopicState] = useState(false);
+    function changeTopic(){
+    if(!topicState){
+       
+        console.log(topic);
+        setData(projectData.filter((data) => data.topic.includes(topic)));
+        setTopicState(true);
+    }
+    else{
+        setData(ogData);
+        setTopicState(false);
+    }
+    }
+    return(
+    
+    <button className={`${styles.topicButton} ${topicState ===true ? styles.active : ""}`}onClick={() => changeTopic()}>{topic}</button>
+    
+)
+
+}
 
 export default function Project() {
     const { theme, ThemeToggle } = UseThemeContext();
     const [projectData, setData] = useState([]);
+    const [ogData, setOgData] = useState([]);
     const [mounted, setMounted] = useState(false);
     const [loading, setLoading] = useState(true);
     const [logoMapper, setLogoMapper] = useState([]);
     const [sort, setSort] = useState("asc");
+
     function SortbyDate(){
         if (sort === "asc") {
-            setData(projectData.sort((a, b) => new Date(a.date) - new Date(b.date)));
+            setData([...projectData].sort((a, b) => new Date(a.date) - new Date(b.date)));
+            setOgData([...projectData].sort((a, b) => new Date(a.date) - new Date(b.date)));
         } else {
-            setData(projectData.sort((a, b) => new Date(b.date) - new Date(a.date)));
+            setData([...projectData].sort((a, b) => new Date(b.date) - new Date(a.date)));
+            setOgData([...projectData].sort((a, b) => new Date(b.date) - new Date(a.date)));
         }
     }
 
@@ -83,9 +108,11 @@ export default function Project() {
                     throw new Error("Failed to fetch data");
                 }
                 const data = await res.json();
+                console.log(data[0].topic)
                 const data1 = await res1.json();
                 setLogoMapper(data1);
                 setData(data.sort((a, b) => new Date(b.date) - new Date(a.date)));
+                setOgData(data.sort((a, b) => new Date(b.date) - new Date(a.date)));
             } catch (err) {
                 console.error(err);
             } finally {
@@ -118,6 +145,10 @@ export default function Project() {
                             <option value="asc">Sort by Date (Newest)</option>
                             <option value="desc">Sort by Date (Oldest)</option>
                         </select>
+                    </div>
+                    <div className={styles.topicContainer}>
+                    <TopicSelector topic="ML" ogData = {ogData} projectData = {projectData} setData = {setData}/>
+                    <TopicSelector topic="Web Development" ogData = {ogData} projectData = {projectData} setData = {setData}/>
                     </div>
                     <div id={styles.ProjectContainerMain}>
                         {projectData.map((data, index) => (
