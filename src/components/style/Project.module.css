@@ -30,7 +30,7 @@
     font-size: 0.8rem;
     color: white;
     padding: 10px;
-    text-align: justify;
+    text-align: left;
 }
 #ProjectDesc.LightMode{
     color: #000000;

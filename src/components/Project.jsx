@@ -28,10 +28,7 @@ function TechStack({ imgSrc, Name }) {
     );
 }
 
-/**
- * ProjectContainer Component
- * Displays individual project details.
- */
+
 function ProjectContainer({ imgSrc, title, desc, tech, id, logoMapper, theme }) {
     const router = useRouter();
     const [mounted, setMounted] = useState(false);
