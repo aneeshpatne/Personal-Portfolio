@@ -1,7 +1,7 @@
 import clientPromise from "@/lib/mongo";
 import { NextResponse } from "next/server";
-export async function GET(req,  { params }) {
-  const { collection } = params;
+export async function GET(req,  context) {
+  const { collection } = await context.params;
     try{
         const client = await clientPromise;
         const db = client.db('Projects');

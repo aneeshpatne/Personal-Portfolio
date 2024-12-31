@@ -6,10 +6,7 @@ import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { ClipLoader } from 'react-spinners';
 
-/**
- * TechStack Component
- * Displays the technology logo and name.
- */
+
 function TechStack({ imgSrc, Name }) {
     return (
         <div id={styles.TechStack}>
@@ -88,10 +85,7 @@ function ProjectContainer({ imgSrc, title, desc, tech, id, logoMapper, theme }) 
     );
 }
 
-/**
- * TopicSelector Component
- * Button to select/deselect a topic.
- */
+
 function TopicSelector({ topic, theme, isSelected, toggleTopic }) {
     function changeTopic() {
         toggleTopic(topic);
