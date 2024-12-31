@@ -54,3 +54,12 @@
     padding: 20px;
     font-weight: 800;
 }
+.projectTitle{
+    padding:10px;
+    font-size: large;
+    font-weight: 600;
+    
+}
+.leetCodeStatsContainer{
+    padding: 20px;
+}
