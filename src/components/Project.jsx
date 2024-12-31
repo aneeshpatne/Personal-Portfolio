@@ -4,7 +4,7 @@ import { UseThemeContext } from './ThemeContext';
 import styles from './style/Project.module.css';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
-import { ClipLoader } from 'react-spinners';
+
 
 
 function TechStack({ imgSrc, Name }) {
@@ -196,7 +196,7 @@ export default function Project() {
             <h1 className={styles.MainTitle}>Projects</h1>
             {loading ? (
                 <div className={styles.LoaderContainer}>
-                    <ClipLoader color="#f11946" loading={loading} size={50} />
+                    
                 </div>
             ) : (
                 <>
