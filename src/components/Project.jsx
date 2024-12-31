@@ -4,25 +4,37 @@ import { UseThemeContext } from './ThemeContext';
 import styles from './style/Project.module.css';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
+import { ClipLoader } from 'react-spinners';
 
-
-
-
+/**
+ * TechStack Component
+ * Displays the technology logo and name.
+ */
 function TechStack({ imgSrc, Name }) {
     return (
         <div id={styles.TechStack}>
             <div id={styles.TechstackLogo}>
-                <Image src={imgSrc} height={22} width={22} alt={Name} style={{ objectFit: 'cover' }} draggable={false} />
+                <Image
+                    src={imgSrc}
+                    height={22}
+                    width={22}
+                    alt={Name}
+                    style={{ objectFit: 'cover' }}
+                    draggable={false}
+                />
             </div>
             <div id={styles.TechstackName}>{Name}</div>
         </div>
     );
 }
 
-function ProjectContainer({ imgSrc, title, desc, tech, id, logoMapper }) {
+/**
+ * ProjectContainer Component
+ * Displays individual project details.
+ */
+function ProjectContainer({ imgSrc, title, desc, tech, id, logoMapper, theme }) {
     const router = useRouter();
     const [mounted, setMounted] = useState(false);
-    const { theme, setTheme } = UseThemeContext();
 
     useEffect(() => {
         setMounted(true);
@@ -39,90 +51,154 @@ function ProjectContainer({ imgSrc, title, desc, tech, id, logoMapper }) {
     }
 
     return (
-        <div id={styles.ProjectContainer} className={theme === 'LightMode' ? styles.LightMode : ''}>
+        <div
+            id={styles.ProjectContainer}
+            className={theme === 'LightMode' ? styles.LightMode : ''}
+        >
             <div id={styles.ProjectImg}>
                 <Image src={imgSrc} alt={title} width={300} height={180} draggable={false} />
-                <button className={styles.ProjectBtn} onClick={() => redirect(id)}><img src="/assets/img/arrow.svg"></img></button>
+                <button
+                    className={styles.ProjectBtn}
+                    onClick={() => redirect(id)}
+                    aria-label={`Go to project ${title}`}
+                >
+                    <img src="/assets/img/arrow.svg" alt="Arrow Icon" />
+                </button>
             </div>
-            <h1 id={styles.ProjectName} className={theme === 'LightMode' ? styles.LightMode : ''}>{title}</h1>
-            <div id={styles.ProjectDesc} className={theme === 'LightMode' ? styles.LightMode : ''}>{desc}</div>
+            <h1
+                id={styles.ProjectName}
+                className={theme === 'LightMode' ? styles.LightMode : ''}
+            >
+                {title}
+            </h1>
+            <div
+                id={styles.ProjectDesc}
+                className={theme === 'LightMode' ? styles.LightMode : ''}
+            >
+                {desc}
+            </div>
             <p className={styles.smallText}>Tools and Technologies</p>
             <div id={styles.TechstackContainer}>
-                {tech.map((val, index) => (<TechStack Name={val} imgSrc={logoMapper[0][val]} key={index} />))}
+                {tech.map((val, index) => (
+                    <TechStack
+                        Name={val}
+                        imgSrc={logoMapper[0][val]}
+                        key={index}
+                    />
+                ))}
             </div>
         </div>
-    )
-}
-import { ClipLoader } from 'react-spinners';
-function TopicSelector({topic, ogData, projectData, setData, theme}) {
-    const [topicState, setTopicState] = useState(false);
-    function changeTopic(){
-    if(!topicState){
-       
-        console.log(topic);
-        setData(projectData.filter((data) => data.topic.includes(topic)));
-        setTopicState(true);
-    }
-    else{
-        setData(ogData);
-        setTopicState(false);
-    }
-    }
-    return(
-    
-    <button className={`${styles.topicButton} ${theme === 'LightMode' ? styles.LightMode : ''} ${topicState ===true ? styles.active : ""}`}onClick={() => changeTopic()}>{topic}</button>
-    
-)
-
+    );
 }
 
+/**
+ * TopicSelector Component
+ * Button to select/deselect a topic.
+ */
+function TopicSelector({ topic, theme, isSelected, toggleTopic }) {
+    function changeTopic() {
+        toggleTopic(topic);
+    }
+
+    return (
+        <button
+            className={`${styles.topicButton} ${
+                theme === 'LightMode' ? styles.LightMode : ''
+            } ${isSelected ? styles.active : ''}`}
+            onClick={changeTopic}
+            aria-pressed={isSelected}
+        >
+            {topic}
+        </button>
+    );
+}
+
+/**
+ * Project Component
+ * Main component that fetches project data, manages state, and renders projects and topic selectors.
+ */
 export default function Project() {
-    const { theme, ThemeToggle } = UseThemeContext();
+    const { theme } = UseThemeContext();
     const [projectData, setData] = useState([]);
     const [ogData, setOgData] = useState([]);
-    const [mounted, setMounted] = useState(false);
     const [loading, setLoading] = useState(true);
     const [logoMapper, setLogoMapper] = useState([]);
-    const [sort, setSort] = useState("asc");
+    const [topicList, setTopicList] = useState([]);
+    const [sort, setSort] = useState('asc');
 
-    function SortbyDate(){
-        if (sort === "asc") {
-            setData([...projectData].sort((a, b) => new Date(a.date) - new Date(b.date)));
-            setOgData([...projectData].sort((a, b) => new Date(a.date) - new Date(b.date)));
-        } else {
-            setData([...projectData].sort((a, b) => new Date(b.date) - new Date(a.date)));
-            setOgData([...projectData].sort((a, b) => new Date(b.date) - new Date(a.date)));
-        }
-    }
-
+    /**
+     * Fetches project data and logo mapper data from APIs.
+     */
     useEffect(() => {
         const fetchProject = async () => {
             try {
-                setMounted(true);
                 const res = await fetch('api/project/projectMainPage');
                 const res1 = await fetch('/api/project/logoMapper');
+
                 if (!res.ok) {
-                    throw new Error("Failed to fetch data");
+                    throw new Error('Failed to fetch project data');
                 }
                 if (!res1.ok) {
-                    throw new Error("Failed to fetch data");
+                    throw new Error('Failed to fetch logo mapper data');
                 }
+
                 const data = await res.json();
-                console.log(data[0].topic)
                 const data1 = await res1.json();
+
+                // Ensure that 'topic' is an array
+
+
                 setLogoMapper(data1);
-                setData(data.sort((a, b) => new Date(b.date) - new Date(a.date)));
-                setOgData(data.sort((a, b) => new Date(b.date) - new Date(a.date)));
+                setData(
+                    data.sort(
+                        (a, b) => new Date(b.date) - new Date(a.date)
+                    )
+                );
+                setOgData(data);
             } catch (err) {
                 console.error(err);
             } finally {
                 setLoading(false);
-                setMounted(false);
             }
-        }
+        };
         fetchProject();
-        
     }, []);
+
+
+    function SortbyDate() {
+        if (sort === 'asc') {
+            setData([...projectData].sort((a, b) => new Date(a.date) - new Date(b.date)));
+        } else {
+            setData([...projectData].sort((a, b) => new Date(b.date) - new Date(a.date)));
+        }
+    }
+
+
+    function handleSortChange(value) {
+        setSort(value);
+        SortbyDate();
+    }
+
+
+    function toggleTopic(topic) {
+        setTopicList(prevList =>
+            prevList.includes(topic)
+                ? prevList.filter(t => t !== topic)
+                : [...prevList, topic]
+        );
+    }
+
+
+    useEffect(() => {
+        if (topicList.length === 0) {
+            setData(ogData);
+        } else {
+            const filteredData = ogData.filter(data =>
+                topicList.every(selectedTopic => data.topic.includes(selectedTopic))
+            );
+            setData(filteredData);
+        }
+    }, [topicList, ogData]);
 
     return (
         <div id={styles.ProjectContainerFull}>
@@ -133,13 +209,16 @@ export default function Project() {
                 </div>
             ) : (
                 <>
-                    <div className={`${styles.SortContainer} ${theme === 'LightMode' ? styles.LightMode : ''}`}>
+                    <div
+                        className={`${styles.SortContainer} ${
+                            theme === 'LightMode' ? styles.LightMode : ''
+                        }`}
+                    >
                         <select
-                            className={`${styles.SortDropdown} ${theme === 'LightMode' ? styles.LightMode : ''}`}
-                            onChange={(e) => {
-                                setSort(e.target.value);
-                                SortbyDate();
-                            }}
+                            className={`${styles.SortDropdown} ${
+                                theme === 'LightMode' ? styles.LightMode : ''
+                            }`}
+                            onChange={(e) => handleSortChange(e.target.value)}
                             value={sort}
                         >
                             <option value="asc">Sort by Date (Newest)</option>
@@ -147,25 +226,41 @@ export default function Project() {
                         </select>
                     </div>
                     <div className={styles.topicContainer}>
-                    <TopicSelector topic="ML" ogData = {ogData} projectData = {projectData} setData = {setData} theme= {theme}/>
-                    <TopicSelector topic="Web Development" ogData = {ogData} projectData = {projectData} setData = {setData} theme={theme}/>
+                        <TopicSelector
+                            topic="ML"
+                            theme={theme}
+                            isSelected={topicList.includes('ML')}
+                            toggleTopic={toggleTopic}
+                        />
+                        <TopicSelector
+                            topic="Web Development"
+                            theme={theme}
+                            isSelected={topicList.includes('Web Development')}
+                            toggleTopic={toggleTopic}
+                        />
                     </div>
                     <div id={styles.ProjectContainerMain}>
-                        {projectData.map((data, index) => (
-                            <ProjectContainer
-                                imgSrc={theme === 'LightMode' ? data.ImgLight : data.Img}
-                                title={data.Title}
-                                desc={data.desc}
-                                tech={data.tech}
-                                key={index}
-                                id={data.id}
-                                logoMapper={logoMapper}
-                            />
-                        ))}
+                        {projectData.length > 0 ? (
+                            projectData.map((data, index) => (
+                                <ProjectContainer
+                                    imgSrc={theme === 'LightMode' ? data.ImgLight : data.Img}
+                                    title={data.Title}
+                                    desc={data.desc}
+                                    tech={data.tech}
+                                    key={data.id || index}
+                                    id={data.id}
+                                    logoMapper={logoMapper}
+                                    theme={theme}
+                                />
+                            ))
+                        ) : (
+                            <p>No projects match the selected topics.</p>
+                        )}
                     </div>
                 </>
             )}
         </div>
-    )
+    );
 }
-export {TechStack};
+
+export { TechStack };
