@@ -123,6 +123,21 @@ export default function Project() {
     useEffect(() => {
         const fetchProject = async () => {
             try {
+                const cacheData = localStorage.getItem('projectData');
+                const cacheLogoMapper = localStorage.getItem('logoMapper');
+                if (cacheData && cacheLogoMapper) {
+                    const data = JSON.parse(cacheData);
+                    const data1 = JSON.parse(cacheLogoMapper);
+                    setLogoMapper(data1);
+                    setData(
+                        data.sort(
+                            (a, b) => new Date(b.date) - new Date(a.date)
+                        )
+                    );
+                    setOgData(data);
+                    setLoading(false);
+                    return;
+                }
                 const res = await fetch('api/project/projectMainPage');
                 const res1 = await fetch('/api/project/logoMapper');
 
@@ -138,7 +153,8 @@ export default function Project() {
 
                 // Ensure that 'topic' is an array
 
-
+                localStorage.setItem('projectData', JSON.stringify(data));
+                localStorage.setItem('logoMapper', JSON.stringify(data1));
                 setLogoMapper(data1);
                 setData(
                     data.sort(
