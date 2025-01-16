@@ -3,7 +3,7 @@ import "./globals.css";
 import "../components/style/header.css";
 import ThemeProvider from "@/components/ThemeContext";
 import Footer from "@/components/Footer";
-
+import { GeistSans } from "geist/font/sans";
 const raleway = Noto_Sans({
   subsets: ["latin"],
   weight: ["100", "300", "300", "700", "900"],
