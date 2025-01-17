@@ -8,6 +8,7 @@ body.body-visible {
 
 :root {
   --dark-bg: #2f363e;
+  --dark-bg-sec: #e9ecef;
   --dark-bg-outline: #72859a;
   --dark-text: #ffffff;
   --dark-secondary-color: #1e2831;
