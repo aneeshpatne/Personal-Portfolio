@@ -14,7 +14,15 @@ export default function NameNew() {
         <p className={styles.secText}>
           I'm passionate about coding and building exciting projects
         </p>
+        <div className={styles.skillBoxContainer}>
+          <div className={styles.skillBox}>
+            <Socials />
+          </div>
+        </div>
       </div>
     </div>
   );
+}
+function Socials() {
+  return <h1>Hello</h1>;
 }

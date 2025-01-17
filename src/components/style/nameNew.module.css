@@ -15,3 +15,14 @@
   font-size: 5rem;
   font-weight: 700;
 }
+.skillBox {
+  top: 120px;
+  display: grid;
+  border: 2px solid var(--dark-bg-outline);
+  margin: 5px auto;
+  padding: 5px;
+  border-radius: 5px;
+}
+.skillBoxContainer {
+  margin-top: 5%;
+}
