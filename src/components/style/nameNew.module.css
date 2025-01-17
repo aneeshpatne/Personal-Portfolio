@@ -16,13 +16,29 @@
   font-weight: 700;
 }
 .skillBox {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  gap: 10px;
   top: 120px;
   display: grid;
-  border: 2px solid var(--dark-bg-outline);
   margin: 5px auto;
   padding: 5px;
-  border-radius: 5px;
 }
 .skillBoxContainer {
   margin-top: 5%;
+}
+.socialIcon {
+  padding: 4px;
+}
+.socialContainer {
+  display: flex;
+  padding: 5px;
+  border-radius: 5px;
+  border: 2px solid var(--dark-bg-outline);
+}
+.socialText {
+  padding: 4px;
+}
+.urlBox {
+  min-width: 240px;
 }
