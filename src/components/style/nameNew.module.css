@@ -36,9 +36,43 @@
   border-radius: 5px;
   border: 2px solid var(--dark-bg-outline);
 }
+.socialContainer.active {
+  background-color: var(--dark-bg-outline);
+}
 .socialText {
   padding: 4px;
 }
 .urlBox {
-  min-width: 240px;
+  display: flex;
+  align-items: center;
+  line-height: 1.5;
+}
+
+.urlAnimationWrapper {
+  position: relative;
+  overflow: hidden;
+  height: 1.5em;
+  min-width: 70px;
+  display: flex;
+  align-items: center;
+}
+
+.urlAnimationWrapper a {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  animation: urlSlideUp 0.3s ease-out;
+  white-space: nowrap;
+}
+
+@keyframes urlSlideUp {
+  from {
+    transform: translateY(50%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(-50%);
+    opacity: 1;
+  }
 }

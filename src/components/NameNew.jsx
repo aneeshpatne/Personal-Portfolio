@@ -2,18 +2,18 @@
 import { LuGithub, LuLinkedin, LuCodeXml } from "react-icons/lu";
 import styles from "./style/nameNew.module.css";
 import { useEffect, useState } from "react";
+const socials = [
+  { name: "Github", icon: <LuGithub />, url: "github" },
+  { name: "Linkedin", icon: <LuLinkedin />, url: "linkedin" },
+  { name: "LeetCode", icon: <LuCodeXml />, url: "leetcode" },
+];
 export default function NameNew() {
-  const [index, setIndex] = useState(0);
+  const [idx, setIndex] = useState(0);
   useEffect(() => {
     const interval = setInterval(() => {
       setIndex((prevIndex) => (prevIndex + 1) % 3);
     }, 3000);
   }, []);
-  const socials = [
-    { name: "Github", icon: <LuGithub />, url: "github" },
-    { name: "Linkedin", icon: <LuLinkedin />, url: "linkedin" },
-    { name: "LeetCode", icon: <LuCodeXml />, url: "leetcode" },
-  ];
   return (
     <div className={styles.name}>
       <div className={styles.introduction}>
@@ -30,26 +30,31 @@ export default function NameNew() {
                   name={data.name}
                   icon={data.icon}
                   url={data.url}
+                  state={idx}
                 />
               );
             })}
           </div>
         </div>
         <div className={styles.urlBox}>
-          <a
-            href={socials[index].url}
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{ textDecoration: "none", color: "inherit" }}
-          >
-            {"aneeshpatne.com/" + socials[index].url}
-          </a>
+          <span>aneeshpatne.com/</span>
+          <div className={styles.urlAnimationWrapper}>
+            <a
+              href={socials[idx].url}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ textDecoration: "none", color: "inherit" }}
+              key={idx}
+            >
+              {socials[idx].url}
+            </a>
+          </div>
         </div>
       </div>
     </div>
   );
 }
-function Socials({ name, icon, url }) {
+function Socials({ name, icon, url, state }) {
   return (
     <a
       href={url}
@@ -57,7 +62,11 @@ function Socials({ name, icon, url }) {
       rel="noopener noreferrer"
       style={{ textDecoration: "none", color: "inherit" }}
     >
-      <div className={styles.socialContainer}>
+      <div
+        className={`${styles.socialContainer} ${
+          socials[state].name === name ? styles.active : ""
+        }`}
+      >
         <div className={styles.socialIcon}>{icon}</div>
         <p className={styles.socialText}>{name}</p>
       </div>
