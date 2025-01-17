@@ -36,6 +36,9 @@
   border-radius: 5px;
   border: 2px solid var(--dark-bg-outline);
 }
+.socialContainer.light {
+  border: 2px solid var(--light-bg-outline);
+}
 .socialContainer.active {
   background-color: var(--dark-bg-outline);
 }
