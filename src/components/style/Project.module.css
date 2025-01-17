@@ -1,8 +1,24 @@
 .projectContainer {
+  display: flex;
   height: 350px;
-  width: 276px;
-  border-radius: 15px;
+  width: 270px;
+  border-radius: 10px;
   background-color: rgb(255, 255, 255);
+}
+.projectImage {
+  position: relative;
+  width: 100%;
+  height: 170px;
+  background-color: #a6efaa;
+  border-radius: 10px 10px 0 0;
+}
+.projectTitle {
+  position: absolute;
+  bottom: 0;
+  padding: 10px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #090d10;
 }
 
 #ProjectContainerMain {
