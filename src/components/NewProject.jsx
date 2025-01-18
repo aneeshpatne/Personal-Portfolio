@@ -1,3 +1,3 @@
 export default function NewProject({ theme }) {
-  return <h1>eqqq2</h1>;
+  return <h1>eqq</h1>;
 }
