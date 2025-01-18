@@ -31,7 +31,7 @@ export default function HomePage() {
       <Aboutme theme={theme} />
       <LazyStats theme={theme} />
       <LazySkills />
-      <NewProject />
+      <NewProject theme={theme} />
     </>
   );
 }
