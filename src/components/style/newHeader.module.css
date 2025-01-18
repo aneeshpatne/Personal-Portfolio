@@ -4,12 +4,15 @@
   height: 40px;
   border-bottom: 0.3px solid var(--dark-bg-accent);
   align-items: center;
-  justify-content: end;
+  justify-content: flex-end;
 }
 .themeToggle {
+  display: flex;
   height: 30px;
   width: 30px;
   margin: 10px;
   border: 1px solid var(--dark-bg-accent);
   border-radius: 5px;
+  align-items: center;
+  justify-content: center;
 }
