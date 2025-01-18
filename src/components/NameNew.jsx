@@ -1,7 +1,14 @@
 "use client";
+import { GeistMono } from "geist/font/mono";
+import { Fira_Code } from "next/font/google";
 import { LuGithub, LuLinkedin, LuCodeXml } from "react-icons/lu";
 import styles from "./style/nameNew.module.css";
 import { useEffect, useState } from "react";
+const ibm_font = Fira_Code({
+  subsets: ["latin"],
+  weight: ["400", "500"],
+  display: "swap",
+});
 const socials = [
   { name: "Github", icon: <LuGithub />, url: "github" },
   { name: "Linkedin", icon: <LuLinkedin />, url: "linkedin" },
@@ -37,18 +44,20 @@ export default function NameNew({ theme }) {
             })}
           </div>
         </div>
-        <div className={styles.urlBox}>
-          <span>aneeshpatne.com/</span>
-          <div className={styles.urlAnimationWrapper}>
-            <a
-              href={socials[idx].url}
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{ textDecoration: "none", color: "inherit" }}
-              key={idx}
-            >
-              {socials[idx].url}
-            </a>
+        <div className={ibm_font.className}>
+          <div className={styles.urlBox}>
+            <span>aneeshpatne.com/</span>
+            <div className={styles.urlAnimationWrapper}>
+              <a
+                href={socials[idx].url}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ textDecoration: "none", color: "inherit" }}
+                key={idx}
+              >
+                {socials[idx].url}
+              </a>
+            </div>
           </div>
         </div>
       </div>
