@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import NameCompoenent from "./Name";
+import NewProject from "./newProject";
 import NewHeader from "./NewHeader";
 import { UseThemeContext } from "./ThemeContext";
 import Aboutme from "./About";
@@ -12,10 +12,7 @@ const LazyStats = dynamic(() => import("./Graphs"), {
   loading: () => <Loading />,
   ssr: false,
 });
-const LazyProject = dynamic(() => import("../components/Project"), {
-  loading: () => <Loading />,
-  ssr: false,
-});
+
 const LazySkills = dynamic(() => import("../components/Skills"), {
   loading: () => <Loading />,
   ssr: false,
@@ -34,7 +31,7 @@ export default function HomePage() {
       <Aboutme theme={theme} />
       <LazyStats theme={theme} />
       <LazySkills />
-      <LazyProject />
+      <NewProject />
     </>
   );
 }
