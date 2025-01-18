@@ -1,22 +1,10 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import NewProject from "./newProject";
 import NewHeader from "./NewHeader";
 import { UseThemeContext } from "./ThemeContext";
-import Aboutme from "./About";
 import NameNew from "./NameNew";
-import dynamic from "next/dynamic";
-import Loading from "@/app/loading";
-const LazyStats = dynamic(() => import("./Graphs"), {
-  loading: () => <Loading />,
-  ssr: false,
-});
-
-const LazySkills = dynamic(() => import("../components/Skills"), {
-  loading: () => <Loading />,
-  ssr: false,
-});
+import ProjectNew from "./ProjectNew";
 export default function HomePage() {
   const { theme, ThemeToggle } = UseThemeContext();
   const [Mount, setMount] = useState(false);
@@ -28,10 +16,7 @@ export default function HomePage() {
     <>
       <NewHeader theme={theme} ThemeToggle={ThemeToggle} />
       <NameNew theme={theme} />
-      <Aboutme theme={theme} />
-      <LazyStats theme={theme} />
-      <LazySkills />
-      <NewProject theme={theme} />
+      <ProjectNew />
     </>
   );
 }
