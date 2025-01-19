@@ -3,7 +3,6 @@ import "./globals.css";
 import "../components/style/header.css";
 import ThemeProvider from "@/components/ThemeContext";
 import Footer from "@/components/Footer";
-import PageLoad from "@/components/PageLoad";
 
 const raleway = Raleway({
   subsets: ["latin"],
@@ -87,8 +86,7 @@ export default function RootLayout({ children }) {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdData) }}
         />
       </head>
-      <body style={{ visibility: "hidden" }}>
-        <PageLoad />
+      <body>
         <ThemeProvider>
           {children}
           <Footer />
