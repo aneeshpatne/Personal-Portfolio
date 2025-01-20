@@ -1,10 +1,12 @@
 .name {
+  position: relative;
   display: flex;
   width: 100%;
-  min-width: 400px;
-  height: 95%;
+  min-width: 350px;
+  min-height: 95%;
   justify-content: center;
 }
+
 .introduction {
   display: flex;
   flex-direction: column;
@@ -12,14 +14,28 @@
   align-items: center;
   position: absolute;
   padding: 5%;
-  top: 40%;
+  top: 60%;
 }
-.boldText {
-  text-align: center;
-  width: 100%;
+.upperText {
+  position: absolute;
+  left: 5%;
+  top: 15%;
+}
+.introText {
+  padding: 0.7rem;
+  font-size: 1.5rem;
+  max-width: 70%;
+}
+.introName {
   font-size: 5rem;
   font-weight: 700;
 }
+.introWrapper {
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+}
+
 .skillBox {
   display: grid;
   grid-template-columns: auto auto auto;
@@ -78,7 +94,37 @@
   animation: urlSlideUp 0.3s ease-out;
   white-space: nowrap;
 }
-@media (max-width: 768px) {
+.gradientUnderline {
+  position: relative;
+  display: inline-block;
+}
+
+.gradientUnderline::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, #ff00ff, #00ffff, #ff00ff);
+  border-radius: 10%;
+  background-size: 200% 100%;
+  animation: gradientMove 3s ease infinite;
+}
+
+@media (max-width: 570px) {
+  .introduction {
+    top: 70%;
+  }
+  .introName {
+    font-size: 3rem;
+  }
+  .upperText {
+    top: 10%;
+  }
+  .introText {
+    max-width: 80%;
+  }
 }
 @keyframes urlSlideUp {
   from {
@@ -88,5 +134,16 @@
   to {
     transform: translateY(-50%);
     opacity: 1;
+  }
+}
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
   }
 }
