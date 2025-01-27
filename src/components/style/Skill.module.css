@@ -14,9 +14,9 @@
 .gradientLine {
   height: 4px;
   width: 40%;
-  background: linear-gradient(90deg, #007cf0, #00dfd8);
+  background: linear-gradient(90deg, #ff00ff, #00ffff, #ff00ff);
   background-size: 200% 100%;
-  animation: moveGradient 2s infinite linear;
+  animation: moveGradient 3s ease infinite;
 }
 
 .text {
@@ -34,9 +34,12 @@
 
 @keyframes moveGradient {
   0% {
-    background-position: 0% 50%; /* Start position */
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
   }
   100% {
-    background-position: 100% 50%; /* End position */
+    background-position: 0% 50%;
   }
 }
