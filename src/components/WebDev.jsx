@@ -9,6 +9,15 @@ export default function WebDev() {
         </span>{" "}
         Development/&gt;
       </h1>
+      <div className={styles.content}>
+        <div className={styles.left}>
+          <div className={`${styles.word} ${styles.stylish}`}>STYLISH</div>
+          <div className={`${styles.word} ${styles.elegant}`}>ELEGANT</div>
+          <div className={`${styles.word} ${styles.performant}`}>
+            PERFORMANT
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
