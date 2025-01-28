@@ -7,8 +7,11 @@ export default function WebDev() {
         <span className={styles.webWrapper}>
           <span className={styles.web}>Web</span>
         </span>{" "}
-        Development/&gt;
+        Dev<span className={styles.bigText}>elopment</span>/&gt;
       </h1>
+      <p className={styles.secText}>
+        Creating responsive and modern web solutions
+      </p>
       <div className={styles.content}>
         <div className={styles.left}>
           <div className={`${styles.word} ${styles.stylish}`}>STYLISH</div>
@@ -17,6 +20,7 @@ export default function WebDev() {
             PERFORMANT
           </div>
         </div>
+        <div className={styles.right}>hi</div>
       </div>
     </div>
   );
