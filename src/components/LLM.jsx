@@ -3,177 +3,71 @@ import styles from "./style/LLM.module.css";
 import { useEffect, useRef, useState } from "react";
 import ReactMarkdown from "react-markdown";
 const data = [
-  "**Aneesh's**",
-  " **Skills**",
-  " **in**",
-  " **LLMs**",
-  "- **Expert**",
-  " in",
-  " AI",
-  " Integration",
-  " –",
-  " Has",
-  " built",
-  " multiple",
-  " applications",
-  " leveraging",
-  " LLMs",
-  " for",
-  " real-world",
-  " use",
-  " cases,",
-  " including",
-  " **summarization,**",
-  " retrieval-augmented",
-  " generation",
-  "(RAG),",
-  " and",
-  " resume",
-  " optimization.",
+  "#",
+  "Aneesh's",
+  "LLM",
+  "Skills",
+  "\n\n",
 
-  "- **Strong**",
-  " SDK",
+  "##",
+  "🔹",
+  "AI",
+  "Integration",
+  "\n",
+  "-",
+  "**Built",
+  "multiple",
+  "AI-powered",
+  "applications**",
+  "using",
+  "LLMs",
+  "for",
+  "real-world",
+  "use",
+  "cases.",
+  "\n",
+  "-",
+  "Specialized",
+  "in",
+  "**summarization",
+  "and",
+  "RAG",
+  "(retrieval-augmented",
+  "generation)**",
+  "\n\n",
+
+  "##",
+  "🔹",
+  "SDKs",
   "&",
-  " API",
-  " Knowledge",
-  " –",
-  " Proficient",
-  " in",
-  " **OpenAI",
-  " SDK,**",
-  " Vercel",
-  " AI",
-  " API,**",
-  " and",
-  " other",
-  " AI",
-  " service",
-  " integrations",
-  " for",
-  " scalable",
-  " app",
-  " development.",
-
-  "- **Product**",
-  " Development",
-  " Experience",
-  " –",
-  " Successfully",
-  " developed",
-  " AI-powered",
-  " apps",
-  " like:",
-  "  - **TLDR**",
-  "(Chrome",
-  " Extension)**",
-  " –",
-  " AI-based",
-  " website",
-  " summarizer.",
-  "  - **Resume.AI**",
-  " –",
-  " RAG-based",
-  " LLM",
-  " for",
-  " answering",
-  " resume-related",
-  " questions.",
-  "  - **EasyResume**",
-  " –",
-  " AI-driven",
-  " bullet",
-  " point",
-  " summarization",
-  " for",
-  " resumes.",
-  "  - **Socio-Economic**",
-  " Impact",
-  " Analysis**",
-  " –",
-  " AI",
-  " insights",
-  " on",
-  " life",
-  " expectancy",
-  " trends.",
-
-  "- **Machine**",
-  " Learning",
-  " Expertise",
-  " –",
-  " Built",
-  " a",
-  " **predictive",
-  " ML",
-  " model**",
-  " for",
-  " life",
-  " expectancy",
-  " in",
-  " India",
-  " based",
-  " on",
-  " PM2.5",
-  " pollution",
-  " levels.",
-
-  "- **Data-Driven**",
-  " Approach",
-  " –",
-  " Skilled",
-  " in",
-  " **preprocessing,**",
-  " fine-tuning,",
-  " and",
-  " optimizing",
-  " LLM",
-  " outputs",
-  " for",
-  " better",
-  " accuracy",
-  " and",
-  " performance.",
-
-  "- **Experience**",
-  " with",
-  " Deployment",
-  "&",
-  " Scalability",
-  " –",
-  " Has",
-  " deployed",
-  " AI",
-  " models",
-  " as",
-  " APIs,",
-  " web",
-  " apps,",
-  " and",
-  " interactive",
-  " dashboards",
-  " for",
-  " accessibility",
-  " and",
-  " impact.",
-
-  "- **Strong**",
-  " Understanding",
-  " of",
-  " LLM",
-  " Architectures",
-  " –",
-  " Knowledgeable",
-  " in",
-  " **RAG,**",
-  " prompt",
-  " engineering,",
-  " embeddings,",
-  " and",
-  " model",
-  " fine-tuning",
-  " for",
-  " domain-specific",
-  " applications.",
+  "APIs",
+  "\n",
+  "-",
+  "Proficient",
+  "in",
+  "**OpenAI",
+  "SDK,",
+  "Vercel",
+  "AI",
+  "API,**",
+  "and",
+  "other",
+  "AI",
+  "service",
+  "integrations.",
+  "\n",
+  "-",
+  "Experience",
+  "in",
+  "**deploying",
+  "scalable",
+  "AI",
+  "apps**",
+  "with",
+  "optimized",
+  "API",
+  "calls.",
+  "\n\n",
 ];
 
 const MatrixLLM = () => {
@@ -264,10 +158,43 @@ const SentMessage = function () {
 };
 const ReceiveMessage = function () {
   const [index, setIndex] = useState(0);
+  const [displayedText, setDisplayedText] = useState("");
+  const [isVisible, setIsVisible] = useState(false);
+  const ref = useRef(null);
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.5 }
+    );
+
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+  useEffect(() => {
+    if (isVisible && index < data.length) {
+      const timeout = setTimeout(() => {
+        setDisplayedText((prev) => prev + " " + data[index]);
+        setIndex(index + 1);
+      }, 100);
+
+      return () => clearTimeout(timeout);
+    }
+  }, [index, isVisible]);
+
   return (
-    <div className={styles.ReceiveMessage}>
-      <p style={{ display: "inline-block" }}>Aneesh's Skills</p>
+    <div ref={ref} className={styles.ReceiveMessage}>
+      <div style={{ display: "inline-block" }}>
+        <ReactMarkdown>{displayedText}</ReactMarkdown>
+      </div>
     </div>
   );
 };
+
 export default MatrixLLM;
