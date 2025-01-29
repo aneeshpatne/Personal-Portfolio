@@ -8,6 +8,7 @@ import ProjectNew from "./ProjectNew";
 import WebDev from "./WebDev";
 import Profile from "./aboutMeNew";
 import Skills from "./Skills";
+import MatrixLLM from "./LLM";
 export default function HomePage() {
   const { theme, ThemeToggle } = UseThemeContext();
   const [Mount, setMount] = useState(false);
@@ -22,6 +23,7 @@ export default function HomePage() {
       <Profile theme={theme} />
       <Skills theme={theme} />
       <WebDev theme={theme} />
+      <MatrixLLM theme={theme} />
       <ProjectNew theme={theme} />
     </>
   );
