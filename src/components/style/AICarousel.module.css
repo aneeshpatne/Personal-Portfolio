@@ -11,7 +11,7 @@
 
 .title {
   margin-bottom: 1rem;
-  font-size: 2.25rem;
+  font-size: clamp(1rem, 2.2rem, 3rem);
   font-weight: bold;
   color: #d1d5db;
 }
@@ -24,7 +24,7 @@
 }
 
 .word {
-  font-size: 3.75rem;
+  font-size: clamp(1rem, 3rem, 4rem);
   font-weight: 800;
   color: white;
   text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
