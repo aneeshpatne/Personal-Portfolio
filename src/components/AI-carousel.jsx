@@ -1,146 +1,45 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronLeft, ChevronRight } from "lucide-react";
 import styles from "./style/AICarousel.module.css";
 
-const slides = [
-  {
-    title: "API Integration",
-    content: "Seamlessly connecting app with AI services",
-    code: `import { openai } from '@ai-sdk/openai'
+const words = ["API Integration", "RAG", "Prompt Engineering"];
 
-const response = await openai.chat.completions.create({
-  model: "gpt-4o",
-  messages: [{ role: "user", content: "Hello, AI!" }]
-})`,
-    color: "#00ffff",
-  },
-  {
-    title: "RAG",
-    content: "Enhance AI responses with relevant context",
-    code: `async function generateResponse(query, context) {
-  const prompt = \`Context: \${context}\n\nQuery: \${query}\`
-  const { text } = await generateText({
-    model: openai('gpt-4o'),
-    prompt: prompt
-  })
-  return text
-}`,
-    color: "#ff00ff",
-  },
-  {
-    title: "Prompt Engineering",
-    content: "Craft effective prompts for optimal AI output",
-    code: `const engineeredPrompt = 
-\`You are an helpful resume based asistant.\nTask: Basesd on the context provided answer the question.\nContext: [RELEVANT_INFORMATION]\nOutput format: [DESIRED_FORMAT]\n\nUser query: [USER_INPUT]\n\``,
-    color: "#ffff00",
-  },
-];
-
-export default function AICarousel() {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [isPaused, setIsPaused] = useState(false);
-
-  const nextSlide = useCallback(() => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % slides.length);
-  }, []);
-
-  const prevSlide = useCallback(() => {
-    setCurrentIndex(
-      (prevIndex) => (prevIndex - 1 + slides.length) % slides.length
-    );
-  }, []);
+const useWordCycle = (words, interval) => {
+  const [index, setIndex] = useState(0);
 
   useEffect(() => {
-    const intervalId = setInterval(() => {
-      if (!isPaused) {
-        nextSlide();
-      }
-    }, 5000);
+    const timer = setInterval(() => {
+      setIndex((current) => (current + 1) % words.length);
+    }, interval);
+    return () => clearInterval(timer);
+  }, [words, interval]);
 
-    return () => clearInterval(intervalId);
-  }, [isPaused, nextSlide]);
+  return words[index];
+};
+
+export default function TextCarousel() {
+  const word = useWordCycle(words, 2000); // Change word every 2 seconds
 
   return (
-    <div
-      className={styles.carouselContainer}
-      onMouseEnter={() => setIsPaused(true)}
-      onMouseLeave={() => setIsPaused(false)}
-    >
-      <AnimatePresence initial={false} custom={currentIndex}>
-        <motion.div
-          key={currentIndex}
-          custom={currentIndex}
-          variants={{
-            enter: (direction) => ({
-              x: direction > 0 ? 1000 : -1000,
-              opacity: 0,
-            }),
-            center: {
-              zIndex: 1,
-              x: 0,
-              opacity: 1,
-            },
-            exit: (direction) => ({
-              zIndex: 0,
-              x: direction < 0 ? 1000 : -1000,
-              opacity: 0,
-            }),
-          }}
-          initial="enter"
-          animate="center"
-          exit="exit"
-          transition={{
-            x: { type: "spring", stiffness: 300, damping: 30 },
-            opacity: { duration: 0.2 },
-          }}
-          className={styles.slide}
-        >
-          <div className={styles.slideContent}>
-            <h2
-              className={styles.slideTitle}
-              style={{ color: slides[currentIndex].color }}
+    <div className={styles.container}>
+      <div className={styles.content}>
+        <h1 className={styles.title}>Expert in</h1>
+        <div className={styles.wordContainer}>
+          <AnimatePresence mode="wait">
+            <motion.span
+              key={word}
+              initial={{ y: 20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              exit={{ y: -20, opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              className={styles.word}
             >
-              {slides[currentIndex].title}
-            </h2>
-            <p className={styles.slideDescription}>
-              {slides[currentIndex].content}
-            </p>
-            <pre className={styles.codeBlock}>
-              <code className={styles.codeText}>
-                {slides[currentIndex].code}
-              </code>
-            </pre>
-          </div>
-        </motion.div>
-      </AnimatePresence>
-
-      <button
-        className={`${styles.navButton} ${styles.prevButton}`}
-        onClick={prevSlide}
-        aria-label="Previous slide"
-      >
-        <ChevronLeft />
-      </button>
-      <button
-        className={`${styles.navButton} ${styles.nextButton}`}
-        onClick={nextSlide}
-        aria-label="Next slide"
-      >
-        <ChevronRight />
-      </button>
-
-      <div className={styles.indicators}>
-        {slides.map((_, index) => (
-          <div
-            key={index}
-            className={`${styles.indicator} ${
-              index === currentIndex ? styles.indicatorActive : ""
-            }`}
-          />
-        ))}
+              {word}
+            </motion.span>
+          </AnimatePresence>
+        </div>
       </div>
     </div>
   );
