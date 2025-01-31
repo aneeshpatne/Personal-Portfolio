@@ -3,9 +3,9 @@ import { Pie, PieChart, Cell, Tooltip, Label } from "recharts";
 import styles from "./style/chart.module.css"; // Importing CSS module
 
 const chartData = [
-  { difficulty: "Easy", solved: 50, fill: "#4CAF50" },
-  { difficulty: "Medium", solved: 30, fill: "#FFC107" },
-  { difficulty: "Hard", solved: 20, fill: "#F44336" },
+  { difficulty: "Easy", solved: 215, fill: "#4CAF50" },
+  { difficulty: "Medium", solved: 341, fill: "#FFC107" },
+  { difficulty: "Hard", solved: 27, fill: "#F44336" },
 ];
 
 const CustomTooltip = ({ active, payload }) => {

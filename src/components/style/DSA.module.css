@@ -1,0 +1,15 @@
+.Content {
+  display: flex;
+  padding: 2%;
+}
+.heading {
+  display: block;
+
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  font-size: clamp(2rem, 3vw, 4rem);
+}
+.Container {
+  width: 100%;
+}
