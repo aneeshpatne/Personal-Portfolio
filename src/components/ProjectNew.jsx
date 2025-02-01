@@ -110,7 +110,7 @@ export const project = [
   },
   {
     id: "face-recognition-attendance",
-    title: "ML-Based Face Recognition Attendance System",
+    title: "ML-Based Face Attendance",
     techStack: [
       "Machine Learning",
       "DLIB",
@@ -174,6 +174,7 @@ export default function ProjectNew() {
             stack={project.techStack}
             name={project.title}
             description={project.description}
+            image={project.image}
           />
         ))}
       </div>
@@ -181,12 +182,12 @@ export default function ProjectNew() {
   );
 }
 
-export function ProjectContainer({ name, stack, description }) {
+export function ProjectContainer({ name, stack, description, image }) {
   return (
     <div className={styles.projectContainer}>
       <div className={styles.ImageContaier}>
         <Image
-          src={"/assets/img/personalPortfolio.png"}
+          src={image}
           width={300}
           height={180}
           style={{ objectFit: "cover" }}
