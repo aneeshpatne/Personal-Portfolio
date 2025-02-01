@@ -1,30 +1,29 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import NewHeader from "./NewHeader";
+import React, { lazy, Suspense } from "react";
 import NameNew from "./NameNew";
-import ProjectNew from "./ProjectNew";
-import WebDev from "./WebDev";
-import Profile from "./aboutMeNew";
-import Skills from "./Skills";
-import MatrixLLM from "./LLM";
-import DSA from "./DSA";
+import Loading from "@/app/loading"; // Adjust the path if needed
+
+// Lazy load the components
+const LazyProfile = lazy(() => import("./aboutMeNew"));
+const LazySkills = lazy(() => import("./Skills"));
+const LazyWebDev = lazy(() => import("./WebDev"));
+const LazyMatrixLLM = lazy(() => import("./LLM"));
+const LazyDSA = lazy(() => import("./DSA"));
+const LazyProjectNew = lazy(() => import("./ProjectNew"));
 
 export default function HomePage() {
-  const [Mount, setMount] = useState(false);
-  useEffect(() => {
-    setMount(true);
-  }, []);
-  if (!Mount) return null;
   return (
     <>
       <NameNew />
-      <Profile />
-      <Skills />
-      <WebDev />
-      <MatrixLLM />
-      <DSA />
-      <ProjectNew />
+      <Suspense fallback={<Loading />}>
+        <LazyProfile />
+        <LazySkills />
+        <LazyWebDev />
+        <LazyMatrixLLM />
+        <LazyDSA />
+        <LazyProjectNew />
+      </Suspense>
     </>
   );
 }
