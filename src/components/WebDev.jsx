@@ -143,12 +143,17 @@ function SkillBox({ name, tech }) {
     </div>
   );
 }
-function TechStack({ name, color, icon }) {
-  console.log(color);
+function TechStack({ name, color = null, icon = null }) {
   return (
     <div className={styles.techStack} style={{ backgroundColor: color }}>
-      <div className={styles.techStackLogo}>{icon}</div>
+      <div
+        className={styles.techStackLogo}
+        style={{ display: icon ? "block" : "none" }}
+      >
+        {icon}
+      </div>
       {name}
     </div>
   );
 }
+export { TechStack };
