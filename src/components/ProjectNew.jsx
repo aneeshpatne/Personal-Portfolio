@@ -72,7 +72,7 @@ export const project = [
     techStack: ["React.js", "Django", "SQL", "GCP"],
     description:
       "Garden community app tracking member activities, harvests, and plots with real-time data updates.",
-    image: "/assets/img/natureNest.png",
+    image: "/assets/img/naturenest.png",
     startDate: "Dec 2023",
     endDate: "Feb 2024",
   },
