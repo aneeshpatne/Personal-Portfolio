@@ -1,6 +1,6 @@
 import React, { useMemo } from "react";
 import { Pie, PieChart, Cell, Tooltip, Label } from "recharts";
-import styles from "./style/chart.module.css"; // Importing CSS module
+import styles from "./style/chart.module.css";
 
 const chartData = [
   { difficulty: "Easy", solved: 215, fill: "#4CAF50" },
