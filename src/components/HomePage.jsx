@@ -18,7 +18,6 @@ export default function HomePage() {
   if (!Mount) return null;
   return (
     <>
-      <NewHeader />
       <NameNew />
       <Profile />
       <Skills />
