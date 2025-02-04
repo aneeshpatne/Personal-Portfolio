@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { ExternalLink } from "lucide-react";
 import { TechStack } from "./WebDev";
 import { mapper } from "./data";
+import { use, useState, useEffect } from "react";
 
 export const project = [
   {
@@ -169,6 +170,49 @@ export default function ProjectNew() {
     </div>
   );
 }
+function ReadMoreText({ text, wordlimit = 13, speed = 50 }) {
+  const words = text.split(" ");
+  const truncatedText =
+    words.length > wordlimit
+      ? words.slice(0, wordlimit).join(" ") + "..."
+      : text;
+  const [isExpanded, setIsExpanded] = useState(false);
+  const [displayText, setDisplayText] = useState(truncatedText);
+
+  useEffect(() => {
+    let interval;
+
+    if (isExpanded) {
+      let i = truncatedText.length;
+      interval = setInterval(() => {
+        if (i < text.length) {
+          setDisplayText(text.slice(0, i + 1));
+          i++;
+        } else {
+          clearInterval(interval);
+        }
+      }, speed);
+    } else {
+      setDisplayText(truncatedText);
+    }
+
+    return () => clearInterval(interval);
+  }, [isExpanded, text, truncatedText, speed]);
+
+  return (
+    <p>
+      {displayText}
+      {words.length > wordlimit && (
+        <button
+          className={styles.readMore}
+          onClick={() => setIsExpanded((prev) => !prev)}
+        >
+          {isExpanded ? "Read Less" : "Read More"}
+        </button>
+      )}
+    </p>
+  );
+}
 
 export function ProjectContainer({ name, stack, description, image }) {
   return (
@@ -198,7 +242,7 @@ export function ProjectContainer({ name, stack, description, image }) {
           ))}
         </div>
         <div className={styles.projectDescription}>
-          <p>{description}</p>
+          <ReadMoreText text={description} />
         </div>
         <button
           className={styles.projectLearnMore}
