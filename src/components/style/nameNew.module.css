@@ -22,9 +22,8 @@
   top: 15%;
 }
 .introText {
-  padding: 0.7rem;
+  padding-top: 0.7rem;
   font-size: 1.5rem;
-  max-width: 70%;
 }
 .introName {
   font-size: 5rem;

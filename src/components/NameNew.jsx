@@ -2,7 +2,7 @@
 import { Fira_Code } from "next/font/google";
 import { LuGithub, LuLinkedin, LuCodeXml } from "react-icons/lu";
 import styles from "./style/nameNew.module.css";
-import { useEffect, useState, useRef, useLayoutEffect } from "react";
+import { useEffect, useState } from "react";
 const ibm_font = Fira_Code({
   subsets: ["latin"],
   weight: ["400", "500"],
@@ -37,13 +37,7 @@ export default function NameNew({ theme }) {
         <div className={styles.introWrapper}>
           <p className={styles.introName}>Hi, I&apos;m Aneesh</p>
           <p className={styles.introText}>
-            I&apos;m passionate about{" "}
-            <span className={styles.gradientUnderline}>web development</span>,
-            innovative <span className={styles.gradientUnderline}>LLM</span>{" "}
-            solutions, strong in{" "}
-            <span className={styles.gradientUnderline}>data structures</span>,
-            and passionate about turning challenging ideas into impactful,
-            real-world implementations.
+            Passionate about Full Stack Dev, LLM solutions, and Data Structures.
           </p>
         </div>
       </div>
