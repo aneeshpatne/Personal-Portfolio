@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import styles from "./style/AICarousel.module.css";
 
-const words = ["API Integration", "RAG", "Prompt Engineering"];
+const words = ["API Integration", "RAG", "Prompt Engineering", "AI Summarised News Letters", "AI Web Scraping"];
 
 const useWordCycle = (words, interval) => {
   const [index, setIndex] = useState(0);
