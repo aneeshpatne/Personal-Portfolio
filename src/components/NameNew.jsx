@@ -3,6 +3,7 @@ import { Fira_Code } from "next/font/google";
 import { LuGithub, LuLinkedin, LuCodeXml } from "react-icons/lu";
 import styles from "./style/nameNew.module.css";
 import { useEffect, useState } from "react";
+import BlobsBackground from "./gradient";
 const ibm_font = Fira_Code({
   subsets: ["latin"],
   weight: ["400", "500"],
@@ -32,7 +33,9 @@ export default function NameNew({ theme }) {
       className={`${styles.name} ${
         theme === "LightMode" ? styles.lightMode : ""
       }`}
+      style={{ position: "relative", overflow: "hidden" }} // Important
     >
+      <BlobsBackground />
       <div className={styles.upperText}>
         <div className={styles.introWrapper}>
           <p className={styles.introName}>Hi, I&apos;m Aneesh</p>
