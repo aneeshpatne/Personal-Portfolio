@@ -40,7 +40,7 @@ export default function BlobsBackground() {
         src="/assets/img/Ellipse4.svg"
         style={{
           position: "absolute",
-          top: "30%",
+          top: "10%",
           left: "55%",
           width: "750px",
           height: "750px",
@@ -56,8 +56,8 @@ export default function BlobsBackground() {
         src="/assets/img/Ellipse2.svg"
         style={{
           position: "absolute",
-          top: "5%",
-          left: "35%",
+          top: "-10%",
+          left: "30%",
           width: "750px",
           height: "750px",
           opacity: 0.25,
