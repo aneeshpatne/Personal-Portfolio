@@ -89,6 +89,7 @@
   color: var(--dark-bg);
   margin: 1rem auto 1rem;
   cursor: pointer;
+  text-decoration: none;
 }
 
 .projectLearnMore.LightMode {
