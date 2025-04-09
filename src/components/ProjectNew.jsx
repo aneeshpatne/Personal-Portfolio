@@ -147,6 +147,11 @@ export const project = [
 ];
 
 export default function ProjectNew() {
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+  if (!mounted) return <p>Loading...</p>;
   return (
     <div className={styles.projects}>
       <div className={styles.projectTitleContainer}>
