@@ -20,6 +20,8 @@
   overflow: hidden;
   color: black;
   align-items: center;
+  cursor: pointer;
+  user-select: none;
 }
 .active {
   color: white;
