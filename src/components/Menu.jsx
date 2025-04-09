@@ -8,16 +8,16 @@ export default function Menu() {
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
-        for (const entry of entries) {
-          if (entry.isIntersecting) {
-            setActiveSection(entry.target.id);
-          }
+        const visibleEntries = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+
+        if (visibleEntries.length > 0) {
+          setActiveSection(visibleEntries[0].target.id);
         }
       },
       {
-        root: null,
-        rootMargin: "0px",
-        threshold: 0.1,
+        threshold: 0.3,
       }
     );
 
