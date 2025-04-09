@@ -23,7 +23,9 @@ const DSA = dynamic(() => import("./DSA"), {
 const ProjectNew = dynamic(() => import("./ProjectNew"), {
   loading: () => <Loading />,
 });
-
+const Menu = dynamic(() => import("./menu"), {
+  loading: () => <Loading />,
+});
 export default function HomePage() {
   return (
     <>
