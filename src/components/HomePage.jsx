@@ -4,7 +4,7 @@ import React from "react";
 import dynamic from "next/dynamic";
 import NameNew from "./NameNew";
 import Loading from "@/app/loading";
-
+import Menu from "./Menu";
 const Profile = dynamic(() => import("./AboutMeNew"), {
   loading: () => <Loading />,
 });
@@ -23,9 +23,7 @@ const DSA = dynamic(() => import("./DSA"), {
 const ProjectNew = dynamic(() => import("./ProjectNew"), {
   loading: () => <Loading />,
 });
-const Menu = dynamic(() => import("./menu"), {
-  loading: () => <Loading />,
-});
+
 export default function HomePage() {
   return (
     <>
