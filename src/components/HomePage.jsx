@@ -4,7 +4,7 @@ import React from "react";
 import dynamic from "next/dynamic";
 import NameNew from "./NameNew";
 import Loading from "@/app/loading";
-
+import Footer from "./Footer";
 const Profile = dynamic(() => import("./AboutMeNew"), {
   loading: () => <Loading />,
 });
@@ -28,14 +28,14 @@ const Menu = dynamic(() => import("./Menu"), {
 });
 export default function HomePage() {
   return (
-    <>
+    <div style={{ position: "relative" }}>
       <section id="home">
         <NameNew />
       </section>
       <Menu />
+      <Profile />
       <section id="skills">
         <Skills />
-
         <WebDev />
         <MatrixLLM />
         <DSA />
@@ -43,6 +43,7 @@ export default function HomePage() {
       <section id="project">
         <ProjectNew />
       </section>
-    </>
+      <Footer />
+    </div>
   );
 }
