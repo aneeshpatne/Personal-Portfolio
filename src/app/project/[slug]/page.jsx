@@ -3,13 +3,23 @@ import style from "./project.module.css";
 
 export default async function ProjectPage({ params }) {
   const { slug } = await params;
-  console.log("Project slug:", slug);
+  const data = await fetch("http://localhost:3000/api/data/" + slug, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+  const projectData = await data.json();
+  if (!data.ok) {
+    return <div>Project not found</div>;
+  }
+
   return (
     <div className={style.ProjectPage}>
-      <h1>Project Page</h1>
-      <p>This is the project page.</p>
+      <h1>{projectData.title}</h1>
+      <p>{projectData.description}</p>
       <p>Project slug: {slug}</p>
-      <Chat />
+      <Chat dataDump={projectData.description} />
     </div>
   );
 }

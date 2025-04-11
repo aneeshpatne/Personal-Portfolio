@@ -2,10 +2,10 @@
   display: flex;
   flex-direction: column;
   height: 500px;
-  max-width: 500px;
+  max-width: 400px;
   background-color: #000; /* Pure black */
   border: 1px solid #222;
-  border-radius: 1rem;
+  border-radius: 0.5rem;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
   position: relative;
   color: #e4e4e7;
@@ -77,4 +77,65 @@
 
 .chatButton:hover {
   background-color: #1e40af; /* Blue-800 */
+}
+
+.introChatBot {
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  text-align: center;
+}
+
+.headerText {
+  font-size: 1.75rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #d1d5db;
+  text-align: center;
+}
+
+.introText {
+  margin-bottom: 1.25rem;
+  line-height: 1.5;
+  color: #e2e2e2;
+  max-width: 90%;
+}
+
+.exampleHeader {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #d1d5db;
+}
+
+.exampleList {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  width: 90%;
+}
+
+.exampleList li {
+  padding: 0.5rem 1rem;
+  margin-bottom: 0.5rem;
+  border-radius: 0.5rem;
+  background-color: rgba(37, 99, 235, 0.15);
+  border-left: 3px solid #2563eb;
+  text-align: left;
+  transition: all 0.2s ease;
+}
+
+.exampleList li:hover {
+  background-color: rgba(37, 99, 235, 0.25);
+  transform: translateX(2px);
+  cursor: pointer;
+}
+
+.tokenCount {
+  margin-top: 0.5rem;
+  font-size: 0.75rem;
+  color: #aaa;
 }
