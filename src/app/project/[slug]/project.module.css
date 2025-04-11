@@ -55,11 +55,24 @@
 }
 
 .tech {
-  background: rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  gap: 6px;
   padding: 0.5rem 1rem;
   border-radius: 20px;
   font-size: 0.9rem;
   color: #fff;
+  transition: transform 0.2s ease;
+}
+
+.tech:hover {
+  transform: translateY(-2px);
+}
+
+.techIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .topics {
@@ -111,20 +124,6 @@
   background: rgba(255, 255, 255, 0.05);
   color: #666;
   cursor: not-allowed;
-}
-
-.button.github {
-  background: #2ea44f;
-  color: white;
-}
-
-.button.github:hover {
-  background: #2c974b;
-}
-
-.button.github.disabled {
-  background: rgba(46, 164, 79, 0.2);
-  color: rgba(255, 255, 255, 0.5);
 }
 
 .buttonIcon {

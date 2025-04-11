@@ -2,6 +2,7 @@ import Chat from "@/components/chat";
 import style from "./project.module.css";
 import Image from "next/image";
 import Link from "next/link";
+import { mapper } from "@/components/data";
 
 export default async function ProjectPage({ params }) {
   const { slug } = await params;
@@ -35,7 +36,8 @@ export default async function ProjectPage({ params }) {
     : [];
 
   // Check if GitHub link exists
-  const hasGithubLink = projectData.github && projectData.github.trim().length > 0;
+  const hasGithubLink =
+    projectData.github && projectData.github.trim().length > 0;
 
   return (
     <div className={style.ProjectPage}>
@@ -61,7 +63,17 @@ export default async function ProjectPage({ params }) {
 
           <div className={style.techStack}>
             {techStackArray.map((tech, index) => (
-              <span key={index} className={style.tech}>
+              <span
+                key={index}
+                className={style.tech}
+                style={{
+                  backgroundColor:
+                    mapper[tech]?.color || "rgba(255, 255, 255, 0.1)",
+                }}
+              >
+                {mapper[tech]?.icon && (
+                  <span className={style.techIcon}>{mapper[tech].icon}</span>
+                )}
                 {tech}
               </span>
             ))}
@@ -77,29 +89,34 @@ export default async function ProjectPage({ params }) {
         </div>
 
         <p className={style.description}>{projectData.description}</p>
-        
+
         <div className={style.buttons}>
           {hasGithubLink ? (
-            <Link href={projectData.github} target="_blank" rel="noopener noreferrer" className={`${style.button} ${style.github}`}>
-              <Image 
-                src="/assets/img/githubLight.svg" 
-                alt="GitHub" 
-                width={18} 
+            <Link
+              href={projectData.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={style.button}
+            >
+              <Image
+                src="/assets/img/githubLight.svg"
+                alt="GitHub"
+                width={18}
                 height={18}
-                className={style.buttonIcon} 
+                className={style.buttonIcon}
               />
               View on GitHub
             </Link>
           ) : (
-            <button className={`${style.button} ${style.github} ${style.disabled}`} disabled>
-              <Image 
-                src="/assets/img/githubLight.svg" 
-                alt="GitHub" 
-                width={18} 
+            <button className={`${style.button} ${style.disabled}`} disabled>
+              <Image
+                src="/assets/img/githubLight.svg"
+                alt="GitHub"
+                width={18}
                 height={18}
-                className={style.buttonIcon} 
+                className={style.buttonIcon}
               />
-              GitHub Unavailable
+              View on GitHub
             </button>
           )}
         </div>
