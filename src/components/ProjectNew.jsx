@@ -8,171 +8,29 @@ import { mapper } from "./data";
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Loading from "@/app/loading";
-export const project = [
-  {
-    id: "deep-search",
-    title: "Daily Deep Search Newsletter",
-    techStack: ["LLM", "Web Scraping", "Auto Gen"],
-    description:
-      "Automated newsletter generation using LLM and web scraping for daily updates on latest news.",
-    image: "/assets/img/deepsearch.png",
-    startDate: "April 2024",
-    endDate: "Present",
-  },
-  {
-    id: "curiosity",
-    title: "Curiosity",
-    techStack: ["LLM", "Web Scraping", "Next.js", "Express.js", "WebSocket"],
-    description:
-      "Automated web search and scraping system using Playwright and DuckDuckGo API, integrated with LLM for efficient data extraction",
-    image: "/assets/img/curiosity.png",
-    startDate: "April 2024",
-    endDate: "Present",
-  },
-  {
-    id: "resumeai",
-    title: "Resume.AI",
-    techStack: ["LLM", "Next.js", "Vector Databases", "WebSocket", "ChromaDB"],
-    description:
-      "Dynamic resume chatbot integrating LLMs and RAG to effectively showcase my professional capabilities.",
-    image: "/assets/img/resumeAI.png",
-    startDate: "Nov 2024",
-    endDate: "Jan 2025",
-  },
-  {
-    id: "tldr",
-    title: "TLDR",
-    techStack: ["LLM", "Flask", "JavaScript", "Python"],
-    description:
-      "Chrome extension summarizing web pages by leveraging LLM and Flask for concise, clear summaries.",
-    image: "/assets/img/tldr.png",
-    startDate: "Jan 2025",
-    endDate: "Jan 2025",
-  },
-  {
-    id: "urlshortener",
-    title: "URL Shortener",
-    techStack: ["Express.js", "MongoDB", "Next.js", "Vercel"],
-    description:
-      "URL shortening service built with Express.js, MongoDB, and Next.js for efficient, shareable links.",
-    image: "/assets/img/urlShortener.png",
-    startDate: "Nov 2024",
-    endDate: "Nov 2024",
-  },
-  {
-    id: "personalportfolio",
-    title: "Personal Portfolio",
-    techStack: ["React", "Next.js", "Framer Motion"],
-    description:
-      "Elegant and responsive personal portfolio website showcasing my skills and projects.",
-    image: "/assets/img/personalPortfolio.png",
-    startDate: "Jun 2024",
-    endDate: "Feb 2025",
-  },
-  {
-    id: "vishv",
-    title: "Vishv",
-    techStack: ["React.js", "Django", "GCP", "Firebase", "Google Maps API"],
-    description:
-      "Awareness platform for UN's 21 Sustainable Goals with multilingual support and accessibility features.",
-    image: "/assets/img/vishv.png",
-    startDate: "Jan 2024",
-    endDate: "Apr 2024",
-  },
-  {
-    id: "naturenest",
-    title: "NatureNest",
-    techStack: ["React.js", "Django", "SQL", "GCP"],
-    description:
-      "Garden community app tracking member activities, harvests, and plots with real-time data updates.",
-    image: "/assets/img/naturenest.png",
-    startDate: "Dec 2023",
-    endDate: "Feb 2024",
-  },
-  {
-    id: "iot-weather-prediction",
-    title: "IoT and ML-Based Weather Prediction",
-    techStack: ["IoT", "ESP8266", "Machine Learning"],
-    description:
-      "Weather prediction system using IoT sensors and ML models, optimized with ensemble learning.",
-    image: "/assets/img/iotWeatherPrediction.png",
-    startDate: "Jun 2022",
-    endDate: "Jun 2023",
-  },
-  {
-    id: "football-data-manager",
-    title: "MongoDB-Based Football Data Manager",
-    techStack: ["MongoDB", "Node.js", "JavaScript", "HTML", "CSS"],
-    description:
-      "A CRUD application for efficient football data management, leveraging MongoDB for scalable storage.",
-    image: "/assets/img/footballDataManager.png",
-    startDate: null,
-    endDate: "Apr 2023",
-  },
-  {
-    id: "face-recognition-attendance",
-    title: "ML-Based Face Attendance",
-    techStack: [
-      "Machine Learning",
-      "DLIB",
-      "KNN",
-      "Python",
-      "Digital Image Processing",
-    ],
-    description:
-      "Face recognition attendance system ensuring precise identification and secure tracking via CSV storage.",
-    image: "/assets/img/faceRecognitionAttendance.png",
-    startDate: null,
-    endDate: "Feb 2023",
-  },
-  {
-    id: "trex-circuits-game",
-    title: "T.rex: Electronics Circuits Game",
-    techStack: ["HTML", "JavaScript", "CSS"],
-    description:
-      "Educational HTML/JS game testing players' FET knowledge through a fun, interactive, dino-inspired challenge.",
-    image: "/assets/img/trexCircuitsGame.png",
-    startDate: "Nov 2022",
-    endDate: "Dec 2022",
-  },
-  {
-    id: "save-time",
-    title: "Save Time - UX Design Project",
-    techStack: ["Figma", "HTML", "CSS", "JavaScript"],
-    description:
-      "Productivity app designed in Figma with a responsive HTML/CSS layout and interactive UI elements.",
-    image: "/assets/img/saveTime.png",
-    startDate: null,
-    endDate: "Jan 2022",
-  },
-];
 
 export default function ProjectNew() {
   const [mounted, setMounted] = useState(false);
+  const [project, setProject] = useState([]);
   useEffect(() => {
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/data/`)
+      .then((response) => response.json())
+      .then((data) => {
+        const processed = data.map((project) => ({
+          ...project,
+          techStack: project.techStack.split(",").map((tech) => tech.trim()),
+        }));
+        setProject(processed);
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+      });
     setMounted(true);
   }, []);
   if (!mounted) return <Loading />;
   return (
     <div className={styles.projects}>
-      <div className={styles.projectTitleContainer}>
-        <motion.h1
-          className={styles.projectTitle}
-          initial={{ opacity: 0, y: -50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-        >
-          <span className={styles.gradientText}>Projects</span>
-        </motion.h1>
-        <motion.div
-          className={styles.subtitleContainer}
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-        >
-          <p className={styles.projectSubtitle}>Quantifying my progress!</p>
-        </motion.div>
-      </div>
+      <Title />
       <div className={styles.projectBox}>
         {project.map((project, index) => (
           <ProjectContainer
@@ -285,6 +143,29 @@ export function ProjectTechStack({ name, color }) {
   return (
     <div className={styles.projectTechStack} style={{ backgroundColor: color }}>
       <p>{name}</p>
+    </div>
+  );
+}
+
+function Title() {
+  return (
+    <div className={styles.projectTitleContainer}>
+      <motion.h1
+        className={styles.projectTitle}
+        initial={{ opacity: 0, y: -50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+      >
+        <span className={styles.gradientText}>Projects</span>
+      </motion.h1>
+      <motion.div
+        className={styles.subtitleContainer}
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+      >
+        <p className={styles.projectSubtitle}>Quantifying my progress!</p>
+      </motion.div>
     </div>
   );
 }
