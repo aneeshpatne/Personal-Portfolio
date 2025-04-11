@@ -21,11 +21,11 @@
 }
 
 .imageContainer {
-  width: 500px;
-  height: 500px;
+  width: 100px;
+  height: 100px;
   position: relative;
   margin: 2rem auto;
-  border-radius: 12px;
+  border-radius: 8px;
   overflow: hidden;
 }
 
@@ -79,4 +79,55 @@
 .dates {
   color: #888;
   font-size: 0.9rem;
+}
+
+.buttons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.25rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  border: none;
+}
+
+.button:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.button.disabled {
+  background: rgba(255, 255, 255, 0.05);
+  color: #666;
+  cursor: not-allowed;
+}
+
+.button.github {
+  background: #2ea44f;
+  color: white;
+}
+
+.button.github:hover {
+  background: #2c974b;
+}
+
+.button.github.disabled {
+  background: rgba(46, 164, 79, 0.2);
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.buttonIcon {
+  width: 18px;
+  height: 18px;
 }
