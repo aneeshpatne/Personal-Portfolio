@@ -11,7 +11,7 @@ export async function POST(req) {
   const key = `chat:${today}`;
   let count = 0;
   try {
-    const count = parseInt((await redis.get(key)) || 0);
+    count = parseInt((await redis.get(key)) || 0);
     if (count > 5) {
       return new Response(JSON.stringify({ error: "Daily limit reached" }), {
         status: 429,
