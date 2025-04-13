@@ -12,7 +12,12 @@ import { mapper } from "./data";
 const prisma = new PrismaClient();
 
 export default async function ProjectNew() {
-  const project = await prisma.projects.findMany();
+  const project = await prisma.projects.findMany({
+    orderBy: {
+      startDate: "desc",
+    },
+  });
+
   if (!project) {
     return <div>Project not found</div>;
   }
