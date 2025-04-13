@@ -36,6 +36,14 @@ import {
   FaImage,
   FaShapes,
   FaSearch,
+  FaComment,
+  FaCode,
+  FaChartBar,
+  FaPencilRuler,
+  FaLightbulb,
+  FaSitemap,
+  FaPuzzlePiece,
+  FaGamepad,
 } from "react-icons/fa";
 import { IoSparklesSharp } from "react-icons/io5";
 import { FiFigma } from "react-icons/fi";
@@ -200,5 +208,49 @@ export const mapper = {
   "Web Scraping": {
     color: "#2c1a2a",
     icon: <FaSearch size={16} />,
+  },
+  Chatbots: {
+    color: "#1a2a2c",
+    icon: <FaComment size={16} />,
+  },
+  "Artificial Intelligence": {
+    color: "#291a2c",
+    icon: <FaBrain size={16} />,
+  },
+  ML: {
+    color: "#1a2c26",
+    icon: <FaRobot size={16} />,
+  },
+  "Image Processing": {
+    color: "#261a2c",
+    icon: <FaImage size={16} />,
+  },
+  "Web Dev": {
+    color: "#1a222c",
+    icon: <FaCode size={16} />,
+  },
+  CRUD: {
+    color: "#222c1a",
+    icon: <FaDatabase size={16} />,
+  },
+  "Internet of Things": {
+    color: "#2c1a22",
+    icon: <FaMicrochip size={16} />,
+  },
+  "UI / UX Design": {
+    color: "#2c1a26",
+    icon: <FaPencilRuler size={16} />,
+  },
+  "Mind Map": {
+    color: "#1a2c22",
+    icon: <FaSitemap size={16} />,
+  },
+  "Web Extension": {
+    color: "#221a2c",
+    icon: <FaPuzzlePiece size={16} />,
+  },
+  "Gamified Learning": {
+    color: "#1a262c",
+    icon: <FaGamepad size={16} />,
   },
 };
