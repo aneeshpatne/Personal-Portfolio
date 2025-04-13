@@ -20,7 +20,7 @@ export default async function ProjectNew() {
     });
   } catch (error) {
     console.error("Error fetching project data:", error);
-    return <div>Could not load project.</div>;
+    return <div>Could not load project. {error}</div>;
   }
 
   if (!project) {
