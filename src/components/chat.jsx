@@ -216,8 +216,8 @@ function IntroChatBot() {
     <div className={styles.introChatBot}>
       <h1 className={styles.headerText}>Welcome to the Project Chat!</h1>
       <p className={styles.introText}>
-        I'm your AI assistant with knowledge about this project's codebase and
-        documentation.
+        I&apos;m your AI assistant with knowledge about this project&apos;s
+        codebase and documentation.
       </p>
       <p className={styles.exampleHeader}>Example questions:</p>
       <ul className={styles.exampleList}>
