@@ -138,7 +138,9 @@ export default async function ProjectPage({ params }) {
                     }}
                   >
                     {mapper[topic]?.icon && (
-                      <span className={style.techIcon}>{mapper[topic].icon}</span>
+                      <span className={style.techIcon}>
+                        {mapper[topic].icon}
+                      </span>
                     )}
                     {topic}
                   </span>

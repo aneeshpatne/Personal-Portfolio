@@ -10,7 +10,12 @@ export default function Loading() {
           <div className={styles.wave}></div>
         </div>
         <div className={styles.loadingText}>
-          Loading<span className={styles.dots}>...</span>
+          Loading
+          <span className={styles.dots}>
+            <span>.</span>
+            <span>.</span>
+            <span>.</span>
+          </span>
         </div>
       </div>
     </div>
