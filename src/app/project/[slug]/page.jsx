@@ -7,19 +7,17 @@ import Image from "next/image";
 import Link from "next/link";
 import { mapper } from "@/components/data";
 import { prisma } from "@/libs/db";
+import { db } from "@/lib/db";
+import { projects } from "@/lib/schema";
+import { eq } from "drizzle-orm";
+
 export default async function ProjectPage({ params }) {
   const { slug } = await params;
-  let projectData = null;
-  try {
-    projectData = await prisma.projects.findUnique({
-      where: {
-        id: slug,
-      },
-    });
-  } catch (error) {
-    console.error("Error fetching project data:", error);
-    return <div>Could not load project.</div>;
-  }
+  const projectData =
+    (await db.query.projects.findFirst({
+      where: eq(projects.id, slug),
+    })) || null;
+
   if (!projectData) {
     return <div>Project not found</div>;
   }
