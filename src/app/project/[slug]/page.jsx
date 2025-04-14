@@ -6,7 +6,6 @@ import style from "./project.module.css";
 import Image from "next/image";
 import Link from "next/link";
 import { mapper } from "@/components/data";
-import { prisma } from "@/libs/db";
 import { db } from "@/lib/db";
 import { projects } from "@/lib/schema";
 import { eq } from "drizzle-orm";
