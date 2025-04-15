@@ -4,7 +4,7 @@
   align-items: center;
   justify-content: center; /* Center the menu */
   gap: 10px;
-  z-index: 9999;
+  z-index: 10005;  /* Increased above backdrop */
   bottom: 5px;
   left: 0;
   right: 0;
@@ -18,7 +18,7 @@
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.4);
   backdrop-filter: blur(5px); /* Add blur effect */
-  z-index: 9998;
+  z-index: 9994;
 }
 .chatBoxMain {
   position: fixed;
@@ -36,7 +36,7 @@
   border-radius: 10px;
   color: black;
   overflow: hidden;
-  z-index: 9999;
+  z-index: 10005;  /* Increased above backdrop */
 }
 
 .chatButton {
@@ -57,6 +57,7 @@
   align-items: center;
   justify-content: center;
   gap: 8px;
+  z-index: 10005;  /* Increased above backdrop */
 }
 
 .aiIcon {

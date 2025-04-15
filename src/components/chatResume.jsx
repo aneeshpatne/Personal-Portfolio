@@ -1,7 +1,7 @@
 "use client";
 
 import { useChat } from "@ai-sdk/react";
-import styles from "./style/chat.module.css";
+import styles from "./style/resume.module.css";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import rehypeHighlight from "rehype-highlight";
@@ -71,6 +71,7 @@ export default function Chat({ dataDump }) {
           dataDump,
       },
     ],
+    api: "/api/chat",
     onFinish: (message, options) => {
       setTokenMap((prev) => ({
         ...prev,
