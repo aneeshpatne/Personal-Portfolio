@@ -12,7 +12,7 @@ export async function POST(req) {
   let count = 0;
   try {
     count = parseInt((await redis.get(key)) || 0);
-    if (count > 10) {
+    if (count > 5) {
       return new Response(JSON.stringify({ error: "Daily limit reached" }), {
         status: 429,
         headers: { "Content-Type": "application/json" },
