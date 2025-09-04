@@ -1,7 +1,7 @@
 export const dynamic = "force-static";
 export const revalidate = 86400;
 
-import Chat from "@/components/chat";
+import ProjectChatWrapper from "./ProjectChatWrapper";
 import style from "./project.module.css";
 import Image from "next/image";
 import Link from "next/link";
@@ -41,7 +41,7 @@ export default async function ProjectPage({ params }) {
     projectData.github && projectData.github.trim().length > 0;
 
   return (
-    <div className={style.ProjectPage}>
+  <div className={style.ProjectPage}>
       <div className={style.backgroundGlow}></div>
       <div className={style.content}>
         <h1 className={style.title}>{projectData.title}</h1>
@@ -154,7 +154,7 @@ export default async function ProjectPage({ params }) {
         </div>
       </div>
 
-      <Chat dataDump={projectData.LLMdump} />
+  <ProjectChatWrapper dataDump={projectData.LLMdump} />
     </div>
   );
 }
