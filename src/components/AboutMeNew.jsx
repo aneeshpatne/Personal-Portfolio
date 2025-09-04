@@ -24,9 +24,9 @@ export default function Profile() {
             About Me
           </h2>
           <p className={styles.lead}>
-            I build <span className={styles.accent}>useful</span> things with
-            code and data—focused on clarity, fast feedback loops, and crafting
-            calm user experiences.
+            I build <span className={styles.accent}>scalable</span> systems with
+            code and data bridging AI, strong engineering, and thoughtful design
+            for smooth, reliable experiences.
           </p>
           <p className={styles.body}>
             Currently exploring the intersection of{" "}
