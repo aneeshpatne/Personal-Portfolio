@@ -1,13 +1,3 @@
-/* Static page gradient variable */
-:root {
-  --page-gradient: linear-gradient(
-    to bottom,
-    #111a2a 0%,
-    #06070a 55%,
-    #040405 100%
-  );
-}
-
 .backgroundContainer {
   position: absolute;
   inset: 0;
@@ -15,7 +5,15 @@
   height: 100%;
   z-index: -1;
   overflow: hidden;
-  background: var(--page-gradient);
+  /* Static center-out radial gradient (middle to edges) */
+  background: #06070a; /* fallback solid color */
+  background: radial-gradient(
+    circle at 50% 50%,
+    /* Smaller bright core */ #111a2a 0%,
+    #111a2a 12%,
+    /* Mid transition */ #06070a 55%,
+    /* Outer edge darker */ #040405 100%
+  );
   background-repeat: no-repeat;
   background-size: cover;
   /* Optional subtle overlay tweak */
