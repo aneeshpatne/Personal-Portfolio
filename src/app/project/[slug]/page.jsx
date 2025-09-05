@@ -41,7 +41,7 @@ export default async function ProjectPage({ params }) {
     projectData.github && projectData.github.trim().length > 0;
 
   return (
-  <div className={style.ProjectPage}>
+    <div className={style.ProjectPage}>
       <div className={style.backgroundGlow}></div>
       <div className={style.content}>
         <h1 className={style.title}>{projectData.title}</h1>
@@ -154,7 +154,7 @@ export default async function ProjectPage({ params }) {
         </div>
       </div>
 
-  <ProjectChatWrapper dataDump={projectData.LLMdump} />
+      <ProjectChatWrapper dataDump={projectData.LLMdump} />
     </div>
   );
 }
