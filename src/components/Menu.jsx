@@ -1,9 +1,15 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import styles from "./style/menu.module.css";
 import { MessageSquareMore, X } from "lucide-react";
 import Chat from "./chatResume";
-const sections = ["home", "skills", "project"];
+
+// Section meta so we can extend easily later (e.g., icons)
+const sections = [
+  { id: "home", label: "Home" },
+  { id: "skills", label: "Skills" },
+  { id: "project", label: "Project" },
+];
 
 export default function Menu() {
   const [activeSection, setActiveSection] = useState("home");
@@ -12,27 +18,24 @@ export default function Menu() {
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
-        const visibleEntries = entries
-          .filter((entry) => entry.isIntersecting)
+        const visible = entries
+          .filter((e) => e.isIntersecting)
           .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
-
-        if (visibleEntries.length > 0) {
-          setActiveSection(visibleEntries[0].target.id);
-        }
+        if (visible.length) setActiveSection(visible[0].target.id);
       },
-      {
-        threshold: 0.05,
-      }
+      { threshold: 0.08 }
     );
 
-    sections.forEach((id) => {
+    sections.forEach(({ id }) => {
       const el = document.getElementById(id);
-      if (el) {
-        requestAnimationFrame(() => observer.observe(el));
-      }
+      if (el) requestAnimationFrame(() => observer.observe(el));
     });
-
     return () => observer.disconnect();
+  }, []);
+
+  const handleNavigate = useCallback((id) => {
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: "smooth" });
   }, []);
 
   const toggleChat = () => {
@@ -42,14 +45,23 @@ export default function Menu() {
   return (
     <>
       <div className={styles.lowerContainer}>
-        <div className={styles.MenuContainer}>
-          <MenuItem title="Home" active={activeSection === "home"} />
-          <MenuItem title="Skills" active={activeSection === "skills"} />
-          <MenuItem title="Project" active={activeSection === "project"} />
-        </div>
+        {/* Render navigation only for non-small screens (handled by CSS display: none on <=768px) */}
+        <nav className={styles.MenuContainer} aria-label="Primary">
+          {sections.map(({ id, label }) => (
+            <MenuItem
+              key={id}
+              id={id}
+              title={label}
+              active={activeSection === id}
+              onSelect={handleNavigate}
+            />
+          ))}
+        </nav>
         <button
           className={`${styles.chatButton} ${isChatOpen ? styles.active : ""}`}
           onClick={toggleChat}
+          aria-pressed={isChatOpen}
+          aria-label={isChatOpen ? "Close chat" : "Open chat"}
         >
           {isChatOpen ? (
             <X size={20} className={styles.closeIcon} />
@@ -75,20 +87,20 @@ export default function Menu() {
   );
 }
 
-function MenuItem({ title, active }) {
-  const handleClick = () => {
-    const id = title.toLowerCase();
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-  };
+function MenuItem({ id, title, active, onSelect }) {
   return (
-    <div
-      onClick={handleClick}
-      className={`${styles.menuItem} ${active ? styles.active : ""}`}
+    <button
+      type="button"
+      onClick={() => onSelect(id)}
+      className={`${styles.menuItem} ${active ? styles.menuItemActive : ""}`}
+      aria-current={active ? "page" : undefined}
+      aria-label={title}
     >
-      <h1>{title}</h1>
-    </div>
+      <span className={styles.menuLabel}>{title}</span>
+      <span className={styles.menuAbbr} aria-hidden="true">
+        {title.charAt(0)}
+      </span>
+      {active && <span className={styles.activeIndicator} aria-hidden="true" />}
+    </button>
   );
 }

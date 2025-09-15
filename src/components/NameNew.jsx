@@ -44,7 +44,7 @@ export default function NameNew({ theme }) {
             <span className={styles.gradientText}>Data Structures</span>.
           </p> */}
           <p className={`${styles.introTextSmall} ${ibm_font.className}`}>
-            I'm a Full Stack Engineer
+            I&apos;m a Full Stack Engineer
           </p>
         </div>
       </div>
