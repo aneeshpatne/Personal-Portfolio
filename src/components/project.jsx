@@ -2,7 +2,7 @@ export const revalidate = 86400;
 
 import styles from "./style/ProjectNew.module.css";
 import { Title } from "./ProjectNew";
-import { TechStack } from "./WebDev";
+import { TechStack1 } from "./WebDev";
 import { ReadMoreText } from "./ProjectNew";
 import { ExternalLink } from "lucide-react";
 import Link from "next/link";
@@ -70,7 +70,7 @@ export function ProjectContainer({ name, stack, description, image, id }) {
       <div className={styles.lowerContainer}>
         <div className={styles.projectTechStackContainer}>
           {stack.map((tech, index) => (
-            <TechStack
+            <TechStack1
               key={index}
               name={tech}
               color={mapper[tech]?.color}
