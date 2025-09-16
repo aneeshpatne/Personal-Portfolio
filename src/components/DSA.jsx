@@ -3,7 +3,7 @@ import styles from "./style/DSA.module.css";
 import DoughnutChart from "./chart";
 import { Bug } from "lucide-react";
 import { Fira_Code } from "next/font/google";
-import { TechStack } from "./WebDev";
+import { TechStack } from "./WebDev"; // now provided by server component file after consolidation
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 const words = ["Perseverance", "Mastery", "Dedication"];
