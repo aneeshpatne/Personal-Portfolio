@@ -28,7 +28,7 @@ export async function generateMetadata({ params }) {
   const url = `${SITE_DOMAIN}/project/${slug}`;
   const ogImage = `${url}/opengraph-image`;
   const title = project.title || slug;
-  const desc = "Project by Aneesh Patne"
+  const desc = project.shortDesc
     .replace(/\r?\n+/g, " ")
     .replace(/\s+/g, " ")
     .slice(0, 220);
