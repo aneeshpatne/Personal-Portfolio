@@ -9,7 +9,7 @@ export async function GET(_req, { params }) {
     (await db.query.projects.findFirst({
       where: eq(projects.id, slug),
     })) || null;
-  return NextResponse.json(project ?? null, {
+  return NextResponse.json(data ?? null, {
     headers: {
       "Cache-Control": "s-maxage=86400, stale-while-revalidate=604800",
       "x-vercel-cache-tags": `project:${params.slug}`,
