@@ -10,7 +10,67 @@ import { db } from "@/lib/db";
 import { projects } from "@/lib/schema";
 import { eq } from "drizzle-orm";
 import ClientPage from "./clientpage";
-import ReactMarkdown from "react-markdown"; // (legacy direct usage kept if needed elsewhere)
+
+const SITE_DOMAIN = "https://www.aneeshpatne.com";
+
+export async function generateMetadata({ params }) {
+  const { slug } = await params;
+  const project = await db.query.projects.findFirst({
+    where: eq(projects.id, slug),
+  });
+  if (!project) {
+    return {
+      title: "Project Not Found | Aneesh Patne",
+      description: "The requested project could not be located.",
+      robots: { index: false },
+    };
+  }
+  const url = `${SITE_DOMAIN}/project/${slug}`;
+  const ogImage = `${url}/opengraph-image`;
+  const title = project.title || slug;
+  const desc = (
+    project.description ||
+    project.LLMdump ||
+    "Project by Aneesh Patne"
+  )
+    .replace(/\r?\n+/g, " ")
+    .replace(/\s+/g, " ")
+    .slice(0, 220);
+  const techList = project.techStack
+    ? project.techStack
+        .split(/[,|]/)
+        .map((t) => t.trim())
+        .filter(Boolean)
+        .slice(0, 5)
+    : [];
+  return {
+    title: `${title} | Project | Aneesh Patne`,
+    description: desc,
+    alternates: { canonical: url },
+    openGraph: {
+      title: `${title} | Aneesh Patne`,
+      description: desc,
+      url,
+      siteName: "Aneesh Patne Portfolio",
+      images: [
+        {
+          url: ogImage,
+          width: 1200,
+          height: 630,
+          alt: title,
+        },
+      ],
+      type: "article",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${title} | Aneesh Patne`,
+      description: desc,
+      images: [ogImage],
+    },
+    other: techList.length ? { "project:tech": techList.join("|") } : undefined,
+  };
+}
 import MarkdownRenderer from "./MarkdownRenderer";
 export default async function ProjectPage({ params }) {
   const { slug } = await params;
