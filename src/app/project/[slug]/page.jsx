@@ -10,7 +10,8 @@ import { db } from "@/lib/db";
 import { projects } from "@/lib/schema";
 import { eq } from "drizzle-orm";
 import ClientPage from "./clientpage";
-import ReactMarkdown from "react-markdown";
+import ReactMarkdown from "react-markdown"; // (legacy direct usage kept if needed elsewhere)
+import MarkdownRenderer from "./MarkdownRenderer";
 export default async function ProjectPage({ params }) {
   const { slug } = await params;
   const projectData =
@@ -107,9 +108,9 @@ export default async function ProjectPage({ params }) {
             </div>
           </div>
 
-          <span className={style.description}>
-            <ReactMarkdown>{projectData.description}</ReactMarkdown>
-          </span>
+          <div className={style.description}>
+            <MarkdownRenderer content={projectData.description} />
+          </div>
 
           <div className={style.metaSection}>
             <h3 className={style.metaTitle}>Technologies</h3>
