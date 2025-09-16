@@ -1,5 +1,6 @@
 "use client";
 import { Fira_Code } from "next/font/google";
+import Image from "next/image";
 import { LuGithub, LuLinkedin, LuCodeXml } from "react-icons/lu";
 import styles from "./style/nameNew.module.css";
 import { useEffect, useState } from "react";
@@ -36,6 +37,16 @@ export default function NameNew({ theme }) {
       <BlobsBackground />
       <div className={styles.upperText}>
         <div className={styles.introWrapper}>
+          <div className={styles.logoWrapper}>
+            <Image
+              src="/assets/img/logo.png"
+              alt="Aneesh Logo"
+              width={70}
+              height={70}
+              priority
+              className={styles.logo}
+            />
+          </div>
           <p className={styles.introName}>Hi, I&apos;m Aneesh</p>
           <p className={`${styles.introTextSmall} ${ibm_font.className}`}>
             I&apos;m a Full Stack Engineer

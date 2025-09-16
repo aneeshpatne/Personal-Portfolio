@@ -40,6 +40,38 @@
   align-items: center;
   width: fit-content;
 }
+.logoWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 72px;
+  height: 72px;
+  border-radius: 16px;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.08),
+    rgba(255, 255, 255, 0.02)
+  );
+  backdrop-filter: blur(6px);
+  box-shadow: 0 4px 14px -4px rgba(0, 0, 0, 0.4),
+    0 0 0 1px rgba(255, 255, 255, 0.05) inset;
+  animation: fadeIn 0.8s ease;
+  margin-bottom: 0.85rem;
+}
+.logoWrapper:hover {
+  transform: translateY(-3px) scale(1.03);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  box-shadow: 0 6px 18px -4px rgba(0, 0, 0, 0.55),
+    0 0 0 1px rgba(255, 255, 255, 0.08) inset;
+}
+.logo {
+  object-fit: contain;
+  width: 70px;
+  height: 70px;
+  border-radius: 12px;
+  user-select: none;
+  pointer-events: none;
+}
 
 .skillBox {
   display: grid;
@@ -147,6 +179,14 @@
   }
   .introName {
     font-size: 3rem;
+  }
+  .logoWrapper {
+    width: 56px;
+    height: 56px;
+  }
+  .logo {
+    width: 54px;
+    height: 54px;
   }
   .upperText {
     top: 10%;
