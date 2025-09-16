@@ -70,7 +70,8 @@ export default async function Image({ params }) {
   const defaultTagline = "Explore build details, stack choices & learnings";
 
   // Determine canonical base: prefer deployment domain, fallback to env, finally forced prod domain.
-  const hdrs = headers();
+  // Next.js dynamic headers API must be awaited in Edge runtime
+  const hdrs = await headers();
   const forcedProd = "www.aneeshpatne.com"; // always deployed here
   const headerHost =
     hdrs.get("x-forwarded-host") || hdrs.get("host") || forcedProd;
@@ -144,9 +145,6 @@ export default async function Image({ params }) {
       imageUrl = `${base}${normalized}`;
     }
   }
-
-  // contentMaxWidth no longer needed after layout simplification
-
   return new ImageResponse(
     (
       <div
