@@ -96,7 +96,9 @@
     font-size: clamp(1.65rem, 7.5vw, 2.6rem);
     letter-spacing: 0.5px;
   }
-  .bigText { display:none; }
+  .bigText {
+    display: none;
+  }
 }
 @media (max-width: 420px) {
   .Text {
