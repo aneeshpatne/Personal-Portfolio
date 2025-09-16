@@ -327,15 +327,49 @@ export default async function Image({ params }) {
               overflow: "hidden",
               border: "1px solid #1e2831",
               background: "#10181f",
+              alignItems: "center",
+              justifyContent: "center",
             }}
           >
-            <img
-              src={base + "/assets/img/logo.png"}
-              width={44}
-              height={44}
-              alt="Logo"
-              style={{ objectFit: "cover", width: "100%", height: "100%" }}
-            />
+            {(() => {
+              try {
+                const absoluteLogo = `${base.replace(
+                  /\/$/,
+                  ""
+                )}/assets/img/logo.png`;
+                return (
+                  <img
+                    src={absoluteLogo}
+                    width={44}
+                    height={44}
+                    alt="Logo"
+                    style={{
+                      objectFit: "cover",
+                      width: "100%",
+                      height: "100%",
+                    }}
+                  />
+                );
+              } catch {
+                return (
+                  <div
+                    style={{
+                      display: "flex",
+                      width: "100%",
+                      height: "100%",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      fontSize: 16,
+                      fontWeight: 600,
+                      color: accent,
+                      background: "#0d1319",
+                    }}
+                  >
+                    AP
+                  </div>
+                );
+              }
+            })()}
           </div>
         </div>
       </div>
