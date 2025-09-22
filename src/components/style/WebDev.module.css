@@ -6,7 +6,7 @@
 }
 .Text {
   font-family: "Arial", sans-serif;
-  font-size: clamp(1.9rem, 4.2vw, 3.6rem); /* slightly smaller overall */
+  font-size: clamp(1.9rem, 4.2vw, 3.6rem);
   font-weight: 900;
   background: linear-gradient(to right, #3b82f6, #8b5cf6, #ec4899);
   background-size: 200% 200%;
@@ -15,7 +15,7 @@
   color: transparent;
   will-change: opacity, background-position;
   animation: gradient-shift 5s ease infinite, pulse 2s ease-in-out infinite;
-  text-align: center; /* center by default */
+  text-align: center;
   line-height: 1.05;
   padding: 0 0.5rem;
 }
