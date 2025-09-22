@@ -32,6 +32,8 @@
 .introName {
   font-size: 5rem;
   font-weight: 700;
+  word-spacing: 10px;
+  font-style: italic;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 .introWrapper {
