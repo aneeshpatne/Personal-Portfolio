@@ -3,6 +3,7 @@ import CardItem from "./cardItem";
 import CardMarqee from "./CardMarqee";
 import LinkItem from "./LinkItem";
 import TechStack from "./TechStack";
+import { MainItem } from "./MainItem";
 export default function Container() {
   return (
     <div className={styles.mainContainer}>
@@ -13,7 +14,9 @@ export default function Container() {
         <div className={styles.linkItem}>
           <LinkItem />
         </div>
-        <div className={styles.mainPageItem}></div>
+        <div className={styles.mainPageItem}>
+          <MainItem />
+        </div>
         <div className={styles.cardItem}>
           <CardItem />
         </div>
