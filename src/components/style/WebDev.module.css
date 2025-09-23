@@ -4,39 +4,61 @@
   justify-content: center;
   flex-direction: column;
 }
-.Text {
-  font-family: "Arial", sans-serif;
-  font-size: clamp(1.9rem, 4.2vw, 3.6rem);
-  font-weight: 900;
-  background: linear-gradient(to right, #3b82f6, #8b5cf6, #ec4899);
-  background-size: 200% 200%;
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
-  will-change: opacity, background-position;
-  animation: gradient-shift 5s ease infinite, pulse 2s ease-in-out infinite;
-  text-align: center;
-  line-height: 1.05;
-  padding: 0 0.5rem;
+.heading {
+  width: 100%;
+  /* fixed height so it remains constant as the width changes */
+  height: 300px;
+  position: relative;
+  overflow: hidden;
 }
-@keyframes gradient-shift {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
+.headingMedia {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
 }
-@keyframes pulse {
-  0%,
-  100% {
-    opacity: 1;
+.headingImg {
+  /* Next/Image with fill adds an absolutely positioned img wrapper;
+     make sure it covers the heading area without distortion */
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover;
+  filter: none;
+  transform: none;
+}
+.headingOverlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  /* stronger top-to-bottom gradient; bottom is nearly fully dark */
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.15) 0%,
+    rgba(0, 0, 0, 0.5) 45%,
+    rgba(0, 0, 0, 0.95) 100%
+  );
+}
+.headingText {
+  z-index: 2;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-size: clamp(2.25rem, 10vw, 7rem);
+  font-style: italic;
+  transform: translate(-50%, -50%);
+}
+
+/* Ensure the heading keeps a usable height on very small screens
+   and reduce the heading text size a bit to avoid overflow */
+@media (max-width: 480px) {
+  .heading {
+    height: 220px;
   }
-  50% {
-    opacity: 0.8;
+  .headingText {
+    /* slightly larger on small screens */
+    font-size: clamp(1.6rem, 13vw, 5rem);
   }
 }
 .content {
@@ -80,30 +102,6 @@
 }
 .word:nth-child(3) {
   animation-delay: 0.9s;
-}
-.secText {
-  font-size: clamp(1rem, 2vw, 2rem);
-  text-align: center;
-}
-
-@media (max-width: 900px) {
-  .Text {
-    font-size: clamp(1.8rem, 6vw, 3.1rem);
-  }
-}
-@media (max-width: 640px) {
-  .Text {
-    font-size: clamp(1.65rem, 7.5vw, 2.6rem);
-    letter-spacing: 0.5px;
-  }
-  .bigText {
-    display: none;
-  }
-}
-@media (max-width: 420px) {
-  .Text {
-    font-size: clamp(1.55rem, 8.5vw, 2.3rem);
-  }
 }
 
 @media (min-width: 640px) {
