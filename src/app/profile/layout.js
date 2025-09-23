@@ -11,10 +11,6 @@ export const metadata = {
   description: "Portfolio and Bento Resume",
 };
 
-export default function RootLayout({ children }) {
-  return (
-    <html lang="en">
-      <body className={spaceGrotesk.className}>{children}</body>
-    </html>
-  );
+export default function ProfileLayout({ children }) {
+  return <div className={spaceGrotesk.className}>{children}</div>;
 }

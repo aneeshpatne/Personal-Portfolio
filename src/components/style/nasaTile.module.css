@@ -1,0 +1,64 @@
+.tile {
+  --radius: 12px;
+  position: relative;
+  width: 100%;
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: #000; /* fallback while image loads */
+}
+
+.container {
+  position: relative;
+  width: 100%;
+  height: 160px;
+  isolation: isolate; /* ensure a new stacking context */
+}
+
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 20;
+  padding: 12px;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.6);
+  pointer-events: none; /* text overlay should not block interactions */
+  -webkit-backdrop-filter: blur(2px);
+  backdrop-filter: blur(2px);
+  border-top-left-radius: var(--radius);
+  border-top-right-radius: var(--radius);
+}
+
+.title {
+  font-weight: 700;
+  line-height: 1.1;
+  margin: 0;
+}
+
+.date {
+  font-size: 11px;
+  opacity: 0.9;
+  margin-top: 2px;
+}
+
+.fallback {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.4);
+  color: #fff;
+  padding: 16px;
+  font-size: 0.9rem;
+}
+
+.fallbackTitle {
+  font-weight: 700;
+}
