@@ -58,7 +58,6 @@
 .mainPageItem {
   grid-column: 7 / 9;
   grid-row: 2/ 4;
-  background: #4f46e5;
   color: white;
   display: flex;
   align-items: center;
