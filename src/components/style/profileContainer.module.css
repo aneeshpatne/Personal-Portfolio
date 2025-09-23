@@ -91,7 +91,7 @@
 .mausamCard {
   grid-column: 5/ 7;
   grid-row: 4 / 5;
-  background: #4f46e5;
+  background: transparent; /* remove original background so inner card controls its own look */
   color: white;
   display: flex;
   align-items: center;
