@@ -1,6 +1,6 @@
 .mainContainer {
-  min-height: 100svh; /* safer than 100vh */
-  padding: 1.25rem; /* 2.5rem total top+bottom */
+  min-height: 100svh;
+  padding: 1.25rem;
   display: flex;
   align-items: center;
   justify-content: center;
