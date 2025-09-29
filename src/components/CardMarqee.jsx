@@ -96,6 +96,7 @@ export default function CardMarqee() {
           autoFill={true}
           gradient={false}
           speed={speed}
+          pauseOnHover
           style={{ willChange: "transform" }}
         >
           {DISPLAY.map((item) => (
