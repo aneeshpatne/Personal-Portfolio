@@ -93,9 +93,9 @@ export default function CardMarqee() {
         }}
       >
         <Marquee
-          autoFill={true}
           gradient={false}
           speed={speed}
+          autoFill={false}
           pauseOnHover
           style={{ willChange: "transform" }}
         >
