@@ -1,87 +1,67 @@
 "use client";
+
 import React, { memo } from "react";
-import styles from "./style/cardMarqee.module.css";
+import Image from "next/image";
 import Marquee from "react-fast-marquee";
-import {
-  SiGithub,
-  SiLinkedin,
-  SiLeetcode,
-  SiNextdotjs,
-  SiReact,
-  SiTailwindcss,
-  SiSvelte,
-  SiNodedotjs,
-  SiExpress,
-  SiFastapi,
-  SiFlask,
-  SiDjango,
-  SiKotlin,
-  SiPostgresql,
-  SiMysql,
-  SiMongodb,
-  SiRedis,
-  SiSqlite,
-  SiDocker,
-  SiGooglecloud,
-} from "react-icons/si";
+import styles from "./style/cardMarqee.module.css";
+
+const SPEED = 10;
+
+const ICONS = [
+  { name: "nextjs", title: "Next.js", src: "/assets/img/nextjs.svg" },
+  { name: "react", title: "React", src: "/assets/img/react.svg" },
+  { name: "tailwind", title: "Tailwind CSS", src: "/assets/img/tailwind.svg" },
+  { name: "nodejs", title: "Node.js", src: "/assets/img/nodejs.svg" },
+  { name: "django", title: "Django", src: "/assets/img/django.svg" },
+  { name: "fastapi", title: "FastAPI", src: "/assets/img/fastapi.svg" },
+  { name: "postgres", title: "PostgreSQL", src: "/assets/img/postgres.svg" },
+  { name: "mongodb", title: "MongoDB", src: "/assets/img/mongodb.svg" },
+  { name: "docker", title: "Docker", src: "/assets/img/docker.svg" },
+  { name: "gcp", title: "Google Cloud", src: "/assets/img/gcp.svg" },
+  { name: "redis", title: "Redis", src: "/assets/img/redis.svg" },
+];
+
+const WANT = [
+  "nextjs",
+  "react",
+  "tailwind",
+  "nodejs",
+  "django",
+  "fastapi",
+  "postgres",
+  "mongodb",
+  "docker",
+  "gcp",
+  "redis",
+];
+
+const DISPLAY = ICONS.filter((i) => WANT.includes(i.name));
 
 export default function CardMarqee() {
-  const items = [
-    "nextjs",
-    "react",
-    "tailwind",
-    "nodejs",
-    "django",
-    "fastapi",
-    "postgres",
-    "mongodb",
-    "docker",
-    "gcp",
-    "redis",
-  ];
-
-  const displayed = items.filter((name) => ICON_MAP[name]);
-
-  const speed = 10;
-
   return (
     <div className={styles.cardMarqeeInner}>
       <div className={styles.marqueeContaier}>
-        <Marquee autoFill={false} gradient={false} speed={speed}>
-          {displayed.map((name) => (
-            <MemoItem key={name} name={name} />
+        <Marquee autoFill={false} gradient={false} speed={SPEED}>
+          {DISPLAY.map((item) => (
+            <MemoItem key={item.name} {...item} />
           ))}
         </Marquee>
       </div>
     </div>
   );
 }
-const ICON_MAP = {
-  // Frontend
-  nextjs: { Icon: SiNextdotjs, color: "#FFFFFF", title: "Next.js" },
-  react: { Icon: SiReact, color: "#61DAFB", title: "React" },
-  tailwind: { Icon: SiTailwindcss, color: "#38BDF8", title: "Tailwind CSS" },
 
-  nodejs: { Icon: SiNodedotjs, color: "#8CC84B", title: "Node.js" },
-  django: { Icon: SiDjango, color: "#2CA977", title: "Django" },
-  fastapi: { Icon: SiFastapi, color: "#00C7B7", title: "FastAPI" },
-
-  postgres: { Icon: SiPostgresql, color: "#4EA1EC", title: "PostgreSQL" },
-  mongodb: { Icon: SiMongodb, color: "#4DB33D", title: "MongoDB" },
-
-  docker: { Icon: SiDocker, color: "#2496ED", title: "Docker" },
-  gcp: { Icon: SiGooglecloud, color: "#FFFFFF", title: "Google Cloud" },
-
-  redis: { Icon: SiRedis, color: "#FF4438", title: "Redis" },
-};
-
-function Item({ name }) {
-  const entry = ICON_MAP[name];
-  const { Icon, color, title } = entry;
-
+function Item({ title, src }) {
   return (
     <div className={styles.social} aria-label={title}>
-      <Icon className={`${styles.icon} ${styles.iconBg}`} color={color} />
+      <Image
+        src={src}
+        alt={title}
+        width={24}
+        height={24}
+        className={styles.icon}
+        priority={false}
+      />
     </div>
   );
 }
