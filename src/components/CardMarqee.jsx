@@ -1,9 +1,19 @@
 "use client";
-
-import React, { memo } from "react";
-import Image from "next/image";
+import React, { memo, useState, useEffect } from "react";
 import Marquee from "react-fast-marquee";
 import styles from "./style/cardMarqee.module.css";
+
+// Detect device performance
+const getOptimalSpeed = () => {
+  if (typeof window === "undefined") return 10;
+
+  const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+  const cores = navigator.hardwareConcurrency || 4;
+
+  if (isMobile && cores <= 4) return 6;
+  if (isMobile) return 8;
+  return 10;
+};
 
 const SPEED = 10;
 
@@ -37,34 +47,62 @@ const WANT = [
 
 const DISPLAY = ICONS.filter((i) => WANT.includes(i.name));
 
+// Memoize individual items
+const Item = memo(({ title, src }) => {
+  return (
+    <div
+      className={styles.social}
+      aria-label={title}
+      style={{
+        transform: "translateZ(0)",
+        contain: "layout style paint",
+      }}
+    >
+      <img
+        src={src}
+        alt={title}
+        width={24}
+        height={24}
+        className={styles.icon}
+        loading="eager"
+        decoding="async"
+        draggable="false"
+      />
+      <span style={{ userSelect: "none" }}>{title}</span>
+    </div>
+  );
+});
+
+Item.displayName = "MarqueeItem";
+
 export default function CardMarqee() {
+  const [speed, setSpeed] = useState(SPEED);
+
+  useEffect(() => {
+    setSpeed(getOptimalSpeed());
+  }, []);
+
   return (
     <div className={styles.cardMarqeeInner}>
-      <div className={styles.marqueeContaier}>
-        <Marquee autoFill={true} gradient={false} speed={SPEED}>
+      <div
+        className={styles.marqueeContaier}
+        style={{
+          transform: "translateZ(0)",
+          willChange: "transform",
+          isolation: "isolate",
+        }}
+      >
+        <Marquee
+          autoFill={true}
+          gradient={false}
+          speed={speed}
+          style={{ willChange: "transform" }}
+        >
           {DISPLAY.map((item) => (
-            <MemoItem key={item.name} {...item} />
+            <Item key={item.name} {...item} />
           ))}
         </Marquee>
       </div>
     </div>
   );
 }
-
-function Item({ title, src }) {
-  return (
-    <div className={styles.social} aria-label={title}>
-      <Image
-        src={src}
-        alt={title}
-        width={24}
-        height={24}
-        className={styles.icon}
-        priority={false}
-      />
-      <span>{title}</span>
-    </div>
-  );
-}
-
-const MemoItem = memo(Item);

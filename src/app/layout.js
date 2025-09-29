@@ -72,6 +72,10 @@ export default function RootLayout({ children }) {
     <html lang="en" className={raleway.className}>
       <head>
         <script
+          crossOrigin="anonymous"
+          src="//unpkg.com/react-scan/dist/auto.global.js"
+        />
+        <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdData) }}
         />
