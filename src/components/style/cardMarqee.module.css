@@ -24,13 +24,14 @@
 .social {
   --ring: rgba(255, 255, 255, 0.18);
   position: relative;
-  width: 56px;
-  height: 56px;
+  width: 48px;
+  height: 48px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   /* spacing between marquee items */
-  margin: 35px 12px;
+  /* reduced vertical spacing */
+  margin: 3px 12px;
   border-radius: 12px;
   background: linear-gradient(
     180deg,
@@ -82,8 +83,8 @@
 }
 
 .icon {
-  width: 26px;
-  height: 26px;
+  width: 22px;
+  height: 22px;
   display: inline-block;
   vertical-align: middle;
   /* allow inline style color to show */
