@@ -30,21 +30,14 @@ export default function CardMarqee() {
     "nextjs",
     "react",
     "tailwind",
-    "sveltekit",
-    "reactnative",
     "nodejs",
-    "express",
-    "fastapi",
-    "flask",
     "django",
-    "kotlin",
+    "fastapi",
     "postgres",
-    "mysql",
     "mongodb",
-    "redis",
-    "sqlite",
     "docker",
     "gcp",
+    "redis",
   ];
 
   const displayed = items.filter((name) => ICON_MAP[name]);
@@ -83,11 +76,7 @@ const ICON_MAP = {
 };
 
 function Item({ name }) {
-  const entry = ICON_MAP[name] || {
-    Icon: SiGithub,
-    color: "#F5F5F5",
-    title: name,
-  };
+  const entry = ICON_MAP[name];
   const { Icon, color, title } = entry;
 
   return (
