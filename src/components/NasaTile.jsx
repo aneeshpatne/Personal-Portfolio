@@ -48,7 +48,6 @@ export default async function NasaTile() {
             fill
             sizes="(min-width: 1024px) 25vw, 100vw"
             style={{ objectFit: "cover", objectPosition: "center" }}
-            priority
           />
         </div>
 
