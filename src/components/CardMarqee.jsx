@@ -15,7 +15,7 @@ const getOptimalSpeed = () => {
   return 10;
 };
 
-const SPEED = 10;
+const SPEED = 15;
 
 const ICONS = [
   { name: "nextjs", title: "Next.js", src: "/assets/img/nextjs.svg" },
