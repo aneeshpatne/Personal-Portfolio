@@ -11,8 +11,8 @@ const instrumentSerif = Instrument_Serif({
 export default async function NasaTile() {
   const res = await fetch(
     `https://api.nasa.gov/planetary/apod?api_key=${process.env.NASA_API_KEY}`,
-    // refresh every 24h (ISR). Use { cache: "no-store" } if you want it fresh each request.
-    { next: { revalidate: 60 * 60 * 24 } }
+    // Using dynamic fetch with no-store to prevent blocking
+    { cache: "no-store" }
   );
 
   if (!res.ok) return <div className="tile">Failed to load NASA APOD</div>;
