@@ -15,7 +15,7 @@ export async function GET() {
     }
 
     const data = await res.json();
-    
+
     // Only return what we need
     return NextResponse.json({
       title: data.title,
