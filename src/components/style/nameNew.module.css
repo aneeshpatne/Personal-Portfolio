@@ -1,237 +1,199 @@
-.name {
+.container {
   position: relative;
-  display: flex;
   width: 100%;
-  min-width: 350px;
-  min-height: 98lvh;
-  justify-content: center;
-  z-index: 0;
-}
-
-.introduction {
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  position: absolute;
-  padding: 5%;
-  top: 60%;
-}
-.upperText {
-  display: flex;
-  align-self: center;
   justify-content: center;
   padding: 2rem;
-  width: 100vw;
+  overflow: hidden;
+  isolation: isolate;
 }
-.introText {
-  padding-top: 0.7rem;
-  font-size: 1.5rem;
-  text-align: center;
-}
-.introName {
-  font-size: 5rem;
-  font-weight: 700;
-  word-spacing: 10px;
-  font-style: italic;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-}
-.introWrapper {
+
+/* No card wrapper anymore, content floats directly */
+
+.contentWrapper {
+  position: relative;
+  z-index: 10;
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: fit-content;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  max-width: 1200px; /* Allow more width for the huge text */
 }
+
 .logoWrapper {
+  margin-bottom: 2rem;
+  position: relative;
+  /* Optional: Add a subtle glow behind the logo */
+}
+
+.logo {
+  border-radius: 50%;
+  /* Make the logo feel like it's floating */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); 
+}
+
+.introName {
+  /* Massive, cinematic font size */
+  font-size: clamp(3.5rem, 8vw, 7rem); 
+  line-height: 1;
+  margin: 0;
+  /* Elegant gradient or solid color depending on preference. 
+     Let's go with a very subtle gradient to keep it classy. */
+  background: linear-gradient(180deg, #ffffff 0%, rgba(255, 255, 255, 0.85) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  
+  /* Tighter tracking for that high-end editorial look */
+  letter-spacing: -0.04em;
+  
+  /* Optional: subtle drop shadow to ensure readability against blobs */
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.1));
+}
+
+.introNameLight {
+  background: linear-gradient(180deg, #111111 0%, rgba(17, 17, 17, 0.85) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: none;
+}
+
+.introTextSmall {
+  font-size: clamp(1rem, 1.5vw, 1.25rem);
+  margin-top: 1.5rem;
+  color: rgba(255, 255, 255, 0.7);
+  
+  /* Wide tracking for contrast with the tight header */
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.introTextSmallLight {
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.divider {
+  width: 2px;
+  height: 60px; /* Vertical line looks more modern here? Or keep horizontal. Let's stick to horizontal but wider/thinner */
+  width: 100px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  margin: 3rem 0;
+}
+
+.dividerLight {
+  background: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.2), transparent);
+}
+
+.socialsContainer {
+  display: flex;
+  gap: 2.5rem; /* More space between icons */
+  align-items: center;
+  justify-content: center;
+}
+
+.socialLink {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 72px;
-  height: 72px;
-  border-radius: 16px;
-  background: linear-gradient(
-    135deg,
-    rgba(255, 255, 255, 0.08),
-    rgba(255, 255, 255, 0.02)
-  );
-  backdrop-filter: blur(6px);
-  box-shadow: 0 4px 14px -4px rgba(0, 0, 0, 0.4),
-    0 0 0 1px rgba(255, 255, 255, 0.05) inset;
-  animation: fadeIn 0.8s ease;
-  margin-bottom: 0.85rem;
-}
-.logoWrapper:hover {
-  transform: translateY(-3px) scale(1.03);
-  transition: transform 0.35s ease, box-shadow 0.35s ease;
-  box-shadow: 0 6px 18px -4px rgba(0, 0, 0, 0.55),
-    0 0 0 1px rgba(255, 255, 255, 0.08) inset;
-}
-.logo {
-  object-fit: contain;
-  width: 70px;
-  height: 70px;
-  border-radius: 12px;
-  user-select: none;
-  pointer-events: none;
+  width: 56px; /* Slightly larger touch targets */
+  height: 56px;
+  border-radius: 50%; /* Circle looks cleaner without the card */
+  
+  /* Minimalist: No background by default, just the icon */
+  background: transparent;
+  border: 1px solid transparent;
+  
+  color: rgba(255, 255, 255, 0.6);
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  font-size: 1.5rem;
 }
 
-.skillBox {
-  display: grid;
-  grid-template-columns: auto auto auto;
-  gap: 10px;
-  top: 120px;
-  display: grid;
-  margin: 5px auto;
-  padding: 5px;
-}
-.skillBoxContainer {
-  margin-top: 5%;
-}
-.socialIcon {
-  padding: 4px;
-}
-.socialContainer {
-  display: flex;
-  padding: 5px;
-  border-radius: 5px;
-  border: 1px solid var(--dark-bg-accent);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+.socialLink:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.1);
+  transform: translateY(-4px) scale(1.1);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
-.socialContainer:hover {
-  transform: scale(1.05);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-.socialContainer.light {
-  border: 2px solid var(--light-bg-accent);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+.socialLinkLight {
+  color: rgba(0, 0, 0, 0.5);
 }
 
-.socialContainer.light:hover {
-  transform: scale(1.05);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+.socialLinkLight:hover {
+  color: #000;
+  background: rgba(0, 0, 0, 0.05);
+  border-color: rgba(0, 0, 0, 0.1);
 }
-.socialContainer.active {
-  color: black;
-  background-color: var(--dark-bg-btn);
+
+.socialLink.active {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.2);
+  transform: scale(1.15);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
 }
-.socialContainer.active.light {
-  color: #ffffff;
-  background-color: var(--light-bg-btn);
+
+.socialLinkLight.active {
+  color: #000;
+  background: rgba(0, 0, 0, 0.08);
+  border-color: rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
 }
-.socialText {
-  padding: 4px;
+
+@media (max-width: 768px) {
+  .container {
+    padding: 1.5rem;
+  }
+  
+  .introName {
+    /* Font size handled by clamp, but maybe adjust spacing */
+    margin-bottom: 0.5rem;
+  }
+  
+  .socialsContainer {
+    gap: 1.5rem;
+  }
+  
+  .socialLink {
+    width: 48px;
+    height: 48px;
+    font-size: 1.25rem;
+  }
 }
-.urlBox {
+
+.urlContainer {
+  margin-top: 3rem;
   display: flex;
   align-items: center;
-  line-height: 1.5;
+  justify-content: center;
+  gap: 0.5ch;
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.5);
+  /* Monospace font will be applied via class in JSX */
 }
 
-.urlAnimationWrapper {
-  position: relative;
-  overflow: hidden;
-  height: 1.5em;
-  min-width: 90px;
-  display: flex;
-  align-items: center;
-}
-
-.urlAnimationWrapper a {
-  position: absolute;
-  left: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  animation: urlSlideUp 0.3s ease-out;
-  white-space: nowrap;
-}
-.gradientUnderline {
+.dynamicUrl {
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 500;
   position: relative;
   display: inline-block;
+  min-width: 100px; /* Prevent layout shift */
+  text-align: left;
 }
 
-.gradientUnderline::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -2px;
-  width: 100%;
-  height: 2px;
-  background: linear-gradient(90deg, #667eea, #764ba2, #667eea);
-  border-radius: 10%;
-  background-size: 200% 100%;
-  animation: gradientMove 2s ease infinite;
+.urlContainerLight {
+  color: rgba(0, 0, 0, 0.5);
 }
 
-.gradientText {
-  background: linear-gradient(90deg, #667eea, #764ba2, #667eea);
-  background-size: 200% 100%;
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  font-size: 1.4em;
-  font-weight: 400;
-  animation: gradientMove 2s ease infinite;
-  white-space: nowrap;
-}
-
-@media (max-width: 570px) {
-  .introduction {
-    top: 70%;
-  }
-  .introName {
-    font-size: 3rem;
-  }
-  .logoWrapper {
-    width: 56px;
-    height: 56px;
-  }
-  .logo {
-    width: 54px;
-    height: 54px;
-  }
-  .upperText {
-    top: 10%;
-  }
-  .introText {
-    max-width: 80%;
-  }
-  .gradientText {
-    font-size: 1.4rem;
-  }
-}
-@keyframes urlSlideUp {
-  from {
-    transform: translateY(50%);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(-50%);
-    opacity: 1;
-  }
-}
-@keyframes gradientMove {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-.introTextSmall {
-  margin-top: 20px;
-  font-size: clamp(1.2rem, 2vw, 1.5rem);
-}
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.dynamicUrlLight {
+  color: rgba(0, 0, 0, 0.9);
 }
