@@ -1,199 +1,169 @@
 .container {
   position: relative;
   width: 100%;
-  min-height: 100vh;
+  height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  padding: 2rem;
+  align-items: center;
   overflow: hidden;
-  isolation: isolate;
+  /* Ensure it sits above any background blobs but below fixed headers if any */
+  z-index: 1;
 }
 
-/* No card wrapper anymore, content floats directly */
-
 .contentWrapper {
-  position: relative;
-  z-index: 10;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
-  width: 100%;
-  max-width: 1200px; /* Allow more width for the huge text */
+  z-index: 2;
+  padding: 2rem;
 }
 
+/* Logo Section */
 .logoWrapper {
   margin-bottom: 2rem;
-  position: relative;
-  /* Optional: Add a subtle glow behind the logo */
+  filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.1));
 }
 
 .logo {
   border-radius: 50%;
-  /* Make the logo feel like it's floating */
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); 
+  object-fit: cover;
+}
+
+/* Intro Text Section */
+.introWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .introName {
-  /* Massive, cinematic font size */
-  font-size: clamp(3.5rem, 8vw, 7rem); 
-  line-height: 1;
+  font-size: 5rem;
+  font-weight: 400;
+  color: #ffffff;
   margin: 0;
-  /* Elegant gradient or solid color depending on preference. 
-     Let's go with a very subtle gradient to keep it classy. */
-  background: linear-gradient(180deg, #ffffff 0%, rgba(255, 255, 255, 0.85) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  
-  /* Tighter tracking for that high-end editorial look */
-  letter-spacing: -0.04em;
-  
-  /* Optional: subtle drop shadow to ensure readability against blobs */
-  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.1));
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  text-shadow: 0 0 40px rgba(255, 255, 255, 0.1);
 }
 
 .introNameLight {
-  background: linear-gradient(180deg, #111111 0%, rgba(17, 17, 17, 0.85) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  filter: none;
+  color: #1a1a1a;
+  text-shadow: 0 0 40px rgba(0, 0, 0, 0.1);
 }
 
 .introTextSmall {
-  font-size: clamp(1rem, 1.5vw, 1.25rem);
-  margin-top: 1.5rem;
-  color: rgba(255, 255, 255, 0.7);
-  
-  /* Wide tracking for contrast with the tight header */
-  letter-spacing: 0.2em;
+  font-size: 0.9rem;
   text-transform: uppercase;
-  font-weight: 500;
+  color: rgba(255, 255, 255, 0.6);
+  margin: 0;
+  letter-spacing: 0.2em;
 }
 
 .introTextSmallLight {
   color: rgba(0, 0, 0, 0.6);
 }
 
+/* Divider */
 .divider {
-  width: 2px;
-  height: 60px; /* Vertical line looks more modern here? Or keep horizontal. Let's stick to horizontal but wider/thinner */
-  width: 100px;
+  width: 60px;
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-  margin: 3rem 0;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+  margin: 2.5rem 0;
 }
 
 .dividerLight {
-  background: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.2), transparent);
+  background: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.5), transparent);
 }
 
+/* Social Icons */
 .socialsContainer {
   display: flex;
-  gap: 2.5rem; /* More space between icons */
-  align-items: center;
-  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 3rem;
 }
 
 .socialLink {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 1.5rem;
+  transition: all 0.3s ease;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 56px; /* Slightly larger touch targets */
-  height: 56px;
-  border-radius: 50%; /* Circle looks cleaner without the card */
-  
-  /* Minimalist: No background by default, just the icon */
-  background: transparent;
-  border: 1px solid transparent;
-  
-  color: rgba(255, 255, 255, 0.6);
-  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  font-size: 1.5rem;
 }
 
-.socialLink:hover {
-  color: #fff;
-  background: rgba(255, 255, 255, 0.05);
-  border-color: rgba(255, 255, 255, 0.1);
-  transform: translateY(-4px) scale(1.1);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+.socialLink:hover, .active {
+  color: #ffffff;
+  transform: translateY(-2px);
+  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
 }
 
 .socialLinkLight {
   color: rgba(0, 0, 0, 0.5);
 }
 
-.socialLinkLight:hover {
-  color: #000;
-  background: rgba(0, 0, 0, 0.05);
-  border-color: rgba(0, 0, 0, 0.1);
+.socialLinkLight:hover, .socialLinkLight.active {
+  color: #000000;
+  filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.3));
 }
 
-.socialLink.active {
-  color: #fff;
-  background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(255, 255, 255, 0.2);
-  transform: scale(1.15);
-  box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
-}
-
-.socialLinkLight.active {
-  color: #000;
-  background: rgba(0, 0, 0, 0.08);
-  border-color: rgba(0, 0, 0, 0.2);
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-}
-
-@media (max-width: 768px) {
-  .container {
-    padding: 1.5rem;
-  }
-  
-  .introName {
-    /* Font size handled by clamp, but maybe adjust spacing */
-    margin-bottom: 0.5rem;
-  }
-  
-  .socialsContainer {
-    gap: 1.5rem;
-  }
-  
-  .socialLink {
-    width: 48px;
-    height: 48px;
-    font-size: 1.25rem;
-  }
-}
-
+/* Rotating URL Section */
 .urlContainer {
-  margin-top: 3rem;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 0.5ch;
   font-size: 1rem;
-  color: rgba(255, 255, 255, 0.5);
-  /* Monospace font will be applied via class in JSX */
-}
-
-.dynamicUrl {
-  color: rgba(255, 255, 255, 0.9);
-  font-weight: 500;
-  position: relative;
-  display: inline-block;
-  min-width: 100px; /* Prevent layout shift */
-  text-align: left;
+  color: rgba(255, 255, 255, 0.4);
+  margin-top: 1rem;
 }
 
 .urlContainerLight {
-  color: rgba(0, 0, 0, 0.5);
+  color: rgba(0, 0, 0, 0.4);
+}
+
+.dynamicUrl {
+  color: #ffffff;
+  font-weight: 500;
+  position: relative;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.dynamicUrl:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
 }
 
 .dynamicUrlLight {
-  color: rgba(0, 0, 0, 0.9);
+  color: #000000;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .introName {
+    font-size: 3.5rem;
+  }
+  
+  .divider {
+    margin: 2rem 0;
+  }
+  
+  .socialsContainer {
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .introName {
+    font-size: 2.8rem;
+  }
+  
+  .introTextSmall {
+    font-size: 0.8rem;
+  }
 }
