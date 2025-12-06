@@ -1,7 +1,16 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ["cdn.sanity.io", "apod.nasa.gov"],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "cdn.sanity.io",
+      },
+      {
+        protocol: "https",
+        hostname: "apod.nasa.gov",
+      },
+    ],
   },
   async redirects() {
     return [
@@ -22,6 +31,7 @@ const nextConfig = {
       },
     ];
   },
+  turbopack: {},
   webpack: (config, { isServer }) => {
     if (!isServer) {
       config.watchOptions = {
