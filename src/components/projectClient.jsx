@@ -26,9 +26,11 @@ export function ProjectContainerWrapper({ processedData, tags }) {
   return (
     <>
       <SortStatus setFilter={setFilter} filter={filter} />
-      {tags.map((tag, index) => (
-        <div key={index}>{tag}</div>
-      ))}
+      <div className={styles.tagBox}>
+        {tags.map((tag, index) => (
+          <div key={index}>{tag}</div>
+        ))}
+      </div>
       <div className={styles.projectBox}>
         {tempData.map((project, index) => (
           <ProjectContainer
