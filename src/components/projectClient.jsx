@@ -14,25 +14,48 @@ import { useState } from "react";
 
 export function ProjectContainerWrapper({ processedData, tags }) {
   const [filter, setFilter] = useState({ sort: "default", filter: [] });
-  let tempData =
-    filter.sort === "reverse" ? [...processedData].reverse() : processedData;
 
+  // 1. Filter first
+  let filteredData = processedData;
   if (filter.filter.length > 0) {
-    tempData = filter.filter.reduce((acc, f) => {
-      return acc.filter((p) => p.tags.includes(f));
-    }, tempData);
+    filteredData = processedData.filter((p) =>
+      filter.filter.every((f) => p.tags.includes(f))
+    );
   }
+
+  // 2. Sort second
+  let finalData =
+    filter.sort === "reverse" ? [...filteredData].reverse() : filteredData;
+
+  const toggleTag = (tag) => {
+    setFilter((prev) => {
+      const isActive = prev.filter.includes(tag);
+      const newFilter = isActive
+        ? prev.filter.filter((t) => t !== tag)
+        : [...prev.filter, tag];
+      return { ...prev, filter: newFilter };
+    });
+  };
 
   return (
     <>
       <SortStatus setFilter={setFilter} filter={filter} />
       <div className={styles.tagBox}>
-        {tags.map((tag, index) => (
-          <div key={index}>{tag}</div>
-        ))}
+        {tags.map((tag, index) => {
+          const isActive = filter.filter.includes(tag);
+          return (
+            <button
+              key={index}
+              onClick={() => toggleTag(tag)}
+              className={`${styles.tagButton} ${isActive ? styles.active : ""}`}
+            >
+              {tag}
+            </button>
+          );
+        })}
       </div>
       <div className={styles.projectBox}>
-        {tempData.map((project, index) => (
+        {finalData.map((project, index) => (
           <ProjectContainer
             key={index}
             stack={project.techStack}
@@ -52,7 +75,7 @@ export function SortStatus({ setFilter, filter }) {
   return (
     <div className={styles.sortContainer}>
       <button
-        onClick={() => setFilter({ sort: "default" })}
+        onClick={() => setFilter((prev) => ({ ...prev, sort: "default" }))}
         className={`${styles.sortButton} ${
           filter.sort === "default" ? styles.active : ""
         }`}
@@ -61,7 +84,7 @@ export function SortStatus({ setFilter, filter }) {
         <ArrowDownNarrowWide size={20} />
       </button>
       <button
-        onClick={() => setFilter({ sort: "reverse" })}
+        onClick={() => setFilter((prev) => ({ ...prev, sort: "reverse" }))}
         className={`${styles.sortButton} ${
           filter.sort === "reverse" ? styles.active : ""
         }`}
