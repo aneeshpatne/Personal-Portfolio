@@ -39,10 +39,11 @@ export default async function ProjectNew() {
     tags: project.tags.split(",").map((tag) => tag.trim()),
     isInProgress: project.endDate === null,
   }));
+  const tags = [...new Set(processedData.flatMap((data) => data.tags))];
   return (
     <div className={styles.projects}>
       <Title />
-      <ProjectContainerWrapper processedData={processedData} />
+      <ProjectContainerWrapper processedData={processedData} tags={tags} />
     </div>
   );
 }

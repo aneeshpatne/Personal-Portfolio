@@ -21,5 +21,5 @@ export const projectList = pgTable("projectList", {
   image: text("image"),
   startDate: date("startDate"),
   endDate: date("endDate"),
-  tags: text("date"),
+  tags: text("tags"),
 });
