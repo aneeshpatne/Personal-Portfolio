@@ -11,17 +11,21 @@ import { useState } from "react";
 export function ProjectContainerWrapper({ processedData }) {
   const tempData = [...processedData];
   const [filter, setFilter] = useState({ sort: "default" });
-  return tempData.map((project, index) => (
-    <ProjectContainer
-      key={index}
-      stack={project.techStack}
-      name={project.title}
-      description={project.description}
-      image={project.image}
-      id={project.id}
-      isInProgress={project.isInProgress}
-    />
-  ));
+  return (
+    <>
+      {tempData.map((project, index) => (
+        <ProjectContainer
+          key={index}
+          stack={project.techStack}
+          name={project.title}
+          description={project.description}
+          image={project.image}
+          id={project.id}
+          isInProgress={project.isInProgress}
+        />
+      ))}
+    </>
+  );
 }
 export function ProjectContainer({
   name,
