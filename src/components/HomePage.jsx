@@ -1,6 +1,6 @@
 export const revalidate = 86400;
 
-import React from "react";
+import React, { Suspense } from "react";
 
 import NameNew from "./NameNew";
 import Menu from "./Menu";
@@ -26,9 +26,26 @@ export default function HomePage() {
         <DSA />
       </section>
       <section id="project">
-        <ProjectNew />
+        <Suspense fallback={<ProjectLoadingSkeleton />}>
+          <ProjectNew />
+        </Suspense>
       </section>
       <Footer />
+    </div>
+  );
+}
+
+function ProjectLoadingSkeleton() {
+  return (
+    <div style={{
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+      minHeight: "300px",
+      color: "rgba(255, 255, 255, 0.4)",
+      fontSize: "1.1rem"
+    }}>
+      Loading projects...
     </div>
   );
 }

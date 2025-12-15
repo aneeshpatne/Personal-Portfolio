@@ -10,7 +10,8 @@ import Link from "next/link";
 import Image from "next/image";
 import styles from "./style/ProjectNew.module.css";
 import { mapper } from "./data";
-import { useState } from "react";
+import { useState, Suspense } from "react";
+import { FolderX } from "lucide-react";
 
 export function ProjectContainerWrapper({ processedData, tags }) {
   const [filter, setFilter] = useState({ sort: "default", filter: [] });
@@ -55,17 +56,25 @@ export function ProjectContainerWrapper({ processedData, tags }) {
         })}
       </div>
       <div className={styles.projectBox}>
-        {finalData.map((project, index) => (
-          <ProjectContainer
-            key={index}
-            stack={project.techStack}
-            name={project.title}
-            description={project.description}
-            image={project.image}
-            id={project.id}
-            isInProgress={project.isInProgress}
-          />
-        ))}
+        {finalData.length === 0 ? (
+          <div className={styles.emptyState}>
+            <FolderX size={48} strokeWidth={1.5} />
+            <p>No projects found</p>
+            <span>Try adjusting your filters</span>
+          </div>
+        ) : (
+          finalData.map((project, index) => (
+            <ProjectContainer
+              key={index}
+              stack={project.techStack}
+              name={project.title}
+              description={project.description}
+              image={project.image}
+              id={project.id}
+              isInProgress={project.isInProgress}
+            />
+          ))
+        )}
       </div>
     </>
   );
