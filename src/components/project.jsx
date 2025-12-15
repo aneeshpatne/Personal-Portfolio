@@ -41,9 +41,7 @@ export default async function ProjectNew() {
   return (
     <div className={styles.projects}>
       <Title />
-      <div className={styles.projectBox}>
-        <ProjectContainerWrapper processedData={processedData} />
-      </div>
+      <ProjectContainerWrapper processedData={processedData} />
     </div>
   );
 }
