@@ -11,7 +11,7 @@ import { mapper } from "./data";
 import { db } from "@/lib/db";
 import { projectList } from "@/lib/schema";
 import { desc, asc, sql } from "drizzle-orm";
-import { ProjectContainer } from "./projectClient";
+import { ProjectContainer, ProjectContainerWrapper } from "./projectClient";
 export default async function ProjectNew() {
   let project = null;
 
@@ -41,17 +41,7 @@ export default async function ProjectNew() {
     <div className={styles.projects}>
       <Title />
       <div className={styles.projectBox}>
-        {processedData.map((project, index) => (
-          <ProjectContainer
-            key={index}
-            stack={project.techStack}
-            name={project.title}
-            description={project.description}
-            image={project.image}
-            id={project.id}
-            isInProgress={project.isInProgress}
-          />
-        ))}
+        <ProjectContainerWrapper processedData={processedData} />
       </div>
     </div>
   );
