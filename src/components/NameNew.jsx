@@ -2,7 +2,13 @@
 import { Fira_Code } from "next/font/google";
 import { Instrument_Serif } from "next/font/google";
 import Image from "next/image";
-import { LuGithub, LuLinkedin, LuCodeXml, LuMail } from "react-icons/lu";
+import {
+  LuGithub,
+  LuLinkedin,
+  LuCodeXml,
+  LuMail,
+  LuMapPin,
+} from "react-icons/lu";
 import styles from "./style/nameNew.module.css";
 import BlobsBackground from "./gradient";
 import { motion } from "framer-motion";
@@ -32,7 +38,7 @@ const socials = [
 const socialLinks = [
   "https://github.com/aneeshpatne",
   "https://linkedin.com/in/aneeshpatne",
-  "https://leetcode.com/aneeshpatne"
+  "https://leetcode.com/aneeshpatne",
 ];
 
 export default function NameNew({ theme }) {
@@ -52,14 +58,14 @@ export default function NameNew({ theme }) {
   return (
     <div className={styles.container}>
       <BlobsBackground />
-      
-      <motion.div 
+
+      <motion.div
         className={styles.contentWrapper}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1.5, ease: "easeOut" }}
       >
-        <motion.div 
+        <motion.div
           className={styles.logoWrapper}
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -76,33 +82,49 @@ export default function NameNew({ theme }) {
         </motion.div>
 
         <div className={styles.introWrapper}>
-          <motion.h1 
-            className={`${styles.introName} ${instrumentSerif.className} ${isLight ? styles.introNameLight : ''}`}
+          <motion.h1
+            className={`${styles.introName} ${instrumentSerif.className} ${
+              isLight ? styles.introNameLight : ""
+            }`}
             initial={{ opacity: 0, y: 30, filter: "blur(10px)" }}
             animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
             transition={{ delay: 0.4, duration: 1, ease: [0.16, 1, 0.3, 1] }}
           >
             Aneesh Patne
           </motion.h1>
-          
-          <motion.p 
-            className={`${styles.introTextSmall} ${ibm_font.className} ${isLight ? styles.introTextSmallLight : ''}`}
+
+          <motion.p
+            className={`${styles.introTextSmall} ${ibm_font.className} ${
+              isLight ? styles.introTextSmallLight : ""
+            }`}
             initial={{ opacity: 0, letterSpacing: "0em" }}
             animate={{ opacity: 1, letterSpacing: "0.2em" }}
             transition={{ delay: 0.8, duration: 1, ease: "easeOut" }}
           >
             Full Stack Engineer
           </motion.p>
+
+          <motion.div
+            className={`${styles.locationBadge} ${ibm_font.className} ${
+              isLight ? styles.locationBadgeLight : ""
+            }`}
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1.0, duration: 1, ease: "easeOut" }}
+          >
+            <LuMapPin />
+            Mumbai, India
+          </motion.div>
         </div>
 
-        <motion.div 
-          className={`${styles.divider} ${isLight ? styles.dividerLight : ''}`}
+        <motion.div
+          className={`${styles.divider} ${isLight ? styles.dividerLight : ""}`}
           initial={{ scaleX: 0, opacity: 0 }}
           animate={{ scaleX: 1, opacity: 1 }}
           transition={{ delay: 1.2, duration: 1 }}
         />
 
-        <motion.div 
+        <motion.div
           className={styles.socialsContainer}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -114,9 +136,9 @@ export default function NameNew({ theme }) {
               href={socialLinks[index]}
               target="_blank"
               rel="noopener noreferrer"
-              className={`${styles.socialLink} ${isLight ? styles.socialLinkLight : ''} ${
-                index === idx ? styles.active : ''
-              }`}
+              className={`${styles.socialLink} ${
+                isLight ? styles.socialLinkLight : ""
+              } ${index === idx ? styles.active : ""}`}
               whileHover={{ scale: 1.2, rotate: 0 }}
               whileTap={{ scale: 0.9 }}
               initial={{ opacity: 0, y: 20 }}
@@ -130,26 +152,38 @@ export default function NameNew({ theme }) {
         </motion.div>
 
         {/* Rotating URL Section */}
-        <motion.div 
-          className={`${styles.urlContainer} ${ibm_font.className} ${isLight ? styles.urlContainerLight : ''}`}
+        <motion.div
+          className={`${styles.urlContainer} ${ibm_font.className} ${
+            isLight ? styles.urlContainerLight : ""
+          }`}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 2, duration: 1 }}
         >
           <span>aneeshpatne.com/</span>
-          <div style={{ position: 'relative', height: '1.5em', overflow: 'hidden', display: 'flex', alignItems: 'center' }}>
+          <div
+            style={{
+              position: "relative",
+              height: "1.5em",
+              overflow: "hidden",
+              display: "flex",
+              alignItems: "center",
+            }}
+          >
             <AnimatePresence mode="wait">
               <motion.a
                 key={idx}
                 href={socialLinks[idx]}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${styles.dynamicUrl} ${isLight ? styles.dynamicUrlLight : ''}`}
+                className={`${styles.dynamicUrl} ${
+                  isLight ? styles.dynamicUrlLight : ""
+                }`}
                 initial={{ y: 20, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 exit={{ y: -20, opacity: 0 }}
                 transition={{ duration: 0.5, ease: "easeInOut" }}
-                style={{ textDecoration: 'none' }}
+                style={{ textDecoration: "none" }}
               >
                 {socials[idx].url}
               </motion.a>
