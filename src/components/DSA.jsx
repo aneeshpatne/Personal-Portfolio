@@ -59,7 +59,9 @@ export default function DSA() {
         Coding <Bug size={30} />
       </h1>
       <div className={styles.HeatMapContainer}>
-        <HeatMap />
+        <Suspense fallback={<div>Loading activity...</div>}>
+          <HeatMap />
+        </Suspense>
       </div>
       <div className={styles.Content}>
         <div className={styles.chart}>
