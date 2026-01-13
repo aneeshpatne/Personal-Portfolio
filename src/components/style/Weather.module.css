@@ -1,0 +1,98 @@
+.wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.weatherCard {
+  position: relative;
+  display: flex;
+  flex-direction: row; /* Horizontal again for full width below heatmap */
+  justify-content: space-around;
+  align-items: center;
+  gap: 1.5rem;
+  width: 100%; /* Matches heatmap width */
+  padding: 1.5rem 2rem;
+  
+  /* Glassmorphism & Premium Feel */
+  background: rgba(22, 27, 34, 0.4);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(48, 54, 61, 0.5);
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2);
+  
+  transition: all 0.3s ease;
+}
+
+.weatherCard:hover {
+  border-color: rgba(56, 189, 248, 0.3);
+  background: rgba(22, 27, 34, 0.6);
+}
+
+.statGroup {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.iconWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: rgba(56, 189, 248, 0.1);
+  color: #38bdf8;
+  transition: all 0.3s ease;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+}
+
+.label {
+  font-size: 0.7rem;
+  color: #8b949e;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+}
+
+.valueContainer {
+  display: flex;
+  align-items: baseline;
+  gap: 0.3rem;
+}
+
+.value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #f0f6fc;
+}
+
+.unit {
+  font-size: 0.9rem;
+  color: #8b949e;
+}
+
+.divider {
+  width: 1px;
+  height: 40px;
+  background: linear-gradient(to bottom, transparent, rgba(48, 54, 61, 0.5), transparent);
+}
+
+@media (max-width: 640px) {
+  .weatherCard {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .divider {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(48, 54, 61, 0.5), transparent);
+  }
+}
