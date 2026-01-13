@@ -60,7 +60,7 @@ export default function DSA() {
       <h1 className={`${styles.heading} ${ibm_font.className}`}>
         Coding <Bug size={30} />
       </h1>
-      <div>
+      <div className={styles.HeatMapContainer}>
         <HeatMap />
       </div>
       <div className={styles.Content}>
