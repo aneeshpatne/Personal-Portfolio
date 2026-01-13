@@ -4,6 +4,7 @@ import { Bug } from "lucide-react";
 import { Fira_Code } from "next/font/google";
 import TechBadge from "./TechBadge";
 import { HeatMap } from "./HeatMap";
+import { Suspense } from "react";
 const words = ["Perseverance", "Mastery", "Dedication"];
 const dsaData = [
   "Arrays & Hashing",
