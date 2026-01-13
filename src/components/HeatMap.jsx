@@ -1,19 +1,32 @@
 import { ActivityCalendar } from "react-activity-calendar";
-export function HeatMap() {
+
+export async function HeatMap() {
+  const apiKey = process.env.ANEESH_API_KEY;
+
+  const response = await fetch("https://api.aneeshpatne.com/v1/api/stats", {
+    headers: {
+      authorization: `Bearer ${apiKey}`,
+    },
+    cache: "force-cache",
+    next: {
+      revalidate: 86400, // Cache for 24 hours (1 day)
+    },
+  });
+
+  const fetchedData = await response.json();
+
+  const data = [
+    ...fetchedData,
+    {
+      date: "2025-12-31",
+      count: 0,
+      level: 0,
+    },
+  ];
+
   return (
     <ActivityCalendar
-      data={[
-        {
-          date: "2025-01-01",
-          count: 16,
-          level: 3,
-        },
-        {
-          date: "2025-12-31",
-          count: 0,
-          level: 0,
-        },
-      ]}
+      data={data}
       weekStart={1}
       blockMargin={4}
       blockRadius={2}
