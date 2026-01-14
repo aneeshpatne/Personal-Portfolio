@@ -170,7 +170,7 @@ export function LLM_new() {
           </g>
 
           {/* Node: Live Data */}
-          <g transform="translate(510, 50)">
+          <g transform="translate(350, 200)">
             <rect
               width="100"
               height="70"
@@ -188,7 +188,7 @@ export function LLM_new() {
           </g>
 
           {/* Node: Tools Hub */}
-          <g transform="translate(700, 0)">
+          <g transform="translate(510, 55)">
             <rect
               width="100"
               height="60"
@@ -206,7 +206,7 @@ export function LLM_new() {
           </g>
 
           {/* Tool: Telegram */}
-          <g transform="translate(870, 0)">
+          <g transform="translate(650, 0)">
             <rect
               width="100"
               height="55"
@@ -224,7 +224,7 @@ export function LLM_new() {
           </g>
 
           {/* Tool: Mail */}
-          <g transform="translate(870, 65)">
+          <g transform="translate(650, 65)">
             <rect
               width="100"
               height="55"
@@ -242,7 +242,7 @@ export function LLM_new() {
           </g>
 
           {/* Tool: Alert */}
-          <g transform="translate(870, 130)">
+          <g transform="translate(650, 130)">
             <rect
               width="100"
               height="55"
@@ -260,7 +260,7 @@ export function LLM_new() {
           </g>
 
           {/* Node: PostgreSQL */}
-          <g transform="translate(710, 210)">
+          <g transform="translate(500, 210)">
             <rect
               width="110"
               height="65"
@@ -278,7 +278,7 @@ export function LLM_new() {
           </g>
 
           {/* Node: Webpage */}
-          <g transform="translate(710, 325)">
+          <g transform="translate(700,220)">
             <rect
               width="110"
               height="55"
