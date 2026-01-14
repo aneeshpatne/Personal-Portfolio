@@ -8,7 +8,7 @@ const instrumentSerif = Instrument_Serif({
 
 export function LLM_new() {
   return (
-    <div className={`${instrumentSerif.className} ${styles.title}`}>
+    <div className={`${instrumentSerif.className} ${styles.LLMContainer}`}>
       <h1 className={styles.Heading}>Artificial Intelligence</h1>
     </div>
   );
