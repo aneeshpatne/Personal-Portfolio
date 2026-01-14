@@ -30,9 +30,9 @@ export function LLM_new() {
           message on telegram and issue alerts based on weather conditions.
         </p>
 
-        {/* Mausam Pipeline Flowchart */}
+{/* Mausam Pipeline Flowchart */}
         <svg
-          viewBox="0 0 1100 420"
+          viewBox="0 0 860 320"
           className={styles.FlowchartSvg}
           xmlns="http://www.w3.org/2000/svg"
         >
@@ -68,48 +68,51 @@ export function LLM_new() {
             </marker>
           </defs>
 
-          {/* Connection lines with arrows */}
+{/* Connection lines with arrows */}
           <g stroke="rgba(255,255,255,0.25)" strokeWidth="2" fill="none">
             {/* Images to R2 */}
             <line x1="110" y1="85" x2="170" y2="85" markerEnd="url(#arrowhead)" />
+            
             {/* R2 to LLM */}
             <line x1="280" y1="85" x2="340" y2="85" markerEnd="url(#arrowhead)" />
-            {/* LLM to Live Data */}
-            <path d="M 450 85 L 510 85" markerEnd="url(#arrowhead)" />
-            {/* Live Data back to LLM (curved feedback loop) */}
-            <path d="M 560 120 Q 560 160, 450 160 Q 395 160, 395 120" markerEnd="url(#arrowhead)" strokeDasharray="5,5" stroke="rgba(34,197,94,0.4)" />
             
-            {/* LLM splits into two branches */}
-            {/* Branch 1: LLM to Tools */}
-            <path d="M 450 60 Q 480 30, 640 30 L 700 30" markerEnd="url(#arrowhead)" />
+            {/* LLM to Tools Hub */}
+            <line x1="450" y1="85" x2="500" y2="85" markerEnd="url(#arrowhead)" />
             
-            {/* Branch 2: LLM to PostgreSQL (direct) */}
-            <path d="M 450 110 Q 480 180, 560 240 L 700 240" markerEnd="url(#arrowhead)" />
+            {/* Tools Hub to Tools (Telegram, Mail, Alert moved to x=730) */}
+            <path d="M 610 85 C 650 85, 650 27.5, 720 27.5" markerEnd="url(#arrowhead)" />
+            <path d="M 610 85 C 650 85, 650 92.5, 720 92.5" markerEnd="url(#arrowhead)" />
+            <path d="M 610 85 C 650 85, 650 157.5, 720 157.5" markerEnd="url(#arrowhead)" />
             
-            {/* Tools branching to individual tools */}
-            <line x1="800" y1="30" x2="860" y2="30" markerEnd="url(#arrowhead)" />
-            <path d="M 800 30 Q 830 30, 860 80" markerEnd="url(#arrowhead)" />
-            <path d="M 800 30 Q 830 50, 860 130" markerEnd="url(#arrowhead)" />
+            {/* Live Data to LLM (Upward only) */}
+            <line x1="400" y1="200" x2="400" y2="140" markerEnd="url(#arrowhead)" strokeDasharray="5,5" stroke="rgba(34,197,94,0.4)" />
+
+            {/* LLM to PostgreSQL (Smoothed Curve avoiding Live Data) */}
+            <path d="M 450 85 L 470 85 Q 490 85, 490 105 L 490 220 Q 490 242.5, 530 242.5" markerEnd="url(#arrowhead)" />
             
             {/* PostgreSQL to Webpage */}
-            <line x1="810" y1="240" x2="810" y2="320" markerEnd="url(#arrowhead)" />
+            <line x1="640" y1="242.5" x2="690" y2="242.5" markerEnd="url(#arrowhead)" />
           </g>
 
           {/* Animated flowing particles */}
           <g>
+            {/* Particle 1: Main Flow (Images -> R2 -> LLM -> Tools -> Mail) */}
             <circle r="4" fill="#60a5fa" filter="url(#glow)">
-              <animateMotion dur="3s" repeatCount="indefinite">
+              <animateMotion dur="4s" repeatCount="indefinite">
                 <mpath href="#mainPath" />
               </animateMotion>
             </circle>
+            
+            {/* Particle 2: DB Flow (Images -> R2 -> LLM -> PostgreSQL -> Webpage) */}
             <circle r="4" fill="#8b5cf6" filter="url(#glow)">
-              <animateMotion dur="4s" repeatCount="indefinite" begin="1s">
+              <animateMotion dur="5s" repeatCount="indefinite" begin="2s">
                 <mpath href="#dbPath" />
               </animateMotion>
             </circle>
           </g>
-          <path id="mainPath" d="M 20 85 L 450 85 Q 480 30, 640 30 L 800 30" fill="none" stroke="none" />
-          <path id="dbPath" d="M 450 110 Q 480 180, 560 240 L 810 240 L 810 360" fill="none" stroke="none" />
+          
+          <path id="mainPath" d="M 65 85 L 230 85 L 400 85 L 560 85 L 610 85 C 650 85, 650 92.5, 730 92.5" fill="none" stroke="none" />
+          <path id="dbPath" d="M 65 85 L 230 85 L 400 85 L 450 85 L 470 85 Q 490 85, 490 105 L 490 220 Q 490 242.5, 530 242.5 L 585 242.5 L 755 242.5" fill="none" stroke="none" />
 
           {/* Node: Images */}
           <g transform="translate(20, 50)">
@@ -206,7 +209,7 @@ export function LLM_new() {
           </g>
 
           {/* Tool: Telegram */}
-          <g transform="translate(650, 0)">
+          <g transform="translate(730, 0)">
             <rect
               width="100"
               height="55"
@@ -224,7 +227,7 @@ export function LLM_new() {
           </g>
 
           {/* Tool: Mail */}
-          <g transform="translate(650, 65)">
+          <g transform="translate(730, 65)">
             <rect
               width="100"
               height="55"
@@ -242,7 +245,7 @@ export function LLM_new() {
           </g>
 
           {/* Tool: Alert */}
-          <g transform="translate(650, 130)">
+          <g transform="translate(730, 130)">
             <rect
               width="100"
               height="55"
@@ -260,7 +263,7 @@ export function LLM_new() {
           </g>
 
           {/* Node: PostgreSQL */}
-          <g transform="translate(500, 210)">
+          <g transform="translate(530, 210)">
             <rect
               width="110"
               height="65"
