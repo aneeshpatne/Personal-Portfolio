@@ -1,0 +1,6 @@
+.container {
+  width: 300px;
+  height: 100px;
+  border: 1px solid #616161;
+  border-radius: 15px;
+}
