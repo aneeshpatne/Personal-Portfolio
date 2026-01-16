@@ -50,11 +50,6 @@
   text-shadow: 0 0 40px rgba(255, 255, 255, 0.1);
 }
 
-.introNameLight {
-  color: #1a1a1a;
-  text-shadow: 0 0 40px rgba(0, 0, 0, 0.1);
-}
-
 .introTextSmall {
   font-size: 0.9rem;
   text-transform: uppercase;
@@ -63,20 +58,12 @@
   letter-spacing: 0.2em;
 }
 
-.introTextSmallLight {
-  color: rgba(0, 0, 0, 0.6);
-}
-
 /* Divider */
 .divider {
   width: 60px;
   height: 1px;
   background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
   margin: 2.5rem 0;
-}
-
-.dividerLight {
-  background: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.5), transparent);
 }
 
 /* Social Icons */
@@ -101,15 +88,6 @@
   filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
 }
 
-.socialLinkLight {
-  color: rgba(0, 0, 0, 0.5);
-}
-
-.socialLinkLight:hover, .socialLinkLight.active {
-  color: #000000;
-  filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.3));
-}
-
 /* Rotating URL Section */
 .urlContainer {
   display: flex;
@@ -119,10 +97,6 @@
   font-size: 1rem;
   color: rgba(255, 255, 255, 0.4);
   margin-top: 1rem;
-}
-
-.urlContainerLight {
-  color: rgba(0, 0, 0, 0.4);
 }
 
 .dynamicUrl {
@@ -136,10 +110,6 @@
 .dynamicUrl:hover {
   text-decoration: underline;
   text-underline-offset: 4px;
-}
-
-.dynamicUrlLight {
-  color: #000000;
 }
 
 /* Responsive Design */
@@ -189,13 +159,3 @@
   transform: translateY(-2px);
 }
 
-.locationBadgeLight {
-  color: rgba(0, 0, 0, 0.6);
-  background: rgba(0, 0, 0, 0.03);
-  border: 1px solid rgba(0, 0, 0, 0.05);
-}
-
-.locationBadgeLight:hover {
-  background: rgba(0, 0, 0, 0.06);
-  border-color: rgba(0, 0, 0, 0.1);
-}
