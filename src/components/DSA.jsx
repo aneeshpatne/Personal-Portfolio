@@ -1,11 +1,10 @@
 import styles from "./style/DSA.module.css";
-import DoughnutChart from "./chart";
 import { Bug } from "lucide-react";
 import { Fira_Code } from "next/font/google";
-import TechBadge from "./TechBadge";
 import { HeatMap } from "./HeatMap";
 import { Weather } from "./Weather";
 import { Suspense } from "react";
+import { Chart } from "./Chart";
 
 const ibm_font = Fira_Code({
   subsets: ["latin"],
@@ -17,21 +16,21 @@ export default function DSA() {
     <div className={styles.Container}>
       <div className={styles.Content}>
         <div className={styles.LeftPanel}>
-           <div className={styles.chart}>
-            <DoughnutChart />
-           </div>
+          <div className={styles.chart}>
+            <Chart />
+          </div>
         </div>
-        
+
         <div className={styles.RightPanel}>
           <div className={styles.HeatMapContainer}>
-             <Suspense fallback={<div>Loading activity...</div>}>
-                <HeatMap />
-              </Suspense>
+            <Suspense fallback={<div>Loading activity...</div>}>
+              <HeatMap />
+            </Suspense>
           </div>
           <div className={styles.WeatherContainer}>
-             <Suspense fallback={<div>Loading weather...</div>}>
-                <Weather />
-              </Suspense>
+            <Suspense fallback={<div>Loading weather...</div>}>
+              <Weather />
+            </Suspense>
           </div>
         </div>
       </div>
