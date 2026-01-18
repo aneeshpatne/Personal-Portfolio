@@ -36,7 +36,7 @@ export default function DoughnutChart({ chartData }) {
   const [mounted, setMounted] = useState(false);
   const totalSolved = useMemo(
     () => chartData.reduce((acc, curr) => acc + curr.solved, 0),
-    [],
+    [chartData],
   );
   useEffect(() => {
     setMounted(true);
