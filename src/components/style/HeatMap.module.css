@@ -7,14 +7,12 @@
 
 .calendarBox {
   padding: 20px;
-  border: 1px solid #616161;
+  border: 1px solid #ffffff0d;
   border-radius: 15px;
   display: flex;
   justify-content: center;
   overflow-x: auto;
-  /* Hide scrollbar for clean look but allow scrolling if needed */
-  scrollbar-width: none; 
-  -ms-overflow-style: none;
+  max-width: 100%;
 }
 
 .calendarBox::-webkit-scrollbar {
@@ -63,7 +61,7 @@
 }
 
 .dot::after {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -94,7 +92,7 @@
     padding: 10px;
     justify-content: flex-start; /* Better for mobile scrolling */
   }
-  
+
   .caption {
     font-size: 0.75rem;
     flex-wrap: wrap;

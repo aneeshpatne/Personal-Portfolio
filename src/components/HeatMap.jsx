@@ -1,6 +1,7 @@
 import { ActivityCalendar } from "react-activity-calendar";
 import styles from "./style/HeatMap.module.css";
 import { Fira_Code } from "next/font/google";
+import { HeatMapClient } from "./HeatMapClient";
 
 const firaCode = Fira_Code({
   subsets: ["latin"],
@@ -35,25 +36,10 @@ export async function HeatMap() {
     },
   ];
 
-  const theme = {
-    light: ["#ebedf0", "#9be9a8", "#40c463", "#30a14e", "#216e39"],
-    dark: ["#161b22", "#0e4429", "#006d32", "#26a641", "#39d353"],
-  };
-
   return (
     <div className={styles.wrapper}>
       <div className={styles.calendarBox}>
-        <ActivityCalendar
-          data={data}
-          weekStart={1}
-          blockMargin={4}
-          blockRadius={2}
-          blockSize={12}
-          theme={theme}
-          colorScheme="dark"
-          showMonthLabels
-          showWeekdayLabels={["mon", "sun"]}
-        />
+        <HeatMapClient data={data} />
       </div>
       <p className={`${styles.caption} ${firaCode.className}`}>
         <span className={styles.dot}></span>
