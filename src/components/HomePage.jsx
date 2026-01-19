@@ -14,29 +14,32 @@ import Footer from "./Footer";
 import ProjectNew from "./project";
 import { LLM_new } from "./LLM_new";
 import { APIShowCase } from "./APIShowCase";
+import { ChatProvider } from "./ChatContext";
 
 export default function HomePage() {
   return (
-    <div style={{ position: "relative" }}>
-      <section id="home">
-        <NameNew />
-      </section>
-      <Menu />
-      <Profile />
-      <section id="skills">
-        <WebDev />
-        <SystemArchitecture />
-        <DSA />
-        <LLM_new />
-        <APIShowCase />
-      </section>
-      <section id="project">
-        <Suspense fallback={<ProjectLoadingSkeleton />}>
-          <ProjectNew />
-        </Suspense>
-      </section>
-      <Footer />
-    </div>
+    <ChatProvider>
+      <div style={{ position: "relative" }}>
+        <section id="home">
+          <NameNew />
+        </section>
+        <Menu />
+        <Profile />
+        <section id="skills">
+          <WebDev />
+          <SystemArchitecture />
+          <DSA />
+          <LLM_new />
+          <APIShowCase />
+        </section>
+        <section id="project">
+          <Suspense fallback={<ProjectLoadingSkeleton />}>
+            <ProjectNew />
+          </Suspense>
+        </section>
+        <Footer />
+      </div>
+    </ChatProvider>
   );
 }
 
