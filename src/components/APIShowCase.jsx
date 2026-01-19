@@ -1,12 +1,31 @@
+import { Instrument_Serif } from "next/font/google";
 import { PM25 } from "./PM25";
 import { News } from "./News";
+import { Weather } from "./Weather";
 import styles from "./style/APIShowCase.module.css";
+
+const instrumentSerif = Instrument_Serif({
+  subsets: ["latin"],
+  weight: "400",
+  display: "swap",
+});
 
 export function APIShowCase() {
   return (
-    <div className={styles.container}>
-      <PM25 />
-      <News />
-    </div>
+    <section className={styles.section}>
+      <div className={styles.header}>
+        <h2 className={`${styles.title} ${instrumentSerif.className}`}>
+          API showcase
+        </h2>
+        <p className={styles.subtitle}>
+          Live snapshots from the APIs powering the experience.
+        </p>
+      </div>
+      <div className={styles.container}>
+        <News />
+        <Weather />
+        <PM25 />
+      </div>
+    </section>
   );
 }
