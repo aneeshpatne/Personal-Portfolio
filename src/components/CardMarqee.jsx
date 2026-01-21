@@ -3,20 +3,6 @@ import React, { memo, useState, useEffect } from "react";
 import Marquee from "react-fast-marquee";
 import styles from "./style/cardMarqee.module.css";
 
-// Detect device performance
-const getOptimalSpeed = () => {
-  if (typeof window === "undefined") return 10;
-
-  const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-  const cores = navigator.hardwareConcurrency || 4;
-
-  if (isMobile && cores <= 4) return 6;
-  if (isMobile) return 8;
-  return 10;
-};
-
-const SPEED = 15;
-
 const ICONS = [
   { name: "nextjs", title: "Next.js", src: "/assets/img/nextjs.svg" },
   { name: "react", title: "React", src: "/assets/img/react.svg" },
@@ -76,27 +62,13 @@ const Item = memo(({ title, src }) => {
 Item.displayName = "MarqueeItem";
 
 export default function CardMarqee() {
-  const [speed, setSpeed] = useState(SPEED);
-
-  useEffect(() => {
-    setSpeed(getOptimalSpeed());
-  }, []);
-
   return (
     <div className={styles.cardMarqeeInner}>
-      <div
-        className={styles.marqueeContaier}
-        style={{
-          transform: "translateZ(0)",
-          willChange: "transform",
-          isolation: "isolate",
-        }}
-      >
+      <div className={styles.marqueeContaier}>
         <Marquee
           gradient={false}
-          speed={speed}
+          speed={50}
           autoFill={false}
-          pauseOnHover
           style={{ willChange: "transform" }}
         >
           {DISPLAY.map((item) => (

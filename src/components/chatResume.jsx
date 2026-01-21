@@ -128,13 +128,13 @@ export default function Chat({ theme = "black" }) {
         {errorState.isError ? (
           <ErrorMessage message={errorState.message} onRetry={handleRetry} />
         ) : messages.some(
-            (msg) => msg.role === "user" || msg.role === "assistant"
+            (msg) => msg.role === "user" || msg.role === "assistant",
           ) ? (
           <>
             {renderedText
               .filter(
                 (message) =>
-                  message.role === "user" || message.role === "assistant"
+                  message.role === "user" || message.role === "assistant",
               )
               .map((message) => (
                 <div

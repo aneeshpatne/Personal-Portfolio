@@ -3,6 +3,7 @@ import { useEffect, useState, useCallback } from "react";
 import styles from "./style/menu.module.css";
 import { MessageSquareMore, X } from "lucide-react";
 import Chat from "./chatResume";
+import { useChatContext } from "./ChatContext";
 
 // Section meta so we can extend easily later (e.g., icons)
 const sections = [
@@ -13,7 +14,7 @@ const sections = [
 
 export default function Menu() {
   const [activeSection, setActiveSection] = useState("home");
-  const [isChatOpen, setIsChatOpen] = useState(false);
+  const { isChatOpen, toggleChat } = useChatContext();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -37,10 +38,6 @@ export default function Menu() {
     const el = document.getElementById(id);
     if (el) el.scrollIntoView({ behavior: "smooth" });
   }, []);
-
-  const toggleChat = () => {
-    setIsChatOpen(!isChatOpen);
-  };
 
   return (
     <>
