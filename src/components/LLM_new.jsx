@@ -6,6 +6,7 @@ import { AnimatePresence } from "framer-motion";
 import { motion } from "framer-motion";
 import { MausamFlowchart } from "./MausamFlowchart.jsx";
 import { ChatFlowchart } from "./ChatFlowchart.jsx";
+import { TazaKhabarFlowchart } from "./TazaKhabarFlowchart.jsx";
 
 const instrumentSerif = Instrument_Serif({
   weight: "400",
@@ -90,6 +91,25 @@ export function LLM_new() {
               </p>
             </div>
             <ChatFlowchart />
+            <div style={{ borderTop: "1px solid rgba(255,255,255,0.1)" }}></div>
+            <div className={styles.CardTextContent}>
+              <p className={styles.ProjectText}>
+                <span className={styles.HighlightTitle}>Taza Khabar</span> is an
+                AI-powered investigative news platform designed to deliver
+                deeper, unbiased insights beyond the headlines. It continuously
+                scrapes and analyzes news from multiple trusted sources to
+                generate context-rich, transparent reports in real time.
+                <br />
+                <br />
+                The platform leverages agentic web search and automated
+                verification pipelines to cross-check information and reduce
+                bias. A scalable backend powered by FastAPI and a robust
+                PostgreSQL database ensures fast data processing and reliable
+                storage, while a modern Next.js frontend provides a seamless
+                reading experience.
+              </p>
+            </div>
+            <TazaKhabarFlowchart />
           </div>
         </div>
       </div>
