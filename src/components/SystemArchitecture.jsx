@@ -6,6 +6,8 @@ import { Instrument_Serif } from "next/font/google";
 import styles from "./style/SystemArchitecture.module.css";
 import ArchitectureSVG from "./svg/ArchitectureSVG";
 import LockSVG from "./svg/LockSVG";
+import SurakshaFlowSVG from "./svg/SurakshaFlowSVG";
+import Judge0FlowSVG from "./svg/Judge0FlowSVG";
 
 const instrumentSerif = Instrument_Serif({
   weight: "400",
@@ -70,13 +72,54 @@ const SystemArchitecture = () => {
             <div className={styles.ShowCaseProject}>
               <LockSVG />
               <p className={styles.ProjectText}>
-                <span className={styles.HighlightTitle}>Mausam</span> is a AI
-                weather intelligence platform that has a data pipeline to fetch
-                and process radar images, combines it with live weather data to
-                generate consise reporting. It invokes tools to send mail, send
-                message on telegram and issue alerts based on weather
-                conditions.
+                <span className={styles.HighlightTitle}>Suraksha</span> is an
+                enterprise-grade, multi-tenant authentication service built with
+                Spring Boot. It supports email/password login, passwordless
+                magic URLs, and optional OTP-based 2FA, with secure RS256-signed
+                JWTs, refresh token rotation, and org-level isolation. It uses
+                PostgreSQL for persistence, Redis for token/OTP caching with
+                TTL, and RabbitMQ for asynchronous email delivery.
               </p>
+            </div>
+            <SurakshaFlowSVG />
+
+            <div
+              className={styles.ShowCaseProject}
+              style={{
+                marginTop: "4rem",
+                paddingTop: "2rem",
+                borderTop: "1px solid rgba(255,255,255,0.1)",
+              }}
+            >
+              <p className={styles.ProjectText}>
+                <span className={styles.HighlightTitle}>Practice Coder</span> is
+                a scalable remote code execution engine capable of handling
+                thousands of submissions safely. It orchestrates Docker
+                containers via RabbitMQ to execute untrusted user code in
+                isolated environments. The system features a Spring Boot API
+                gateway, a PostgreSQL database for submission tracking, and a
+                dynamic worker pool that auto-scales based on queue depth.
+              </p>
+            </div>
+            <Judge0FlowSVG />
+            <div
+              className={styles.ShowCaseProject}
+              style={{
+                marginTop: "4rem",
+                paddingTop: "2rem",
+                borderTop: "1px solid rgba(255,255,255,0.1)",
+              }}
+            >
+              <LockSVG />
+              <div className={styles.ProjectText}>
+                <span className={styles.HighlightTitle}>DIY CCTV</span> is a
+                fully self-hosted, end-to-end CCTV automation stack built around
+                ESP32-CAM devices. It captures and processes live camera
+                streams, overlays real-time health metrics, records segmented
+                video, restreams low-latency RTSP feeds, logs motion events,
+                exposes everything through a FastAPI service, and delivers
+                automated nightly motion summaries via Telegram.
+              </div>
             </div>
           </div>
         </div>
