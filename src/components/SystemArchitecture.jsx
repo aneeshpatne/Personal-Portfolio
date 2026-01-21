@@ -8,6 +8,7 @@ import ArchitectureSVG from "./svg/ArchitectureSVG";
 import LockSVG from "./svg/LockSVG";
 import SurakshaFlowSVG from "./svg/SurakshaFlowSVG";
 import Judge0FlowSVG from "./svg/Judge0FlowSVG";
+import { SystemArchitectureImage } from "./SystemArchitectureImage";
 
 const instrumentSerif = Instrument_Serif({
   weight: "400",
@@ -110,7 +111,7 @@ const SystemArchitecture = () => {
                 borderTop: "1px solid rgba(255,255,255,0.1)",
               }}
             >
-              <LockSVG />
+              <SystemArchitectureImage />
               <div className={styles.ProjectText}>
                 <span className={styles.HighlightTitle}>DIY CCTV</span> is a
                 fully self-hosted, end-to-end CCTV automation stack built around
