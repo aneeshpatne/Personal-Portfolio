@@ -117,6 +117,7 @@
 .svg {
   width: 100%;
   height: auto;
+  overflow: visible;
 }
 
 .svgHorizontal {
@@ -146,6 +147,7 @@
   .diagramContainer {
     min-width: 100%;
     flex: 1 1 100%;
+    padding-inline: 0.5rem;
   }
 
   .contentContainer {
