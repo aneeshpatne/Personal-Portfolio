@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 export function WeatherClient({ temp, humidity, pressure, remark, alertColor, fontClassName }) {
   // Use the API-provided remark, or fallback logic if missing
-  const displayRemark = remark || (temp > 30 ? "It's quite hot outside" : (temp < 10 ? "Chilly weather today" : "Pleasant conditions"));
+  const displayRemark = remark || (temp >= 30 ? "It's quite hot outside" : (temp <= 10 ? "Chilly weather today" : "Pleasant conditions"));
   
   // Map alert colors to hex values
   const getAlertColor = (color) => {

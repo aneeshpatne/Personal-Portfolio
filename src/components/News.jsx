@@ -27,7 +27,7 @@ export async function News({
     if (response.ok) {
       data = await response.json();
     }
-    fetchedData = null;
+    fetchedData = data;
   } catch (err) {
     console.error("Error", err);
     fetchedData = null;
@@ -35,7 +35,7 @@ export async function News({
 
   return (
     <NewsClient
-      data={data}
+      data={fetchedData}
       title={fetchedData?.title ?? fallbackTitle}
       description={fetchedData?.description ?? fallbackDesc}
     />

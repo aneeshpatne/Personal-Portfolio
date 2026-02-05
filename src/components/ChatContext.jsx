@@ -1,26 +1,22 @@
 "use client";
 import { createContext, useContext, useState } from "react";
 
-const ChatContext = createContext();
+const ChatContext = createContext(undefined);
 
 export function ChatProvider({ children }) {
-  const [isChatOpen, setIsChatOpen] = useState(false);
+  const [isChatOpen, setIsChatOpen] = useState(true);
 
-  const toggleChat = () => setIsChatOpen((prev) => !prev);
-  const openChat = () => setIsChatOpen(true);
-  const closeChat = () => setIsChatOpen(false);
+  const toggleChat = () => {};
+  const openChat = () => {};
+  const closeChat = () => {};
 
   return (
-    <ChatContext.Provider value={{ isChatOpen, toggleChat, openChat, closeChat }}>
+    <ChatContext.Provider value={{ isChatOpen: true, toggleChat, openChat, closeChat }}>
       {children}
     </ChatContext.Provider>
   );
 }
 
 export const useChatContext = () => {
-  const context = useContext(ChatContext);
-  if (!context) {
-    throw new Error("useChatContext must be used within a ChatProvider");
-  }
-  return context;
+  return { isChatOpen: true, toggleChat: () => {}, openChat: () => {}, closeChat: () => {} };
 };

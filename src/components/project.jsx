@@ -30,7 +30,7 @@ export default async function ProjectNew() {
     return <div>Fetching Error</div>;
   }
 
-  if (!project) {
+  if (project.length === 0) {
     return <div>Project not found</div>;
   }
   const processedData = project.map((project) => ({

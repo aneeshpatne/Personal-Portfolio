@@ -11,38 +11,31 @@ const raleway = Raleway({
 });
 
 export const metadata = {
-  title: "Aneesh Patne - Professional Portfolio",
-  description: "A lifelong learner who is talented, motivated, and adaptable",
+  title: "Portfolio Website",
+  description: "A personal website showcasing various projects",
   openGraph: {
-    title: "Aneesh Patne - Professional Portfolio",
-    description: "A lifelong learner who is talented, motivated, and adaptable",
-    url: "https://www.aneeshpatne.com/",
-    siteName: "Aneesh Patne",
+    title: "Portfolio",
+    description: "Personal portfolio website",
+    url: "https://example.com/",
+    siteName: "Portfolio",
     type: "website",
     images: [
       {
-        url: "https://www.aneeshpatne.com/assets/img/header.jpg",
+        url: "https://example.com/image.jpg",
         width: 1200,
         height: 630,
-        alt: "Aneesh Patne",
+        alt: "Portfolio",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Aneesh Patne",
-    description: "A lifelong learner who is talented, motivated, and adaptable",
-    images: ["https://www.aneeshpatne.com/assets/img/aneesh.png"],
+    title: "Portfolio",
+    description: "Personal portfolio website",
+    images: ["https://example.com/image.png"],
   },
-  link: [
-    {
-      rel: "preload",
-      href: "../components/style/header.css",
-      as: "style",
-    },
-  ],
   icons: {
-    icon: "/assets/img/favicon.ico",
+    icon: "/favicon.ico",
   },
 };
 
@@ -52,36 +45,23 @@ export default function RootLayout({ children }) {
     "@type": "ProfilePage",
     mainEntity: {
       "@type": "Person",
-      name: "Aneesh Patne",
-      url: "https://www.aneeshpatne.com",
-      image: "https://www.aneeshpatne.com/assets/img/aneesh.png",
-      sameAs: [
-        "https://www.linkedin.com/in/aneeshpatne",
-        "https://github.com/aneeshpatne",
-      ],
-      description:
-        "Aneesh Patne is a engineer with expertise in full stack web development, and Artificial Inteligence.",
-      alumniOf: {
-        "@type": "CollegeOrUniversity",
-        name: "Veermata Jijabai Technological University",
-      },
+      name: "Developer",
+      url: "https://example.com",
+      sameAs: [],
+      description: "A developer portfolio",
     },
   };
 
   return (
     <html lang="en" className={raleway.className}>
       <head>
-        {/* <script
-          crossOrigin="anonymous"
-          src="//unpkg.com/react-scan/dist/auto.global.js"
-        /> */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdData) }}
         />
       </head>
-      <body>{children}</body>
-      <GoogleAnalytics gaId="G-2ZB3L8XV5X" />
+      <body style={{ overflow: 'hidden', height: '100vh' }}>{children}</body>
+      <GoogleAnalytics gaId="G-XXXXXXXXXX" />
     </html>
   );
 }
