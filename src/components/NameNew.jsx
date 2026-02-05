@@ -41,6 +41,8 @@ const socialLinks = [
   "https://leetcode.com/aneeshpatne",
 ];
 
+const heroTags = ["Full-stack", "AI/ML", "Design Systems"];
+
 export default function NameNew() {
   const [idx, setIndex] = useState(0);
   const maxUrlLength = Math.max(...socials.map((s) => s.url.length));
@@ -108,6 +110,19 @@ export default function NameNew() {
           >
             <LuMapPin />
             Mumbai, India
+          </motion.div>
+
+          <motion.div
+            className={`${styles.heroTags} ${ibm_font.className}`}
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1.2, duration: 0.8, ease: "easeOut" }}
+          >
+            {heroTags.map((tag) => (
+              <span key={tag} className={styles.heroTag}>
+                {tag}
+              </span>
+            ))}
           </motion.div>
         </div>
 
