@@ -1,18 +1,1 @@
-.backgroundContainer {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-  overflow: hidden;
-  background: #06070a;
-  background: radial-gradient(
-    circle at 50% 50%,
-    #111a2a 0%,
-    #111a2a 12%,
-    #06070a 55%,
-    #040405 100%
-  );
-  background-repeat: no-repeat;
-  background-size: cover;
-}
+.container { background: #ff0000; border: 5px solid red; }
