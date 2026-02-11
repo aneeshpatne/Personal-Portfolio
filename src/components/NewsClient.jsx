@@ -4,15 +4,16 @@ import { Clock } from "lucide-react";
 import styles from "./style/News.module.css";
 import { useEffect, useState } from "react";
 
-export function NewsClient({ data }) {
+export function NewsClient({ data = [], source, genre }) {
   const [index, setIndex] = useState(0);
-  const hasNews = data.length > 0;
-  const displayTitle = hasNews
-    ? data[index]?.title
-    : "Waiting for news...";
+  const hasNews = Array.isArray(data) && data.length > 0;
+  const currentItem = hasNews ? data[index] : null;
+  const displayTitle = hasNews ? currentItem?.title : "Waiting for news...";
   const displayDesc = hasNews
-    ? data[index]?.description
+    ? currentItem?.description
     : "We will retry fetching headlines shortly.";
+  const displaySource = currentItem?.source ?? source ?? "Unknown Source";
+  const displayGenre = currentItem?.genre ?? genre ?? "General";
   const displayKey = hasNews ? index : "waiting";
   const displayDate = new Date().toLocaleDateString("en-US", {
     month: "long",
@@ -61,6 +62,10 @@ export function NewsClient({ data }) {
           >
             <h3 className={styles.title}>{displayTitle}</h3>
             <p className={styles.description}>{displayDesc}</p>
+            <div className={styles.metaRow}>
+              <span className={styles.metaPill}>{displaySource}</span>
+              <span className={styles.metaPill}>{displayGenre}</span>
+            </div>
           </motion.div>
         </AnimatePresence>
       </div>

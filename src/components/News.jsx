@@ -20,7 +20,7 @@ export async function News({
           authorization: `Bearer ${apiKey}`,
         },
         next: {
-          revalidate: 86400,
+          revalidate: 3600,
         },
       },
     );
@@ -38,6 +38,8 @@ export async function News({
       data={data}
       title={fetchedData?.title ?? fallbackTitle}
       description={fetchedData?.description ?? fallbackDesc}
+      source={fetchedData?.source}
+      genre={fetchedData?.genre}
     />
   );
 }
