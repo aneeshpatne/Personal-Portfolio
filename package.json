@@ -33,6 +33,7 @@
     "rehype-highlight": "^7.0.2",
     "rehype-pretty-code": "^0.14.1",
     "remark-gfm": "^4.0.1",
+    "tldts": "^7.0.23",
     "zod": "^3.24.2"
   },
   "devDependencies": {

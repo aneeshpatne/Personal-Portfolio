@@ -1,37 +1,18 @@
 "use client";
 import { AnimatePresence, motion } from "framer-motion";
 import { Clock } from "lucide-react";
+import { getDomain, getDomainWithoutSuffix } from "tldts";
 import styles from "./style/News.module.css";
 import { useEffect, useState } from "react";
 
-const SOURCE_DOMAIN_MAP = {
-  reuters: "reuters.com",
-  "associated press": "apnews.com",
-  ap: "apnews.com",
-  bbc: "bbc.com",
-  cnn: "cnn.com",
-  nytimes: "nytimes.com",
-  "the guardian": "theguardian.com",
-  "wall street journal": "wsj.com",
-};
-
 function getSourceDomain(source) {
   const normalized = source.trim().toLowerCase();
-  if (SOURCE_DOMAIN_MAP[normalized]) {
-    return SOURCE_DOMAIN_MAP[normalized];
-  }
-  if (normalized.includes(".")) {
-    return normalized;
-  }
-  return null;
+  return getDomain(normalized, { allowPrivateDomains: true });
 }
 
-function getFaviconUrl(source) {
-  const domain = getSourceDomain(source);
-  if (!domain) {
-    return null;
-  }
-  return `https://www.google.com/s2/favicons?sz=64&domain=${encodeURIComponent(domain)}`;
+function getSourceLabel(source) {
+  const normalized = source.trim().toLowerCase();
+  return getDomainWithoutSuffix(normalized, { allowPrivateDomains: true });
 }
 
 export function NewsClient({ data = [] }) {
@@ -98,11 +79,20 @@ export function NewsClient({ data = [] }) {
             <div className={styles.metaRow}>
               <div className={styles.sourceList}>
                 {displaySources.map((source, sourceIndex) => {
-                  const faviconUrl = getFaviconUrl(source);
+                  const domain = getSourceDomain(source);
+                  const label = getSourceLabel(source);
+                  const faviconUrl = domain
+                    ? `https://www.google.com/s2/favicons?sz=64&domain=${encodeURIComponent(domain)}`
+                    : null;
+                  const href = domain ? `https://${domain}` : null;
                   return (
-                    <span
+                    <a
                       key={`${source}-${sourceIndex}`}
                       className={styles.sourcePill}
+                      href={href ?? undefined}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={domain ? `Open source ${domain}` : "Unknown source"}
                     >
                       {faviconUrl ? (
                         <img
@@ -112,8 +102,10 @@ export function NewsClient({ data = [] }) {
                           className={styles.sourceFavicon}
                         />
                       ) : null}
-                      <span className={styles.sourceName}>{source}</span>
-                    </span>
+                      <span className={styles.sourceName}>
+                        {label ?? "unknown"}
+                      </span>
+                    </a>
                   );
                 })}
               </div>
