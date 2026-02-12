@@ -1,15 +1,7 @@
 import { NewsClient } from "./NewsClient";
 
-export async function News({
-  title = "AI Model Breaks New Ground",
-  description = "The latest generative model demonstrates unprecedented reasoning capabilities in complex physics simulations.",
-  fallback,
-} = {}) {
-  let fetchedData = null;
-
-  const fallbackTitle = fallback?.title ?? title;
-  const fallbackDesc = fallback?.description ?? description;
-  let data = null;
+export async function News() {
+  let data = [];
   try {
     const apiKey = process.env.ANEESH_API_KEY;
 
@@ -25,21 +17,21 @@ export async function News({
       },
     );
     if (response.ok) {
-      data = await response.json();
+      const raw = await response.json();
+      data = Array.isArray(raw)
+        ? raw.map((item) => ({
+            title: item?.title ?? "",
+            description: item?.description ?? "",
+            sources: Array.isArray(item?.sources)
+              ? item.sources.filter((entry) => typeof entry === "string")
+              : [],
+            genre: item?.genre ?? "",
+          }))
+        : [];
     }
-    fetchedData = null;
   } catch (err) {
     console.error("Error", err);
-    fetchedData = null;
   }
 
-  return (
-    <NewsClient
-      data={data}
-      title={fetchedData?.title ?? fallbackTitle}
-      description={fetchedData?.description ?? fallbackDesc}
-      source={fetchedData?.source}
-      genre={fetchedData?.genre}
-    />
-  );
+  return <NewsClient data={data} />;
 }

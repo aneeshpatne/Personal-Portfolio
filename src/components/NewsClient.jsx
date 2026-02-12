@@ -4,7 +4,37 @@ import { Clock } from "lucide-react";
 import styles from "./style/News.module.css";
 import { useEffect, useState } from "react";
 
-export function NewsClient({ data = [], source, genre }) {
+const SOURCE_DOMAIN_MAP = {
+  reuters: "reuters.com",
+  "associated press": "apnews.com",
+  ap: "apnews.com",
+  bbc: "bbc.com",
+  cnn: "cnn.com",
+  nytimes: "nytimes.com",
+  "the guardian": "theguardian.com",
+  "wall street journal": "wsj.com",
+};
+
+function getSourceDomain(source) {
+  const normalized = source.trim().toLowerCase();
+  if (SOURCE_DOMAIN_MAP[normalized]) {
+    return SOURCE_DOMAIN_MAP[normalized];
+  }
+  if (normalized.includes(".")) {
+    return normalized;
+  }
+  return null;
+}
+
+function getFaviconUrl(source) {
+  const domain = getSourceDomain(source);
+  if (!domain) {
+    return null;
+  }
+  return `https://www.google.com/s2/favicons?sz=64&domain=${encodeURIComponent(domain)}`;
+}
+
+export function NewsClient({ data = [] }) {
   const [index, setIndex] = useState(0);
   const hasNews = Array.isArray(data) && data.length > 0;
   const currentItem = hasNews ? data[index] : null;
@@ -12,8 +42,11 @@ export function NewsClient({ data = [], source, genre }) {
   const displayDesc = hasNews
     ? currentItem?.description
     : "We will retry fetching headlines shortly.";
-  const displaySource = currentItem?.source ?? source ?? "Unknown Source";
-  const displayGenre = currentItem?.genre ?? genre ?? "General";
+  const displaySources =
+    hasNews && Array.isArray(currentItem?.sources) && currentItem.sources.length > 0
+      ? currentItem.sources
+      : ["Unknown Source"];
+  const displayGenre = hasNews ? currentItem?.genre ?? "General" : "General";
   const displayKey = hasNews ? index : "waiting";
   const displayDate = new Date().toLocaleDateString("en-US", {
     month: "long",
@@ -63,7 +96,27 @@ export function NewsClient({ data = [], source, genre }) {
             <h3 className={styles.title}>{displayTitle}</h3>
             <p className={styles.description}>{displayDesc}</p>
             <div className={styles.metaRow}>
-              <span className={styles.metaPill}>{displaySource}</span>
+              <div className={styles.sourceList}>
+                {displaySources.map((source, sourceIndex) => {
+                  const faviconUrl = getFaviconUrl(source);
+                  return (
+                    <span
+                      key={`${source}-${sourceIndex}`}
+                      className={styles.sourcePill}
+                    >
+                      {faviconUrl ? (
+                        <img
+                          src={faviconUrl}
+                          alt=""
+                          aria-hidden="true"
+                          className={styles.sourceFavicon}
+                        />
+                      ) : null}
+                      <span className={styles.sourceName}>{source}</span>
+                    </span>
+                  );
+                })}
+              </div>
               <span className={styles.metaPill}>{displayGenre}</span>
             </div>
           </motion.div>

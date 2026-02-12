@@ -182,6 +182,39 @@
   background: rgba(255, 255, 255, 0.04);
 }
 
+.sourceList {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.sourcePill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #b4b4bc;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+  padding: 4px 10px;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.sourceFavicon {
+  width: 12px;
+  height: 12px;
+  border-radius: 999px;
+  flex-shrink: 0;
+}
+
+.sourceName {
+  display: inline-block;
+}
+
 /* Footer & Caution */
 .footerWrapper {
   margin-top: 40px;
