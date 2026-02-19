@@ -4,7 +4,7 @@ import { Clock } from "lucide-react";
 import { getDomain, getDomainWithoutSuffix } from "tldts";
 import styles from "./style/News.module.css";
 import { useEffect, useState } from "react";
-
+import Image from "next/image";
 function getSourceDomain(source) {
   const normalized = source.trim().toLowerCase();
   return getDomain(normalized, { allowPrivateDomains: true });
@@ -20,6 +20,7 @@ export function NewsClient({ data = [] }) {
   const hasNews = Array.isArray(data) && data.length > 0;
   const currentItem = hasNews ? data[index] : null;
   const displayTitle = hasNews ? currentItem?.title : "Waiting for news...";
+  const ogUrl = currentItem?.ogUrl ?? null;
   const displayDesc = hasNews
     ? currentItem?.description
     : "We will retry fetching headlines shortly.";
@@ -78,6 +79,7 @@ export function NewsClient({ data = [] }) {
           >
             <h3 className={styles.title}>{displayTitle}</h3>
             <p className={styles.description}>{displayDesc}</p>
+            <div>{ogUrl && <Image src={ogUrl} height={50} width={50} />}</div>
             <div className={styles.metaRow}>
               <div className={styles.sourceList}>
                 {displaySources.map((source, sourceIndex) => {
