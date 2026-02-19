@@ -26,6 +26,7 @@ export async function News() {
               ? item.sources.filter((entry) => typeof entry === "string")
               : [],
             genre: item?.genre ?? "",
+            ogUrl: item?.ogUrl ?? "",
           }))
         : [];
     }
