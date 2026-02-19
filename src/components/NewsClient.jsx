@@ -4,7 +4,6 @@ import { Clock } from "lucide-react";
 import { getDomain, getDomainWithoutSuffix } from "tldts";
 import styles from "./style/News.module.css";
 import { useEffect, useState } from "react";
-import Image from "next/image";
 function getSourceDomain(source) {
   const normalized = source.trim().toLowerCase();
   return getDomain(normalized, { allowPrivateDomains: true });
@@ -17,8 +16,10 @@ function getSourceLabel(source) {
 
 export function NewsClient({ data = [] }) {
   const [index, setIndex] = useState(0);
+  const [hideOgImage, setHideOgImage] = useState(false);
   const hasNews = Array.isArray(data) && data.length > 0;
   const currentItem = hasNews ? data[index] : null;
+  console.log(currentItem);
   const displayTitle = hasNews ? currentItem?.title : "Waiting for news...";
   const ogUrl = currentItem?.ogUrl ?? null;
   const displayDesc = hasNews
@@ -48,12 +49,17 @@ export function NewsClient({ data = [] }) {
     return () => clearInterval(interval);
   }, [hasNews, data.length]);
 
+  useEffect(() => {
+    setHideOgImage(false);
+  }, [ogUrl, displayKey]);
+
   return (
     <motion.div
       className={styles.card}
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, ease: "easeOut" }}
+      onDragStart={(event) => event.preventDefault()}
     >
       <div className={styles.glow} />
 
@@ -77,45 +83,61 @@ export function NewsClient({ data = [] }) {
             exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.35, ease: "easeOut" }}
           >
-            <h3 className={styles.title}>{displayTitle}</h3>
-            <p className={styles.description}>{displayDesc}</p>
-            <div>{ogUrl && <Image src={ogUrl} height={50} width={50} />}</div>
-            <div className={styles.metaRow}>
-              <div className={styles.sourceList}>
-                {displaySources.map((source, sourceIndex) => {
-                  const domain = getSourceDomain(source);
-                  const label = getSourceLabel(source);
-                  const faviconUrl = domain
-                    ? `https://www.google.com/s2/favicons?sz=64&domain=${encodeURIComponent(domain)}`
-                    : null;
-                  const href = source;
-                  return (
-                    <a
-                      key={`${source}-${sourceIndex}`}
-                      className={styles.sourcePill}
-                      href={href ?? undefined}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label={
-                        domain ? `Open source ${domain}` : "Unknown source"
-                      }
-                    >
-                      {faviconUrl ? (
-                        <img
-                          src={faviconUrl}
-                          alt=""
-                          aria-hidden="true"
-                          className={styles.sourceFavicon}
-                        />
-                      ) : null}
-                      <span className={styles.sourceName}>
-                        {label ?? "unknown"}
-                      </span>
-                    </a>
-                  );
-                })}
+            <div className={styles.storyRow}>
+              <div className={styles.storyText}>
+                <h3 className={styles.title}>{displayTitle}</h3>
+                <p className={styles.description}>{displayDesc}</p>
+                <div className={styles.metaRow}>
+                  <div className={styles.sourceList}>
+                    {displaySources.map((source, sourceIndex) => {
+                      const domain = getSourceDomain(source);
+                      const label = getSourceLabel(source);
+                      const faviconUrl = domain
+                        ? `https://www.google.com/s2/favicons?sz=64&domain=${encodeURIComponent(domain)}`
+                        : null;
+                      const href = source;
+                      return (
+                        <a
+                          key={`${source}-${sourceIndex}`}
+                          className={styles.sourcePill}
+                          href={href ?? undefined}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          aria-label={
+                            domain ? `Open source ${domain}` : "Unknown source"
+                          }
+                        >
+                          {faviconUrl ? (
+                            <img
+                              src={faviconUrl}
+                              alt=""
+                              aria-hidden="true"
+                              className={styles.sourceFavicon}
+                              draggable={false}
+                            />
+                          ) : null}
+                          <span className={styles.sourceName}>
+                            {label ?? "unknown"}
+                          </span>
+                        </a>
+                      );
+                    })}
+                  </div>
+                  <span className={styles.metaPill}>{displayGenre}</span>
+                </div>
               </div>
-              <span className={styles.metaPill}>{displayGenre}</span>
+              {ogUrl && !hideOgImage ? (
+                <div className={styles.ogImageWrap}>
+                  <img
+                    src={ogUrl}
+                    alt={displayTitle}
+                    className={styles.ogImage}
+                    loading="lazy"
+                    draggable={false}
+                    onError={() => setHideOgImage(true)}
+                  />
+                </div>
+              ) : null}
             </div>
           </motion.div>
         </AnimatePresence>
