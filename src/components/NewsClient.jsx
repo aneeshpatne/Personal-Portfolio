@@ -24,10 +24,12 @@ export function NewsClient({ data = [] }) {
     ? currentItem?.description
     : "We will retry fetching headlines shortly.";
   const displaySources =
-    hasNews && Array.isArray(currentItem?.sources) && currentItem.sources.length > 0
+    hasNews &&
+    Array.isArray(currentItem?.sources) &&
+    currentItem.sources.length > 0
       ? currentItem.sources
       : ["Unknown Source"];
-  const displayGenre = hasNews ? currentItem?.genre ?? "General" : "General";
+  const displayGenre = hasNews ? (currentItem?.genre ?? "General") : "General";
   const displayKey = hasNews ? index : "waiting";
   const displayDate = new Date().toLocaleDateString("en-US", {
     month: "long",
@@ -56,11 +58,11 @@ export function NewsClient({ data = [] }) {
 
       <div className={styles.header}>
         <div className={styles.leftGroup}>
-            <span className={styles.liveBadge}>Live News</span>
-            <div className={styles.dateContainer}>
-              <Clock size={12} className={styles.dateIcon} />
-              <span className={styles.date}>{displayDate}</span>
-            </div>
+          <span className={styles.liveBadge}>Live News</span>
+          <div className={styles.dateContainer}>
+            <Clock size={12} className={styles.dateIcon} />
+            <span className={styles.date}>{displayDate}</span>
+          </div>
         </div>
         <span className={styles.apiBadge}>Powered by Khoj API</span>
       </div>
@@ -84,7 +86,7 @@ export function NewsClient({ data = [] }) {
                   const faviconUrl = domain
                     ? `https://www.google.com/s2/favicons?sz=64&domain=${encodeURIComponent(domain)}`
                     : null;
-                  const href = domain ? `https://${domain}` : null;
+                  const href = source;
                   return (
                     <a
                       key={`${source}-${sourceIndex}`}
@@ -92,7 +94,9 @@ export function NewsClient({ data = [] }) {
                       href={href ?? undefined}
                       target="_blank"
                       rel="noopener noreferrer"
-                      aria-label={domain ? `Open source ${domain}` : "Unknown source"}
+                      aria-label={
+                        domain ? `Open source ${domain}` : "Unknown source"
+                      }
                     >
                       {faviconUrl ? (
                         <img
