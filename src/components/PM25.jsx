@@ -13,7 +13,7 @@ export async function PM25({
         authorization: `Bearer ${apiKey}`,
       },
       next: {
-        revalidate: 86400,
+        revalidate: 3600,
       },
     });
 
