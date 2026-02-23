@@ -25,7 +25,7 @@ export async function WeatherGraph() {
   }
   return (
     <>
-      {weatherData && <WeatherGraphClient data={na} />}
+      {weatherData && <WeatherGraphClient data={weatherData} />}
     </>
   );
 }
