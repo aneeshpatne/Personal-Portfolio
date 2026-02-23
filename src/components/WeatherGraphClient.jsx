@@ -87,6 +87,14 @@ export default function WeatherGraphClient({ data }) {
     );
   }
 
+  const tempValues = chartData.map((item) => item.temp);
+  const humidityValues = chartData.map((item) => item.humidity);
+
+  const tempMin = Math.min(...tempValues) - 5;
+  const tempMax = Math.max(...tempValues) + 5;
+  const humidityMin = Math.min(...humidityValues) - 5;
+  const humidityMax = Math.max(...humidityValues) + 5;
+
   return (
     <div className={styles.wrapper}>
       <div className={styles.card}>
@@ -110,6 +118,7 @@ export default function WeatherGraphClient({ data }) {
               />
               <YAxis
                 yAxisId="left"
+                domain={[tempMin, tempMax]}
                 tick={{ fill: "rgba(255,255,255,0.7)", fontSize: 11 }}
                 tickLine={false}
                 axisLine={{ stroke: "rgba(255,255,255,0.16)", strokeWidth: 1 }}
@@ -127,6 +136,7 @@ export default function WeatherGraphClient({ data }) {
               <YAxis
                 yAxisId="right"
                 orientation="right"
+                domain={[humidityMin, humidityMax]}
                 tick={{ fill: "rgba(255,255,255,0.7)", fontSize: 11 }}
                 tickLine={false}
                 axisLine={{ stroke: "rgba(255,255,255,0.16)", strokeWidth: 1 }}
