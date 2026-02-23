@@ -6,6 +6,7 @@ import { ResumeAI } from "./ResumeAI";
 import styles from "./style/APIShowCase.module.css";
 import { WeatherGraph } from "./WeatherGraph";
 import { BreakingNews } from "./BreakingNews";
+import { Status } from "./Status";
 
 const instrumentSerif = Instrument_Serif({
   subsets: ["latin"],
@@ -23,17 +24,6 @@ export function APIShowCase() {
         <p className={styles.subtitle}>
           Live snapshots from the APIs I have built.
         </p>
-        <div className={styles.disclaimerContainer}>
-          <div className={styles.indicator}>
-            <span className={styles.ping}></span>
-            <span className={styles.dot}></span>
-          </div>
-          <span className={styles.disclaimerText}>
-            Notice: This part of the webpage utilizes Incremental Static
-            Regeneration (ISR). Displayed data may be cached; please refresh the
-            page to fetch the latest data.
-          </span>
-        </div>
       </div>
       <div className={styles.container}>
         <BreakingNews />
@@ -42,6 +32,7 @@ export function APIShowCase() {
         <WeatherGraph />
         <PM25 />
         <ResumeAI />
+        <Status />
       </div>
     </section>
   );
