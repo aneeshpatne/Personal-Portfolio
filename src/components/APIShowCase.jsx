@@ -4,6 +4,7 @@ import { News } from "./News";
 import { Weather } from "./Weather";
 import { ResumeAI } from "./ResumeAI";
 import styles from "./style/APIShowCase.module.css";
+import { WeatherGraph } from "./WeatherGraph";
 
 const instrumentSerif = Instrument_Serif({
   subsets: ["latin"],
@@ -25,6 +26,7 @@ export function APIShowCase() {
       <div className={styles.container}>
         <News />
         <Weather />
+        <WeatherGraph />
         <PM25 />
         <ResumeAI />
       </div>
