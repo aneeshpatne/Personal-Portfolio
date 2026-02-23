@@ -5,6 +5,7 @@ import { Weather } from "./Weather";
 import { ResumeAI } from "./ResumeAI";
 import styles from "./style/APIShowCase.module.css";
 import { WeatherGraph } from "./WeatherGraph";
+import { BreakingNews } from "./BreakingNews";
 
 const instrumentSerif = Instrument_Serif({
   subsets: ["latin"],
@@ -28,11 +29,14 @@ export function APIShowCase() {
             <span className={styles.dot}></span>
           </div>
           <span className={styles.disclaimerText}>
-            Notice: This part of the webpage utilizes Incremental Static Regeneration (ISR). Displayed data may be cached; please refresh the page to fetch the latest data.
+            Notice: This part of the webpage utilizes Incremental Static
+            Regeneration (ISR). Displayed data may be cached; please refresh the
+            page to fetch the latest data.
           </span>
         </div>
       </div>
       <div className={styles.container}>
+        <BreakingNews />
         <News />
         <Weather />
         <WeatherGraph />

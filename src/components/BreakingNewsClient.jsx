@@ -14,7 +14,7 @@ function getSourceLabel(source) {
   return getDomainWithoutSuffix(normalized, { allowPrivateDomains: true });
 }
 
-export function NewsClient({ data = [] }) {
+export function BreakingNewsClient({ data = [] }) {
   const [index, setIndex] = useState(0);
   const [hideOgImage, setHideOgImage] = useState(false);
   const hasNews = Array.isArray(data) && data.length > 0;
@@ -54,17 +54,19 @@ export function NewsClient({ data = [] }) {
 
   return (
     <motion.div
-      className={styles.card}
+      className={`${styles.card} ${styles.breakingCard}`}
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, ease: "easeOut" }}
       onDragStart={(event) => event.preventDefault()}
     >
-      <div className={styles.glow} />
+      <div className={`${styles.glow} ${styles.breakingGlow}`} />
 
       <div className={styles.header}>
         <div className={styles.leftGroup}>
-          <span className={styles.liveBadge}>Live News</span>
+          <span className={`${styles.liveBadge} ${styles.breakingBadge}`}>
+            BREAKING NEWS
+          </span>
           <div className={styles.dateContainer}>
             <Clock size={12} className={styles.dateIcon} />
             <span className={styles.date}>{displayDate}</span>
