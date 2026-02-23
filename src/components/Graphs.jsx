@@ -20,7 +20,6 @@ export default function Stats({ theme }) {
             try {
                 const response = await fetch('/api/levels');
                 const data = await response.json();
-                console.log(data);
                 setValues(data);  
             } catch (error) {
                 console.error('Failed to fetch values:', error);

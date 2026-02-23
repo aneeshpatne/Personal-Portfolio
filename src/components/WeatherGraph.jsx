@@ -18,7 +18,6 @@ export async function WeatherGraph() {
 
     if (response.ok) {
       weatherData = await response.json();
-      console.log(weatherData);
     }
   } catch (error) {
     console.error("Failed to fetch weather data:", error);
