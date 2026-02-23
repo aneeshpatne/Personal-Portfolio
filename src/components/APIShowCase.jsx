@@ -22,6 +22,9 @@ export function APIShowCase() {
         <p className={styles.subtitle}>
           Live snapshots from the APIs I have built.
         </p>
+        <p className={styles.disclaimer}>
+          *Disclaimer: This part of the web page uses ISR and can show stale data. It will display fresh data on a refresh.
+        </p>
       </div>
       <div className={styles.container}>
         <News />
