@@ -6,18 +6,14 @@ import style from "./project.module.css";
 import Image from "next/image";
 import Link from "next/link";
 import { mapper } from "@/components/data";
-import { db } from "@/lib/db";
-import { projects } from "@/lib/schema";
-import { eq } from "drizzle-orm";
-import ClientPage from "./clientpage";
+import { getProjectBySlug } from "@/lib/projects";
+import MarkdownRenderer from "./MarkdownRenderer";
 
 const SITE_DOMAIN = "https://www.aneeshpatne.com";
 
 export async function generateMetadata({ params }) {
   const { slug } = await params;
-  const project = await db.query.projects.findFirst({
-    where: eq(projects.id, slug),
-  });
+  const project = await getProjectBySlug(slug);
   if (!project) {
     return {
       title: "Project Not Found | Aneesh Patne",
@@ -29,13 +25,7 @@ export async function generateMetadata({ params }) {
   const ogImage = `${url}/opengraph-image`;
   const title = project.title || slug;
   const desc = project.shortDesc;
-  const techList = project.techStack
-    ? project.techStack
-        .split(/[,|]/)
-        .map((t) => t.trim())
-        .filter(Boolean)
-        .slice(0, 5)
-    : [];
+  const techList = project.techStack.slice(0, 5);
   return {
     title: `${title} | Project | Aneesh Patne`,
     description: desc,
@@ -64,13 +54,10 @@ export async function generateMetadata({ params }) {
     other: techList.length ? { "project:tech": techList.join("|") } : undefined,
   };
 }
-import MarkdownRenderer from "./MarkdownRenderer";
+
 export default async function ProjectPage({ params }) {
   const { slug } = await params;
-  const projectData =
-    (await db.query.projects.findFirst({
-      where: eq(projects.id, slug),
-    })) || null;
+  const projectData = await getProjectBySlug(slug);
 
   if (!projectData) {
     return <div>Project not found</div>;
@@ -82,14 +69,6 @@ export default async function ProjectPage({ params }) {
       year: "numeric",
     });
   };
-
-  // Convert comma-separated strings to arrays
-  const techStackArray = projectData.techStack
-    ? projectData.techStack.split(",").map((tech) => tech.trim())
-    : [];
-  const topicsArray = projectData.topic
-    ? projectData.topic.split(",").map((topic) => topic.trim())
-    : [];
 
   const hasGithubLink =
     projectData.github && projectData.github.trim().length > 0;
@@ -167,7 +146,7 @@ export default async function ProjectPage({ params }) {
           <div className={style.metaSection}>
             <h3 className={style.metaTitle}>Technologies</h3>
             <div className={style.techStack}>
-              {techStackArray.map((tech, index) => (
+              {projectData.techStack.map((tech, index) => (
                 <span
                   key={index}
                   className={style.tech}
@@ -184,11 +163,11 @@ export default async function ProjectPage({ params }) {
               ))}
             </div>
 
-            {topicsArray.length > 0 && (
+            {projectData.topics.length > 0 && (
               <>
                 <h3 className={style.metaTitle}>Topics</h3>
                 <div className={style.topics}>
-                  {topicsArray.map((topic, index) => (
+                  {projectData.topics.map((topic, index) => (
                     <span
                       key={index}
                       className={style.topic}

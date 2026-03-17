@@ -1,8 +1,8 @@
 import styles from "./style/projectItem.module.css";
 import Image from "next/image";
 import { Instrument_Serif } from "next/font/google";
-import { db } from "@/lib/db";
-import { projects } from "@/lib/schema";
+import { getAllProjects } from "@/lib/projects";
+
 const instrumentSerif = Instrument_Serif({
   subsets: ["latin"],
   weight: "400",
@@ -12,12 +12,7 @@ const instrumentSerif = Instrument_Serif({
 
 export default async function ProjectItem() {
   const today = new Date();
-  const project = await db
-    .select({
-      id: projects.id,
-      title: projects.title,
-    })
-    .from(projects);
+  const project = await getAllProjects();
   const index = today.getDate() % project.length;
   const title = project[index].title;
   const url = `https://www.aneeshpatne.com/project/${project[index].id}`;
