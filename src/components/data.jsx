@@ -338,4 +338,44 @@ export const mapper = {
     color: "#1a262c",
     icon: <SiTypescript size={16} />,
   },
+  Astro: {
+    color: "#2c1a26",
+    icon: <FaRocket size={16} />,
+  },
+  "C++": {
+    color: "#1a1f2c",
+    icon: <FaCode size={16} />,
+  },
+  Cron: {
+    color: "#2a2a1a",
+    icon: <FaCogs size={16} />,
+  },
+  "Firebase Auth": {
+    color: "#2c2a29",
+    icon: <SiFirebase size={16} />,
+  },
+  Go: {
+    color: "#1a222c",
+    icon: <FaCode size={16} />,
+  },
+  Java: {
+    color: "#2c1f1a",
+    icon: <FaCode size={16} />,
+  },
+  "Jetpack Compose": {
+    color: "#1a1a2c",
+    icon: <SiKotlin size={16} />,
+  },
+  Jupyter: {
+    color: "#2a2a2a",
+    icon: <FaCode size={16} />,
+  },
+  MVVM: {
+    color: "#2a2929",
+    icon: <FaProjectDiagram size={16} />,
+  },
+  Vite: {
+    color: "#2c2a1a",
+    icon: <FaBolt size={16} />,
+  },
 };
