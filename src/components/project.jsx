@@ -2,14 +2,14 @@ export const revalidate = 86400;
 
 import styles from "./style/ProjectNew.module.css";
 import { Title } from "./ProjectNew";
-import { getAllProjects, getProjectTags } from "@/lib/projects";
+import { getProjectList, getProjectTags } from "@/lib/projects";
 import { ProjectContainer, ProjectContainerWrapper } from "./projectClient";
 
 export default async function ProjectNew() {
   let project = null;
 
   try {
-    project = await getAllProjects();
+    project = await getProjectList();
   } catch (error) {
     console.error("Error fetching project data:", error);
     return <div>Fetching Error</div>;

@@ -1,0 +1,352 @@
+[
+  {
+    "id": "cctv",
+    "title": "CCTV",
+    "techStack": "ESP32, FFmpeg",
+    "description": "\r\nDIY ESP32 CCTV system featuring dynamic rotation, motion-based recording, and efficient video saving powered by FFmpeg.\r\n",
+    "image": "/assets/img/cctv.png",
+    "startDate": "2025-10-01",
+    "endDate": "2026-02-01",
+    "tags": "Backend, Systems & Hardware, AI & ML"
+  },
+  {
+    "id": "codelog",
+    "title": "CodeLog",
+    "techStack": "Next.js, Web Scraping, Playwright, LLM, Flask",
+    "description": "\r\nA pipeline that scrapes coding questions, processes details with LLMs, and logs structured outputs in a database using FastAPI and Postgres.\r\n",
+    "image": "/assets/img/codelog_updated.png",
+    "startDate": "2025-09-10",
+    "endDate": "2025-09-20",
+    "tags": "Media & Content, Data, Product & UX, Web"
+  },
+  {
+    "id": "curiosity",
+    "title": "Curiosity",
+    "techStack": "LLM, Web Scraping, Next.js, Express.js, WebSocket",
+    "description": "\r\n# Automated Web Search & Scraping System  \r\n### Playwright + DuckDuckGo API + LLM-driven extraction\r\n\r\nA production-ready blueprint for a system that **searches the web, visits result pages, extracts structured data with an LLM,** and returns clean JSON\u2014fast, reliable, and auditable.\r\n\r\n---\r\n\r\n## \u2728 Highlights\r\n\r\n- **Search-first**: Query DuckDuckGo (API or HTML fallback) to discover relevant URLs.  \r\n- **Headless browsing**: Use **Playwright** to render JavaScript-heavy pages, handle cookies, and emulate devices.  \r\n- **Smart extraction**: An **LLM** converts messy HTML into structured JSON based on a **task schema**.  \r\n- **Resilient pipeline**: Timeouts, retries, backoff, and per-domain throttling.  \r\n- **Pluggable**: Swap search providers, add content normalizers, or integrate vector stores.  \r\n- **Auditable**: Persist raw HTML, normalized text, and final JSON with trace IDs.\r\n\r\n---\r\n",
+    "image": "/assets/img/curiosity.png",
+    "startDate": "2025-02-04",
+    "endDate": "2025-02-15",
+    "tags": "AI & ML, Data, Backend"
+  },
+  {
+    "id": "deep-search",
+    "title": "Daily Deep Search Newsletter",
+    "techStack": "LLM, Web Scraping, Auto Gen",
+    "description": "\r\nCuriosity is an intelligent information extraction system designed to automate web research. It uses Playwright to simulate human browsing behavior and access dynamic content, and the DuckDuckGo API to retrieve relevant search results without being tracked. The system integrates a large language model (LLM) to analyze, summarize, and structure the scraped content, enabling users to retrieve concise answers and context-aware summaries. With a real-time backend powered by WebSocket and Express.js, Curiosity delivers a seamless and interactive user experience for data querying, making it suitable for building chatbots, research tools, or knowledge assistants.\r\n",
+    "image": "/assets/img/deepsearch.png",
+    "startDate": "2024-10-04",
+    "endDate": "2024-11-01",
+    "tags": "Backend, AI & ML"
+  },
+  {
+    "id": "eink",
+    "title": "E:INK: Dashboard",
+    "techStack": "Node.js, LLM, SSH",
+    "description": "\r\nNode.js-powered smart e-paper display with web-based clock, scheduled news and alerts, Redis integration, and SSH-based remote control.\r\n",
+    "image": "/assets/img/eink.png",
+    "startDate": "2025-10-15",
+    "endDate": "2025-10-30",
+    "tags": "Product & UX, Systems & Hardware"
+  },
+  {
+    "id": "face-recognition-attendance",
+    "title": "ML-Based Face Attendance",
+    "techStack": "Machine Learning, DLIB, KNN, Python, Digital Image Processing",
+    "description": "\r\nThis project implements a machine learning-powered face recognition attendance system tailored for environments like classrooms or secure workplaces. Leveraging image processing techniques and a KNN classifier, the system can detect, identify, and verify individuals in real-time through webcam input. It minimizes the chances of proxy attendance by matching facial embeddings against stored datasets with high precision. All records are logged into a structured CSV file, making it simple to audit, export, or integrate with other systems. The solution prioritizes speed, accuracy, and user privacy, making it a practical tool for modern digital attendance tracking.\r\n",
+    "image": "/assets/img/faceRecognitionAttendance.png",
+    "startDate": "2022-10-04",
+    "endDate": "2022-10-05",
+    "tags": "AI & ML"
+  },
+  {
+    "id": "football-data-manager",
+    "title": "MongoDB-Based Football Data Manager",
+    "techStack": "MongoDB, Node.js, JavaScript, HTML, CSS",
+    "description": "\r\nThe MongoDB-Based Football Data Manager is a lightweight yet powerful web application designed to organize and maintain football statistics and metadata. Developed using Node.js for backend logic and MongoDB for persistent storage, the app enables CRUD operations on entities like players, matches, teams, and scores. The frontend, crafted with HTML, CSS, and JavaScript, offers a clean, user-friendly interface for both casual users and sports analysts. This project serves as a practical example of full-stack development with a focus on structured data handling and scalable database integration.\r\n",
+    "image": "/assets/img/footballDataManager.png",
+    "startDate": "2022-10-05",
+    "endDate": "2022-10-06",
+    "tags": "Data, Backend"
+  },
+  {
+    "id": "gymdost",
+    "title": "GymDost",
+    "techStack": "Next.js, LLM, Zustand",
+    "description": "\r\nAI-powered fitness companion offering personalized nutrition tracking, smart meal logging, and real-time macro insights.\r\n",
+    "image": "/assets/img/gymdost.png",
+    "startDate": "2025-10-01",
+    "endDate": "2025-10-15",
+    "tags": "Product & UX, Web"
+  },
+  {
+    "id": "iot-weather-prediction",
+    "title": "IoT and ML-Based Weather Prediction",
+    "techStack": "IoT, ESP8266, Machine Learning",
+    "description": "\r\nThis project is a fusion of embedded IoT technology and machine learning aimed at improving weather forecasting accuracy. A network of environmental sensors collects real-time data on temperature, humidity, atmospheric pressure, and more. This data is then processed through a series of ML models, including ensemble techniques, to generate short-term and medium-range weather predictions. The system is designed for continuous data collection and real-time processing, making it suitable for smart agriculture, city planning, and environmental monitoring. The modular architecture allows it to be deployed in diverse geographical regions with minimal adjustments.\r\n",
+    "image": "/assets/img/iotWeatherPrediction.png",
+    "startDate": "2022-10-06",
+    "endDate": "2023-10-06",
+    "tags": "Systems & Hardware, AI & ML"
+  },
+  {
+    "id": "khoj",
+    "title": "Khoj: Smart Search",
+    "techStack": "Kafka, Redpanda, Opensearch, PostgreSQL",
+    "description": "\r\nReal-time data platform integrating PostgreSQL, Kafka, Debezium, and OpenSearch for seamless change capture, streaming, and instant searchable indexing.\r\n",
+    "image": "/assets/img/khoj.png",
+    "startDate": "2025-09-01",
+    "endDate": "2025-10-01",
+    "tags": "Backend, Product & UX, Web"
+  },
+  {
+    "id": "marketplace",
+    "title": "Marketplace",
+    "techStack": "Next.js, LLM, Web Scraping",
+    "description": "\r\nAI-powered e-commerce platform offering real-time product search, intelligent recommendations, and live updates using FastAPI, PostgreSQL, Redis, and Next.js.\r\n",
+    "image": "/assets/img/marketplace.png",
+    "startDate": "2025-08-01",
+    "endDate": "2025-10-01",
+    "tags": "Data, Backend, Web"
+  },
+  {
+    "id": "mausam",
+    "title": "Mausam - Weather AI",
+    "techStack": "Next.js, TypeScript, React, Tailwind CSS, Shadcn/ui, Supabase, Drizzle, Framer Motion, LLM, Vercel AI SDK, Redis, PostgreSQL, Cloudflare, Node.js\r\n",
+    "description": "\r\nAI-powered weather platform for Mumbai using Next.js, TypeScript, and Redis. Automates radar analysis, forecasts, alerts, and reports via LLM.\r\n",
+    "image": "/assets/img/iotWeatherPrediction.png",
+    "startDate": "2025-07-01",
+    "endDate": "2026-01-01",
+    "tags": "Data, AI & ML"
+  },
+  {
+    "id": "naturenest",
+    "title": "NatureNest",
+    "techStack": "React.js, Django, SQL, GCP",
+    "description": "\r\nNatureNest is a digital platform designed to support urban gardening communities by helping members stay organized and connected. The app enables users to manage their garden plots, log harvest data, and monitor activity timelines in real-time. Built with a Django backend and a React.js frontend, it ensures a fast, user-friendly experience. SQL is used for structured storage of garden data, and the system is hosted on Google Cloud Platform (GCP) to ensure reliability and scalability. Whether for community gardens or educational green spaces, NatureNest simplifies the management and collaboration around shared gardening projects.\r\n",
+    "image": "/assets/img/naturenest.png",
+    "startDate": "2023-10-12",
+    "endDate": "2024-02-02",
+    "tags": "Data, Web"
+  },
+  {
+    "id": "newsbulletin",
+    "title": "News Bulletin",
+    "techStack": "LLM, Node.js, Cron, Redis",
+    "description": "\r\nNode.js-based news aggregation system using Redis, BullMQ, and OpenAI LLM to scrape, process, normalize, and serve India-focused bulletins.\r\n",
+    "image": "/assets/img/newsBulletin.png",
+    "startDate": "2025-10-02",
+    "endDate": "2025-10-15",
+    "tags": "Media & Content, Backend, Web"
+  },
+  {
+    "id": "personalportfolio",
+    "title": "Personal Portfolio",
+    "techStack": "React, Next.js, Framer Motion",
+    "description": "\r\nThis project is a modern and responsive personal portfolio crafted using the Next.js framework. Designed to highlight technical skills, projects, and achievements, it employs Framer Motion for fluid UI animations and polished transitions. Dynamic content is managed through Supabase with PostgreSQL as the underlying database, allowing seamless updates to project listings and blog posts. Notably, it includes AI-powered features using the Vercel AI SDK \u2014 such as a conversational assistant that explains portfolio content. Hosted on Vercel, the site prioritizes performance, interactivity, and a clean developer-focused aesthetic, making it both functional and impressive to visitors.\r\n",
+    "image": "/assets/img/personalPortfolio.png",
+    "startDate": "2024-10-06",
+    "endDate": "2025-05-02",
+    "tags": "Product & UX, Web"
+  },
+  {
+    "id": "resumeai",
+    "title": "Resume.AI",
+    "techStack": "LLM, Next.js, Vector Databases, WebSocket, ChromaDB",
+    "description": "\r\nResume.AI is an AI-driven resume assistant built to deliver an engaging, intelligent way of showcasing professional experience. Powered by large language models and integrated with RAG (Retrieval-Augmented Generation), the chatbot can answer detailed questions about a candidate\u2019s skills, projects, and accomplishments. The system utilizes ChromaDB, a vector database, to store and semantically search resume content, ensuring accurate and context-aware responses. Next.js handles the frontend experience, while WebSocket enables real-time conversations. Resume.AI is a modern tool designed for both job seekers and recruiters who want a smarter, interactive alternative to static resumes.\r\n",
+    "image": "/assets/img/resumeAI.png",
+    "startDate": "2025-09-01",
+    "endDate": "2025-10-01",
+    "tags": "Web, AI & ML"
+  },
+  {
+    "id": "sandesh",
+    "title": "Sandesh: Live Telemetry",
+    "techStack": "Pub/Sub, FastAPI",
+    "description": "\r\nLightweight IoT telemetry platform using FastAPI and Google Cloud Pub/Sub for real-time sensor data streaming.\r\n",
+    "image": "/assets/img/sandesh.png",
+    "startDate": "2025-09-09",
+    "endDate": "2025-09-16",
+    "tags": "Backend, Systems & Hardware"
+  },
+  {
+    "id": "save-time",
+    "title": "Save Time - UX Design Project",
+    "techStack": "Figma, HTML, CSS, JavaScript",
+    "description": "\r\nSave Time is a UX-focused productivity application created as a concept design and interactive prototype. The project started in Figma, emphasizing user journey mapping, accessibility, and visual hierarchy. It was then translated into a responsive web layout using HTML, CSS, and JavaScript. Key design elements include a minimal interface, clear typography, and interactive components that help users plan, prioritize, and complete tasks efficiently. The app''s structure is inspired by mind mapping principles, promoting clarity and quick task management. This project reflects a blend of thoughtful UX design and practical front-end implementation.\r\n",
+    "image": "/assets/img/saveTime.png",
+    "startDate": "2021-06-15",
+    "endDate": "2021-06-20",
+    "tags": "Product & UX, Web"
+  },
+  {
+    "id": "tazakhabar",
+    "title": "Taza Khabar: News Platform",
+    "techStack": "Next.js, LLM, Playwright",
+    "description": "\r\nAI-driven news platform delivering real-time, multi-perspective, and intelligently analyzed global news.\r\n",
+    "image": "/assets/img/taza-khabar.png",
+    "startDate": "2025-08-01",
+    "endDate": "2025-08-08",
+    "tags": "Media & Content, Backend, Web"
+  },
+  {
+    "id": "tldr",
+    "title": "TLDR",
+    "techStack": "LLM, Flask, JavaScript, Python",
+    "description": "\r\nTLDR is a lightweight Chrome extension that provides instant, AI-powered summaries of web pages. The tool integrates a large language model (LLM) with a Flask backend to analyze page content and generate short, digestible summaries. Built using JavaScript and Python, TLDR activates with a single click in the browser, sending the page content to the backend, where it\u2019s processed and summarized before being returned to the user. This project focuses on simplifying content consumption and saving time for users who need quick insights from lengthy articles, blogs, or reports.\r\n",
+    "image": "/assets/img/tldr.png",
+    "startDate": "2025-09-01",
+    "endDate": "2025-09-01",
+    "tags": "Media & Content, Product & UX, Web, AI & ML"
+  },
+  {
+    "id": "trex-circuits-game",
+    "title": "T.rex: Electronics Circuits Game",
+    "techStack": "HTML, JavaScript, CSS",
+    "description": "\r\nT.rex: Electronics Circuits Game is an educational browser game designed to make electronics learning engaging and fun. Inspired by the classic offline T.rex game, this version incorporates interactive quizzes and challenges centered on FET (Field-Effect Transistor) theory. Developed using HTML, CSS, and JavaScript, it runs smoothly in any modern web browser without requiring installations. Players guide a dino character through various levels, where each obstacle corresponds to a question or circuit logic puzzle. This project blends gamification with technical education, making it ideal for students or beginners exploring electronics fundamentals.\r\n",
+    "image": "/assets/img/trexCircuitsGame.png",
+    "startDate": "2022-10-11",
+    "endDate": "2022-10-12",
+    "tags": "Media & Content, Web"
+  },
+  {
+    "id": "urlshortener",
+    "title": "URL Shortener",
+    "techStack": "Express.js, MongoDB, Next.js, Vercel",
+    "description": "\r\nURL Shortener is a full-stack web application that allows users to convert long URLs into short, shareable links. The backend, built with Express.js and MongoDB, handles route generation, redirection, and analytics tracking. The frontend is developed using Next.js, providing a smooth user experience and responsive design. The application is hosted on Vercel, ensuring fast global performance and easy deployment. This project showcases clean API design, database integration, and deployment practices \u2014 ideal for portfolio use or as a base for more complex web tools.\r\n",
+    "image": "/assets/img/urlShortener.png",
+    "startDate": "2024-10-11",
+    "endDate": "2024-11-15",
+    "tags": "Data, Backend, Web"
+  },
+  {
+    "id": "verilock",
+    "title": "VeriLock - Smart Lock System",
+    "techStack": "Kotlin, ESP32, Express\r\n",
+    "description": "\r\nNode.js and Kotlin-based TOTP authentication system for secure smart lock access, implementing RFC 6238 with HMAC-driven OTP generation, QR onboarding, and secure verification.\r\n",
+    "image": "/assets/img/verilock.png",
+    "startDate": "2025-10-01",
+    "endDate": "2025-10-07",
+    "tags": "Backend, Systems & Hardware"
+  },
+  {
+    "id": "vishv",
+    "title": "Vishv",
+    "techStack": "React.js, Django, GCP, Firebase, Google Maps API",
+    "description": "\r\nVishv is a purpose-driven web platform built to raise awareness about the United Nations\u2019 21 Sustainable Development Goals (SDGs). The application is designed with inclusivity at its core \u2014 supporting multilingual content and robust accessibility features like screen reader support and high-contrast modes. Built with React.js and Django, it handles real-time updates via Firebase and integrates Google Maps API to display global SDG-related initiatives. Hosted on Google Cloud Platform (GCP), Vishv is scalable and reliable, making it suitable for both educational institutions and advocacy organizations aiming to engage diverse communities around global sustainability efforts.\r\n",
+    "image": "/assets/img/vishv.png",
+    "startDate": "2023-10-01",
+    "endDate": "2023-10-04",
+    "tags": "Backend, Web"
+  },
+  {
+    "id": "world-intelligence",
+    "title": "World Intelligence",
+    "techStack": "Astro, Express.js, Redis, JavaScript",
+    "description": "\r\nBuilt an AI-assisted intelligence dashboard that ingests Telegram, X search, and NewsRoom feed data into Redis to produce a fast, unified operational view.\r\n",
+    "image": "/assets/img/world-intelligence.png",
+    "startDate": "2026-03-01",
+    "endDate": "2026-03-01",
+    "tags": "AI/ML, Full-Stack Development, Data Engineering/Analytics"
+  },
+  {
+    "id": "personal-dashboard",
+    "title": "Personal Dashboard",
+    "techStack": "Kotlin, Jetpack Compose, Firebase Auth, MVVM",
+    "description": "\r\nBuilt and delivered a modern Android intelligence dashboard using Kotlin and Jetpack Compose, unifying knowledge, weather, and air-quality insights in a single mobile experience.\r\n",
+    "image": "/assets/img/personal-dashboard.png",
+    "startDate": "2026-02-01",
+    "endDate": "2026-02-01",
+    "tags": "Mobile App Development, AI/ML"
+  },
+  {
+    "id": "goredis",
+    "title": "goredis",
+    "techStack": "Go",
+    "description": "\r\nRedis Server written in Go.\r\n",
+    "image": "/assets/img/goredis.png",
+    "startDate": "2026-01-01",
+    "endDate": "2026-01-01",
+    "tags": "Backend Development"
+  },
+  {
+    "id": "practice-coder",
+    "title": "Practice Coder",
+    "techStack": "React, Vite, Node.js, TypeScript",
+    "description": "\r\nInteractive coding platform with isolated execution, test orchestration, and AI feedback.\r\n",
+    "image": "/assets/img/practice-coder.png",
+    "startDate": "2025-12-01",
+    "endDate": "2025-12-01",
+    "tags": "AI/ML"
+  },
+  {
+    "id": "news-room",
+    "title": "News Room",
+    "techStack": "Python, Node.js, Express, Playwright",
+    "description": "\r\nAutomated News Snippets.\r\n",
+    "image": "/assets/img/news-room.png",
+    "startDate": "2025-11-01",
+    "endDate": "2026-02-01",
+    "tags": "AI/ML"
+  },
+  {
+    "id": "suraksha",
+    "title": "suraksha",
+    "techStack": "React, PostgreSQL, TypeScript, Java",
+    "description": "\r\nMulti Tenant Auth System.\r\n",
+    "image": "/assets/img/suraksha.png",
+    "startDate": "2025-11-01",
+    "endDate": "2026-01-01",
+    "tags": "Web Development"
+  },
+  {
+    "id": "skydelta",
+    "title": "SkyDelta",
+    "techStack": "Python, Jupyter, TypeScript, Node.js",
+    "description": "\r\nSkyDelta is a data pipeline for live data ingestion, analysis, and visualization.\r\n",
+    "image": "/assets/img/skydelta.png",
+    "startDate": "2025-10-01",
+    "endDate": "2026-01-01",
+    "tags": "Data Engineering/Analytics"
+  },
+  {
+    "id": "dashboard",
+    "title": "Dashboard",
+    "techStack": "React, Supabase, Express, TypeScript",
+    "description": "\r\nFull-stack URL shortener platform.\r\n",
+    "image": "/assets/img/dashboard.png",
+    "startDate": "2025-09-01",
+    "endDate": "2026-01-01",
+    "tags": "Web Development"
+  },
+  {
+    "id": "chat",
+    "title": "chat",
+    "techStack": "React, PostgreSQL, Supabase, Firebase",
+    "description": "\r\nUnified AI chat platform providing multi-model access, authentication, streaming conversations, analytics, and modern responsive UI.\r\n",
+    "image": "/assets/img/chat.png",
+    "startDate": "2025-09-01",
+    "endDate": "2026-01-01",
+    "tags": "AI/ML, Data Engineering/Analytics"
+  },
+  {
+    "id": "cleanit",
+    "title": "CleanIT",
+    "techStack": "JavaScript, CSS",
+    "description": "\r\nAn educational web app on urban waste management, sustainability, and eco-friendly solutions.\r\n",
+    "image": "/assets/img/cleanit.png",
+    "startDate": "2025-09-01",
+    "endDate": "2025-09-01",
+    "tags": "Web Development"
+  },
+  {
+    "id": "arduino-clock",
+    "title": "arduino-clock",
+    "techStack": "C++",
+    "description": "\r\nSimple 12-hour clock with LCD display.\r\n",
+    "image": "/assets/img/arduino-clock.png",
+    "startDate": "2025-09-01",
+    "endDate": "2025-09-01",
+    "tags": "Embedded Systems/IoT"
+  }
+]
