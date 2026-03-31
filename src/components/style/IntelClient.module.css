@@ -1,0 +1,315 @@
+/* ── Card shell (matches NewsClient) ── */
+.card {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  background: rgba(15, 15, 15, 0.9);
+  border-radius: 24px;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  box-shadow:
+    0 24px 48px -12px rgba(0, 0, 0, 0.5),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+  color: #ededed;
+  overflow: hidden;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 24px 24px;
+  opacity: 0.6;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(255, 255, 255, 0.08);
+  box-shadow:
+    0 32px 64px -12px rgba(0, 0, 0, 0.6),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+/* Glow */
+.glow {
+  position: absolute;
+  top: -100px;
+  right: -100px;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.05) 0%, transparent 70%);
+  filter: blur(40px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── Header ── */
+.header {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 20px;
+  z-index: 2;
+}
+
+.leftGroup {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.apiBadge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #a3a3a3;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 6px 12px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.03);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.02);
+  white-space: nowrap;
+  z-index: 2;
+}
+
+.trendBadge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--trend-color, #ef4444);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: rgba(255, 255, 255, 0.03);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.02);
+  white-space: nowrap;
+  z-index: 2;
+}
+
+.trendBadge::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--trend-color, #ef4444);
+  flex-shrink: 0;
+  animation: trendPulse 1.6s ease-out infinite;
+}
+
+@keyframes trendPulse {
+  0% {
+    transform: scale(0.85);
+    box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.4);
+  }
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 6px rgba(239, 68, 68, 0);
+  }
+  100% {
+    transform: scale(0.9);
+    box-shadow: 0 0 0 0 rgba(239, 68, 68, 0);
+  }
+}
+
+/* ── Gauge ── */
+.gaugeContainer {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 24px;
+  z-index: 2;
+}
+
+.gaugeSvg {
+  width: 220px;
+  height: 132px;
+}
+
+.tickLabel {
+  font-size: 10px;
+  fill: #71717a;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+.gaugeValue {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: -36px;
+}
+
+.scoreNumber {
+  font-size: 2.5rem;
+  line-height: 1;
+  font-weight: 200;
+  font-variant-numeric: tabular-nums;
+  color: #fff;
+}
+
+.scoreLabel {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #71717a;
+  margin-top: 4px;
+}
+
+/* ── Factors grid ── */
+.factorsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  z-index: 2;
+}
+
+.factorCard {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 16px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100px;
+}
+
+.factorHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.factorTitleRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.dotStabilizer {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #10b981;
+  flex-shrink: 0;
+}
+
+.dotRisk {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #ef4444;
+  flex-shrink: 0;
+}
+
+.factorTitle {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #d4d4d8;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.factorCount {
+  font-size: 0.7rem;
+  color: #52525b;
+  font-variant-numeric: tabular-nums;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+}
+
+.factorBody {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.factorText {
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: #a1a1aa;
+  margin: 0;
+  font-weight: 400;
+}
+
+/* ── Footer ── */
+.footerWrapper {
+  margin-top: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  z-index: 2;
+}
+
+.cautionContainer {
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  padding-top: 24px;
+}
+
+.cautionHeader {
+  display: block;
+  font-size: 10px;
+  font-weight: 700;
+  color: #52525b;
+  letter-spacing: 0.1em;
+  margin-bottom: 8px;
+}
+
+.cautionText {
+  font-size: 11px;
+  line-height: 1.6;
+  color: #71717a;
+  font-weight: 400;
+}
+
+.cautionText strong {
+  color: #a1a1aa;
+  font-weight: 600;
+}
+
+/* ── Responsive ── */
+@media (max-width: 600px) {
+  .card {
+    padding: 24px;
+  }
+
+  .factorsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .gaugeSvg {
+    width: 180px;
+    height: 108px;
+  }
+
+  .scoreNumber {
+    font-size: 2rem;
+  }
+
+  .gaugeValue {
+    margin-top: -28px;
+  }
+}
