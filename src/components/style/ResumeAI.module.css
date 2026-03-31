@@ -1,67 +1,69 @@
+/* ═══════════════════════════════════════════════════════════════
+   RESUME AI - Interactive CTA Terminal
+   ═══════════════════════════════════════════════════════════════ */
+
 .card {
+  --card-bg: #0c0c0d;
+  --card-border: rgba(255, 255, 255, 0.08);
+  --card-border-hover: rgba(255, 255, 255, 0.14);
+
   position: relative;
   width: 100%;
   height: 100%;
   min-height: 260px;
-  background: linear-gradient(
-    165deg,
-    rgba(18, 18, 20, 0.95) 0%,
-    rgba(8, 8, 10, 0.98) 100%
-  );
-  border-radius: 28px;
-  padding: 32px;
+  background: var(--card-bg);
+  border-radius: 20px;
+  padding: 28px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  box-shadow:
-    0 1px 1px rgba(0, 0, 0, 0.05),
-    0 4px 6px rgba(0, 0, 0, 0.05),
-    0 24px 68px rgba(0, 0, 0, 0.2),
-    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--card-border);
   overflow: hidden;
   transition: 
-    transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1),
-    box-shadow 0.4s cubic-bezier(0.2, 0.8, 0.2, 1),
-    border-color 0.4s ease;
+    border-color 0.3s ease,
+    transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
   cursor: default;
 }
 
-/* Noise texture */
+/* Top edge highlight */
 .card::before {
   content: "";
   position: absolute;
-  inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
-  opacity: 0.03;
-  pointer-events: none;
-  z-index: 0;
-  border-radius: inherit;
+  top: 0;
+  left: 28px;
+  right: 28px;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    color-mix(in srgb, var(--status-color, #3b82f6) 25%, transparent) 50%,
+    transparent 100%
+  );
+  z-index: 1;
 }
 
 .card:hover {
-  transform: translateY(-4px);
-  border-color: rgba(255, 255, 255, 0.1);
-  box-shadow:
-    0 1px 1px rgba(0, 0, 0, 0.05),
-    0 8px 12px rgba(0, 0, 0, 0.08),
-    0 32px 80px rgba(0, 0, 0, 0.25),
-    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  border-color: var(--card-border-hover);
+  transform: translateY(-2px);
 }
 
+/* Subtle corner accent */
 .spotlight {
   position: absolute;
-  top: -60px;
-  right: -60px;
-  width: 220px;
-  height: 220px;
-  background: var(--status-color, #3b82f6);
-  filter: blur(100px);
-  opacity: 0.1;
+  top: 0;
+  right: 0;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(
+    circle at top right,
+    color-mix(in srgb, var(--status-color, #3b82f6) 5%, transparent) 0%,
+    transparent 60%
+  );
   pointer-events: none;
   z-index: 0;
 }
 
+/* ── Header ── */
 .header {
   display: flex;
   justify-content: space-between;
@@ -72,46 +74,46 @@
 .titleGroup {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
 }
 
 .iconBox {
-  width: 40px;
-  height: 40px;
+  width: 36px;
+  height: 36px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(255, 255, 255, 0.04);
-  border-radius: 12px;
+  background: color-mix(in srgb, var(--status-color, #3b82f6) 10%, transparent);
+  border-radius: 8px;
   color: var(--status-color, #3b82f6);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  border: 1px solid color-mix(in srgb, var(--status-color, #3b82f6) 20%, transparent);
 }
 
 .label {
-  font-size: 0.7rem;
+  font-size: 10px;
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.15em;
-  color: #71717a;
+  letter-spacing: 0.12em;
+  color: #52525b;
 }
 
 .badge {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-size: 0.7rem;
-  font-weight: 600;
+  font-size: 10px;
+  font-weight: 500;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: #71717a;
+  letter-spacing: 0.1em;
+  color: #52525b;
   border: 1px solid rgba(255, 255, 255, 0.06);
-  padding: 8px 14px;
-  border-radius: 10px;
-  background: rgba(255, 255, 255, 0.02);
-  backdrop-filter: blur(8px);
+  padding: 6px 10px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.03);
   white-space: nowrap;
 }
 
+/* ── Main Content ── */
 .mainContent {
   display: flex;
   flex-direction: column;
@@ -121,23 +123,24 @@
 }
 
 .mainTitle {
-  font-size: clamp(1.5rem, 3vw, 2rem);
-  font-weight: 600;
+  font-size: clamp(1.375rem, 2.5vw, 1.75rem);
+  font-weight: 500;
   color: #fafafa;
   margin: 0;
-  line-height: 1.15;
+  line-height: 1.2;
   letter-spacing: -0.025em;
 }
 
 .description {
-  font-size: 1rem;
+  font-size: 14px;
   font-weight: 400;
-  color: #a1a1aa;
+  color: #71717a;
   line-height: 1.6;
-  max-width: 90%;
+  max-width: 85%;
   margin: 0;
 }
 
+/* ── Footer ── */
 .footer {
   display: flex;
   justify-content: flex-start;
@@ -148,48 +151,42 @@
 .chatButton {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
-  background: linear-gradient(
-    135deg,
-    #fafafa 0%,
-    #e4e4e7 100%
-  );
+  gap: 8px;
+  background: #fafafa;
   color: #09090b;
   border: none;
-  padding: 14px 24px;
-  border-radius: 14px;
-  font-size: 0.9rem;
+  padding: 12px 20px;
+  border-radius: 10px;
+  font-size: 13px;
   font-weight: 600;
   cursor: pointer;
   transition: 
-    transform 0.2s ease,
-    box-shadow 0.3s ease;
-  box-shadow: 
-    0 2px 4px rgba(0, 0, 0, 0.1),
-    0 8px 24px rgba(0, 0, 0, 0.15),
-    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+    transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1),
+    opacity 0.2s ease;
 }
 
 .chatButton:hover {
   transform: translateY(-2px);
-  box-shadow: 
-    0 4px 8px rgba(0, 0, 0, 0.15),
-    0 16px 40px rgba(0, 0, 0, 0.2),
-    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  opacity: 0.92;
 }
 
 .chatButton:active {
   transform: translateY(0);
 }
 
+/* ── Responsive ── */
 @media (max-width: 640px) {
   .card {
-    padding: 24px;
-    border-radius: 22px;
+    padding: 22px;
+    border-radius: 16px;
   }
 
   .mainTitle {
-    font-size: 1.5rem;
+    font-size: 1.375rem;
+  }
+
+  .description {
+    max-width: 100%;
   }
 
   .chatButton {

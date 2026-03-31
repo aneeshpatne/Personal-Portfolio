@@ -26,5 +26,5 @@ export async function IntelWorld() {
     alert_color: "red",
   };
 
-  return <IntelClient data={data} title="WORLD INTEL" />;
+  return <IntelClient data={data} title="Powered by Intel API" region="World" />;
 }

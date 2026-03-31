@@ -28,7 +28,7 @@ export function WeatherClient({ temp, humidity, pressure, remark, alertColor, fo
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4, ease: "easeOut" }}
       >
-        <div className={styles.spotlight} style={{ background: accentColor }} />
+        <div className={styles.spotlight} />
 
         {/* Header */}
         <div className={styles.header}>

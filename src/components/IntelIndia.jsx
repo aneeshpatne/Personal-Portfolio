@@ -20,5 +20,5 @@ export async function IntelIndia() {
     alert_color: "green",
   };
 
-  return <IntelClient data={data} title="INDIA INTEL" />;
+  return <IntelClient data={data} title="Powered by Intel API" region="India" />;
 }

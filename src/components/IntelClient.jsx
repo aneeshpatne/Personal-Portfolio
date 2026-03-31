@@ -92,7 +92,7 @@ function SpeedometerGauge({ score, alertColor }) {
       </svg>
       <div className={styles.gaugeValue}>
         <span className={styles.scoreNumber}>{score.toFixed(1)}</span>
-        <span className={styles.scoreLabel}>Composite Score</span>
+        <span className={styles.scoreLabel}>Stability Index</span>
       </div>
     </div>
   );
@@ -145,7 +145,7 @@ function RotatingFactor({ items, type }) {
   );
 }
 
-export default function IntelClient({ data, title = "Powered by Intel API" }) {
+export default function IntelClient({ data, title = "Powered by Intel API", region = "World" }) {
   if (!data) return null;
 
   const score = Number(data.score ?? 0);
@@ -165,6 +165,7 @@ export default function IntelClient({ data, title = "Powered by Intel API" }) {
       {/* Header */}
       <div className={styles.header}>
         <div className={styles.leftGroup}>
+          <span className={styles.regionBadge}>{region}</span>
           <span
             className={styles.trendBadge}
             style={{
