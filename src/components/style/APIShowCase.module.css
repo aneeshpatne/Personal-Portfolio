@@ -1,45 +1,145 @@
 .section {
-  padding: 72px 24px 88px;
-  /* background: #0a0a0a; Remove background */
+  padding: 96px 24px 120px;
   color: #ededed;
+  position: relative;
+}
+
+/* Subtle ambient glow behind section */
+.section::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  height: 60%;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(255, 255, 255, 0.015) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+  z-index: 0;
 }
 
 .header {
   text-align: center;
-  margin: 0 auto 36px;
-  max-width: 640px;
+  margin: 0 auto 56px;
+  max-width: 720px;
+  position: relative;
+  z-index: 1;
 }
 
 .title {
-  font-size: clamp(2.3rem, 4vw, 3.6rem);
-  color: #ededed;
-  margin-bottom: 12px;
-  letter-spacing: -0.02em;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  color: #fafafa;
+  margin-bottom: 16px;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  font-weight: 400;
 }
 
 .subtitle {
-  font-size: 1.05rem;
+  font-size: 1.125rem;
   color: #a1a1a1;
-  line-height: 1.6;
+  line-height: 1.7;
   margin: 0;
+  font-weight: 400;
+  letter-spacing: -0.01em;
 }
 
+/* Bento-style grid layout */
 .container {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-  max-width: 1180px;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 20px;
+  max-width: 1280px;
   margin: 0 auto;
+  position: relative;
+  z-index: 1;
 }
 
-@media (max-width: 800px) {
-  .section {
-    padding: 56px 18px 72px;
+/* Default: each card takes full width on mobile */
+.container > * {
+  grid-column: span 12;
+}
+
+/* Tablet and up: create interesting bento layout */
+@media (min-width: 768px) {
+  .container {
+    gap: 24px;
+  }
+
+  /* Intel cards side by side */
+  .container > *:nth-child(1),
+  .container > *:nth-child(2) {
+    grid-column: span 6;
+  }
+
+  /* Breaking News - full width */
+  .container > *:nth-child(3) {
+    grid-column: span 12;
+  }
+
+  /* News - full width */
+  .container > *:nth-child(4) {
+    grid-column: span 12;
+  }
+
+  /* Weather + Graph side by side */
+  .container > *:nth-child(5) {
+    grid-column: span 5;
+  }
+
+  .container > *:nth-child(6) {
+    grid-column: span 7;
+  }
+
+  /* PM25 + ResumeAI side by side */
+  .container > *:nth-child(7) {
+    grid-column: span 4;
+  }
+
+  .container > *:nth-child(8) {
+    grid-column: span 8;
+  }
+
+  /* Status - full width */
+  .container > *:nth-child(9) {
+    grid-column: span 12;
   }
 }
 
-@media (max-width: 600px) {
+/* Large screens */
+@media (min-width: 1024px) {
+  .section {
+    padding: 120px 48px 140px;
+  }
+
+  .container {
+    gap: 28px;
+  }
+}
+
+/* Mobile adjustments */
+@media (max-width: 767px) {
+  .section {
+    padding: 64px 16px 80px;
+  }
+
+  .header {
+    margin-bottom: 40px;
+  }
+
+  .container {
+    gap: 16px;
+  }
+
   .title {
-    font-size: 2.1rem;
+    font-size: 2.25rem;
+  }
+
+  .subtitle {
+    font-size: 1rem;
   }
 }

@@ -22,11 +22,12 @@ function SpeedometerGauge({ score, alertColor }) {
   const strokeWidth = 8;
 
   // Helper: angle in degrees (180 = left, 0 = right) → SVG coordinates
+  // Round to 2 decimal places to prevent SSR/client hydration mismatches
   const polarToCart = (angleDeg) => {
     const rad = (angleDeg * Math.PI) / 180;
     return {
-      x: cx + r * Math.cos(rad),
-      y: cy - r * Math.sin(rad),
+      x: Math.round((cx + r * Math.cos(rad)) * 100) / 100,
+      y: Math.round((cy - r * Math.sin(rad)) * 100) / 100,
     };
   };
 
@@ -144,7 +145,7 @@ function RotatingFactor({ items, type }) {
   );
 }
 
-export default function IntelClient({ data }) {
+export default function IntelClient({ data, title = "Powered by Intel API" }) {
   if (!data) return null;
 
   const score = Number(data.score ?? 0);
@@ -173,7 +174,7 @@ export default function IntelClient({ data }) {
             {trend}
           </span>
         </div>
-        <span className={styles.apiBadge}>Powered by Intel API</span>
+        <span className={styles.apiBadge}>{title}</span>
       </div>
 
       {/* Gauge */}

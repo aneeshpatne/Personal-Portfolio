@@ -1,6 +1,6 @@
 import IntelClient from "./IntelClient";
 
-export async function Intel() {
+export async function IntelWorld() {
   const data = {
     score: 60.6,
     top_stabilizers: [
@@ -26,5 +26,5 @@ export async function Intel() {
     alert_color: "red",
   };
 
-  return <IntelClient data={data} />;
+  return <IntelClient data={data} title="WORLD INTEL" />;
 }

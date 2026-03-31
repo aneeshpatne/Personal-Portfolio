@@ -7,7 +7,8 @@ import styles from "./style/APIShowCase.module.css";
 import { WeatherGraph } from "./WeatherGraph";
 import { BreakingNews } from "./BreakingNews";
 import { Status } from "./Status";
-import { Intel } from "./Intel";
+import { IntelWorld } from "./IntelWorld";
+import { IntelIndia } from "./IntelIndia";
 
 const instrumentSerif = Instrument_Serif({
   subsets: ["latin"],
@@ -27,7 +28,8 @@ export function APIShowCase() {
         </p>
       </div>
       <div className={styles.container}>
-        <Intel />
+        <IntelWorld />
+        <IntelIndia />
         <BreakingNews />
         <News />
         <Weather />
