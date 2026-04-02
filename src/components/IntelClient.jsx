@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 const ALERT_COLORS = {
   red: "#ef4444",
   amber: "#f59e0b",
+  orange: "#f59e0b",
   green: "#10b981",
   yellow: "#eab308",
 };
