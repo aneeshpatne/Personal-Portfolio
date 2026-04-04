@@ -1,7 +1,5 @@
 "use client";
-import { Fira_Code } from "next/font/google";
-import { Space_Grotesk } from "next/font/google";
-import { Instrument_Serif } from "next/font/google";
+import { Space_Grotesk, Manrope, Inter } from "next/font/google";
 import Image from "next/image";
 import {
   LuGithub,
@@ -14,22 +12,19 @@ import styles from "./style/nameNew.module.css";
 import BlobsBackground from "./gradient";
 import { motion } from "framer-motion";
 
-const ibm_font = Fira_Code({
-  subsets: ["latin"],
-  weight: ["400", "500"],
-  display: "swap",
-});
-
-const instrumentSerif = Instrument_Serif({
-  subsets: ["latin"],
-  weight: "400",
-  style: ["normal", "italic"],
-  variable: "--font-instrument-serif",
-});
-
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700"],
+  display: "swap",
+});
+
+const manrope = Manrope({
+  subsets: ["latin"],
+  display: "swap",
+});
+
+const inter = Inter({
+  subsets: ["latin"],
   display: "swap",
 });
 import { useEffect, useState } from "react";
@@ -98,7 +93,7 @@ export default function NameNew() {
           </motion.h1>
 
           <motion.p
-            className={`${styles.introTextSmall} ${ibm_font.className}`}
+            className={`${styles.introTextSmall} ${manrope.className}`}
             initial={{ opacity: 0, letterSpacing: "0em" }}
             animate={{ opacity: 1, letterSpacing: "0.2em" }}
             transition={{ delay: 0.8, duration: 1, ease: "easeOut" }}
@@ -107,7 +102,7 @@ export default function NameNew() {
           </motion.p>
 
           <motion.div
-            className={`${styles.locationBadge} ${ibm_font.className}`}
+            className={`${styles.locationBadge} ${inter.className}`}
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1.0, duration: 1, ease: "easeOut" }}
@@ -153,7 +148,7 @@ export default function NameNew() {
 
         {/* Rotating URL Section */}
         <motion.div
-          className={`${styles.urlContainer} ${ibm_font.className}`}
+          className={`${styles.urlContainer} ${manrope.className}`}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 2, duration: 1 }}
