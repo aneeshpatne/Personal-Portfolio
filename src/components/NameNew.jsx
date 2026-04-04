@@ -1,25 +1,17 @@
 "use client";
-import { Space_Grotesk, Manrope, Inter } from "next/font/google";
-import Image from "next/image";
-import {
-  LuGithub,
-  LuLinkedin,
-  LuCodeXml,
-  LuMail,
-  LuMapPin,
-} from "react-icons/lu";
-import styles from "./style/nameNew.module.css";
-import BlobsBackground from "./gradient";
-import { motion } from "framer-motion";
 
-const spaceGrotesk = Space_Grotesk({
+import { useEffect, useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
+import { Inter, Lexend } from "next/font/google";
+import Image from "next/image";
+import { LuCodeXml, LuGithub, LuLinkedin, LuMapPin } from "react-icons/lu";
+
+import BlobsBackground from "./gradient";
+import styles from "./style/nameNew.module.css";
+
+const lexend = Lexend({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700"],
-  display: "swap",
-});
-
-const manrope = Manrope({
-  subsets: ["latin"],
   display: "swap",
 });
 
@@ -27,8 +19,6 @@ const inter = Inter({
   subsets: ["latin"],
   display: "swap",
 });
-import { useEffect, useState } from "react";
-import { AnimatePresence } from "framer-motion";
 
 const socials = [
   { name: "Github", icon: <LuGithub />, url: "github" },
@@ -44,16 +34,14 @@ const socialLinks = [
 
 export default function NameNew() {
   const [idx, setIndex] = useState(0);
-  const maxUrlLength = Math.max(...socials.map((s) => s.url.length));
+  const maxUrlLength = Math.max(...socials.map((social) => social.url.length));
 
   useEffect(() => {
     const interval = setInterval(() => {
       setIndex((prevIndex) => (prevIndex + 1) % socials.length);
     }, 3000);
 
-    return () => {
-      clearInterval(interval);
-    };
+    return () => clearInterval(interval);
   }, []);
 
   return (
@@ -84,7 +72,7 @@ export default function NameNew() {
 
         <div className={styles.introWrapper}>
           <motion.h1
-            className={`${styles.introName} ${spaceGrotesk.className}`}
+            className={`${styles.introName} ${lexend.className}`}
             initial={{ opacity: 0, y: 30, filter: "blur(10px)" }}
             animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
             transition={{ delay: 0.4, duration: 1, ease: [0.16, 1, 0.3, 1] }}
@@ -93,7 +81,7 @@ export default function NameNew() {
           </motion.h1>
 
           <motion.p
-            className={`${styles.introTextSmall} ${manrope.className}`}
+            className={`${styles.introTextSmall} ${inter.className}`}
             initial={{ opacity: 0, letterSpacing: "0em" }}
             animate={{ opacity: 1, letterSpacing: "0.2em" }}
             transition={{ delay: 0.8, duration: 1, ease: "easeOut" }}
@@ -105,7 +93,7 @@ export default function NameNew() {
             className={`${styles.locationBadge} ${inter.className}`}
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1.0, duration: 1, ease: "easeOut" }}
+            transition={{ delay: 1, duration: 1, ease: "easeOut" }}
           >
             <LuMapPin />
             Mumbai, India
@@ -134,8 +122,8 @@ export default function NameNew() {
               className={`${styles.socialLink} ${
                 index === idx ? styles.active : ""
               }`}
-              whileHover={{ scale: 1.2, rotate: 0 }}
-              whileTap={{ scale: 0.9 }}
+              whileHover={{ scale: 1.12, rotate: 0 }}
+              whileTap={{ scale: 0.94 }}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1.5 + index * 0.1, duration: 0.5 }}
@@ -146,24 +134,14 @@ export default function NameNew() {
           ))}
         </motion.div>
 
-        {/* Rotating URL Section */}
         <motion.div
-          className={`${styles.urlContainer} ${manrope.className}`}
+          className={`${styles.urlContainer} ${inter.className}`}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 2, duration: 1 }}
         >
           <span>aneeshpatne.com/</span>
-          <div
-            style={{
-              position: "relative",
-              height: "1.5em",
-              overflow: "hidden",
-              display: "flex",
-              alignItems: "center",
-              width: `${maxUrlLength}ch`,
-            }}
-          >
+          <div className={styles.urlWindow} style={{ width: `${maxUrlLength}ch` }}>
             <AnimatePresence mode="wait">
               <motion.a
                 key={idx}
@@ -175,7 +153,6 @@ export default function NameNew() {
                 animate={{ y: 0, opacity: 1 }}
                 exit={{ y: -20, opacity: 0 }}
                 transition={{ duration: 0.5, ease: "easeInOut" }}
-                style={{ textDecoration: "none" }}
               >
                 {socials[idx].url}
               </motion.a>
