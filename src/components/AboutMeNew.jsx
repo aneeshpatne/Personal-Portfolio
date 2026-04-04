@@ -4,27 +4,7 @@ export default function Profile() {
   return (
     <section className={styles.profileSection} aria-labelledby="about-heading">
       <div className={styles.inner}>
-        <div className={styles.textBlock}>
-          <h2 id="about-heading" className={styles.heading}>
-            About Me
-          </h2>
-          <p className={styles.lead}>
-            I build <span className={styles.accent}>scalable</span> systems with
-            code and data bridging AI, strong engineering, and thoughtful design
-            for smooth, reliable experiences.
-          </p>
-          <p className={styles.body}>
-            Currently exploring the intersection of{" "}
-            <span className={styles.accent}>AI</span>, system design, and
-            developer tooling. I enjoy turning ambiguous ideas into simple,
-            reliable products.
-          </p>
-          <ul className={styles.quickList}>
-            <li>Pragmatic problem solver</li>
-            <li>Learning always</li>
-            <li>Designing for maintainability</li>
-          </ul>
-        </div>
+        <div className={styles.Text}></div>
         <div className={styles.polaroidWrapper}>
           <figure className={styles.polaroid}>
             <img
