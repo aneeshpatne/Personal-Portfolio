@@ -1,15 +1,15 @@
 import styles from "./style/WebDev.module.css";
 import Image from "next/image";
 import TechStackName from "./techStackNameItem";
-import { Instrument_Serif, Space_Grotesk } from "next/font/google";
+import { Lexend, Space_Grotesk } from "next/font/google";
 import CardMarqee from "./CardMarqee";
 import TechStackItem from "./TechStackItem";
 import NasaTile from "./NasaTile";
 
-const instrumentSerif = Instrument_Serif({
+const lexend = Lexend({
   subsets: ["latin"],
-  weight: "400",
-  style: ["normal", "italic"],
+  weight: "600",
+  style: ["normal"],
   variable: "--font-instrument-serif",
 });
 
@@ -23,12 +23,7 @@ export default function WebDev() {
   return (
     <section className={styles.container}>
       <header className={styles.header}>
-        <h1 className={`${styles.title} ${instrumentSerif.className}`}>
-          Development
-        </h1>
-        <p className={`${styles.subtitle} ${spaceGrotesk.className}`}>
-          Crafting digital experiences with cutting-edge technologies and pixel-perfect precision.
-        </p>
+        <h1 className={`${styles.title} ${lexend.className}`}>Development</h1>
       </header>
 
       <div className={styles.bentoGrid}>
@@ -47,5 +42,3 @@ export default function WebDev() {
     </section>
   );
 }
-
-
