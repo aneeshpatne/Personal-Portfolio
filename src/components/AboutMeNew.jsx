@@ -4,21 +4,6 @@ export default function Profile() {
   return (
     <section className={styles.profileSection} aria-labelledby="about-heading">
       <div className={styles.inner}>
-        <div className={styles.polaroidWrapper}>
-          <figure className={styles.polaroid}>
-            <img
-              src="/assets/img/aneesh3.png"
-              alt="Aneesh smiling, casual portrait"
-              width={320}
-              height={320}
-              className={styles.polaroidImage}
-              loading="lazy"
-            />
-            <figcaption className={styles.polaroidCaption}>
-              Aneesh • 2025
-            </figcaption>
-          </figure>
-        </div>
         <div className={styles.textBlock}>
           <h2 id="about-heading" className={styles.heading}>
             About Me
@@ -39,6 +24,18 @@ export default function Profile() {
             <li>Learning always</li>
             <li>Designing for maintainability</li>
           </ul>
+        </div>
+        <div className={styles.polaroidWrapper}>
+          <figure className={styles.polaroid}>
+            <img
+              src="/assets/img/aneesh3.png"
+              alt="Aneesh smiling, casual portrait"
+              width={320}
+              height={320}
+              className={styles.polaroidImage}
+              loading="lazy"
+            />
+          </figure>
         </div>
       </div>
     </section>

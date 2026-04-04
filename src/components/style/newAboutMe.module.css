@@ -18,7 +18,7 @@
 
 .inner {
   display: grid;
-  grid-template-columns: minmax(0, 380px) minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1fr) minmax(0, 380px);
   align-items: start;
   gap: var(--about-gap);
   max-width: var(--about-max-width);
@@ -32,29 +32,37 @@
 }
 
 .polaroid {
-  --rotate: -2.5deg;
-  background: var(--polaroid-bg);
-  border: 1px solid var(--polaroid-border);
-  box-shadow: var(--polaroid-shadow);
-  padding: 0.75rem 0.75rem 2.75rem;
-  border-radius: 4px;
+  background: transparent;
+  box-shadow: none;
+  padding: 0.75rem;
   position: relative;
-  transform: rotate(var(--rotate));
   transition: transform 0.35s ease;
 }
 
+.polaroid::before,
 .polaroid::after {
   content: "";
   position: absolute;
   inset: 0;
-  border-radius: 4px;
-  background: linear-gradient(120deg, transparent 60%, rgb(0 0 0 / 0.04));
   pointer-events: none;
 }
 
-.polaroid:hover {
-  /* hover movement removed */
-  transform: rotate(var(--rotate));
+.polaroid::before {
+  border-top: 2px solid var(--polaroid-border);
+  border-left: 2px solid var(--polaroid-border);
+  width: 2.25rem;
+  height: 2.25rem;
+}
+
+.polaroid::after {
+  right: 0;
+  bottom: 0;
+  left: auto;
+  top: auto;
+  border-right: 2px solid var(--polaroid-border);
+  border-bottom: 2px solid var(--polaroid-border);
+  width: 2.25rem;
+  height: 2.25rem;
 }
 
 .polaroidImage {
@@ -66,18 +74,6 @@
   border-radius: 2px;
   user-select: none;
   -webkit-user-drag: none;
-}
-
-.polaroidCaption {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0.85rem;
-  text-align: center;
-  font-size: 0.85rem;
-  letter-spacing: 0.5px;
-  color: hsl(0 0% 35%);
-  font-family: ui-rounded, system-ui, "Segoe UI", Roboto, sans-serif;
 }
 
 /* Text */
@@ -165,22 +161,5 @@
   }
   .polaroidImage {
     aspect-ratio: 1/1;
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  .polaroid {
-    background: #fafafa;
-    border-color: #e1e1e1;
-  }
-  .polaroidCaption {
-    color: hsl(0 0% 30%);
-  }
-  .quickList li {
-    background: hsl(0 0% 100% / 0.06);
-    border-color: hsl(0 0% 100% / 0.15);
-  }
-  .body {
-    color: hsl(0 0% 70%);
   }
 }
