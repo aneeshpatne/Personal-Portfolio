@@ -1,5 +1,6 @@
 "use client";
 import { Fira_Code } from "next/font/google";
+import { Space_Grotesk } from "next/font/google";
 import { Instrument_Serif } from "next/font/google";
 import Image from "next/image";
 import {
@@ -26,6 +27,11 @@ const instrumentSerif = Instrument_Serif({
   variable: "--font-instrument-serif",
 });
 
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  display: "swap",
+});
 import { useEffect, useState } from "react";
 import { AnimatePresence } from "framer-motion";
 
@@ -83,7 +89,7 @@ export default function NameNew() {
 
         <div className={styles.introWrapper}>
           <motion.h1
-            className={`${styles.introName} ${instrumentSerif.className}`}
+            className={`${styles.introName} ${spaceGrotesk.className}`}
             initial={{ opacity: 0, y: 30, filter: "blur(10px)" }}
             animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
             transition={{ delay: 0.4, duration: 1, ease: [0.16, 1, 0.3, 1] }}

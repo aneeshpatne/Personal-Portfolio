@@ -42,7 +42,7 @@
 
 .introName {
   font-size: 5rem;
-  font-weight: 400;
+  font-weight: 600;
   color: #ffffff;
   margin: 0;
   line-height: 1.1;
@@ -62,7 +62,12 @@
 .divider {
   width: 60px;
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.5),
+    transparent
+  );
   margin: 2.5rem 0;
 }
 
@@ -82,7 +87,8 @@
   justify-content: center;
 }
 
-.socialLink:hover, .active {
+.socialLink:hover,
+.active {
   color: #ffffff;
   transform: translateY(-2px);
   filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
@@ -117,11 +123,11 @@
   .introName {
     font-size: 3.5rem;
   }
-  
+
   .divider {
     margin: 2rem 0;
   }
-  
+
   .socialsContainer {
     gap: 1.5rem;
     margin-bottom: 2.5rem;
@@ -132,7 +138,7 @@
   .introName {
     font-size: 2.8rem;
   }
-  
+
   .introTextSmall {
     font-size: 0.8rem;
   }
@@ -158,4 +164,3 @@
   border-color: rgba(255, 255, 255, 0.2);
   transform: translateY(-2px);
 }
-
