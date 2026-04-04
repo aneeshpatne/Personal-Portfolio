@@ -7,7 +7,8 @@
   --about-accent: var(--gradient-start, #6ea8ff);
   --about-text-muted: hsl(0 0% 60%);
   --polaroid-bg: #fff;
-  --polaroid-border: #ececec;
+  --polaroid-border: #8083ff;
+  --secondary-color: #8083ff;
   --polaroid-shadow: 0 4px 14px -4px rgb(0 0 0 / 0.18);
 
   width: 100%;
@@ -46,6 +47,50 @@
   inset: 0;
   pointer-events: none;
 }
+.textContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.35rem;
+}
+
+.text {
+  font-size: clamp(3.75rem, 7.8vw, 5.75rem);
+  font-weight: 600;
+  line-height: 0.92;
+  letter-spacing: -0.05em;
+  text-wrap: balance;
+}
+
+.text span {
+  display: block;
+}
+
+.secondaryText {
+  color: var(--secondary-color);
+}
+
+.finePrint {
+  max-width: 34rem;
+  padding-left: 1rem;
+  border-left: 1px solid rgb(128 131 255 / 0.45);
+  color: hsl(0 0% 78%);
+  font-size: clamp(0.95rem, 0.3vw + 0.9rem, 1.05rem);
+  line-height: 1.75;
+  letter-spacing: 0.015em;
+  text-wrap: pretty;
+  position: relative;
+}
+
+.finePrintLabel {
+  display: block;
+  margin-bottom: 0.55rem;
+  color: var(--secondary-color);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+}
 
 .polaroid::before {
   border-top: 2px solid var(--polaroid-border);
@@ -79,16 +124,49 @@
 @media (max-width: 900px) {
   .inner {
     grid-template-columns: 1fr;
+    justify-items: center;
+    gap: 1.5rem;
   }
   .polaroidWrapper {
     order: -1;
   }
+  .textContainer {
+    width: 100%;
+    align-items: center;
+  }
+  .text {
+    font-size: clamp(2.8rem, 14vw, 4.5rem);
+    line-height: 0.94;
+    text-align: center;
+    letter-spacing: -0.04em;
+  }
+  .finePrint {
+    max-width: 30rem;
+    padding-left: 0;
+    padding-top: 0.9rem;
+    border-left: 0;
+    border-top: 1px solid rgb(128 131 255 / 0.45);
+    text-align: center;
+  }
   /* Constrain photo size on narrow viewports */
   .polaroid {
-    width: clamp(180px, 65vw, 260px);
+    width: clamp(220px, 72vw, 300px);
     padding: 0.6rem 0.6rem 2.2rem; /* slightly tighter on mobile */
   }
   .polaroidImage {
     aspect-ratio: 1/1;
+  }
+}
+
+@media (max-width: 520px) {
+  .profileSection {
+    padding-inline: 1rem;
+  }
+  .text {
+    font-size: clamp(2.45rem, 15vw, 3.6rem);
+  }
+  .polaroid {
+    width: min(100%, 270px);
+    padding: 0.55rem 0.55rem 1.2rem;
   }
 }
