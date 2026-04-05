@@ -23,13 +23,15 @@ export default function WebDev() {
   return (
     <section className={styles.container}>
       <header className={styles.header}>
-        <h1 className={`${styles.title} ${lexend.className}`}>Development</h1>
+        <h1 className={`${styles.pageTitle} ${lexend.className}`}>
+          Development
+        </h1>
       </header>
 
       <div className={styles.bentoGrid}>
         <div className={styles.frontend}>
           <div className={styles.title}>
-            <span className={styles.titleText}>Frontend </span>
+            <span className={styles.titleText}>Frontend</span>
           </div>
           <div className={styles.logo}>
             <img src="/assets/img/layers.svg" />
