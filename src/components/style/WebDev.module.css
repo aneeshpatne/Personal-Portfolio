@@ -73,7 +73,16 @@
   grid-row: span 2;
   min-height: 200px;
   align-self: flex-start;
+  position: relative;
   background-color: var(--color-bg-surface);
+}
+.logo {
+  position: absolute;
+  height: 40px;
+  width: 40px;
+  background-color: brown;
+  right: 20px;
+  top: 20px;
 }
 
 .title {

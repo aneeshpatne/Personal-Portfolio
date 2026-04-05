@@ -31,6 +31,7 @@ export default function WebDev() {
           <div className={styles.title}>
             <span className={styles.titleText}>Frontend </span>
           </div>
+          <div className={styles.logo}></div>
         </div>
       </div>
     </section>
