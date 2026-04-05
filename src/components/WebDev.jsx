@@ -27,16 +27,10 @@ export default function WebDev() {
       </header>
 
       <div className={styles.bentoGrid}>
-        <div className={`${styles.bentoCard} ${styles.marqueeCard}`}>
-          <CardMarqee />
-        </div>
-
-        <div className={`${styles.bentoCard} ${styles.techStackCard}`}>
-          <TechStackItem />
-        </div>
-
-        <div className={`${styles.bentoCard} ${styles.nasaCard}`}>
-          <NasaTile />
+        <div className={styles.frontend}>
+          <div className={styles.title}>
+            <span className={styles.titleText}>Frontend </span>
+          </div>
         </div>
       </div>
     </section>
