@@ -6,6 +6,15 @@ import CardMarqee from "./CardMarqee";
 import TechStackItem from "./TechStackItem";
 import NasaTile from "./NasaTile";
 
+const frontend = [
+  "Next.js",
+  "React",
+  "JavaScript",
+  "HTML",
+  "CSS",
+  "Tailwind",
+  "Framer Motion",
+];
 const lexend = Lexend({
   subsets: ["latin"],
   weight: "600",
