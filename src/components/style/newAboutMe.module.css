@@ -71,15 +71,41 @@
 }
 
 .finePrint {
-  max-width: 34rem;
-  padding-left: 1rem;
-  border-left: 1px solid rgb(128 131 255 / 0.45);
-  color: hsl(0 0% 78%);
+  max-width: 36rem;
+  color: hsl(0 0% 82%);
   font-size: clamp(0.95rem, 0.3vw + 0.9rem, 1.05rem);
-  line-height: 1.75;
+  line-height: 1.8;
   letter-spacing: 0.015em;
   text-wrap: pretty;
+  
+  /* Monolith Surface Styling */
+  background: #1c1c1c; /* Surface Container */
+  margin-top: 1.5rem;
+  padding: 2rem 2.25rem;
   position: relative;
+  box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.6);
+}
+
+.finePrint::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 2.5rem;
+  height: 2px;
+  background: linear-gradient(135deg, #c0c1ff, #8083ff);
+}
+
+.highlight {
+  color: #fff;
+  font-weight: 500;
+  box-shadow: inset 0 -2px 0 0 rgb(128 131 255 / 0.3);
+  transition: color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.highlight:hover {
+  color: #c0c1ff;
+  box-shadow: inset 0 -12px 0 0 rgb(128 131 255 / 0.15);
 }
 
 .finePrintLabel {
@@ -142,11 +168,12 @@
   }
   .finePrint {
     max-width: 30rem;
-    padding-left: 0;
-    padding-top: 0.9rem;
-    border-left: 0;
-    border-top: 1px solid rgb(128 131 255 / 0.45);
-    text-align: center;
+    padding: 1.25rem 1.25rem;
+    text-align: left;
+  }
+  
+  .finePrint::before {
+    left: 1.25rem;
   }
   /* Constrain photo size on narrow viewports */
   .polaroid {

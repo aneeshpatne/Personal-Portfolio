@@ -11,15 +11,14 @@ export default function Profile() {
       <div className={styles.inner}>
         <div className={styles.textContainer}>
           <div className={`${styles.text} ${lexend.className}`}>
+            <span>Turning</span>
             <span>Ideas</span>
             <span>Into</span>
             <span className={styles.secondaryText}>Reality</span>
           </div>
           <div className={styles.finePrint}>
-            <span className={styles.finePrintLabel}>What I do</span>
             <span>
-              I build at the intersection of AI, system design, and product
-              thinking, transforming ambiguity into impact.
+              I build at the intersection of <strong className={styles.highlight}>AI</strong>, <strong className={styles.highlight}>system design</strong>, and <strong className={styles.highlight}>product thinking</strong>, transforming ambiguity into impact.
             </span>
           </div>
         </div>
