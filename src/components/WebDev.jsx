@@ -74,6 +74,14 @@ export default function WebDev() {
             ))}
           </div>
         </div>
+        <div className={styles.style3}>
+          <div className={styles.title}>
+            <span className={styles.titleText}>Cloud</span>
+          </div>
+          <div className={styles.logo}>
+            <img src="/assets/img/cloud.svg" alt="" />
+          </div>
+        </div>
       </div>
     </section>
   );
