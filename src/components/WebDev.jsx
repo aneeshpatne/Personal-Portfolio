@@ -1,10 +1,5 @@
 import styles from "./style/WebDev.module.css";
-import Image from "next/image";
-import TechStackName from "./techStackNameItem";
 import { Lexend, Space_Grotesk } from "next/font/google";
-import CardMarqee from "./CardMarqee";
-import TechStackItem from "./TechStackItem";
-import NasaTile from "./NasaTile";
 
 const frontend = [
   "Next.js",
@@ -38,12 +33,19 @@ export default function WebDev() {
       </header>
 
       <div className={styles.bentoGrid}>
-        <div className={styles.frontend}>
+        <div className={styles.style1}>
           <div className={styles.title}>
             <span className={styles.titleText}>Frontend</span>
           </div>
           <div className={styles.logo}>
-            <img src="/assets/img/layers.svg" />
+            <img src="/assets/img/layers.svg" alt="" />
+          </div>
+          <div className={styles.skillBox}>
+            {frontend.map((item) => (
+              <div key={item} className={styles.skill}>
+                {item}
+              </div>
+            ))}
           </div>
         </div>
       </div>

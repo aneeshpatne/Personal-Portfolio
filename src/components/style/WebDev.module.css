@@ -67,14 +67,32 @@
   padding: 2rem;
 }
 
-.frontend {
+.style1 {
   display: flex;
-  grid-column: span 4;
+  flex-direction: column;
+  grid-column: span 6;
   grid-row: span 2;
-  min-height: 200px;
+  min-height: 240px;
   align-self: flex-start;
+  padding: 20px;
   position: relative;
+  gap: 1rem;
   background-color: var(--color-bg-surface);
+}
+
+.skillBox {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 8px;
+  padding-top: 12px;
+}
+.skill {
+  padding: 10px 20px;
+
+  border-radius: 10px;
+  background-color: var(--color-bg-surface-elevated);
+  color: var(--color-tertiary);
 }
 .logo {
   position: absolute;
@@ -104,7 +122,6 @@
 .title {
   max-width: 80%;
   font-weight: 600;
-  padding: 20px;
 }
 
 .titleText {
@@ -123,6 +140,11 @@
   .techStackCard {
     grid-column: span 12;
   }
+
+  .style1 {
+    grid-column: span 12;
+  }
+
   .nasaCard {
     grid-column: span 12;
     grid-row: auto;
@@ -155,5 +177,14 @@
 
   .marqueeCard {
     height: 100px;
+  }
+
+  .style1 {
+    padding: 16px;
+  }
+
+  .title {
+    max-width: 100%;
+    padding-right: 48px;
   }
 }
