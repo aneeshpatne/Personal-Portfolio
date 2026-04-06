@@ -4,11 +4,14 @@ import {
   SiDjango,
   SiExpress,
   SiFlask,
+  SiJavascript,
   SiNodedotjs,
+  SiPython,
+  SiTypescript,
   SiVercel,
 } from "react-icons/si";
-import { FaRocket, FaRobot } from "react-icons/fa";
-import { TbLink } from "react-icons/tb";
+import { FaJava, FaRocket, FaRobot } from "react-icons/fa";
+import { TbDatabase, TbLink } from "react-icons/tb";
 
 const frontend = [
   "Next.js",
@@ -41,6 +44,13 @@ const ai = [
   { name: "LangChain", icon: <TbLink size={16} /> },
   { name: "RAG Pipelines", icon: <FaRocket size={16} /> },
   { name: "Prompt Engineering", icon: <TbLink size={16} /> },
+];
+const languages = [
+  { name: "Python", icon: <SiPython size={16} /> },
+  { name: "JavaScript", icon: <SiJavascript size={16} /> },
+  { name: "TypeScript", icon: <SiTypescript size={16} /> },
+  { name: "Java", icon: <FaJava size={16} /> },
+  { name: "SQL", icon: <TbDatabase size={16} /> },
 ];
 
 const lexend = Lexend({
@@ -144,6 +154,23 @@ export default function WebDev() {
             ))}
           </div>
         </div>
+        <div className={styles.style6}>
+          <div className={styles.title}>
+            <span className={styles.titleText}>Languages</span>
+          </div>
+          <div className={styles.logo}>
+            <img src="/assets/img/code.svg" alt="" />
+          </div>
+          <div className={styles.skillBox6}>
+            {languages.map((item) => (
+              <div key={item.name} className={styles.skill5}>
+                <span className={styles.skill5Icon}>{item.icon}</span>
+                <span className={styles.skill5Title}>{item.name}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div className={styles.style7}></div>
       </div>
     </section>
   );
