@@ -48,6 +48,14 @@ export default function WebDev() {
             ))}
           </div>
         </div>
+        <div className={styles.style2}>
+          <div className={styles.title}>
+            <span className={styles.titleText}>Backend</span>
+          </div>
+          <div className={styles.logo}>
+            <img src="/assets/img/dns.svg" alt="" />
+          </div>
+        </div>
       </div>
     </section>
   );

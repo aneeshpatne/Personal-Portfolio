@@ -79,6 +79,15 @@
   gap: 1rem;
   background-color: var(--color-bg-surface);
 }
+.style2 {
+  align-self: flex-start;
+  position: relative;
+  grid-column: span 3;
+  grid-row: span 3;
+  min-height: 240px;
+  padding: 20px;
+  background-color: var(--color-bg-surface);
+}
 
 .skillBox {
   display: flex;
