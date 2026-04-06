@@ -81,11 +81,13 @@
 }
 .style2 {
   align-self: flex-start;
+  display: flex;
+  flex-direction: column;
   position: relative;
   grid-column: span 3;
-  grid-row: span 3;
-  min-height: 240px;
-  padding: 20px;
+  grid-row: span 4;
+  min-height: 280px;
+  padding: 24px 20px 20px;
   background-color: var(--color-bg-surface);
 }
 
@@ -96,9 +98,51 @@
   margin-top: 8px;
   padding-top: 12px;
 }
+.skillBox2 {
+  display: flex;
+  flex-direction: column;
+  margin-top: 12px;
+  padding-top: 16px;
+  gap: 14px;
+  width: 100%;
+}
+.skill1 {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 56px;
+  padding: 12px 44px 12px 14px;
+  width: 100%;
+  background-color: var(--color-bg-surface-elevated);
+}
+
+.skillLogo {
+  position: absolute;
+  top: 50%;
+  right: 14px;
+  transform: translateY(-50%);
+  width: 22px;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-secondary);
+}
+
+.skillLogo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.skillLogo svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
 .skill {
   padding: 10px 20px;
-
   border-radius: 10px;
   background-color: var(--color-bg-surface-elevated);
   color: var(--color-tertiary);
@@ -190,6 +234,21 @@
 
   .style1 {
     padding: 16px;
+  }
+
+  .style2 {
+    min-height: auto;
+    padding: 16px;
+  }
+
+  .skillBox2 {
+    gap: 12px;
+    padding-top: 14px;
+  }
+
+  .skill1 {
+    min-height: 52px;
+    padding: 10px 42px 10px 14px;
   }
 
   .title {

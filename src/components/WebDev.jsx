@@ -1,5 +1,7 @@
 import styles from "./style/WebDev.module.css";
 import { Lexend, Space_Grotesk } from "next/font/google";
+import { SiDjango, SiExpress, SiFlask, SiNodedotjs } from "react-icons/si";
+import { FaRocket } from "react-icons/fa";
 
 const frontend = [
   "Next.js",
@@ -9,6 +11,14 @@ const frontend = [
   "CSS",
   "Tailwind",
   "Framer Motion",
+];
+
+const backend = [
+  { name: "Node.js", icon: <SiNodedotjs size={18} /> },
+  { name: "Express", icon: <SiExpress size={18} /> },
+  { name: "Flask", icon: <SiFlask size={18} /> },
+  { name: "FastAPI", icon: <FaRocket size={18} /> },
+  { name: "Django", icon: <SiDjango size={18} /> },
 ];
 const lexend = Lexend({
   subsets: ["latin"],
@@ -54,6 +64,14 @@ export default function WebDev() {
           </div>
           <div className={styles.logo}>
             <img src="/assets/img/dns.svg" alt="" />
+          </div>
+          <div className={styles.skillBox2}>
+            {backend.map((item) => (
+              <div key={item.name} className={styles.skill1}>
+                {item.name}
+                <div className={styles.skillLogo}>{item.icon}</div>
+              </div>
+            ))}
           </div>
         </div>
       </div>
