@@ -10,6 +10,7 @@ html {
   --color-tertiary: #b1b2f8;
   --color-bg-main: #131313;
   --color-bg-surface: #1c1c1c;
+  --color-bg-surface-sunken: #181818;
   --color-bg-surface-elevated: #ffffff06;
 
   --dark-bg: var(--color-bg-main);
