@@ -52,3 +52,15 @@
   display: flex;
   flex-direction: column;
 }
+
+.textContainer span {
+  display: block;
+  color: var(--color-secondary);
+  font-size: 0.8rem;
+  letter-spacing: 5px;
+}
+
+.title {
+  font-size: 3rem;
+  padding: 10px 0;
+}

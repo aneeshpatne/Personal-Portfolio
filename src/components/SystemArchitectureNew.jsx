@@ -1,4 +1,5 @@
-import { Lexend } from "next/font/google";
+import { Inter, Lexend } from "next/font/google";
+import { SiSpringboot } from "react-icons/si";
 import styles from "./style/SystemArchitectureNew.module.css";
 import LockSVG from "./svg/LockSVG";
 const lexend = Lexend({
@@ -7,7 +8,12 @@ const lexend = Lexend({
   style: ["normal"],
   variable: "--font-instrument-serif",
 });
-
+const inter = Inter({
+  subsets: ["latin"],
+  weight: "300",
+  style: ["normal"],
+  variable: "--font-instrument-serif",
+});
 export function SystemArchitectureNew() {
   return (
     <div className={styles.container}>
@@ -22,7 +28,8 @@ export function SystemArchitectureNew() {
           <LockSVG />
         </div>
         <div className={styles.textContainer}>
-          <div className={styles.title}>Suraksha</div>
+          <span className={inter.className}>BACKEND SYSTEMS / 2025</span>
+          <h1 className={`${styles.title} ${lexend.className}`}>Suraksha</h1>
         </div>
       </div>
     </div>

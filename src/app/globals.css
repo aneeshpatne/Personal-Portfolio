@@ -12,6 +12,7 @@ html {
   --color-bg-surface: #1c1c1c;
   --color-bg-surface-sunken: #181818;
   --color-bg-surface-elevated: #ffffff06;
+  --color-bg-logo-surface: #2a2a2a;
 
   --dark-bg: var(--color-bg-main);
   --dark-bg-btn: #f5f5f5;
