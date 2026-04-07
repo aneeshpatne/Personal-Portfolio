@@ -9,11 +9,13 @@ const lexend = Lexend({
 
 export function SystemArchitectureNew() {
   return (
-    <div>
-      <div className={`${styles.text} ${lexend.className}`}>
-        <span>Selected</span>
-        <span>Works</span>
-      </div>
+    <div className={styles.container}>
+      <header className={styles.header}>
+        <div className={`${styles.pageTitle} ${lexend.className}`}>
+          <span>Selected</span>
+          <span className={styles.secondaryText}>Works</span>
+        </div>
+      </header>
     </div>
   );
 }
