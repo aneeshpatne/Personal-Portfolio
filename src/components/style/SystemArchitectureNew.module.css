@@ -39,6 +39,9 @@
 }
 
 .imageContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 400px;
   height: 100%;
   background-color: var(--color-bg-surface-sunken);

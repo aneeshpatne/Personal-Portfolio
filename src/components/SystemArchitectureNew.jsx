@@ -1,5 +1,6 @@
 import { Lexend } from "next/font/google";
 import styles from "./style/SystemArchitectureNew.module.css";
+import LockSVG from "./svg/LockSVG";
 const lexend = Lexend({
   subsets: ["latin"],
   weight: "600",
@@ -17,7 +18,9 @@ export function SystemArchitectureNew() {
         </div>
       </header>
       <div className={styles.projectContainer}>
-        <div className={styles.imageContainer}></div>
+        <div className={styles.imageContainer}>
+          <LockSVG />
+        </div>
       </div>
     </div>
   );
