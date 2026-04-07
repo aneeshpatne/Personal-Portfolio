@@ -37,3 +37,9 @@
   width: 100%;
   background-color: var(--color-bg-surface-elevated);
 }
+
+.imageContainer {
+  width: 400px;
+  height: 100%;
+  background-color: #fff;
+}
