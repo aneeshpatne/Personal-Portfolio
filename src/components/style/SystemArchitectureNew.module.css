@@ -46,3 +46,9 @@
   height: 100%;
   background-color: var(--color-bg-surface-sunken);
 }
+
+.textContainer {
+  padding: 20px 40px;
+  display: flex;
+  flex-direction: column;
+}

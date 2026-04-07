@@ -21,6 +21,9 @@ export function SystemArchitectureNew() {
         <div className={styles.imageContainer}>
           <LockSVG />
         </div>
+        <div className={styles.textContainer}>
+          <div className={styles.title}>Suraksha</div>
+        </div>
       </div>
     </div>
   );
