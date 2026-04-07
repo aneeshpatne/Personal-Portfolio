@@ -16,6 +16,7 @@ export function SystemArchitectureNew() {
           <span className={styles.secondaryText}>Works</span>
         </div>
       </header>
+      <div className={styles.projectContainer}></div>
     </div>
   );
 }

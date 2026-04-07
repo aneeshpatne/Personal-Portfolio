@@ -30,3 +30,10 @@
 .secondaryText {
   color: var(--color-secondary);
 }
+
+.projectContainer {
+  display: flex;
+  height: 400px;
+  width: 100%;
+  background-color: var(--color-bg-surface-elevated);
+}
