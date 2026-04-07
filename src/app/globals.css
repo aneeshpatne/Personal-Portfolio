@@ -10,7 +10,7 @@ html {
   --color-tertiary: #b1b2f8;
   --color-bg-main: #131313;
   --color-bg-surface: #1c1c1c;
-  --color-bg-surface-elevated: #262626;
+  --color-bg-surface-elevated: #ffffff06;
 
   --dark-bg: var(--color-bg-main);
   --dark-bg-btn: #f5f5f5;
@@ -41,7 +41,8 @@ html {
 body {
   background-color: var(--app-bg);
   color: var(--dark-text);
-  transition: background-color var(--transition-time) ease,
+  transition:
+    background-color var(--transition-time) ease,
     color var(--transition-time) ease;
   font-style: normal;
 }
@@ -89,7 +90,7 @@ img {
 
   /* Use this instead of a media query - the component theme can be set */
   /* independent of the system color scheme. */
-  &[data-color-scheme='dark'] {
+  &[data-color-scheme="dark"] {
     background-color: hsl(0 0% 94%);
     color: hsl(0 0% 6%);
 
