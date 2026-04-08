@@ -12,7 +12,7 @@
   width: 100%;
   margin-bottom: 1rem;
   padding-bottom: 1rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid var(--color-border-subtle);
 }
 
 .pageTitle {
@@ -31,11 +31,18 @@
   color: var(--color-secondary);
 }
 
+.projectWrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
 .projectContainer {
   display: flex;
   height: 400px;
   width: 100%;
   background-color: var(--color-bg-surface);
+  border-bottom: 1px solid var(--color-border-subtle);
 }
 
 .imageContainer {
@@ -53,7 +60,7 @@
   flex-direction: column;
 }
 
-.textContainer span {
+.textContainer > span {
   display: block;
   color: var(--color-secondary);
   font-size: 0.8rem;
@@ -78,7 +85,7 @@
 .techStackItem {
   display: flex;
   height: 40px;
-  min-width: 150px;
+  min-width: 200px;
   flex: 0 0 auto;
   background-color: var(--color-bg-surface-elevated);
   align-items: center;
@@ -102,4 +109,37 @@
   display: flex;
   align-items: center;
   padding: 0 0.75rem;
+  color: var(--color-text-primary);
+  font-size: 0.95rem;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.ProjectText {
+  max-width: 70ch;
+  margin: 0;
+  padding: 10px 0;
+  color: rgba(226, 232, 240, 0.82);
+  font-size: clamp(1rem, 1.15vw, 1.1rem);
+  line-height: 1.75;
+  letter-spacing: 0.01em;
+  text-wrap: pretty;
+}
+
+.HighlightTitle {
+  display: inline;
+  color: var(--color-secondary);
+  font-size: 1em;
+  font-weight: 600;
+  line-height: inherit;
+  letter-spacing: normal;
+}
+
+.bottomContainer {
+  width: 100%;
+  min-height: 160px;
+  padding: 28px 40px 32px;
+  background-color: var(--color-bg-surface-elevated);
+  display: flex;
+  align-items: flex-start;
 }
