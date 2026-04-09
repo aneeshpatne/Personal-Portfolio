@@ -3,63 +3,32 @@
    ═══════════════════════════════════════════════════════════════ */
 
 .card {
-  --card-bg: #1c1c1c;
-  --card-border: rgba(255, 255, 255, 0.08);
-  --card-border-hover: rgba(255, 255, 255, 0.14);
-
   position: relative;
+  --card-padding: 26px;
   width: 100%;
   height: 100%;
   min-height: 440px;
-  background: var(--card-bg);
-  border-radius: 20px;
-  padding: 26px;
+  background-color: var(--color-bg-surface);
   display: flex;
   flex-direction: column;
-  border: 1px solid var(--card-border);
-  color: #e4e4e7;
   overflow: hidden;
-  transition:
-    border-color 0.3s ease,
-    transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-/* Top edge highlight */
-.card::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 24px;
-  right: 24px;
-  height: 1px;
-  background: linear-gradient(
-    90deg,
-    transparent 0%,
-    rgba(255, 255, 255, 0.12) 50%,
-    transparent 100%
-  );
-  z-index: 1;
+.innerWrapper {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: var(--card-padding);
+}
+
+.contentSection {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
 }
 
 .card:hover {
-  border-color: var(--card-border-hover);
   transform: translateY(-2px);
-}
-
-/* Subtle corner accent */
-.glow {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 200px;
-  height: 200px;
-  background: radial-gradient(
-    circle at top right,
-    rgba(255, 255, 255, 0.03) 0%,
-    transparent 60%
-  );
-  pointer-events: none;
-  z-index: 0;
 }
 
 /* ── Header ── */
@@ -85,9 +54,7 @@
   letter-spacing: 0.08em;
   color: #fafafa;
   padding: 6px 12px;
-  border-radius: 6px;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background-color: var(--color-bg-logo-surface);
 }
 
 .apiBadge {
@@ -97,9 +64,7 @@
   letter-spacing: 0.1em;
   color: #52525b;
   padding: 6px 10px;
-  border-radius: 6px;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  background-color: var(--color-bg-surface-elevated);
 }
 
 .trendBadge {
@@ -107,22 +72,18 @@
   align-items: center;
   gap: 8px;
   padding: 6px 12px;
-  border-radius: 6px;
   font-size: 10px;
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--trend-color, #ef4444);
-  background: color-mix(in srgb, var(--trend-color, #ef4444) 10%, transparent);
-  border: 1px solid
-    color-mix(in srgb, var(--trend-color, #ef4444) 25%, transparent);
+  background-color: var(--color-bg-surface-elevated);
 }
 
 .trendBadge::before {
   content: "";
   width: 6px;
   height: 6px;
-  border-radius: 50%;
   background: var(--trend-color, #ef4444);
   animation: pulse 2.5s ease-in-out infinite;
 }
@@ -159,7 +120,6 @@
   fill: #3f3f46;
   font-weight: 500;
   letter-spacing: 0.05em;
-  font-family: "SF Mono", ui-monospace, monospace;
 }
 
 .gaugeValue {
@@ -176,8 +136,6 @@
   font-variant-numeric: tabular-nums;
   color: #fafafa;
   letter-spacing: -0.02em;
-  font-family:
-    -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
 }
 
 .scoreLabel {
@@ -199,21 +157,16 @@
 }
 
 .factorCard {
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  border-radius: 12px;
+  background-color: var(--color-bg-surface-elevated);
   padding: 14px;
   display: flex;
   flex-direction: column;
   min-height: 85px;
-  transition:
-    background 0.2s ease,
-    border-color 0.2s ease;
+  transition: background-color 0.2s ease;
 }
 
 .factorCard:hover {
-  background: rgba(255, 255, 255, 0.035);
-  border-color: rgba(255, 255, 255, 0.08);
+  background-color: var(--color-bg-logo-surface);
 }
 
 .factorHeader {
@@ -222,7 +175,7 @@
   align-items: center;
   margin-bottom: 10px;
   padding-bottom: 8px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  background-color: transparent;
 }
 
 .factorTitleRow {
@@ -234,7 +187,6 @@
 .dotStabilizer {
   width: 5px;
   height: 5px;
-  border-radius: 50%;
   background: #10b981;
   box-shadow: 0 0 6px rgba(16, 185, 129, 0.6);
 }
@@ -242,7 +194,6 @@
 .dotRisk {
   width: 5px;
   height: 5px;
-  border-radius: 50%;
   background: #ef4444;
   box-shadow: 0 0 6px rgba(239, 68, 68, 0.6);
 }
@@ -280,14 +231,15 @@
 
 /* ── Footer ── */
 .footerWrapper {
-  margin-top: auto;
-  padding-top: 16px;
+  width: 100%;
+  border-top: 1px solid var(--color-bg-surface-elevated);
   z-index: 2;
 }
 
 .cautionContainer {
-  border-top: 1px solid rgba(255, 255, 255, 0.04);
-  padding-top: 14px;
+  background-color: var(--color-bg-surface-sunken);
+  width: 100%;
+  padding: 14px var(--card-padding) var(--card-padding);
 }
 
 .cautionHeader {
@@ -315,8 +267,7 @@
 /* ── Responsive ── */
 @media (max-width: 600px) {
   .card {
-    padding: 20px;
-    border-radius: 16px;
+    --card-padding: 20px;
     min-height: auto;
   }
 
