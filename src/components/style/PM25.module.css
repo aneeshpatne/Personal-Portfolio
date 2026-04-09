@@ -25,6 +25,8 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--color-bg-surface-elevated);
   z-index: 2;
 }
 
