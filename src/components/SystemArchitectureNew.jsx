@@ -1,11 +1,20 @@
 import { Inter, Lexend } from "next/font/google";
-import { FaJava } from "react-icons/fa";
+import {
+  FaJava,
+  FaPython,
+  FaDocker,
+  FaReact,
+  FaVideo,
+  FaMicrochip,
+} from "react-icons/fa";
 import { SiSpringboot } from "react-icons/si";
 import styles from "./style/SystemArchitectureNew.module.css";
 import LockSVG from "./svg/LockSVG";
+import PracticeCoderSVG from "./svg/PracticeCoderSVG";
 import SurakshaFlowSVG from "./svg/SurakshaFlowSVG";
 import Judge0FlowSVG from "./svg/Judge0FlowSVG";
 import { SystemArchitectureImage } from "./SystemArchitectureImage";
+import CCTVFlowSVG from "./svg/CCTVFlowSVG";
 
 const selectedWorks = [
   {
@@ -25,12 +34,12 @@ const selectedWorks = [
     id: "practice-coder",
     category: "BACKEND SYSTEMS / 2025",
     title: "Practice Coder",
-    Visual: LockSVG,
+    Visual: PracticeCoderSVG,
     Flowchart: Judge0FlowSVG,
     techStacks: [
-      { name: "Python", Icon: SiSpringboot },
-      { name: "Docker", Icon: FaJava },
-      { name: "React", Icon: FaJava },
+      { name: "Python", Icon: FaPython },
+      { name: "Docker", Icon: FaDocker },
+      { name: "React", Icon: FaReact },
     ],
     description:
       "Practice Code is a scalable remote execution engine for safe, high-volume submissions. It orchestrates Docker containers via RabbitMQ for isolated runs, with a Spring Boot API gateway, PostgreSQL tracking, and an auto-scaling worker pool.",
@@ -40,14 +49,14 @@ const selectedWorks = [
     category: "BACKEND SYSTEMS / 2025",
     title: "DIY CCTV",
     Visual: SystemArchitectureImage,
-    Flowchart: Judge0FlowSVG,
+    Flowchart: CCTVFlowSVG,
     techStacks: [
-      { name: "Python", Icon: SiSpringboot },
-      { name: "Docker", Icon: FaJava },
-      { name: "React", Icon: FaJava },
+      { name: "ESP3266", Icon: FaMicrochip },
+      { name: "FFMPEG", Icon: FaVideo },
+      { name: "Python", Icon: FaPython },
     ],
     description:
-      "Practice Code is a scalable remote execution engine for safe, high-volume submissions. It orchestrates Docker containers via RabbitMQ for isolated runs, with a Spring Boot API gateway, PostgreSQL tracking, and an auto-scaling worker pool.",
+      "DIY CCTV is a self-hosted CCTV automation stack. It captures streams, overlays time and health metrics, records segments, restreams RTSP feeds, logs motion, exposes a FastAPI service, and sends Telegram summaries.",
   },
 ];
 

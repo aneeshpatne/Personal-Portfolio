@@ -12,13 +12,6 @@ const Judge0FlowSVG = () => {
         <stop offset="0%" stopColor="rgba(255, 255, 255, 0.08)" />
         <stop offset="100%" stopColor="rgba(255, 255, 255, 0.02)" />
       </linearGradient>
-      <filter id={`${prefix}sGlow`} x="-50%" y="-50%" width="200%" height="200%">
-        <feGaussianBlur stdDeviation="4" result="coloredBlur" />
-        <feMerge>
-          <feMergeNode in="coloredBlur" />
-          <feMergeNode in="SourceGraphic" />
-        </feMerge>
-      </filter>
       <marker
         id={`${prefix}arrowhead`}
         markerWidth="10"
@@ -122,17 +115,6 @@ const Judge0FlowSVG = () => {
           <text x="60" y="30" textAnchor="middle" fill={textColor} fontSize="11" className={styles.svgText}>Isolated Container 3</text>
         </g>
 
-        {/* Particles */}
-        {/* C -> S */}
-        <circle r="3" fill="#fff" filter="url(#hsGlow)"><animateMotion dur="3s" repeatCount="indefinite" path="M140 120 L200 120" /></circle>
-        {/* S -> RMQ */}
-        <circle r="3" fill={accentColor} filter="url(#hsGlow)"><animateMotion dur="3s" begin="0.5s" repeatCount="indefinite" path="M320 120 L380 120" /></circle>
-        {/* RMQ -> Docker */}
-        <circle r="3" fill={secondaryAccent} filter="url(#hsGlow)"><animateMotion dur="2s" begin="1.5s" repeatCount="indefinite" path="M480 120 L540 120" /></circle>
-        {/* Docker -> C1 */}
-        <circle r="2" fill="#fff" filter="url(#hsGlow)"><animateMotion dur="2s" begin="2s" repeatCount="indefinite" path="M660 120 C690 120, 690 45, 720 45" /></circle>
-        {/* Docker -> C3 */}
-        <circle r="2" fill="#fff" filter="url(#hsGlow)"><animateMotion dur="2s" begin="2.5s" repeatCount="indefinite" path="M660 120 C690 120, 690 195, 720 195" /></circle>
       </svg>
 
 
@@ -209,10 +191,6 @@ const Judge0FlowSVG = () => {
           <text x="50" y="30" textAnchor="middle" fill={textColor} fontSize="10" className={styles.svgText}>Container 3</text>
         </g>
 
-        {/* Particles */}
-        <circle r="3" fill="#fff" filter="url(#vsGlow)"><animateMotion dur="2s" repeatCount="indefinite" path="M180 80 L180 120" /></circle>
-        <circle r="3" fill={accentColor} filter="url(#vsGlow)"><animateMotion dur="2s" begin="0.5s" repeatCount="indefinite" path="M180 200 L180 240" /></circle>
-        <circle r="3" fill={secondaryAccent} filter="url(#vsGlow)"><animateMotion dur="2s" begin="1s" repeatCount="indefinite" path="M180 300 L180 340" /></circle>
       </svg>
     </>
   );
