@@ -2,8 +2,15 @@
 
 import { motion } from "framer-motion";
 import { MessageSquareMore, Sparkles } from "lucide-react";
+import { Lexend } from "next/font/google";
 import styles from "./style/ResumeAI.module.css";
 import { useChatContext } from "./ChatContext";
+
+const lexend = Lexend({
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  display: "swap",
+});
 
 export function ResumeAI() {
   const { openChat } = useChatContext();
@@ -16,8 +23,6 @@ export function ResumeAI() {
       transition={{ duration: 0.4, ease: "easeOut" }}
       style={{ "--status-color": "#3b82f6" }} // Blue color for AI
     >
-      <div className={styles.spotlight} />
-
       {/* Header: Label + Icon */}
       <div className={styles.header}>
         <div className={styles.titleGroup}>
@@ -31,8 +36,8 @@ export function ResumeAI() {
 
       {/* Main Content: Description */}
       <div className={styles.mainContent}>
-        <h3 className={styles.mainTitle}>Curious about my background?</h3>
-        <p className={styles.description}>
+        <h3 className={`${styles.mainTitle} ${lexend.className}`}>Curious about my background?</h3>
+        <p className={`${styles.description} ${lexend.className}`}>
           Ask questions about my skills, experience, and projects.
         </p>
       </div>
