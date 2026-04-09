@@ -10,7 +10,14 @@ import {
   XAxis,
   YAxis,
 } from "recharts";
+import { Lexend } from "next/font/google";
 import styles from "./style/WeatherGraph.module.css";
+
+const lexend = Lexend({
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  display: "swap",
+});
 
 const TEMP_COLOR = "#ff7a59";
 const HUMI_COLOR = "#22d3ee";
@@ -79,9 +86,9 @@ export default function WeatherGraphClient({ data }) {
       <div className={styles.wrapper}>
         <div className={styles.card}>
           <div className={styles.headlineRow}>
-            <h3 className={styles.title}>Weather Trend</h3>
+            <h3 className={`${styles.title} ${lexend.className}`}>Weather Trend</h3>
           </div>
-          <p className={styles.empty}>No graph data available right now.</p>
+          <p className={`${styles.empty} ${lexend.className}`}>No graph data available right now.</p>
         </div>
       </div>
     );
@@ -99,7 +106,7 @@ export default function WeatherGraphClient({ data }) {
     <div className={styles.wrapper}>
       <div className={styles.card}>
         <div className={styles.headlineRow}>
-          <h3 className={styles.title}>Temperature + Humidity Trend</h3>
+          <h3 className={`${styles.title} ${lexend.className}`}>Temperature + Humidity Trend</h3>
           <span className={styles.badge}>Powered by Mausam API</span>
         </div>
 
