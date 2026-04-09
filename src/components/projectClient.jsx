@@ -12,6 +12,13 @@ import styles from "./style/ProjectNew.module.css";
 import { mapper } from "./data";
 import { useState, Suspense } from "react";
 import { FolderX } from "lucide-react";
+import { Lexend } from "next/font/google";
+
+const lexend = Lexend({
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  display: "swap",
+});
 
 export function ProjectContainerWrapper({ processedData, tags }) {
   const [filter, setFilter] = useState({ sort: "default", filter: [] });
@@ -129,7 +136,7 @@ export function ProjectContainer({
           alt="Project Image"
         />
         <div className={styles.overlay}>
-          <h2 className={styles.overlayText}>{name}</h2>
+          <h2 className={`${styles.overlayText} ${lexend.className}`}>{name}</h2>
         </div>
       </div>
       <div className={styles.lowerContainer}>
@@ -138,7 +145,6 @@ export function ProjectContainer({
             <TechPill
               key={index}
               name={tech}
-              color={mapper[tech]?.color}
               icon={mapper[tech]?.icon}
             />
           ))}
