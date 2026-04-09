@@ -2,7 +2,14 @@
 import { useMemo } from "react";
 import { motion } from "framer-motion";
 import { Cloud, Wind, AlertTriangle, Leaf, Activity } from "lucide-react";
+import { Lexend } from "next/font/google";
 import styles from "./style/PM25.module.css";
+
+const lexend = Lexend({
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  display: "swap",
+});
 
 const STATUS_COLORS = {
   red: "#EF4444", // Unhealthy
@@ -78,8 +85,6 @@ export function PM25Client({ value, remark, alertColor }) {
       transition={{ duration: 0.4, ease: "easeOut" }}
       style={{ "--status-color": color }}
     >
-      <div className={styles.spotlight} />
-
       {/* Header: Label + Icon */}
       <div className={styles.header}>
         <div className={styles.titleGroup}>
@@ -95,7 +100,7 @@ export function PM25Client({ value, remark, alertColor }) {
       <div className={styles.mainContent}>
         <div className={styles.valueRow}>
           <motion.span
-            className={styles.value}
+            className={`${styles.value} ${lexend.className}`}
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.1, duration: 0.4 }}
@@ -109,7 +114,9 @@ export function PM25Client({ value, remark, alertColor }) {
       {/* Footer: Remark Only */}
       <div className={styles.footer}>
         <div className={styles.statusRow}>
-          <span className={styles.remark}>{hasValue ? displayRemark : ""}</span>
+          <span className={`${styles.remark} ${lexend.className}`}>
+            {hasValue ? displayRemark : ""}
+          </span>
         </div>
       </div>
     </motion.div>
