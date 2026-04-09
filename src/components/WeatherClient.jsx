@@ -6,6 +6,10 @@ import { motion } from "framer-motion";
 export function WeatherClient({ temp, humidity, pressure, remark, alertColor, fontClassName }) {
   // Use the API-provided remark, or fallback logic if missing
   const displayRemark = remark || (temp > 30 ? "It's quite hot outside" : (temp < 10 ? "Chilly weather today" : "Pleasant conditions"));
+  const formatValue = (value) =>
+    value === null || value === undefined || value === "" || Number.isNaN(Number(value))
+      ? "--"
+      : Number(value).toFixed(1);
   
   // Map alert colors to hex values
   const getAlertColor = (color) => {
@@ -77,7 +81,7 @@ export function WeatherClient({ temp, humidity, pressure, remark, alertColor, fo
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ delay: 0.1, duration: 0.4 }}
                 >
-                  {temp ?? "--"}
+                  {formatValue(temp)}
                 </motion.span>
                 <span className={styles.unit}>°C</span>
               </div>
@@ -119,7 +123,7 @@ export function WeatherClient({ temp, humidity, pressure, remark, alertColor, fo
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ delay: 0.2, duration: 0.4 }}
                 >
-                  {humidity ?? "--"}
+                  {formatValue(humidity)}
                 </motion.span>
                 <span className={styles.unit}>%</span>
               </div>
@@ -168,7 +172,7 @@ export function WeatherClient({ temp, humidity, pressure, remark, alertColor, fo
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ delay: 0.3, duration: 0.4 }}
                 >
-                  {pressure ?? "--"}
+                  {formatValue(pressure)}
                 </motion.span>
                 <span className={styles.unit}>hPa</span>
               </div>
