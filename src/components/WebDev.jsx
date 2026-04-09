@@ -218,14 +218,14 @@ export default function WebDev() {
             ))}
           </div>
         </div>
-        <div className={styles.style7}>
+        {/* <div className={styles.style7}>
           <div className={styles.title}>
             <span className={styles.titleText}>Across the Stack</span>
           </div>
           <div className={styles.logo}>
             <img src="/assets/img/neurology.svg" alt="" />
           </div>
-          {/* <div className={styles.skillBox7}>
+          <div className={styles.skillBox7}>
             <Marquee
               gradient={false}
               speed={75}
@@ -242,8 +242,8 @@ export default function WebDev() {
                 </div>
               ))}
             </Marquee>
-          </div> */}
-        </div>
+          </div>
+        </div> */}
       </div>
     </section>
   );
