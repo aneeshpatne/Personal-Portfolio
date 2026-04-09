@@ -1,4 +1,4 @@
-import { Instrument_Serif } from "next/font/google";
+import { Instrument_Serif, Lexend } from "next/font/google";
 import { PM25 } from "./PM25";
 import { News } from "./News";
 import { Weather } from "./Weather";
@@ -10,9 +10,9 @@ import { Status } from "./Status";
 import { IntelWorld } from "./IntelWorld";
 import { IntelIndia } from "./IntelIndia";
 
-const instrumentSerif = Instrument_Serif({
+const instrumentSerif = Lexend({
   subsets: ["latin"],
-  weight: "400",
+  weight: "500",
   display: "swap",
 });
 
@@ -21,7 +21,7 @@ export function APIShowCase() {
     <section className={styles.section}>
       <div className={styles.header}>
         <h2 className={`${styles.title} ${instrumentSerif.className}`}>
-          API showcase
+          API Showcase
         </h2>
         <p className={styles.subtitle}>
           Live snapshots from the APIs I have built.
