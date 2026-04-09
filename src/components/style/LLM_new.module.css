@@ -212,21 +212,125 @@
   display: none;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
+  .LLMContainer {
+    padding: 2rem 1.5rem;
+    gap: 2.5rem;
+  }
+
   .projectContainer {
     flex-direction: column;
   }
 
   .textContainer {
-    padding: 20px;
+    padding: 22px 28px 24px;
   }
 
   .ProjectTitle {
-    font-size: 2.25rem;
+    font-size: clamp(2.2rem, 5vw, 3rem);
   }
 
   .bottomContainer {
-    padding: 20px;
+    padding: 24px 28px 28px;
+  }
+}
+
+@media (max-width: 768px) {
+  .LLMContainer {
+    margin: 2.5rem auto;
+    padding: 1.5rem 1rem;
+    gap: 2rem;
+  }
+
+  .Heading {
+    font-size: clamp(2.5rem, 12vw, 4rem);
+    line-height: 0.95;
+  }
+
+  .Subtext {
+    font-size: 1rem;
+    margin-top: 0.4rem;
+  }
+
+  .Item {
+    gap: 1.5rem;
+  }
+
+  .ItemText {
+    font-size: 1rem;
+    line-height: 1.6;
+    text-align: left;
+  }
+
+  .HeadingText {
+    font-size: clamp(2rem, 8vw, 2.8rem);
+    margin: 0.5rem 0;
+    line-height: 1.05;
+    letter-spacing: 0.04em;
+  }
+
+  .projectsHeader {
+    margin-top: 1rem;
+    padding-bottom: 0.75rem;
+  }
+
+  .pageTitle {
+    font-size: clamp(2.3rem, 11vw, 3.8rem);
+    line-height: 0.95;
+  }
+
+  .projectContainer {
+    flex-direction: column;
+  }
+
+  .textContainer {
+    padding: 18px 16px 20px;
+  }
+
+  .textContainer > span {
+    font-size: 0.72rem;
+    letter-spacing: 0.22em;
+  }
+
+  .ProjectTitle {
+    font-size: clamp(2rem, 8vw, 2.45rem);
+    padding: 8px 0 10px;
+    line-height: 1;
+  }
+
+  .TechStackRow {
+    gap: 0.45rem;
+  }
+
+  .TechStackItem {
+    width: 100%;
+    min-width: 0;
+    height: 36px;
+  }
+
+  .TechStackLogo {
+    width: 42px;
+  }
+
+  .TechStackIcon {
+    font-size: 1rem;
+  }
+
+  .TechStackName {
+    padding: 0 0.65rem;
+    font-size: 0.88rem;
+  }
+
+  .ProjectText {
+    max-width: none;
+    padding: 12px 0 0;
+    font-size: 0.98rem;
+    line-height: 1.65;
+  }
+
+  .bottomContainer {
+    min-height: 0;
+    padding: 18px 16px 20px;
   }
 }
 
@@ -237,5 +341,64 @@
 
   .FlowchartSvgVertical {
     display: block;
+  }
+}
+
+@media (max-width: 480px) {
+  .LLMContainer {
+    padding: 1.25rem 0.9rem;
+    gap: 1.75rem;
+  }
+
+  .Heading {
+    font-size: 2.2rem;
+  }
+
+  .Subtext {
+    font-size: 0.94rem;
+  }
+
+  .HeadingText {
+    font-size: 1.8rem;
+    letter-spacing: 0.03em;
+  }
+
+  .pageTitle {
+    font-size: 2.15rem;
+  }
+
+  .textContainer {
+    padding: 16px 14px 18px;
+  }
+
+  .textContainer > span {
+    font-size: 0.68rem;
+    letter-spacing: 0.18em;
+  }
+
+  .ProjectTitle {
+    font-size: 1.8rem;
+  }
+
+  .TechStackItem {
+    height: 34px;
+  }
+
+  .TechStackLogo {
+    width: 38px;
+  }
+
+  .TechStackName {
+    font-size: 0.82rem;
+    padding: 0 0.55rem;
+  }
+
+  .ProjectText {
+    font-size: 0.94rem;
+    line-height: 1.6;
+  }
+
+  .bottomContainer {
+    padding: 16px 14px 18px;
   }
 }
