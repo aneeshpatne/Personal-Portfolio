@@ -1,14 +1,29 @@
 import styles from "./style/WebDev.module.css";
 import { Lexend, Space_Grotesk } from "next/font/google";
+import Marquee from "react-fast-marquee";
 import {
+  SiAmazon,
+  SiCloudflare,
+  SiCss3,
   SiDjango,
   SiExpress,
+  SiFirebase,
   SiFlask,
+  SiFramer,
+  SiGooglecloud,
+  SiHtml5,
   SiJavascript,
+  SiMongodb,
   SiNodedotjs,
+  SiPostgresql,
   SiPython,
+  SiReact,
+  SiRedis,
+  SiSqlite,
+  SiTailwindcss,
   SiTypescript,
   SiVercel,
+  SiNextdotjs,
 } from "react-icons/si";
 import { FaJava, FaRocket, FaRobot } from "react-icons/fa";
 import { TbDatabase, TbLink } from "react-icons/tb";
@@ -48,6 +63,39 @@ const ai = [
 const languages = [
   { name: "Python", icon: <SiPython size={16} /> },
   { name: "JavaScript", icon: <SiJavascript size={16} /> },
+  { name: "TypeScript", icon: <SiTypescript size={16} /> },
+  { name: "Java", icon: <FaJava size={16} /> },
+  { name: "SQL", icon: <TbDatabase size={16} /> },
+];
+
+const marqueeSkills = [
+  { name: "Next.js", icon: <SiNextdotjs size={16} /> },
+  { name: "React", icon: <SiReact size={16} /> },
+  { name: "JavaScript", icon: <SiJavascript size={16} /> },
+  { name: "HTML", icon: <SiHtml5 size={16} /> },
+  { name: "CSS", icon: <SiCss3 size={16} /> },
+  { name: "Tailwind", icon: <SiTailwindcss size={16} /> },
+  { name: "Framer Motion", icon: <SiFramer size={16} /> },
+  { name: "Node.js", icon: <SiNodedotjs size={16} /> },
+  { name: "Express", icon: <SiExpress size={16} /> },
+  { name: "Flask", icon: <SiFlask size={16} /> },
+  { name: "FastAPI", icon: <FaRocket size={16} /> },
+  { name: "Django", icon: <SiDjango size={16} /> },
+  { name: "Firebase", icon: <SiFirebase size={16} /> },
+  { name: "GCP", icon: <SiGooglecloud size={16} /> },
+  { name: "AWS", icon: <SiAmazon size={16} /> },
+  { name: "Vercel", icon: <SiVercel size={16} /> },
+  { name: "Cloudflare", icon: <SiCloudflare size={16} /> },
+  { name: "PostgreSQL", icon: <SiPostgresql size={16} /> },
+  { name: "MongoDB", icon: <SiMongodb size={16} /> },
+  { name: "Redis", icon: <SiRedis size={16} /> },
+  { name: "SQLite", icon: <SiSqlite size={16} /> },
+  { name: "Automated Chatbot", icon: <FaRobot size={16} /> },
+  { name: "Vercel AI SDK", icon: <SiVercel size={16} /> },
+  { name: "LangChain", icon: <TbLink size={16} /> },
+  { name: "RAG Pipelines", icon: <FaRocket size={16} /> },
+  { name: "Prompt Engineering", icon: <TbLink size={16} /> },
+  { name: "Python", icon: <SiPython size={16} /> },
   { name: "TypeScript", icon: <SiTypescript size={16} /> },
   { name: "Java", icon: <FaJava size={16} /> },
   { name: "SQL", icon: <TbDatabase size={16} /> },
@@ -170,7 +218,33 @@ export default function WebDev() {
             ))}
           </div>
         </div>
-        <div className={styles.style7}></div>
+        <div className={styles.style7}>
+          <div className={styles.title}>
+            <span className={styles.titleText}>Across the Stack</span>
+          </div>
+          <div className={styles.logo}>
+            <img src="/assets/img/psychology.svg" alt="" />
+          </div>
+          <div className={styles.skillBox7}>
+            <Marquee
+              gradient={false}
+              speed={100}
+              pauseOnHover
+              autoFill
+              className={styles.marquee}
+            >
+              {marqueeSkills.map((item, index) => (
+                <div
+                  key={`${item.name}-${index}`}
+                  className={styles.marqueeItem}
+                >
+                  <div className={styles.marqueeLogo}>{item.icon}</div>
+                  <div className={styles.marqueeName}>{item.name}</div>
+                </div>
+              ))}
+            </Marquee>
+          </div>
+        </div>
       </div>
     </section>
   );

@@ -194,6 +194,14 @@
   margin-top: 12px;
   padding-top: 16px;
 }
+
+.skillBox7 {
+  width: 100%;
+  margin-top: 12px;
+  padding-top: 16px;
+  border-top: 1px solid var(--color-bg-surface-elevated);
+  overflow: hidden;
+}
 .skill1 {
   position: relative;
   display: flex;
@@ -285,6 +293,40 @@
   font-size: 0.95rem;
   font-weight: 500;
   line-height: 1.2;
+}
+
+.marquee {
+  width: 100%;
+  overflow: hidden;
+}
+
+.marqueeItem {
+  display: flex;
+  align-items: stretch;
+  min-height: 34px;
+  margin-right: 12px;
+  background-color: var(--color-bg-surface-elevated);
+}
+
+.marqueeLogo {
+  width: 36px;
+  min-width: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-secondary);
+  color: #fff;
+}
+
+.marqueeName {
+  display: flex;
+  align-items: center;
+  padding: 0 0.72rem;
+  color: #fff;
+  font-size: 0.86rem;
+  font-weight: 500;
+  line-height: 1.2;
+  white-space: nowrap;
 }
 
 .skillLogo {
@@ -459,6 +501,25 @@
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 10px;
     padding-top: 14px;
+  }
+
+  .skillBox7 {
+    padding-top: 14px;
+  }
+
+  .marqueeItem {
+    min-height: 32px;
+    margin-right: 10px;
+  }
+
+  .marqueeLogo {
+    width: 32px;
+    min-width: 32px;
+  }
+
+  .marqueeName {
+    padding: 0 0.65rem;
+    font-size: 0.82rem;
   }
 
   .skill1 {
