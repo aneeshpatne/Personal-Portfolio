@@ -223,13 +223,12 @@ export default function WebDev() {
             <span className={styles.titleText}>Across the Stack</span>
           </div>
           <div className={styles.logo}>
-            <img src="/assets/img/psychology.svg" alt="" />
+            <img src="/assets/img/neurology.svg" alt="" />
           </div>
           <div className={styles.skillBox7}>
             <Marquee
               gradient={false}
-              speed={100}
-              pauseOnHover
+              speed={75}
               autoFill
               className={styles.marquee}
             >
