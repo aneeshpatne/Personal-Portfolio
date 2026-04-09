@@ -3,8 +3,21 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import styles from "./style/AICarousel.module.css";
+import { Lexend } from "next/font/google";
 
-const words = ["API Integration", "RAG", "Prompt Engineering", "AI Summarised News Letters", "AI Web Scraping"];
+const words = [
+  "API Integration",
+  "RAG",
+  "Prompt Engineering",
+  "AI Summarised News Letters",
+  "AI Web Scraping",
+];
+
+const lexend = Lexend({
+  subsets: ["latin"],
+  weight: "500",
+  display: "swap",
+});
 
 const useWordCycle = (words, interval) => {
   const [index, setIndex] = useState(0);
@@ -25,7 +38,7 @@ export default function TextCarousel() {
   return (
     <div className={styles.container}>
       <div className={styles.content}>
-        <h1 className={styles.title}>Expert in</h1>
+        <h1 className={`${styles.title} ${lexend.className}`}>Expert in</h1>
         <div className={styles.wordContainer}>
           <AnimatePresence mode="wait">
             <motion.span
@@ -34,7 +47,7 @@ export default function TextCarousel() {
               animate={{ y: 0, opacity: 1 }}
               exit={{ y: -20, opacity: 0 }}
               transition={{ duration: 0.3 }}
-              className={styles.word}
+              className={`${styles.word} ${lexend.className}`}
             >
               {word}
             </motion.span>

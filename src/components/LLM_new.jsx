@@ -1,5 +1,5 @@
 "use client";
-import { Instrument_Serif } from "next/font/google";
+import { Instrument_Serif, Lexend } from "next/font/google";
 import styles from "./style/LLM_new.module.css";
 import { useEffect, useState } from "react";
 import { AnimatePresence } from "framer-motion";
@@ -11,6 +11,12 @@ import { TazaKhabarFlowchart } from "./TazaKhabarFlowchart.jsx";
 const instrumentSerif = Instrument_Serif({
   weight: "400",
   subsets: ["latin"],
+});
+
+const lexend = Lexend({
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  display: "swap",
 });
 
 const headings = [
@@ -33,7 +39,7 @@ export function LLM_new() {
   return (
     <div className={styles.LLMContainer}>
       <div className={styles.HeadingContainer}>
-        <h1 className={`${styles.Heading}  ${instrumentSerif.className}`}>
+        <h1 className={`${styles.Heading} ${lexend.className}`}>
           Artificial Intelligence
         </h1>
         <p className={styles.Subtext}>
@@ -46,7 +52,7 @@ export function LLM_new() {
           architectures, vector databases, multi-LLM orchestration, real-time
           streaming, and agentic tool calling.
         </p>
-        <h1 className={styles.HeadingText}>
+        <h1 className={`${styles.HeadingText} ${lexend.className}`}>
           <AnimatePresence mode="wait">
             <motion.div
               key={headings[index]}
