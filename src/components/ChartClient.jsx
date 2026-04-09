@@ -2,6 +2,13 @@
 import React, { useState, useEffect, useMemo } from "react";
 import { Pie, PieChart, Cell, Tooltip, Label } from "recharts";
 import styles from "./style/chart.module.css";
+import { Lexend } from "next/font/google";
+
+const lexend = Lexend({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  display: "swap",
+});
 
 const CustomTooltip = ({ active, payload }) => {
   if (active && payload && payload.length) {
@@ -37,7 +44,7 @@ const Legend = ({ data }) => (
 
 export default function DoughnutChart({ chartData }) {
   const [mounted, setMounted] = useState(false);
-  
+
   const totalSolved = useMemo(
     () => chartData.reduce((acc, curr) => acc + curr.solved, 0),
     [chartData],
@@ -72,7 +79,10 @@ export default function DoughnutChart({ chartData }) {
       <div className={styles.chartHeader}>DSA Progress</div>
       <div className={styles.chartContent}>
         <PieChart width={300} height={300}>
-          <Tooltip content={<CustomTooltip />} cursor={{ fill: "transparent" }} />
+          <Tooltip
+            content={<CustomTooltip />}
+            cursor={{ fill: "transparent" }}
+          />
           <Pie
             data={chartData}
             dataKey="solved"
@@ -80,12 +90,12 @@ export default function DoughnutChart({ chartData }) {
             innerRadius={90}
             outerRadius={105}
             stroke="none"
-            paddingAngle={5}
-            cornerRadius={4}
+            paddingAngle={0}
+            cornerRadius={0}
           >
             {chartData.map((entry, index) => (
-              <Cell 
-                key={`cell-${index}`} 
+              <Cell
+                key={`cell-${index}`}
                 fill={entry.fill}
                 stroke="rgba(0,0,0,0)"
               />
@@ -103,7 +113,7 @@ export default function DoughnutChart({ chartData }) {
                       <tspan
                         x={viewBox.cx}
                         y={viewBox.cy - 8}
-                        className={styles.chartTotal}
+                        className={`${styles.chartTotal} ${lexend.className}`}
                       >
                         {totalSolved}
                       </tspan>
