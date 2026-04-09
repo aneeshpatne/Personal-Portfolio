@@ -225,7 +225,7 @@ export default function WebDev() {
           <div className={styles.logo}>
             <img src="/assets/img/neurology.svg" alt="" />
           </div>
-          <div className={styles.skillBox7}>
+          {/* <div className={styles.skillBox7}>
             <Marquee
               gradient={false}
               speed={75}
@@ -242,7 +242,7 @@ export default function WebDev() {
                 </div>
               ))}
             </Marquee>
-          </div>
+          </div> */}
         </div>
       </div>
     </section>
