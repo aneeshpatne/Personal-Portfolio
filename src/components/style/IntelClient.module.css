@@ -6,7 +6,7 @@
   --card-bg: #1c1c1c;
   --card-border: rgba(255, 255, 255, 0.08);
   --card-border-hover: rgba(255, 255, 255, 0.14);
-  
+
   position: relative;
   width: 100%;
   height: 100%;
@@ -19,7 +19,7 @@
   border: 1px solid var(--card-border);
   color: #e4e4e7;
   overflow: hidden;
-  transition: 
+  transition:
     border-color 0.3s ease,
     transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
@@ -114,7 +114,8 @@
   text-transform: uppercase;
   color: var(--trend-color, #ef4444);
   background: color-mix(in srgb, var(--trend-color, #ef4444) 10%, transparent);
-  border: 1px solid color-mix(in srgb, var(--trend-color, #ef4444) 25%, transparent);
+  border: 1px solid
+    color-mix(in srgb, var(--trend-color, #ef4444) 25%, transparent);
 }
 
 .trendBadge::before {
@@ -127,8 +128,15 @@
 }
 
 @keyframes pulse {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.5; transform: scale(1.2); }
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(1.2);
+  }
 }
 
 /* ── Gauge ── */
@@ -168,16 +176,17 @@
   font-variant-numeric: tabular-nums;
   color: #fafafa;
   letter-spacing: -0.02em;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
 }
 
 .scoreLabel {
-  font-size: 9px;
+  font-size: 0.8rem;
   text-transform: uppercase;
-  letter-spacing: 0.2em;
-  color: #3f3f46;
+  letter-spacing: 5px;
+  color: var(--color-secondary);
   margin-top: 8px;
-  font-weight: 500;
+  font-weight: 300;
 }
 
 /* ── Factors grid ── */
@@ -197,7 +206,9 @@
   display: flex;
   flex-direction: column;
   min-height: 85px;
-  transition: background 0.2s ease, border-color 0.2s ease;
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease;
 }
 
 .factorCard:hover {

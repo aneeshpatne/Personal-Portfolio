@@ -5,11 +5,11 @@ import styles from "./style/IntelClient.module.css";
 import { useEffect, useState } from "react";
 
 const ALERT_COLORS = {
-  red: "#ef4444",
-  amber: "#f59e0b",
-  orange: "#f59e0b",
-  green: "#10b981",
-  yellow: "#eab308",
+  red: "#ee7f8e",
+  amber: "#ecb35f",
+  orange: "#ee9a67",
+  green: "#69c9a2",
+  yellow: "#dfca68",
 };
 
 function SpeedometerGauge({ score, alertColor }) {
@@ -20,7 +20,7 @@ function SpeedometerGauge({ score, alertColor }) {
   const cx = 100;
   const cy = 100;
   const r = 80;
-  const strokeWidth = 8;
+  const strokeWidth = 12;
 
   // Helper: angle in degrees (180 = left, 0 = right) → SVG coordinates
   // Round to 2 decimal places to prevent SSR/client hydration mismatches
@@ -58,7 +58,7 @@ function SpeedometerGauge({ score, alertColor }) {
           fill="none"
           stroke="rgba(255,255,255,0.08)"
           strokeWidth={strokeWidth}
-          strokeLinecap="round"
+          strokeLinecap="butt"
         />
         {/* Filled arc */}
         {fraction > 0 && (
@@ -67,22 +67,9 @@ function SpeedometerGauge({ score, alertColor }) {
             fill="none"
             stroke={color}
             strokeWidth={strokeWidth}
-            strokeLinecap="round"
+            strokeLinecap="butt"
           />
         )}
-        {/* Needle dot */}
-        <circle
-          cx={needle.x}
-          cy={needle.y}
-          r={5}
-          fill={color}
-        />
-        <circle
-          cx={needle.x}
-          cy={needle.y}
-          r={2.5}
-          fill="#0f0f0f"
-        />
         {/* Tick labels */}
         <text x={arcStart.x - 2} y={arcStart.y + 16} className={styles.tickLabel} textAnchor="middle">
           0
