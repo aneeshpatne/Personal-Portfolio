@@ -1,0 +1,292 @@
+.container {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.header {
+  width: 100%;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+
+.pageTitle {
+  font-size: clamp(3rem, 5vw, 6rem);
+  line-height: 0.9;
+  color: #fff;
+  margin: 0;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+.pageTitle span {
+  display: block;
+}
+
+.secondaryText {
+  color: var(--color-secondary);
+}
+
+.projectWrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.projectContainer {
+  display: flex;
+  height: 400px;
+  width: 100%;
+  background-color: var(--color-bg-surface);
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+
+.imageContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 400px;
+  height: 100%;
+  background-color: var(--color-bg-surface-sunken);
+}
+
+.textContainer {
+  padding: 20px 40px;
+  display: flex;
+  flex-direction: column;
+}
+
+.textContainer > span {
+  display: block;
+  color: var(--color-secondary);
+  font-size: 0.8rem;
+  letter-spacing: 5px;
+}
+
+.title {
+  font-size: 3rem;
+  padding: 10px 0;
+}
+
+.techStackContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.techStackItem {
+  display: flex;
+  height: 40px;
+  min-width: 200px;
+  flex: 0 0 auto;
+  background-color: var(--color-bg-surface-elevated);
+  align-items: center;
+}
+
+.techStackLogo {
+  background-color: var(--color-secondary);
+  height: 100%;
+  width: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.techStackIcon {
+  font-size: 1.15rem;
+}
+
+.techStackName {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0 0.75rem;
+  color: var(--color-text-primary);
+  font-size: 0.95rem;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.ProjectText {
+  max-width: 70ch;
+  margin: 0;
+  padding: 10px 0;
+  color: rgba(226, 232, 240, 0.82);
+  font-size: clamp(1rem, 1.15vw, 1.1rem);
+  line-height: 1.75;
+  letter-spacing: 0.01em;
+  text-wrap: pretty;
+}
+
+.HighlightTitle {
+  display: inline;
+  color: var(--color-secondary);
+  font-size: 1em;
+  font-weight: 600;
+  line-height: inherit;
+  letter-spacing: normal;
+}
+
+.bottomContainer {
+  width: 100%;
+  min-height: 160px;
+  padding: 28px 40px 32px;
+  background-color: var(--color-bg-surface-elevated);
+  display: flex;
+  align-items: flex-start;
+}
+
+@media (max-width: 1024px) {
+  .projectContainer {
+    height: auto;
+    flex-direction: column;
+  }
+
+  .imageContainer {
+    width: 100%;
+    min-height: 280px;
+    padding: 24px;
+  }
+
+  .textContainer {
+    padding: 24px 28px 28px;
+  }
+
+  .title {
+    font-size: clamp(2.2rem, 5vw, 3rem);
+  }
+
+  .bottomContainer {
+    padding: 24px 28px 28px;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 2.5rem 1rem;
+    gap: 1.5rem;
+  }
+
+  .header {
+    margin-bottom: 0.5rem;
+    padding-bottom: 0.75rem;
+  }
+
+  .pageTitle {
+    font-size: clamp(2.5rem, 12vw, 4rem);
+    line-height: 0.95;
+  }
+
+  .projectWrapper {
+    gap: 0;
+  }
+
+  .imageContainer {
+    min-height: 220px;
+    padding: 16px;
+  }
+
+  .textContainer {
+    padding: 18px 16px 20px;
+  }
+
+  .textContainer > span {
+    font-size: 0.72rem;
+    letter-spacing: 0.22em;
+  }
+
+  .title {
+    font-size: clamp(2rem, 8vw, 2.45rem);
+    padding: 8px 0 10px;
+    line-height: 1;
+  }
+
+  .techStackContainer {
+    gap: 0.45rem;
+  }
+
+  .techStackItem {
+    min-width: 0;
+    width: 100%;
+    height: 36px;
+  }
+
+  .techStackLogo {
+    width: 42px;
+  }
+
+  .techStackIcon {
+    font-size: 1rem;
+  }
+
+  .techStackName {
+    padding: 0 0.65rem;
+    font-size: 0.88rem;
+  }
+
+  .ProjectText {
+    max-width: none;
+    padding: 12px 0 0;
+    font-size: 0.98rem;
+    line-height: 1.65;
+  }
+
+  .bottomContainer {
+    min-height: 0;
+    padding: 18px 16px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .pageTitle {
+    font-size: 2.35rem;
+  }
+
+  .imageContainer {
+    min-height: 200px;
+    padding: 12px;
+  }
+
+  .textContainer {
+    padding: 16px 14px 18px;
+  }
+
+  .textContainer > span {
+    font-size: 0.68rem;
+    letter-spacing: 0.18em;
+  }
+
+  .title {
+    font-size: 1.8rem;
+  }
+
+  .techStackItem {
+    height: 34px;
+  }
+
+  .techStackLogo {
+    width: 38px;
+  }
+
+  .techStackName {
+    font-size: 0.82rem;
+    padding: 0 0.55rem;
+  }
+
+  .ProjectText {
+    font-size: 0.94rem;
+    line-height: 1.6;
+  }
+
+  .bottomContainer {
+    padding: 16px 14px 18px;
+  }
+}

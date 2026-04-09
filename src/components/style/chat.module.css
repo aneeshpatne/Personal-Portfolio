@@ -45,20 +45,20 @@
    BLACK THEME (Pure black pages)
    ═══════════════════════════════════════════════════════════════════════════════ */
 .chatContainer.blackTheme {
-  --chat-bg: #000;
-  --chat-surface: #0a0a0a;
-  --chat-surface-hover: #111111;
+  --chat-bg: #131313;
+  --chat-surface: #1c1c1c;
+  --chat-surface-hover: #262626;
   --chat-border: #1a1a1a;
-  background: #000;
+  background: #131313;
 }
 
 .chatContainer.blackTheme .chatHeader {
-  background: #000;
+  background: #131313;
   border-bottom-color: #1a1a1a;
 }
 
 .chatContainer.blackTheme .chatInputContainer {
-  background: #000;
+  background: #131313;
   border-top-color: #1a1a1a;
 }
 

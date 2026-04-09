@@ -3,14 +3,21 @@
 import { AnimatePresence, motion } from "framer-motion";
 import styles from "./style/IntelClient.module.css";
 import { useEffect, useState } from "react";
+import { Lexend } from "next/font/google";
 
 const ALERT_COLORS = {
-  red: "#ef4444",
-  amber: "#f59e0b",
-  orange: "#f59e0b",
-  green: "#10b981",
-  yellow: "#eab308",
+  red: "#ee7f8e",
+  amber: "#ecb35f",
+  orange: "#ee9a67",
+  green: "#69c9a2",
+  yellow: "#dfca68",
 };
+
+const lexend = Lexend({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  display: "swap",
+});
 
 function SpeedometerGauge({ score, alertColor }) {
   const clampedScore = Math.max(0, Math.min(100, score));
@@ -20,7 +27,7 @@ function SpeedometerGauge({ score, alertColor }) {
   const cx = 100;
   const cy = 100;
   const r = 80;
-  const strokeWidth = 8;
+  const strokeWidth = 12;
 
   // Helper: angle in degrees (180 = left, 0 = right) → SVG coordinates
   // Round to 2 decimal places to prevent SSR/client hydration mismatches
@@ -58,7 +65,7 @@ function SpeedometerGauge({ score, alertColor }) {
           fill="none"
           stroke="rgba(255,255,255,0.08)"
           strokeWidth={strokeWidth}
-          strokeLinecap="round"
+          strokeLinecap="butt"
         />
         {/* Filled arc */}
         {fraction > 0 && (
@@ -67,32 +74,31 @@ function SpeedometerGauge({ score, alertColor }) {
             fill="none"
             stroke={color}
             strokeWidth={strokeWidth}
-            strokeLinecap="round"
+            strokeLinecap="butt"
           />
         )}
-        {/* Needle dot */}
-        <circle
-          cx={needle.x}
-          cy={needle.y}
-          r={5}
-          fill={color}
-        />
-        <circle
-          cx={needle.x}
-          cy={needle.y}
-          r={2.5}
-          fill="#0f0f0f"
-        />
         {/* Tick labels */}
-        <text x={arcStart.x - 2} y={arcStart.y + 16} className={styles.tickLabel} textAnchor="middle">
+        <text
+          x={arcStart.x - 2}
+          y={arcStart.y + 16}
+          className={styles.tickLabel}
+          textAnchor="middle"
+        >
           0
         </text>
-        <text x={arcEnd.x + 2} y={arcEnd.y + 16} className={styles.tickLabel} textAnchor="middle">
+        <text
+          x={arcEnd.x + 2}
+          y={arcEnd.y + 16}
+          className={styles.tickLabel}
+          textAnchor="middle"
+        >
           100
         </text>
       </svg>
       <div className={styles.gaugeValue}>
-        <span className={styles.scoreNumber}>{score.toFixed(1)}</span>
+        <span className={`${styles.scoreNumber} ${lexend.className}`}>
+          {score.toFixed(0)}
+        </span>
         <span className={styles.scoreLabel}>Stability Index</span>
       </div>
     </div>
@@ -146,7 +152,11 @@ function RotatingFactor({ items, type }) {
   );
 }
 
-export default function IntelClient({ data, title = "Powered by Intel API", region = "World" }) {
+export default function IntelClient({
+  data,
+  title = "Powered by Intel API",
+  region = "World",
+}) {
   if (!data) return null;
 
   const score = Number(data.score ?? 0);
@@ -161,31 +171,33 @@ export default function IntelClient({ data, title = "Powered by Intel API", regi
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, ease: "easeOut" }}
     >
-      <div className={styles.glow} />
+      <div className={styles.innerWrapper}>
+        <div className={styles.contentSection}>
+        {/* Header */}
+          <div className={styles.header}>
+            <div className={styles.leftGroup}>
+              <span className={styles.regionBadge}>{region}</span>
+              <span
+                className={styles.trendBadge}
+                style={{
+                  "--trend-color": trendColor,
+                }}
+              >
+                {trend}
+              </span>
+            </div>
+            <span className={styles.apiBadge}>{title}</span>
+          </div>
 
-      {/* Header */}
-      <div className={styles.header}>
-        <div className={styles.leftGroup}>
-          <span className={styles.regionBadge}>{region}</span>
-          <span
-            className={styles.trendBadge}
-            style={{
-              "--trend-color": trendColor,
-            }}
-          >
-            {trend}
-          </span>
+          {/* Gauge */}
+          <SpeedometerGauge score={score} alertColor={alertColor} />
+
+          {/* Rotating factors */}
+          <div className={styles.factorsGrid}>
+            <RotatingFactor items={data.top_stabilizers} type="stabilizer" />
+            <RotatingFactor items={data.top_risk_factors} type="risk" />
+          </div>
         </div>
-        <span className={styles.apiBadge}>{title}</span>
-      </div>
-
-      {/* Gauge */}
-      <SpeedometerGauge score={score} alertColor={alertColor} />
-
-      {/* Rotating factors */}
-      <div className={styles.factorsGrid}>
-        <RotatingFactor items={data.top_stabilizers} type="stabilizer" />
-        <RotatingFactor items={data.top_risk_factors} type="risk" />
       </div>
 
       {/* Footer */}
@@ -195,9 +207,8 @@ export default function IntelClient({ data, title = "Powered by Intel API", regi
           <p className={styles.cautionText}>
             This section surfaces real-time intelligence from the{" "}
             <strong>Intel API</strong>. Assessments may be incomplete or
-            inaccurate and{" "}
-            <strong>do not represent Aneesh&apos;s views</strong>. Provided
-            solely for informational purposes. Please{" "}
+            inaccurate and <strong>do not represent Aneesh&apos;s views</strong>
+            . Provided solely for informational purposes. Please{" "}
             <strong>verify details with primary sources</strong> before acting.
           </p>
         </div>

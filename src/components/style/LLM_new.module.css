@@ -13,7 +13,7 @@
 
 .HeadingText {
   font-size: clamp(2.5rem, 5vw, 4rem);
-  font-weight: 800;
+  font-weight: 600;
   text-transform: uppercase;
   color: #ffffff;
   margin: 1.5rem 0;
@@ -52,7 +52,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1.5rem;
+  gap: 2rem;
   width: 100%;
 }
 
@@ -64,79 +64,129 @@
   text-align: center;
 }
 
-.ShowcaseSection {
+.projectsHeader {
+  width: 100%;
+  margin-top: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+
+.projectsContainer {
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 3rem;
-  margin-top: 3rem;
-  align-items: center;
+  gap: 2rem;
 }
 
-.ShowcaseTitle {
-  font-size: clamp(2rem, 3.5vw, 3rem);
-  text-align: left;
+.pageTitle {
+  font-size: clamp(3rem, 5vw, 6rem);
+  line-height: 0.9;
   color: #fff;
   margin: 0;
-  line-height: 1.2;
-  width: 100%;
+  font-weight: 600;
+  letter-spacing: -0.02em;
 }
 
-.ShowcaseCard {
-  width: 100%;
-  border-radius: 24px;
-  background: linear-gradient(
-    180deg,
-    rgba(255, 255, 255, 0.03) 0%,
-    rgba(255, 255, 255, 0.01) 100%
-  );
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  padding: 3rem;
+.pageTitle span {
+  display: block;
+}
+
+.secondaryText {
+  color: var(--color-secondary);
+}
+
+.projectWrapper {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
-  box-shadow: 0 4px 24px -1px rgba(0, 0, 0, 0.2);
-  backdrop-filter: blur(10px);
-  position: relative;
-  overflow: hidden;
+  width: 100%;
 }
 
-/* Subtle gloss effect */
-.ShowcaseCard::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
+.projectContainer {
+  display: flex;
   width: 100%;
-  height: 1px;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255, 255, 255, 0.2),
-    transparent
-  );
+  background-color: var(--color-bg-surface);
+  border-bottom: 1px solid var(--color-border-subtle);
 }
 
-.CardTextContent {
-  width: 100%;
-  max-width: 900px;
-  text-align: left;
-  z-index: 1;
+.textContainer {
+  padding: 24px 40px 28px;
+  display: flex;
+  flex-direction: column;
+}
+
+.textContainer > span {
+  display: block;
+  color: var(--color-secondary);
+  font-size: 0.8rem;
+  letter-spacing: 5px;
+}
+
+.ProjectTitle {
+  font-size: 3rem;
+  padding: 10px 0;
+  color: #fff;
+  margin: 0;
 }
 
 .ProjectText {
-  font-size: clamp(1.1rem, 1.5vw, 1.25rem);
-  line-height: 1.7;
-  color: rgba(226, 232, 240, 0.85);
+  max-width: 110ch;
   margin: 0;
-  text-align: left;
+  padding: 10px 0;
+  color: rgba(226, 232, 240, 0.82);
+  font-size: clamp(1rem, 1.15vw, 1.1rem);
+  line-height: 1.75;
+  letter-spacing: 0.01em;
+  text-wrap: pretty;
 }
 
-.HighlightTitle {
-  color: #fff;
-  font-weight: 600;
-  font-size: 1.1em;
-  text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+.TechStackRow {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.TechStackItem {
+  display: flex;
+  align-items: center;
+  height: 40px;
+  min-width: 180px;
+  background-color: var(--color-bg-surface-elevated);
+}
+
+.TechStackLogo {
+  height: 100%;
+  width: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-secondary);
+}
+
+.TechStackIcon {
+  font-size: 1.15rem;
+}
+
+.TechStackName {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding: 0 0.75rem;
+  color: var(--color-text-primary);
+  font-size: 0.95rem;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.bottomContainer {
+  width: 100%;
+  min-height: 160px;
+  padding: 28px 40px 32px;
+  background-color: var(--color-bg-surface-elevated);
+  display: flex;
+  align-items: flex-start;
 }
 
 .FlowchartWrapper {
@@ -162,13 +212,125 @@
   display: none;
 }
 
-@media (max-width: 768px) {
-  .ShowcaseCard {
+@media (max-width: 1024px) {
+  .LLMContainer {
     padding: 2rem 1.5rem;
+    gap: 2.5rem;
   }
 
-  .MausamText {
-    text-align: center;
+  .projectContainer {
+    flex-direction: column;
+  }
+
+  .textContainer {
+    padding: 22px 28px 24px;
+  }
+
+  .ProjectTitle {
+    font-size: clamp(2.2rem, 5vw, 3rem);
+  }
+
+  .bottomContainer {
+    padding: 24px 28px 28px;
+  }
+}
+
+@media (max-width: 768px) {
+  .LLMContainer {
+    margin: 2.5rem auto;
+    padding: 1.5rem 1rem;
+    gap: 2rem;
+  }
+
+  .Heading {
+    font-size: clamp(2.5rem, 12vw, 4rem);
+    line-height: 0.95;
+  }
+
+  .Subtext {
+    font-size: 1rem;
+    margin-top: 0.4rem;
+  }
+
+  .Item {
+    gap: 1.5rem;
+  }
+
+  .ItemText {
+    font-size: 1rem;
+    line-height: 1.6;
+    text-align: left;
+  }
+
+  .HeadingText {
+    font-size: clamp(2rem, 8vw, 2.8rem);
+    margin: 0.5rem 0;
+    line-height: 1.05;
+    letter-spacing: 0.04em;
+  }
+
+  .projectsHeader {
+    margin-top: 1rem;
+    padding-bottom: 0.75rem;
+  }
+
+  .pageTitle {
+    font-size: clamp(2.3rem, 11vw, 3.8rem);
+    line-height: 0.95;
+  }
+
+  .projectContainer {
+    flex-direction: column;
+  }
+
+  .textContainer {
+    padding: 18px 16px 20px;
+  }
+
+  .textContainer > span {
+    font-size: 0.72rem;
+    letter-spacing: 0.22em;
+  }
+
+  .ProjectTitle {
+    font-size: clamp(2rem, 8vw, 2.45rem);
+    padding: 8px 0 10px;
+    line-height: 1;
+  }
+
+  .TechStackRow {
+    gap: 0.45rem;
+  }
+
+  .TechStackItem {
+    width: 100%;
+    min-width: 0;
+    height: 36px;
+  }
+
+  .TechStackLogo {
+    width: 42px;
+  }
+
+  .TechStackIcon {
+    font-size: 1rem;
+  }
+
+  .TechStackName {
+    padding: 0 0.65rem;
+    font-size: 0.88rem;
+  }
+
+  .ProjectText {
+    max-width: none;
+    padding: 12px 0 0;
+    font-size: 0.98rem;
+    line-height: 1.65;
+  }
+
+  .bottomContainer {
+    min-height: 0;
+    padding: 18px 16px 20px;
   }
 }
 
@@ -179,5 +341,64 @@
 
   .FlowchartSvgVertical {
     display: block;
+  }
+}
+
+@media (max-width: 480px) {
+  .LLMContainer {
+    padding: 1.25rem 0.9rem;
+    gap: 1.75rem;
+  }
+
+  .Heading {
+    font-size: 2.2rem;
+  }
+
+  .Subtext {
+    font-size: 0.94rem;
+  }
+
+  .HeadingText {
+    font-size: 1.8rem;
+    letter-spacing: 0.03em;
+  }
+
+  .pageTitle {
+    font-size: 2.15rem;
+  }
+
+  .textContainer {
+    padding: 16px 14px 18px;
+  }
+
+  .textContainer > span {
+    font-size: 0.68rem;
+    letter-spacing: 0.18em;
+  }
+
+  .ProjectTitle {
+    font-size: 1.8rem;
+  }
+
+  .TechStackItem {
+    height: 34px;
+  }
+
+  .TechStackLogo {
+    width: 38px;
+  }
+
+  .TechStackName {
+    font-size: 0.82rem;
+    padding: 0 0.55rem;
+  }
+
+  .ProjectText {
+    font-size: 0.94rem;
+    line-height: 1.6;
+  }
+
+  .bottomContainer {
+    padding: 16px 14px 18px;
   }
 }

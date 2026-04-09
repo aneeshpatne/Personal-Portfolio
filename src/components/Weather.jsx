@@ -1,9 +1,9 @@
-import { Fira_Code } from "next/font/google";
+import { Lexend } from "next/font/google";
 import { WeatherClient } from "./WeatherClient";
 
-const firaCode = Fira_Code({
+const lexend = Lexend({
   subsets: ["latin"],
-  weight: ["400", "500", "700"],
+  weight: ["400", "500", "600"],
   display: "swap",
 });
 
@@ -37,8 +37,7 @@ export async function Weather() {
       pressure={pressure}
       remark={remark}
       alertColor={alert_color}
-      fontClassName={firaCode.className}
+      fontClassName={lexend.className}
     />
   );
 }
-

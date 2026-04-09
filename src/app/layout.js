@@ -1,12 +1,10 @@
-import { Raleway } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
 import "../components/style/header.css";
 import Footer from "@/components/Footer";
 import { GoogleAnalytics } from "@next/third-parties/google";
-const raleway = Raleway({
+const inter = Inter({
   subsets: ["latin"],
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
-  style: ["normal", "italic"],
   display: "swap",
 });
 
@@ -69,7 +67,7 @@ export default function RootLayout({ children }) {
   };
 
   return (
-    <html lang="en" className={raleway.className}>
+    <html lang="en" className={inter.className}>
       <head>
         {/* <script
           crossOrigin="anonymous"

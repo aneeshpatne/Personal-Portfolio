@@ -4,6 +4,15 @@ import { Clock } from "lucide-react";
 import { getDomain, getDomainWithoutSuffix } from "tldts";
 import styles from "./style/News.module.css";
 import { useEffect, useState } from "react";
+import { Lexend } from "next/font/google";
+
+const lexend = Lexend({
+  subsets: ["latin"],
+  weight: "600",
+  style: ["normal"],
+  variable: "--font-instrument-serif",
+});
+
 function getSourceDomain(source) {
   const normalized = source.trim().toLowerCase();
   return getDomain(normalized, { allowPrivateDomains: true });
@@ -60,88 +69,92 @@ export function BreakingNewsClient({ data = [] }) {
       transition={{ duration: 0.5, ease: "easeOut" }}
       onDragStart={(event) => event.preventDefault()}
     >
-      <div className={`${styles.glow} ${styles.breakingGlow}`} />
-
-      <div className={styles.header}>
-        <div className={styles.leftGroup}>
-          <span className={`${styles.liveBadge} ${styles.breakingBadge}`}>
-            BREAKING NEWS
-          </span>
-          <div className={styles.dateContainer}>
-            <Clock size={12} className={styles.dateIcon} />
-            <span className={styles.date}>{displayDate}</span>
-          </div>
-        </div>
-        <span className={styles.apiBadge}>Powered by Khoj API</span>
-      </div>
-
-      <div className={styles.content}>
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={displayKey}
-            initial={{ opacity: 0, y: 8 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -8 }}
-            transition={{ duration: 0.35, ease: "easeOut" }}
-          >
-            <div className={styles.storyRow}>
-              <div className={styles.storyText}>
-                <h3 className={styles.title}>{displayTitle}</h3>
-                <p className={styles.description}>{displayDesc}</p>
-                <div className={styles.metaRow}>
-                  <div className={styles.sourceList}>
-                    {displaySources.map((source, sourceIndex) => {
-                      const domain = getSourceDomain(source);
-                      const label = getSourceLabel(source);
-                      const faviconUrl = domain
-                        ? `https://www.google.com/s2/favicons?sz=64&domain=${encodeURIComponent(domain)}`
-                        : null;
-                      const href = source;
-                      return (
-                        <a
-                          key={`${source}-${sourceIndex}`}
-                          className={styles.sourcePill}
-                          href={href ?? undefined}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          aria-label={
-                            domain ? `Open source ${domain}` : "Unknown source"
-                          }
-                        >
-                          {faviconUrl ? (
-                            <img
-                              src={faviconUrl}
-                              alt=""
-                              aria-hidden="true"
-                              className={styles.sourceFavicon}
-                              draggable={false}
-                            />
-                          ) : null}
-                          <span className={styles.sourceName}>
-                            {label ?? "unknown"}
-                          </span>
-                        </a>
-                      );
-                    })}
-                  </div>
-                  <span className={styles.metaPill}>{displayGenre}</span>
-                </div>
-              </div>
-              {ogUrl && !hideOgImage ? (
-                <div className={styles.ogImageWrap}>
-                  <img
-                    src={ogUrl}
-                    alt={displayTitle}
-                    className={styles.ogImage}
-                    loading="lazy"
-                    draggable={false}
-                    onError={() => setHideOgImage(true)}
-                  />
-                </div>
-              ) : null}
+      <div className={styles.innerWrapper}>
+        <div className={styles.header}>
+          <div className={styles.leftGroup}>
+            <span className={`${styles.liveBadge} ${styles.breakingBadge}`}>
+              BREAKING NEWS
+            </span>
+            <div className={styles.dateContainer}>
+              <Clock size={12} className={styles.dateIcon} />
+              <span className={styles.date}>{displayDate}</span>
             </div>
-          </motion.div>
-        </AnimatePresence>
+          </div>
+          <span className={styles.apiBadge}>Powered by Khoj API</span>
+        </div>
+
+        <div className={styles.content}>
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={displayKey}
+              initial={{ opacity: 0, y: 8 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -8 }}
+              transition={{ duration: 0.35, ease: "easeOut" }}
+            >
+              <div className={styles.storyRow}>
+                <div className={styles.storyText}>
+                  <h3 className={`${styles.title} ${lexend.className}`}>
+                    {displayTitle}
+                  </h3>
+                  <p className={styles.description}>{displayDesc}</p>
+                  <div className={styles.metaRow}>
+                    <div className={styles.sourceList}>
+                      {displaySources.map((source, sourceIndex) => {
+                        const domain = getSourceDomain(source);
+                        const label = getSourceLabel(source);
+                        const faviconUrl = domain
+                          ? `https://www.google.com/s2/favicons?sz=64&domain=${encodeURIComponent(domain)}`
+                          : null;
+                        const href = source;
+                        return (
+                          <a
+                            key={`${source}-${sourceIndex}`}
+                            className={styles.sourcePill}
+                            href={href ?? undefined}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label={
+                              domain
+                                ? `Open source ${domain}`
+                                : "Unknown source"
+                            }
+                          >
+                            {faviconUrl ? (
+                              <img
+                                src={faviconUrl}
+                                alt=""
+                                aria-hidden="true"
+                                className={styles.sourceFavicon}
+                                draggable={false}
+                              />
+                            ) : null}
+                            <span className={styles.sourceName}>
+                              {label ?? "unknown"}
+                            </span>
+                          </a>
+                        );
+                      })}
+                    </div>
+                    <span className={styles.metaPill}>{displayGenre}</span>
+                  </div>
+                </div>
+                {ogUrl && !hideOgImage ? (
+                  <div className={styles.ogImageWrap}>
+                    <img
+                      src={ogUrl}
+                      alt={displayTitle}
+                      className={styles.ogImage}
+                      loading="lazy"
+                      draggable={false}
+                      onError={() => setHideOgImage(true)}
+                    />
+                  </div>
+                ) : null}
+              </div>
+            </motion.div>
+          </AnimatePresence>
+        </div>
       </div>
 
       <div className={styles.footerWrapper}>

@@ -15,6 +15,7 @@ import ProjectNew from "./project";
 import { LLM_new } from "./LLM_new";
 import { APIShowCase } from "./APIShowCase";
 import { ChatProvider } from "./ChatContext";
+import { SystemArchitectureNew } from "./SystemArchitectureNew";
 
 export default function HomePage() {
   return (
@@ -27,7 +28,8 @@ export default function HomePage() {
         <Profile />
         <section id="skills">
           <WebDev />
-          <SystemArchitecture />
+          {/* <SystemArchitecture /> */}
+          <SystemArchitectureNew />
           <DSA />
           <LLM_new />
           <APIShowCase />

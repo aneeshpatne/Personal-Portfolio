@@ -5,15 +5,24 @@ html {
 }
 
 :root {
-  --dark-bg: #010104;
+  --color-primary: #6366f1;
+  --color-secondary: #8083ff;
+  --color-tertiary: #b1b2f8;
+  --color-bg-main: #131313;
+  --color-bg-surface: #1c1c1c;
+  --color-bg-surface-sunken: #181818;
+  --color-bg-surface-elevated: #ffffff06;
+  --color-bg-logo-surface: #2a2a2a;
+
+  --dark-bg: var(--color-bg-main);
   --dark-bg-btn: #f5f5f5;
   --dark-bg-accent: #616161;
   --dark-bg-sec: #e9ecef;
-  --dark-bg-outline: #010104;
+  --dark-bg-outline: var(--color-bg-main);
   --dark-text: #ffffff;
   --dark-secondary-color: #1e2831;
   --light-bg: #f6f9fc;
-  --light-bg-btn: #010104;
+  --light-bg-btn: var(--color-bg-main);
   --light-bg-accent: #c1bebe;
   --light-bg-backup: #f5f0e1;
   --light-text: #000000;
@@ -24,17 +33,19 @@ html {
   --gradient-mid: #22d3ee;
   --gradient-end: #5eead4;
   --text-color: #e5e7eb;
-  --background-color: #000000;
+  --background-color: var(--color-bg-main);
   --binary-bg-start: rgba(30, 58, 138, 0.2);
   --binary-bg-end: rgba(15, 118, 110, 0.2);
   /* Global app background (synced with project page) */
-  --app-bg: #0c0c0d;
+  --app-bg: var(--color-bg-main);
+  --color-border-subtle: rgba(255, 255, 255, 0.1);
 }
 
 body {
   background-color: var(--app-bg);
   color: var(--dark-text);
-  transition: background-color var(--transition-time) ease,
+  transition:
+    background-color var(--transition-time) ease,
     color var(--transition-time) ease;
   font-style: normal;
 }
@@ -82,7 +93,7 @@ img {
 
   /* Use this instead of a media query - the component theme can be set */
   /* independent of the system color scheme. */
-  &[data-color-scheme='dark'] {
+  &[data-color-scheme="dark"] {
     background-color: hsl(0 0% 94%);
     color: hsl(0 0% 6%);
 

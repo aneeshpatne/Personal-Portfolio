@@ -1,9 +1,27 @@
 import styles from "./style/newAboutMe.module.css";
-
+import { Lexend } from "next/font/google";
+const lexend = Lexend({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  display: "swap",
+});
 export default function Profile() {
   return (
     <section className={styles.profileSection} aria-labelledby="about-heading">
       <div className={styles.inner}>
+        <div className={styles.textContainer}>
+          <div className={`${styles.text} ${lexend.className}`}>
+            <span>Turning</span>
+            <span>Ideas</span>
+            <span>Into</span>
+            <span className={styles.secondaryText}>Reality</span>
+          </div>
+          <div className={styles.finePrint}>
+            <span>
+              I build at the intersection of <strong className={styles.highlight}>AI</strong>, <strong className={styles.highlight}>system design</strong>, and <strong className={styles.highlight}>product thinking</strong>, transforming ambiguity into impact.
+            </span>
+          </div>
+        </div>
         <div className={styles.polaroidWrapper}>
           <figure className={styles.polaroid}>
             <img
@@ -14,31 +32,7 @@ export default function Profile() {
               className={styles.polaroidImage}
               loading="lazy"
             />
-            <figcaption className={styles.polaroidCaption}>
-              Aneesh • 2025
-            </figcaption>
           </figure>
-        </div>
-        <div className={styles.textBlock}>
-          <h2 id="about-heading" className={styles.heading}>
-            About Me
-          </h2>
-          <p className={styles.lead}>
-            I build <span className={styles.accent}>scalable</span> systems with
-            code and data bridging AI, strong engineering, and thoughtful design
-            for smooth, reliable experiences.
-          </p>
-          <p className={styles.body}>
-            Currently exploring the intersection of{" "}
-            <span className={styles.accent}>AI</span>, system design, and
-            developer tooling. I enjoy turning ambiguous ideas into simple,
-            reliable products.
-          </p>
-          <ul className={styles.quickList}>
-            <li>Pragmatic problem solver</li>
-            <li>Learning always</li>
-            <li>Designing for maintainability</li>
-          </ul>
         </div>
       </div>
     </section>

@@ -12,13 +12,6 @@ const CCTVFlowSVG = () => {
         <stop offset="0%" stopColor="rgba(255, 255, 255, 0.08)" />
         <stop offset="100%" stopColor="rgba(255, 255, 255, 0.02)" />
       </linearGradient>
-      <filter id={`${prefix}cGlow`} x="-50%" y="-50%" width="200%" height="200%">
-        <feGaussianBlur stdDeviation="4" result="coloredBlur" />
-        <feMerge>
-          <feMergeNode in="coloredBlur" />
-          <feMergeNode in="SourceGraphic" />
-        </feMerge>
-      </filter>
       <marker
         id={`${prefix}carrowhead`}
         markerWidth="10"
@@ -137,12 +130,6 @@ const CCTVFlowSVG = () => {
           <text x="70" y="21" textAnchor="middle" fill={textColor} fontSize="11" fontWeight="600" className={styles.svgText}>Telegram Bot</text>
         </g>
 
-        {/* Particles */}
-        <circle r="2.5" fill="#fff" filter="url(#hcGlow)"><animateMotion dur="2s" repeatCount="indefinite" path="M150 70 L210 70" /></circle>
-        <circle r="2.5" fill={lineColor} filter="url(#hcGlow)"><animateMotion dur="3s" repeatCount="indefinite" path="M390 240 L435 240" /></circle>
-        <circle r="2.5" fill={accentColor} filter="url(#hcGlow)"><animateMotion dur="4s" repeatCount="indefinite" path="M435 240 L435 177 L480 177" /></circle>
-        <circle r="2.5" fill={accentColor} filter="url(#hcGlow)"><animateMotion dur="4s" begin="1s" repeatCount="indefinite" path="M435 240 L435 303 L480 303" /></circle>
-
       </svg>
 
       {/* Vertical Layout (Mobile) */}
@@ -237,8 +224,6 @@ const CCTVFlowSVG = () => {
           <rect width="120" height="50" rx="6" fill="#222" stroke={lineColor} strokeDasharray="4 2" strokeWidth="1.5" />
           <text x="60" y="30" textAnchor="middle" fill={textColor} fontSize="11" fontWeight="600" className={styles.svgText}>Telegram</text>
         </g>
-
-        <circle r="3" fill="#fff" filter="url(#vccGlow)"><animateMotion dur="2s" repeatCount="indefinite" path="M400 90 L400 130" /></circle>
       </svg>
     </>
   );

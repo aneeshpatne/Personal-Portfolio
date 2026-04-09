@@ -3,45 +3,64 @@ const LockSVG = () => {
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 24 24"
-      width="256"
-      height="256"
+      width="200"
+      height="200"
       fill="none"
-      stroke="currentColor"
-      strokeWidth="0.5"
+      strokeWidth="0.75"
       strokeLinecap="round"
       strokeLinejoin="round"
-      style={{ overflow: "visible", color: "#F8FAFC" }}
+      style={{
+        overflow: "visible",
+        filter: "drop-shadow(0px 8px 16px rgba(255,255,255,0.1))",
+      }}
     >
-      <defs></defs>
+      <defs>
+        <linearGradient id="lock-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="rgba(255, 255, 255, 1)" />
+          <stop offset="100%" stopColor="rgba(255, 255, 255, 0.2)" />
+        </linearGradient>
+      </defs>
 
-      {/* Shackle - Tall, Thin, Elegant Arch */}
+      {/* Elegant tall curved shackle */}
       <path
-        d="M8.5 10 V 6 C 8.5 4.067 10.067 2.5 12 2.5 C 13.933 2.5 15.5 4.067 15.5 6 V 10"
-        stroke="rgba(255,255,255,0.5)"
+        d="M7 11V7C7 4.23858 9.23858 2 12 2C14.7614 2 17 4.23858 17 7V11"
+        stroke="url(#lock-gradient)"
+        strokeOpacity="0.7"
       />
 
-      {/* Body - Minimalist Rectangle with softened corners */}
+      {/* Ultra-minimalist body with soft rounded edges */}
       <rect
-        x="6.5"
-        y="10"
-        width="11"
-        height="12"
-        rx="1"
-        stroke="#fff"
-        strokeOpacity="0.9"
+        x="4"
+        y="11"
+        width="16"
+        height="11"
+        rx="2.5"
+        stroke="url(#lock-gradient)"
       />
 
-      {/* Core - Minimal vertical biometric scanner line */}
-      <path d="M12 14.5 V 17.5" stroke="rgba(255,255,255,0.4)" strokeWidth="0.5" />
+      {/* Sleek abstract center dot instead of traditional keyhole */}
+      <circle
+        cx="12"
+        cy="16.5"
+        r="1.25"
+        stroke="none"
+        fill="rgba(255,255,255,0.9)"
+      />
 
-      {/* Light Trace - Lean point following the shackle path */}
-      <circle r="0.4" fill="#fff">
+      {/* Ethereal glowing orb following the shackle */}
+      <circle r="0.6" fill="#fff" style={{ filter: "blur(0.5px)" }}>
         <animateMotion
-          dur="4s"
+          dur="5s"
           repeatCount="indefinite"
-          path="M8.5 10 V 6 C 8.5 4.067 10.067 2.5 12 2.5 C 13.933 2.5 15.5 4.067 15.5 6 V 10"
+          path="M7 11V7C7 4.23858 9.23858 2 12 2C14.7614 2 17 4.23858 17 7V11"
         />
-        <animate attributeName="opacity" values="0;0.9;0" keyTimes="0;0.5;1" dur="4s" repeatCount="indefinite" />
+        <animate
+          attributeName="opacity"
+          values="0;0.8;0"
+          keyTimes="0;0.5;1"
+          dur="5s"
+          repeatCount="indefinite"
+        />
       </circle>
     </svg>
   );

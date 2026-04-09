@@ -2,6 +2,13 @@
 import styles from "./style/ProjectNew.module.css";
 import { motion } from "framer-motion";
 import { useState } from "react";
+import { Lexend } from "next/font/google";
+
+const lexend = Lexend({
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  display: "swap",
+});
 
 export function ReadMoreText({ text, wordlimit = 13 }) {
   const words = text.split(" ");
@@ -32,12 +39,12 @@ export function Title() {
   return (
     <div className={styles.projectTitleContainer}>
       <motion.h1
-        className={styles.projectTitle}
+        className={`${styles.projectTitle} ${lexend.className}`}
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
       >
-        <span className={styles.gradientText}>Projects</span>
+        <span>Projects</span>
       </motion.h1>
       <motion.div
         className={styles.subtitleContainer}
