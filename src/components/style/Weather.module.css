@@ -9,65 +9,24 @@
 }
 
 .weatherCard {
-  --card-bg: #1c1c1c;
-  --card-border: rgba(255, 255, 255, 0.08);
-  --card-border-hover: rgba(255, 255, 255, 0.14);
   --accent: #38bdf8;
 
   position: relative;
   width: 100%;
   height: 100%;
   min-height: 220px;
-  background: var(--card-bg);
-  border-radius: 20px;
+  background-color: var(--color-bg-surface);
   padding: 26px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  border: 1px solid var(--card-border);
   overflow: hidden;
-  transition: 
-    border-color 0.3s ease,
-    transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
   color: #e4e4e7;
 }
 
-/* Top edge highlight */
-.weatherCard::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 26px;
-  right: 26px;
-  height: 1px;
-  background: linear-gradient(
-    90deg,
-    transparent 0%,
-    rgba(56, 189, 248, 0.15) 50%,
-    transparent 100%
-  );
-  z-index: 1;
-}
-
 .weatherCard:hover {
-  border-color: var(--card-border-hover);
   transform: translateY(-2px);
-}
-
-/* Subtle corner accent */
-.spotlight {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 180px;
-  height: 180px;
-  background: radial-gradient(
-    circle at top right,
-    rgba(56, 189, 248, 0.04) 0%,
-    transparent 60%
-  );
-  pointer-events: none;
-  z-index: 0;
 }
 
 /* ── Header ── */
@@ -90,10 +49,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(56, 189, 248, 0.08);
-  border-radius: 8px;
+  background-color: var(--color-bg-logo-surface);
   color: var(--accent);
-  border: 1px solid rgba(56, 189, 248, 0.15);
 }
 
 .label {
@@ -155,7 +112,6 @@
   letter-spacing: -0.02em;
   color: #fafafa;
   font-variant-numeric: tabular-nums;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
 }
 
 .unit {
@@ -213,10 +169,8 @@
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: #52525b;
-  border: 1px solid rgba(255, 255, 255, 0.06);
   padding: 6px 10px;
-  border-radius: 6px;
-  background: rgba(255, 255, 255, 0.03);
+  background-color: var(--color-bg-surface-elevated);
   white-space: nowrap;
 }
 
@@ -228,7 +182,6 @@
     height: auto;
     gap: 16px;
     padding: 22px;
-    border-radius: 16px;
   }
   
   .metricsRow {
