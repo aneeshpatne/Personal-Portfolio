@@ -79,6 +79,31 @@
   gap: 0.75rem;
   background-color: var(--color-bg-surface);
 }
+
+.style1::before,
+.style1::after {
+  content: "";
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  pointer-events: none;
+  opacity: 0.85;
+}
+
+.style1::before {
+  top: 0;
+  left: 0;
+  border-top: 2px solid var(--color-secondary);
+  border-left: 2px solid var(--color-secondary);
+}
+
+.style1::after {
+  right: 0;
+  bottom: 0;
+  border-right: 2px solid var(--color-secondary);
+  border-bottom: 2px solid var(--color-secondary);
+}
+
 .style2 {
   align-self: flex-start;
   display: flex;
@@ -101,6 +126,30 @@
   min-height: 280px;
   padding: 24px 20px 20px;
   background-color: var(--color-bg-surface);
+}
+
+.style3::before,
+.style3::after {
+  content: "";
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  pointer-events: none;
+  opacity: 0.85;
+}
+
+.style3::before {
+  top: 0;
+  right: 0;
+  border-top: 2px solid var(--color-secondary);
+  border-right: 2px solid var(--color-secondary);
+}
+
+.style3::after {
+  left: 0;
+  bottom: 0;
+  border-left: 2px solid var(--color-secondary);
+  border-bottom: 2px solid var(--color-secondary);
 }
 
 .style4 {
@@ -126,6 +175,30 @@
   background-color: var(--color-bg-surface);
 }
 
+.style5::before,
+.style5::after {
+  content: "";
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  pointer-events: none;
+  opacity: 0.85;
+}
+
+.style5::before {
+  top: 0;
+  left: 0;
+  border-top: 2px solid var(--color-secondary);
+  border-left: 2px solid var(--color-secondary);
+}
+
+.style5::after {
+  right: 0;
+  bottom: 0;
+  border-right: 2px solid var(--color-secondary);
+  border-bottom: 2px solid var(--color-secondary);
+}
+
 .style6 {
   align-self: flex-start;
   display: flex;
@@ -148,6 +221,30 @@
   min-height: 170px;
   padding: 24px 20px 20px;
   background-color: var(--color-bg-surface);
+}
+
+.style7::before,
+.style7::after {
+  content: "";
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  pointer-events: none;
+  opacity: 0.85;
+}
+
+.style7::before {
+  top: 0;
+  right: 0;
+  border-top: 2px solid var(--color-secondary);
+  border-right: 2px solid var(--color-secondary);
+}
+
+.style7::after {
+  right: 0;
+  bottom: 0;
+  border-right: 2px solid var(--color-secondary);
+  border-bottom: 2px solid var(--color-secondary);
 }
 .skillBox {
   display: flex;

@@ -29,6 +29,31 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
+}
+
+.LeftPanel::before,
+.LeftPanel::after {
+  content: "";
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  pointer-events: none;
+  opacity: 0.85;
+}
+
+.LeftPanel::before {
+  top: -2px;
+  left: -2px;
+  border-top: 2px solid var(--color-secondary);
+  border-left: 2px solid var(--color-secondary);
+}
+
+.LeftPanel::after {
+  right: -2px;
+  bottom: -2px;
+  border-right: 2px solid var(--color-secondary);
+  border-bottom: 2px solid var(--color-secondary);
 }
 
 .RightPanel {
@@ -38,6 +63,31 @@
   gap: 1.5rem;
   min-width: 0; /* Prevents overflow in flex items */
   max-width: 900px;
+  position: relative;
+}
+
+.RightPanel::before,
+.RightPanel::after {
+  content: "";
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  pointer-events: none;
+  opacity: 0.85;
+}
+
+.RightPanel::before {
+  top: -2px;
+  left: -2px;
+  border-top: 2px solid var(--color-secondary);
+  border-left: 2px solid var(--color-secondary);
+}
+
+.RightPanel::after {
+  right: -2px;
+  bottom: -2px;
+  border-right: 2px solid var(--color-secondary);
+  border-bottom: 2px solid var(--color-secondary);
 }
 
 .chart {
