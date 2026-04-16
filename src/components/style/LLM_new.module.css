@@ -267,6 +267,7 @@
     margin: 0.5rem 0;
     line-height: 1.05;
     letter-spacing: 0.04em;
+    min-height: calc(1.05em * 2);
   }
 
   .projectsHeader {
@@ -361,6 +362,7 @@
   .HeadingText {
     font-size: 1.8rem;
     letter-spacing: 0.03em;
+    min-height: calc(1.05em * 2);
   }
 
   .pageTitle {
