@@ -281,6 +281,11 @@
 @media (max-width: 600px) {
   .title {
     font-size: 1.25rem;
+    min-height: calc(1.3em * 2);
+  }
+
+  .description {
+    min-height: calc(1.65em * 3);
   }
 
   .card {
