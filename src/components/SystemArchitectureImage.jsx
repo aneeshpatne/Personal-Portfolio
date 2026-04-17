@@ -7,7 +7,7 @@ export function SystemArchitectureImage({ imageSrc = "/assets/img/cam.png" }) {
         <Image
           src={imageSrc}
           fill
-          sizes="(max-width: 1024px) 88vw, 360px"
+          sizes="(max-width: 1024px) 88vw, 460px"
           alt="DIY CCTV Cam"
           className={style.ProjectImage}
         />
