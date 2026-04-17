@@ -9,8 +9,6 @@ import {
 } from "react-icons/fa";
 import { SiSpringboot } from "react-icons/si";
 import styles from "./style/SystemArchitectureNew.module.css";
-import LockSVG from "./svg/LockSVG";
-import PracticeCoderSVG from "./svg/PracticeCoderSVG";
 import SurakshaFlowSVG from "./svg/SurakshaFlowSVG";
 import Judge0FlowSVG from "./svg/Judge0FlowSVG";
 import { SystemArchitectureImage } from "./SystemArchitectureImage";
@@ -21,7 +19,7 @@ const selectedWorks = [
     id: "suraksha",
     category: "BACKEND SYSTEMS / 2025",
     title: "Suraksha",
-    Visual: LockSVG,
+    previewSrc: "/assets/img/suraksha_showcase.png",
     Flowchart: SurakshaFlowSVG,
     techStacks: [
       { name: "SpringBoot", Icon: SiSpringboot },
@@ -34,7 +32,7 @@ const selectedWorks = [
     id: "practice-coder",
     category: "BACKEND SYSTEMS / 2025",
     title: "Practice Coder",
-    Visual: PracticeCoderSVG,
+    previewSrc: "/assets/img/code.png",
     Flowchart: Judge0FlowSVG,
     techStacks: [
       { name: "Python", Icon: FaPython },
@@ -48,7 +46,7 @@ const selectedWorks = [
     id: "CCTV",
     category: "BACKEND SYSTEMS / 2025",
     title: "DIY CCTV",
-    Visual: SystemArchitectureImage,
+    previewSrc: "/assets/img/cctv_showcase.png",
     Flowchart: CCTVFlowSVG,
     techStacks: [
       { name: "ESP3266", Icon: FaMicrochip },
@@ -86,7 +84,7 @@ export function SystemArchitectureNew() {
           id,
           category,
           title,
-          Visual,
+          previewSrc,
           Flowchart,
           techStacks,
           description,
@@ -94,7 +92,7 @@ export function SystemArchitectureNew() {
           <div className={styles.projectWrapper} key={id}>
             <div className={styles.projectContainer}>
               <div className={styles.imageContainer}>
-                <Visual />
+                <SystemArchitectureImage imageSrc={previewSrc} />
               </div>
               <div className={styles.textContainer}>
                 <span className={inter.className}>{category}</span>

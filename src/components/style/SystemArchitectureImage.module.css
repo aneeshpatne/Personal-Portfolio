@@ -11,6 +11,18 @@
   background-size: 20px 20px;
 }
 
+.ImageFrame {
+  position: relative;
+  width: 100%;
+  max-width: 420px;
+  height: 100%;
+  max-height: 300px;
+}
+
+.ProjectImage {
+  object-fit: contain;
+}
+
 .ArchitectureSvg {
   width: 100%;
   max-width: 420px;

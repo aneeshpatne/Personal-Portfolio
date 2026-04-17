@@ -1,14 +1,17 @@
 import style from "./style/SystemArchitectureImage.module.css";
 import Image from "next/image";
-export function SystemArchitectureImage() {
+export function SystemArchitectureImage({ imageSrc = "/assets/img/cam.png" }) {
   return (
     <div className={style.ImageContainer}>
-      <Image
-        src={"/assets/img/cam.png"}
-        width={350}
-        height={250}
-        alt="DIY CCTV Cam"
-      />
+      <div className={style.ImageFrame}>
+        <Image
+          src={imageSrc}
+          fill
+          sizes="(max-width: 1024px) 88vw, 360px"
+          alt="DIY CCTV Cam"
+          className={style.ProjectImage}
+        />
+      </div>
     </div>
   );
 }
