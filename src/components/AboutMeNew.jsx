@@ -18,7 +18,11 @@ export default function Profile() {
           </div>
           <div className={styles.finePrint}>
             <span>
-              I build at the intersection of <strong className={styles.highlight}>AI</strong>, <strong className={styles.highlight}>system design</strong>, and <strong className={styles.highlight}>product thinking</strong>, transforming ambiguity into impact.
+              I build at the intersection of
+              <strong className={styles.highlight}>AI</strong>,
+              <strong className={styles.highlight}>system design</strong>, and
+              <strong className={styles.highlight}>product thinking</strong>,
+              transforming ambiguity into impact.
             </span>
           </div>
         </div>
