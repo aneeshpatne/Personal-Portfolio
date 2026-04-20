@@ -1,0 +1,307 @@
+.card {
+  position: relative;
+  --card-padding: 26px;
+  width: 100%;
+  min-height: 420px;
+  background-color: var(--color-bg-surface);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.innerWrapper {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: var(--card-padding);
+}
+
+.header {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--color-bg-surface-elevated);
+  margin-bottom: 20px;
+  z-index: 2;
+}
+
+.leftGroup {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.apiBadge {
+  font-size: 10px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #52525b;
+  padding: 6px 10px;
+  background-color: var(--color-bg-surface-elevated);
+}
+
+.liveBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #93c5fd;
+  background-color: rgba(96, 165, 250, 0.12);
+}
+
+.liveBadge::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  background: #60a5fa;
+  animation: pulse 2.5s ease-in-out infinite;
+}
+
+.alertBadge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 6px 10px;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(1.2);
+  }
+}
+
+.content {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+
+.gaugeContainer {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 8px 0 24px;
+  z-index: 2;
+}
+
+.gaugeSvg {
+  width: 180px;
+  height: 108px;
+}
+
+.tickLabel {
+  font-size: 9px;
+  fill: #3f3f46;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+}
+
+.gaugeValue {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: -28px;
+}
+
+.scoreNumber {
+  font-size: 2.5rem;
+  line-height: 1;
+  font-weight: 400;
+  font-variant-numeric: tabular-nums;
+  color: #fafafa;
+  letter-spacing: -0.02em;
+}
+
+.scoreLabel {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  color: var(--color-secondary);
+  margin-top: 8px;
+  font-weight: 300;
+}
+
+.factorsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  z-index: 2;
+  flex: 1;
+}
+
+.factorCard {
+  background-color: var(--color-bg-surface-elevated);
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  min-height: 78px;
+}
+
+.factorHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+  padding-bottom: 6px;
+}
+
+.factorTitleRow {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.factorDot,
+.factorDotMuted {
+  width: 5px;
+  height: 5px;
+}
+
+.factorDotMuted {
+  background: #71717a;
+}
+
+.factorTitle {
+  font-size: 8px;
+  font-weight: 600;
+  color: #71717a;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.factorBody {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.alertMeta {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.alertCode {
+  font-size: 10px;
+  color: #71717a;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+.factorValue {
+  font-size: 1rem;
+  line-height: 1.2;
+  color: #fafafa;
+  letter-spacing: 0;
+  margin: 0;
+  font-weight: 500;
+}
+
+.factorText {
+  font-size: 12px;
+  line-height: 1.5;
+  color: #a1a1aa;
+  margin: 0;
+  font-weight: 400;
+}
+
+.footerWrapper {
+  width: 100%;
+  border-top: 1px solid var(--color-bg-surface-elevated);
+  z-index: 2;
+}
+
+.cautionContainer {
+  background-color: var(--color-bg-surface-sunken);
+  width: 100%;
+  padding: 14px var(--card-padding) var(--card-padding);
+}
+
+.cautionHeader {
+  display: block;
+  font-size: 8px;
+  font-weight: 600;
+  color: #3f3f46;
+  letter-spacing: 0.15em;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+}
+
+.cautionText {
+  font-size: 10px;
+  line-height: 1.5;
+  color: #52525b;
+  font-weight: 400;
+}
+
+.cautionText strong {
+  color: #71717a;
+  font-weight: 500;
+}
+
+@media (max-width: 600px) {
+  .card {
+    --card-padding: 20px;
+    min-height: auto;
+  }
+
+  .header {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .leftGroup {
+    flex-wrap: wrap;
+  }
+
+  .apiBadge {
+    margin-left: auto;
+  }
+
+  .factorsGrid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .gaugeSvg {
+    width: 160px;
+    height: 96px;
+  }
+
+  .scoreNumber {
+    font-size: 2rem;
+  }
+
+  .gaugeValue {
+    margin-top: -24px;
+  }
+
+  .factorText {
+    min-height: calc(1.45em * 2);
+  }
+
+  .factorBody {
+    align-items: flex-start;
+    min-height: calc(1.45em * 2);
+  }
+}
