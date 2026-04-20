@@ -30,7 +30,6 @@
   letter-spacing: 0;
 }
 
-/* Refined bento grid */
 .container {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
@@ -72,14 +71,18 @@
   }
 
   .container > *:nth-child(7) {
-    grid-column: span 4;
+    grid-column: span 12;
   }
 
   .container > *:nth-child(8) {
-    grid-column: span 8;
+    grid-column: span 4;
   }
 
   .container > *:nth-child(9) {
+    grid-column: span 8;
+  }
+
+  .container > *:nth-child(10) {
     grid-column: span 12;
   }
 }
