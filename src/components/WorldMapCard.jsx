@@ -1,28 +1,46 @@
-"use client";
-
-import dynamic from "next/dynamic";
+import WorldMapCardLoader from "./WorldMapCardLoader";
 import styles from "./style/WorldMapCard.module.css";
 
-const WorldMapCardClient = dynamic(() => import("./WorldMapCardClient"), {
-  ssr: false,
-  loading: () => (
-    <>
-      <div className={styles.mapShell}>
-        <div className={styles.mapFallback}>
-          <span className={styles.fallbackEyebrow}>Loading Map</span>
-          <p className={styles.fallbackText}>
-            Initializing Leaflet in the browser.
-          </p>
-        </div>
-        <div className={styles.mapGlow} />
-        <div className={styles.scanline} />
-      </div>
-      <div className={styles.legendPlaceholder} />
-    </>
-  ),
-});
+const DUMMY_POINTS = {
+  weather: [
+    { lat: 19.076, lng: 72.8777, label: "Mumbai rain" },
+    { lat: 13.0827, lng: 80.2707, label: "Chennai coast" },
+  ],
+  concern: [
+    { lat: 26.9124, lng: 75.7873, label: "Jaipur watch" },
+    { lat: 23.2599, lng: 77.4126, label: "Bhopal concern" },
+  ],
+  conflict: [
+    { lat: 34.0837, lng: 74.7973, label: "Srinagar tension" },
+  ],
+  emergency: [
+    { lat: 28.7041, lng: 77.1025, label: "Delhi emergency" },
+  ],
+};
 
-export function WorldMapCard() {
+function normalizePointGroups(groups = {}) {
+  const categories = ["weather", "concern", "conflict", "emergency"];
+
+  return categories.reduce((acc, category) => {
+    const points = Array.isArray(groups?.[category]) ? groups[category] : [];
+
+    acc[category] = points
+      .map((point) => ({
+        lat: Number(point?.lat),
+        lng: Number(point?.lng),
+        label: typeof point?.label === "string" ? point.label : "",
+      }))
+      .filter(
+        (point) => Number.isFinite(point.lat) && Number.isFinite(point.lng),
+      );
+
+    return acc;
+  }, {});
+}
+
+export async function WorldMapCard({ pointGroups = DUMMY_POINTS }) {
+  const normalizedPointGroups = normalizePointGroups(pointGroups);
+
   return (
     <div className={styles.card}>
       <div className={styles.innerWrapper}>
@@ -35,7 +53,7 @@ export function WorldMapCard() {
 
         <div className={styles.content}>
           <div className={styles.mapStage}>
-            <WorldMapCardClient />
+            <WorldMapCardLoader pointGroups={normalizedPointGroups} />
             <div className={styles.mapGlow} />
             <div className={styles.scanline} />
           </div>
