@@ -1,12 +1,38 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
-import { GeoJSON, MapContainer, useMap } from "react-leaflet";
+import { Fragment, useEffect, useMemo, useState } from "react";
+import { CircleMarker, GeoJSON, MapContainer, Tooltip, useMap } from "react-leaflet";
 import { feature } from "topojson-client";
 import styles from "./style/WorldMapCard.module.css";
 
 const INDIA_OUTLINE_URL = "/assets/json/outline_of_india.topo.json";
 const INDIA_OBJECT_KEY = "Outline_of_India";
+const CATEGORY_STYLES = {
+  weather: {
+    color: "rgba(56, 189, 248, 0.95)",
+    radius: 4.5,
+    weight: 1.5,
+    fillOpacity: 0.95,
+  },
+  concern: {
+    color: "rgba(250, 204, 21, 0.95)",
+    radius: 5,
+    weight: 2,
+    fillOpacity: 0.28,
+  },
+  conflict: {
+    color: "rgba(251, 146, 60, 0.95)",
+    radius: 5.5,
+    weight: 2,
+    fillOpacity: 0.72,
+  },
+  emergency: {
+    color: "rgba(248, 113, 113, 0.98)",
+    radius: 6,
+    weight: 2.4,
+    fillOpacity: 0.92,
+  },
+};
 
 function collectBounds(coordinates, bounds = {
   minLat: Infinity,
@@ -71,7 +97,7 @@ function FitIndiaBounds({ bounds }) {
   return null;
 }
 
-export default function WorldMapCardClient() {
+export default function WorldMapCardClient({ pointGroups = {} }) {
   const [indiaOutline, setIndiaOutline] = useState(null);
 
   useEffect(() => {
@@ -115,6 +141,16 @@ export default function WorldMapCardClient() {
     return getFeatureBounds(indiaOutline);
   }, [indiaOutline]);
 
+  const points = useMemo(() => {
+    return Object.entries(pointGroups).flatMap(([category, entries]) =>
+      (Array.isArray(entries) ? entries : []).map((point, index) => ({
+        ...point,
+        category,
+        id: `${category}-${point.lat}-${point.lng}-${index}`,
+      })),
+    );
+  }, [pointGroups]);
+
   return (
     <div className={styles.mapShell}>
       <MapContainer
@@ -139,6 +175,48 @@ export default function WorldMapCardClient() {
             })}
           />
         ) : null}
+
+        {points.map((point) => {
+          const markerStyle =
+            CATEGORY_STYLES[point.category] ?? CATEGORY_STYLES.concern;
+
+          return (
+            <Fragment key={point.id}>
+              <CircleMarker
+                center={[point.lat, point.lng]}
+                radius={markerStyle.radius}
+                interactive={false}
+                pathOptions={{
+                  color: markerStyle.color,
+                  weight: markerStyle.weight,
+                  fillColor: markerStyle.color,
+                  fillOpacity: markerStyle.fillOpacity,
+                }}
+              />
+
+              <CircleMarker
+                center={[point.lat, point.lng]}
+                radius={12}
+                bubblingMouseEvents
+                pathOptions={{
+                  color: "rgba(255, 255, 255, 0.02)",
+                  weight: 1,
+                  fillColor: "rgba(255, 255, 255, 0.02)",
+                  fillOpacity: 0.02,
+                }}
+              >
+                {point.label ? (
+                  <Tooltip direction="top" offset={[0, -10]}>
+                    <div className={styles.pointTooltip}>
+                      <span className={styles.pointType}>{point.category}</span>
+                      <span>{point.label}</span>
+                    </div>
+                  </Tooltip>
+                ) : null}
+              </CircleMarker>
+            </Fragment>
+          );
+        })}
       </MapContainer>
     </div>
   );

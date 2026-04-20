@@ -123,14 +123,39 @@
 .mapViewport :global(.leaflet-control-container),
 .mapViewport :global(.leaflet-pane.leaflet-tile-pane),
 .mapViewport :global(.leaflet-pane.leaflet-shadow-pane),
-.mapViewport :global(.leaflet-pane.leaflet-marker-pane),
-.mapViewport :global(.leaflet-pane.leaflet-tooltip-pane),
 .mapViewport :global(.leaflet-pane.leaflet-popup-pane) {
   display: none;
 }
 
 .mapViewport :global(.leaflet-pane.leaflet-overlay-pane) {
   filter: drop-shadow(0 0 18px rgba(245, 158, 11, 0.1));
+}
+
+.mapViewport :global(.leaflet-tooltip) {
+  background: rgba(10, 14, 20, 0.94);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: #fafafa;
+  border-radius: 0;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.32);
+}
+
+.mapViewport :global(.leaflet-tooltip-top:before) {
+  border-top-color: rgba(10, 14, 20, 0.94);
+}
+
+.pointTooltip {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #e4e4e7;
+}
+
+.pointType {
+  color: #71717a;
 }
 
 .mapGlow,
