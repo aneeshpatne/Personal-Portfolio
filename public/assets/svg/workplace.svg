@@ -1,0 +1,972 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 180">
+  <!--
+    Workspace Illustration
+    Original: Arrow by QuiverAI (https://quiver.ai)
+    Refactored: semantic groups, IDs, and class names for easy editing
+
+    SCENE ELEMENTS (top-level groups):
+      #background             — decorative arc + floating dots
+      #desk-right             — small right pedestal / shelf
+      #laptop                 — laptop screen, content rows, side indicators, hinge
+      #desk-left              — main long desk (surface, leg, angled front panel)
+      #character              — developer figure (head, face, torso, hand, legs)
+      #plant                  — potted plant on right desk
+      #window-browser         — floating browser card window (top-left)
+      #window-code-editor     — floating code editor window (top-center)
+      #window-line-chart      — floating analytics chart window (top-right)
+      #window-connector-lines — dashed lines linking the three windows
+  -->
+
+  <!-- ═══════════════════════════════════════════════════
+       DEFS — gradients &amp; styles
+  ════════════════════════════════════════════════════ -->
+  <defs>
+
+    <!-- Gradients ──────────────────────────────────── -->
+
+    <!-- Right desk top surface: left-to-right light gray fade -->
+    <linearGradient id="grad-desk-right-surface"
+      x1="148" x2="178" y1="137.7" y2="137.7" gradientUnits="userSpaceOnUse">
+      <stop offset="0"   stop-color="#1A2740"/>
+      <stop offset="1"   stop-color="#243654"/>
+    </linearGradient>
+
+    <!-- Left desk top surface: left-to-right warm gray fade -->
+    <linearGradient id="grad-desk-left-surface"
+      x1="1.917" x2="103.4" y1="136.8" y2="136.8" gradientUnits="userSpaceOnUse">
+      <stop offset="0"   stop-color="#1B2942"/>
+      <stop offset="1"   stop-color="#152136"/>
+    </linearGradient>
+
+    <!-- Left desk angled edge cap (where surface meets the angled front) -->
+    <linearGradient id="grad-desk-left-edge-cap"
+      x1="76.82" x2="91.3" y1="137.7" y2="137.7" gradientUnits="userSpaceOnUse">
+      <stop offset="0"   stop-color="#2A3A5B"/>
+      <stop offset="1"   stop-color="#111B2D"/>
+    </linearGradient>
+
+    <!-- Laptop screen face: subtle left-to-right depth -->
+    <linearGradient id="grad-laptop-screen-face"
+      x1="43.86" x2="96.56" y1="96.95" y2="96.95" gradientUnits="userSpaceOnUse">
+      <stop offset="0"   stop-color="#0F1623"/>
+      <stop offset="1"   stop-color="#17233A"/>
+    </linearGradient>
+
+    <!-- Chart data-point dots — gradient overlays applied on top of flat fill -->
+    <linearGradient id="grad-chart-dot-point-1"
+      x1="129.2" x2="132.2" y1="56.12" y2="56.12" gradientUnits="userSpaceOnUse">
+      <stop offset="0"   stop-color="#6C8CFF"/>
+      <stop offset="1"   stop-color="#4F7CFF"/>
+    </linearGradient>
+
+    <linearGradient id="grad-chart-dot-point-3"
+      x1="142.4" x2="144.8" y1="55.62" y2="55.62" gradientUnits="userSpaceOnUse">
+      <stop offset="0"   stop-color="#6C8CFF"/>
+      <stop offset="1"   stop-color="#4F7CFF"/>
+    </linearGradient>
+
+    <linearGradient id="grad-chart-dot-point-4"
+      x1="148.6" x2="151" y1="49.52" y2="49.52" gradientUnits="userSpaceOnUse">
+      <stop offset="0"   stop-color="#7C5CFF"/>
+      <stop offset="1"   stop-color="#4F7CFF"/>
+    </linearGradient>
+
+  </defs>
+
+  <style>
+    /* ══════════════════════════════════════════════════
+       COLOUR TOKENS
+       Edit these values to retheme the whole illustration.
+    ══════════════════════════════════════════════════ */
+
+    /* — Surfaces &amp; furniture ─────────────────────── */
+    .fill-white            { fill: #131C2E; }
+    .fill-off-white        { fill: #E6EAF2; }           /* near-white for hinge, screen glow */
+    .fill-desk-highlight   { fill: #243654; }           /* window frames, desk highlight strip */
+    .fill-desk-surface     { fill: #1A2740; }           /* main desk body, plant pot */
+    .fill-desk-shadow      { fill: #0F1623; }           /* desk right edge shadow */
+    .fill-desk-panel-mid   { fill: #233552; }           /* left desk angled face (mid) */
+    .fill-desk-panel-dark  { fill: #18263E; }           /* left desk angled face (dark) */
+    .fill-desk-accent      { fill: #34466B; }           /* desk left shoe rail, pot shadow */
+
+    /* — Laptop / device ──────────────────────────── */
+    .fill-device-darkest   { fill: #0B0F17; }           /* laptop bezel, hair, dark pants */
+    .fill-device-dark      { fill: #141F33; }           /* pants shading, leg overlap */
+    .fill-device-mid       { fill: #263756; }           /* left stripe, screen bars dark */
+
+    /* — Screen content bars ──────────────────────── */
+    .fill-screen-bar-blue-pale  { fill: #9FB4FF; }     /* light-blue content rows */
+    .fill-screen-bar-blue-light { fill: #6C8CFF; }     /* slightly darker blue rows */
+    .fill-screen-bar-blue-wash  { fill: #B8C7FF; }     /* washed blue highlight row */
+    .fill-screen-bar-purple     { fill: #7C5CFF; }     /* purple / code-accent rows */
+    .fill-screen-bar-fog        { fill: #506588; }     /* foggy-blue leg stripe + shoe rail */
+
+    /* — Window UI ────────────────────────────────── */
+    .fill-window-tag-blue  { fill: #4F7CFF; }           /* image thumbnail mountain fill */
+
+    /* — Chart ────────────────────────────────────── */
+    .fill-chart-dot        { fill: #6C8CFF; }           /* data-point fill */
+
+    /* — Floating-window code editor ──────────────── */
+    .fill-code-bg          { fill: #263E8F; }           /* code editor panel background */
+
+    /* — Decorative dots ──────────────────────────── */
+    .fill-dot-lavender     { fill: #7C5CFF; }
+    .fill-dot-gray         { fill: #4F7CFF; }
+
+    /* — Text/content row muted tones ─────────────── */
+    .fill-text-lavender-mid  { fill: #AAB3C5; }
+    .fill-text-lavender-dark { fill: #6B7485; }
+    .fill-text-lavender-soft { fill: #8590A3; }
+
+    /* — Character: skin ──────────────────────────── */
+    .fill-skin             { fill: #C99673; }
+    .fill-skin-shadow      { fill: #9B6B57; }
+
+    /* — Character: clothing ──────────────────────── */
+    .fill-shirt-blue       { fill: #3A44CC; }           /* main shirt / jacket */
+    .fill-shirt-dark       { fill: #314DA0; }           /* shirt folds / shadow */
+    .fill-hair-navy        { fill: #0B0F17; }           /* hair accent */
+
+    /* — Plant ────────────────────────────────────── */
+    .fill-plant-green      { fill: #3DDC97; }
+    .fill-plant-dark-green { fill: #267F65; }
+
+
+    /* ══════════════════════════════════════════════════
+       STROKES
+    ══════════════════════════════════════════════════ */
+
+    /* Background arc */
+    .stroke-bg-arc {
+      fill: none; stroke: #34466B; stroke-width: 0.2; stroke-miterlimit: 10;
+    }
+    /* Fine detail lines (desk leg outline, etc.) */
+    .stroke-detail-fine {
+      fill: none; stroke: #506588; stroke-width: 0.2;
+      stroke-linecap: round; stroke-linejoin: round; stroke-miterlimit: 10;
+    }
+    /* Window panel outlines */
+    .stroke-window-outline {
+      fill: none; stroke: #41577D; stroke-width: 0.2;
+      stroke-linecap: round; stroke-linejoin: round; stroke-miterlimit: 10;
+    }
+    /* Desk leg dashed outline */
+    .stroke-leg-outline {
+      fill: none; stroke: #41577D; stroke-width: 0.2; stroke-miterlimit: 10;
+    }
+    /* Chart line path */
+    .stroke-chart-line {
+      fill: none; stroke: #6C8CFF; stroke-width: 0.6;
+      stroke-linecap: round; stroke-linejoin: round; stroke-miterlimit: 10;
+    }
+    /* Connector dashed line — gray variant */
+    .stroke-connector-gray {
+      fill: none; stroke: #6B7485; stroke-width: 0.8;
+      stroke-linecap: round; stroke-miterlimit: 10; stroke-dasharray: 0.5, 2;
+    }
+    /* Connector dashed line — blue variant */
+    .stroke-connector-blue {
+      fill: none; stroke: #4F7CFF; stroke-width: 0.8;
+      stroke-linecap: round; stroke-miterlimit: 10; stroke-dasharray: 0.5, 2;
+    }
+    /* Skin crease / outline details */
+    .stroke-skin-detail {
+      fill: none; stroke: #7F5246; stroke-width: 0.3;
+      stroke-linecap: round; stroke-linejoin: round; stroke-miterlimit: 10;
+    }
+
+    /* ══════════════════════════════════════════════════
+       MICRO-ANIMATIONS
+       Kept subtle: no full-illustration movement.
+    ══════════════════════════════════════════════════ */
+
+    #screen-content-rows path,
+    #browser-text-lines path {
+      animation: code-row-soft-pulse 4.8s ease-in-out infinite;
+      transform-box: fill-box;
+      transform-origin: center;
+    }
+
+    #screen-content-rows path:nth-child(2),
+    #browser-text-lines path:nth-child(2) {
+      animation-delay: 0.45s;
+    }
+
+    #screen-content-rows path:nth-child(4),
+    #browser-text-lines path:nth-child(3) {
+      animation-delay: 0.9s;
+    }
+
+    #screen-content-rows path:nth-child(8),
+    #browser-text-lines path:nth-child(4) {
+      animation-delay: 1.35s;
+    }
+
+    #chart-line {
+      stroke-dasharray: 30;
+      stroke-dashoffset: 30;
+      animation: chart-line-draw 5.6s ease-in-out infinite;
+    }
+
+    #chart-data-points circle {
+      animation: chart-point-breathe 3.8s ease-in-out infinite;
+      transform-box: fill-box;
+      transform-origin: center;
+    }
+
+    #chart-point-2 {
+      animation-delay: 0.35s;
+    }
+
+    #chart-point-3-base,
+    #chart-point-3-gradient {
+      animation-delay: 0.7s;
+    }
+
+    #chart-point-4-base,
+    #chart-point-4-gradient {
+      animation-delay: 1.05s;
+    }
+
+    #window-connector-lines path {
+      animation: connector-flow 3.4s linear infinite;
+    }
+
+    #code-syntax-glyphs {
+      animation: glyph-glow 4.2s ease-in-out infinite;
+      transform-box: fill-box;
+      transform-origin: center;
+    }
+
+    #bg-dot-lavender,
+    #bg-dot-gray {
+      animation: dot-breathe 4s ease-in-out infinite;
+      transform-box: fill-box;
+      transform-origin: center;
+    }
+
+    #bg-dot-gray {
+      animation-delay: 1s;
+    }
+
+    #window-browser,
+    #window-code-editor,
+    #window-line-chart {
+      animation: window-float 7.2s ease-in-out infinite;
+      transform-box: fill-box;
+      transform-origin: center;
+    }
+
+    #window-code-editor {
+      animation-delay: 0.8s;
+    }
+
+    #window-line-chart {
+      animation-delay: 1.5s;
+    }
+
+    #plant-leaves {
+      animation: plant-sway 3.8s ease-in-out infinite;
+      transform-box: fill-box;
+      transform-origin: 50% 100%;
+    }
+
+    #character-head {
+      animation: head-idle 6.4s ease-in-out infinite;
+      transform-box: fill-box;
+      transform-origin: 50% 100%;
+    }
+
+    #character-hand-left {
+      animation: hand-type 2.8s ease-in-out infinite;
+      transform-box: fill-box;
+      transform-origin: 100% 50%;
+    }
+
+    #screen-face,
+    #screen-left-edge-stripe {
+      animation: screen-glow 2.8s ease-in-out infinite;
+    }
+
+    #screen-side-indicators path {
+      animation: indicator-scan 2.8s ease-in-out infinite;
+      transform-box: fill-box;
+      transform-origin: center;
+    }
+
+    #screen-side-indicators path:nth-child(3n + 1) {
+      animation-delay: 0.25s;
+    }
+
+    #screen-side-indicators path:nth-child(3n + 2) {
+      animation-delay: 0.5s;
+    }
+
+    @keyframes code-row-soft-pulse {
+      0%, 100% {
+        opacity: 0.72;
+      }
+
+      45% {
+        opacity: 1;
+      }
+    }
+
+    @keyframes chart-line-draw {
+      0% {
+        stroke-dashoffset: 30;
+        opacity: 0.5;
+      }
+
+      38%, 72% {
+        stroke-dashoffset: 0;
+        opacity: 1;
+      }
+
+      100% {
+        stroke-dashoffset: -30;
+        opacity: 0.55;
+      }
+    }
+
+    @keyframes chart-point-breathe {
+      0%, 100% {
+        opacity: 0.7;
+        transform: scale(1);
+      }
+
+      50% {
+        opacity: 1;
+        transform: scale(1.22);
+      }
+    }
+
+    @keyframes connector-flow {
+      to {
+        stroke-dashoffset: -5;
+      }
+    }
+
+    @keyframes glyph-glow {
+      0%, 100% {
+        opacity: 0.82;
+      }
+
+      50% {
+        opacity: 1;
+      }
+    }
+
+    @keyframes dot-breathe {
+      0%, 100% {
+        opacity: 0.55;
+        transform: scale(1);
+      }
+
+      50% {
+        opacity: 1;
+        transform: scale(1.25);
+      }
+    }
+
+    @keyframes window-float {
+      0%, 100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-1.6px);
+      }
+    }
+
+    @keyframes plant-sway {
+      0%, 100% {
+        transform: rotate(-2.2deg);
+      }
+
+      50% {
+        transform: rotate(2.8deg);
+      }
+
+      72% {
+        transform: rotate(1deg);
+      }
+    }
+
+    @keyframes head-idle {
+      0%, 100% {
+        transform: rotate(0deg);
+      }
+
+      50% {
+        transform: rotate(-1deg);
+      }
+    }
+
+    @keyframes hand-type {
+      0%, 100% {
+        transform: translate(0, 0);
+      }
+
+      35% {
+        transform: translate(0.8px, 0.35px);
+      }
+
+      65% {
+        transform: translate(-0.35px, 0);
+      }
+    }
+
+    @keyframes screen-glow {
+      0%, 100% {
+        opacity: 0.76;
+      }
+
+      50% {
+        opacity: 1;
+      }
+    }
+
+    @keyframes indicator-scan {
+      0%, 100% {
+        opacity: 0.45;
+        transform: scale(1);
+      }
+
+      45% {
+        opacity: 1;
+        transform: scale(1.12);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      #screen-content-rows path,
+      #browser-text-lines path,
+      #chart-line,
+      #chart-data-points circle,
+      #window-connector-lines path,
+      #code-syntax-glyphs,
+      #bg-dot-lavender,
+      #bg-dot-gray,
+      #window-browser,
+      #window-code-editor,
+      #window-line-chart,
+      #plant-leaves,
+      #character-head,
+      #character-hand-left,
+      #screen-face,
+      #screen-left-edge-stripe,
+      #screen-side-indicators path {
+        animation: none;
+      }
+    }
+  </style>
+
+
+  <!-- ═══════════════════════════════════════════════════
+       BACKGROUND
+       • Decorative arc behind the whole scene
+       • Two small floating accent dots
+  ════════════════════════════════════════════════════ -->
+  <g id="background">
+
+    <path id="bg-arc"
+      class="stroke-bg-arc"
+      d="m141.1 38.4c-10.1-6.9-24.7-15.3-51.1-15.5
+         -18.1-0.1-33.9 3.5-46.3 10.1-6.8 3.5-12.9 7.7-17.7 12.5
+         -11.7 11.7-20.8 27.9-20.8 48.9 0 13.5 4.4 26.1 11.7 38.6"/>
+
+    <!-- Floating accent dots (decorative, not interactive) -->
+    <circle id="bg-dot-lavender" class="fill-dot-lavender" cx="147.6" cy="91"   r="1.1"/>
+    <circle id="bg-dot-gray"     class="fill-dot-gray"     cx="153.4" cy="78.2" r=".9"/>
+
+  </g>
+
+
+  <!-- ═══════════════════════════════════════════════════
+       DESK — RIGHT  (small pedestal the plant sits on)
+       Rendered first so the character overlaps it correctly.
+  ════════════════════════════════════════════════════ -->
+  <g id="desk-right">
+
+    <path id="desk-right-lip-shadow"
+      class="fill-desk-shadow"
+      d="m148.5 133.8h25.5c0.2 0 0.4 0.2 0.4 0.4v2h-26.3l0.4-2.4z"/>
+
+    <path id="desk-right-leg"
+      class="fill-desk-surface"
+      d="m167.2 139.7 2 16.7h-4l-2.3-16.7h4.3z"/>
+
+    <path id="desk-right-surface-base"
+      class="fill-desk-highlight"
+      d="m148 135.9h29.6v3.8h-30l0.4-3.8z"/>
+
+    <path id="desk-right-leg-outline"
+      class="stroke-detail-fine"
+      d="m163.2 139.7 2.2 16.4h3.8l-2.2-16.4"/>
+
+    <path id="desk-right-surface-gradient"
+      fill="url(#grad-desk-right-surface)"
+      d="m147.9 135.9h30.1v3.6h-29.9l-0.2-3.6z"/>
+
+    <path id="desk-right-surface-outline"
+      class="stroke-window-outline"
+      d="m148 136.3h30v3.4h-29.9"/>
+
+  </g>
+
+
+  <!-- ═══════════════════════════════════════════════════
+       LAPTOP
+       • keyboard-base  — light-colored area below screen (keyboard shelf)
+       • screen-bezel   — dark outer frame
+       • screen-face    — the visible display area (gradient)
+       • screen-content — simulated code/UI text bars on screen
+       • side-indicators — small notched marks on the left spine
+       • hinge          — connector between screen and keyboard base
+  ════════════════════════════════════════════════════ -->
+  <g id="laptop">
+
+    <!-- Keyboard / base section (sits below the screen bezel) -->
+    <g id="laptop-keyboard-base">
+      <path id="keyboard-panel-body"
+        class="fill-desk-surface"
+        d="m63.9 131.6 1.5-15.5h11.8l-1.3 15.5z"/>
+      <path id="keyboard-panel-stripe"
+        class="fill-screen-bar-fog"
+        d="m61.5 131.6 2.5-16.1 1.1 0.1-1.6 16z"/>
+      <path id="keyboard-foot-rail"
+        class="fill-desk-accent"
+        d="m45.9 131.6 0.6 1.8 16.1-0.1v-1.7z"/>
+      <path id="keyboard-foot-highlight"
+        class="fill-screen-bar-fog"
+        d="m46.2 131.6h19.2l0.2 0.7h-19.2z"/>
+    </g>
+
+    <!-- Outer bezel / casing -->
+    <path id="screen-bezel"
+      class="fill-device-darkest"
+      d="m46.2 115.4h49.4l2.5-4.5-3-31.1c-0.1-0.8-0.7-1.3-1.5-1.3
+         l-50.5 0.1c-0.9 0-1.8 0.9-1.7 1.8l3.1 33.2c0.1 1.3 0.7 1.8 1.7 1.8z"/>
+
+    <!-- Display face (gradient gives it subtle 3-D depth) -->
+    <path id="screen-face"
+      fill="url(#grad-laptop-screen-face)"
+      d="m43.9 80.9 2.8 31.2h48.7l1.2-0.8-3.3-30.8z">
+      <animate attributeName="opacity" values="0.76;1;0.76" dur="2.8s" repeatCount="indefinite"/>
+    </path>
+
+    <!-- Left edge stripe running the full height of the screen -->
+    <path id="screen-left-edge-stripe"
+      class="fill-device-mid"
+      d="m49.3 81.3 2.9 30.5h1.1l-3-30.5z"/>
+
+    <!-- Simulated on-screen content (rows of code / UI elements) -->
+    <g id="screen-content-rows">
+      <path class="fill-screen-bar-blue-pale"  d="m52.3 83.5h11.3c0.6 0 0.8 1.2 0.1 1.2h-11.6c-0.6 0-0.7-1.2 0.2-1.2z"/>
+      <path class="fill-screen-bar-blue-light" d="m53.6 86.3h15c0.6 0 0.9 1.2 0.2 1.2h-15.3c-0.6 0-0.7-1.2 0.1-1.2z"/>
+      <path class="fill-screen-bar-blue-pale"  d="m54.9 89h8.1c0.6 0 0.8 1.3 0.1 1.3h-8.3c-0.6 0-0.7-1.3 0.1-1.3z"/>
+      <path class="fill-screen-bar-purple"     d="m64.3 89.1h15.3c0.6 0 0.8 1.2 0.1 1.2h-15.4c-0.6 0-0.7-1.2 0-1.2z"/>
+      <path class="fill-screen-bar-purple"     d="m56.4 91.8h17.5c0.7 0 0.8 1.1 0 1.1h-17.5c-0.6 0-0.7-1.1 0-1.1z"/>
+      <path class="fill-screen-bar-blue-pale"  d="m58.6 94.5h6.4c0.6 0 0.7 1.3 0 1.3h-6.5c-0.6 0-0.7-1.3 0.1-1.3z"/>
+      <path class="fill-device-mid"            d="m66.3 94.5h24.1l0.3 1.3h-24.5l-0.1-1"/>
+      <path class="fill-screen-bar-blue-light" d="m55.4 99.4h16.1c0.6 0 0.8 1.2 0.1 1.2h-16.3c-0.6 0-0.7-1.2 0.1-1.2z"/>
+      <path class="fill-screen-bar-purple"     d="m56.9 101.9h22.4c0.6 0 0.9 1.2 0.1 1.2h-22.6c-0.6 0-0.7-1.2 0.1-1.2z"/>
+      <path class="fill-device-mid"            d="m66.4 104.6h20.6c0.6 0 0.7 1.3 0 1.3h-20.6v-1.3z"/>
+      <path class="fill-screen-bar-blue-wash"  d="m59.7 104.6h5.8c0.6 0 0.8 1.2 0.1 1.2h-6.1c-0.6 0-0.6-1.2 0.2-1.2z"/>
+      <path class="fill-device-mid"            d="m57.7 106.9h4.3c0.6 0 0.8 1.2 0.1 1.2h-4.5l-0.2-0.9"/>
+      <path class="fill-screen-bar-blue-pale"  d="m56.2 108.5h11.3c0.6 0 0.8 1.2 0.1 1.2h-11.6c-0.6 0-0.6-1.2 0.2-1.2z"/>
+    </g>
+
+    <!-- Small notch indicators on the left spine of the screen -->
+    <g id="screen-side-indicators">
+      <path class="fill-device-mid" d="m46.4 82.9h0.9l0.2 1-1.2 0.1c-0.6 0-0.6-1.1 0.1-1.1z"/>
+      <path class="fill-device-mid" d="m46.7 85h0.9l0.2 1-1.2 0.1c-0.6 0-0.6-1.1 0.1-1.1z"/>
+      <path class="fill-device-mid" d="m46.9 86.9h0.9l0.2 1-1.2 0.1c-0.6 0-0.6-1.1 0.1-1.1z"/>
+      <path class="fill-device-mid" d="m47.1 89h0.9l0.2 1-1.2 0.1c-0.6 0-0.6-1.1 0.1-1.1z"/>
+      <path class="fill-device-mid" d="m47.3 90.9h0.9l0.2 1-1.2 0.1c-0.6 0-0.6-1.1 0.1-1.1z"/>
+      <path class="fill-device-mid" d="m47.5 93.1h0.9l0.2 1-1.2 0.1c-0.6 0-0.6-1.1 0.1-1.1z"/>
+      <path class="fill-device-mid" d="m47.6 95h0.9l0.2 1-1.2 0.1c-0.6 0-0.6-1.1 0.1-1.1z"/>
+      <path class="fill-device-mid" d="m47.8 97h0.9l0.2 1-1.2 0.1c-0.6 0-0.6-1.1 0.1-1.1z"/>
+      <path class="fill-device-mid" d="m48 98.9h0.9l0.3 1-1.3 0.1c-0.6 0-0.6-1.1 0.1-1.1z"/>
+      <path class="fill-device-mid" d="m48.1 101h1l0.3 1-1.4 0.1c-0.6 0-0.6-1.1 0.1-1.1z"/>
+      <path class="fill-device-mid" d="m48.4 103.1h1.1l0.2 1-1.4 0.1c-0.6 0-0.6-1.1 0.1-1.1z"/>
+      <path class="fill-device-mid" d="m48.5 104.9h1.2l0.2 1-1.5 0.1c-0.6 0-0.6-1.1 0.1-1.1z"/>
+      <path class="fill-device-mid" d="m48.7 106.8h1.2l0.2 1-1.5 0.1c-0.6 0-0.6-1.1 0.1-1.1z"/>
+      <path class="fill-device-mid" d="m49 108.6h1.2l0.1 1-1.4 0.1c-0.6 0-0.6-1.1 0.1-1.1z"/>
+    </g>
+
+    <!-- Hinge bar connecting screen to keyboard base -->
+    <g id="laptop-hinge">
+      <path id="hinge-body"     class="fill-device-darkest" d="m58.3 131.9h7.3l0.1 1.4h-7.4z"/>
+      <path id="hinge-highlight" class="fill-off-white"     d="m58.2 132.2 7.2 0.1v0.5h-7.2z"/>
+    </g>
+
+  </g>
+
+
+  <!-- ═══════════════════════════════════════════════════
+       DESK — LEFT  (main long work surface)
+  ════════════════════════════════════════════════════ -->
+  <g id="desk-left">
+
+    <!-- Angled front fascia panel that runs under the laptop -->
+    <g id="desk-left-front-fascia">
+      <path id="fascia-outer"
+        class="fill-desk-surface"
+        d="m23.7 133.6 22.9-0.1-7.1-23.2c-0.2-0.8-0.7-1.1-1.3-1.1
+           h-21.6c-0.7 0-1.2 0.7-1 1.3l7.1 22c0.2 0.7 0.6 1.1 1 1.1z"/>
+      <path id="fascia-inner-mid"
+        class="fill-desk-panel-mid"
+        d="m23.7 133.6 22.4-0.1-7-23.1c-0.2-0.5-0.5-0.8-1-0.8
+           h-21.5c-0.4 0-0.7 0.4-0.6 0.8l6.8 21.9c0.2 0.6 0.5 1.3 0.9 1.3z"/>
+      <!-- Small circular detail / hole on the fascia -->
+      <path id="fascia-circle-light"
+        class="fill-desk-panel-dark"
+        d="m28.6 120.2c0 2.4 4.1 4.3 4.3 1 0.2-2.6-4.2-4.1-4.3-1z"/>
+      <path id="fascia-circle-dark"
+        class="fill-text-lavender-dark"
+        d="m28.6 120.1c0 3.1 4.2 4.2 4.2 1.1 0-3-4.2-4-4.2-1.1z"/>
+    </g>
+
+    <!-- Top surface (gradient + highlight strip) -->
+    <path id="desk-left-surface"
+      fill="url(#grad-desk-left-surface)"
+      d="m103.4 139.7h-101.4l-0.1-5.5c0-0.3 0.2-0.5 0.5-0.5
+         h100.4l0.6 6z"/>
+    <path id="desk-left-surface-highlight"
+      class="fill-desk-highlight"
+      d="m1.9 136v-2c0-0.2 0.2-0.4 0.4-0.4h100.6l0.1 2.4h-101.1z"/>
+
+    <!-- Angled edge cap where surface meets the fascia -->
+    <path id="desk-left-edge-cap"
+      fill="url(#grad-desk-left-edge-cap)"
+      d="m76.8 135.9 4.3 3.8 10.2-0.1-13.6-4z"/>
+
+    <!-- Front leg -->
+    <path id="desk-left-leg"
+      class="fill-desk-highlight"
+      d="m14 139.7-1.5 16.8h4.1l1.6-16.8z"/>
+    <path id="desk-left-leg-outline"
+      class="stroke-leg-outline"
+      d="m13.9 139.7-1.3 16.7h3.9l1.6-16.7"/>
+
+  </g>
+
+
+  <!-- ═══════════════════════════════════════════════════
+       CHARACTER  (developer figure)
+       Rendering order: hand → head → torso → legs
+       so the body layers overlap naturally.
+  ════════════════════════════════════════════════════ -->
+  <g id="character">
+
+    <!--
+      PAINT ORDER matters here (SVG painters model):
+        1. face-skin       — painted first, sits underneath
+        2. hand-left       — on top of skin
+        3. head-hair-skull — painted last among these, sits ON TOP of skin edge → creates the hairline
+        4. torso, legs follow
+      This matches the original source order (lines 119 → 121 → 124).
+    -->
+
+    <!-- Face &amp; skin — must be painted BEFORE the hair so hair overlaps the skin edge -->
+    <g id="character-face">
+      <path id="face-skin"
+        class="fill-skin"
+        d="m102.4 81.5c0.4 3-0.5 7.6-1.4 8.8-0.3 1.5 1.2 1.6 1.2 1.6
+           s1.1 7 3.3 8.1c1.2 0.7 4.4 0.4 4.4 0.4l0.5 3.5 14.9-2.7
+           s-1.9-2.2-2.5-4.2c2.6-3.4 6.5-15.8 0.7-19-6.2-3.4-20.8-3.8-21.1 3.5z"/>
+      <path id="face-neck-shadow"
+        class="fill-skin-shadow"
+        d="m109.9 96.3 0.3 4.1h-3.4c1.4-0.3 3.1-3.6 3.1-4.1z"/>
+      <path id="face-nose-fill"
+        class="fill-skin-shadow"
+        d="m108 88c0.1 0.9 0.9 2.4 0.4 3 0.6 0.6 1.5 0.4 1.5 0.4"/>
+      <path id="face-nose-outline"
+        class="stroke-skin-detail"
+        d="m108.1 88.1c0.1 0.9 0.9 2.4 0.4 3 0.6 0.6 1.4 0.4 1.4 0.4"/>
+    </g>
+
+    <!-- Extended left hand / arm reaching toward the desk -->
+    <g id="character-hand-left">
+      <path id="hand-left-skin"
+        class="fill-skin"
+        d="m80.2 129c-1.8-0.5-5.4-1.6-7.4-1.3-0.8 0.1-4.1 2.1-4.7 2.8
+           -0.9 1.2-1.5 2.9-0.7 2.7s2.5-0.2 3.8-0.2c1.3 0.5 6.6 2.7 7.9 2.7
+           c1.4 0 1.1-6.7 1.1-6.7z"/>
+      <path id="hand-left-shadow"
+        class="fill-skin-shadow"
+        d="m72.5 130.2c-1.3 0.1-3.4 1.1-4.8 1.8-0.3 0.1-0.8 1.2-0.3 1.2
+           s1-0.3 1.7-0.2 1.9-0.3 2.5 0.1"/>
+      <path id="hand-left-outline"
+        class="stroke-skin-detail"
+        d="m72.6 130.1c-1.3 0.1-3.4 1.1-4.8 1.8-0.3 0.1-0.8 1.3-0.3 1.3
+           s1-0.3 1.7-0.2 2-0.3 2.5 0.1"/>
+    </g>
+
+    <!-- Head / hair — painted AFTER face-skin so the hair silhouette overlaps the skin and forms the hairline -->
+    <g id="character-head">
+      <path id="head-hair-skull"
+        class="fill-device-darkest"
+        d="m103.9 72.1c-4.3-1-7.3 1.5-6.4 5s4.9 4.4 5.3 4.2
+           c0.6-0.2-0.1 2.5 2.4 4.6 0.5 0.4-0.3 2.8 0.4 3.4
+           c0.8 0.8 1 0 1-0.8 0-4.3 3.4-4.1 4.1-0.6
+           c0.2 1.5-0.4 3.3-0.9 3.3 0.8 1.7 4.1 7.2 10.6 6.1
+           l2.4-0.1c1.4 0.4 1.2-0.9 2.1-3 2-5.2 5.6-8.4 4.2-13.8
+           c-0.8-2.7-4.9-3.7-5.1-3.8-1.4-5.9-7.7-4.8-14.3-5.1
+           c-2.1-0.1-4.5-2.5-4.5 0.6h-1.3z"/>
+      <path id="head-hair-accent"
+        class="fill-hair-navy"
+        d="m123.2 73.8c0.7 0.8 0.8 2.7 0.8 2.7h0.4s0.3-2-0.7-2.9l-0.5 0.2z"/>
+    </g>
+
+    <!-- Torso — shirt / jacket -->
+    <g id="character-torso">
+      <!-- Front shirt panel (left side of body facing viewer) -->
+      <path id="torso-shirt-front"
+        class="fill-shirt-blue"
+        d="m109 104.2c-2.3 0.7-7.4 2.5-8.8 3.8-2.6 2.5-8.1 14.1-10.3 20.3
+           l-9.5 0.6c-2.7 0.3-2.8 4.6-2.6 7 1.9 1 11.4 3.2 14.3 3.6
+           c5.3 0.6 7.8-2.5 10.8-7.2l-0.1 14.5c-12.2-0.2-22.8 0.1-24.4 8.8
+           v1.3h33.2l2.3-48.4-4.9-4.3z"/>
+      <path id="torso-shirt-front-fold"
+        class="fill-shirt-dark"
+        d="m102.9 130.3v6.2c0.9-4.9 6.7-17.4 6.7-17.4l-6.7 11.2z"/>
+      <!-- Back/side shirt panel (right side wrapping around) -->
+      <path id="torso-shirt-back"
+        class="fill-shirt-blue"
+        d="m110.4 103.8c5.7-1.9 13.5-3.2 16-2.6 3 0.7 1.5 0.9 2 0.9
+           c3.1 0 15 2.4 17.1 14.8l-0.9 12.7-35.2 23.6
+           c-2.4 0-6.5-2.8-6.8-5.8-0.2-2.9 0.1-15 0.3-15.5
+           c2.7-5.3 6.8-12.8 6.8-12.8l-0.7-14.9 1.4-0.4z"/>
+      <path id="torso-collar"
+        class="fill-shirt-dark"
+        d="m109.7 104.2c3.2-0.3 11.9-0.2 18-1.6h0.7l-0.4 0.1
+           c-3.3 0.9-11.9 1.5-17.6 1.7l-0.7-0.2z"/>
+      <!-- Arm crease at elbow -->
+      <path id="torso-arm-crease"
+        style="fill:none;stroke:#455895;stroke-width:0.3;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10"
+        d="m86.4 131c3.1 0.4 3.7-2.3 3.7-2.3"/>
+      <!-- Sleeve shadow cast on the desk -->
+      <path id="torso-sleeve-desk-shadow"
+        class="fill-shirt-dark"
+        d="m77.8 135.9c1.1 0.6 11.4 3.1 14.3 3.6 1.1 0.1 1.8 0.1 2.5 0
+           -1.9 0.1-5.2-0.5-7-1-1.9-0.5-8.2-2.1-9.8-2.6z"/>
+    </g>
+
+    <!-- Legs / pants -->
+    <g id="character-legs">
+      <!-- Main trouser silhouette -->
+      <path id="legs-pants-main"
+        class="fill-device-darkest"
+        d="m78.5 156.9h31l4.4-29.7c1.2-7.8 3.7-9.6 14.8-10.2
+           c15.7-0.5 22.2-0.6 22.2 5.6l-6.3 34.3h-66.1z"/>
+      <!-- Shading / fold on right leg -->
+      <path id="legs-pants-right-fold"
+        class="fill-device-dark"
+        d="m109.5 156.6h3.7l5.3-27.6c1.9-8.6 6.4-10 15.2-10.1
+           c8.7-0.2 16-0.2 16.5 0.8-1-3.3-9.3-3.1-18.3-2.7
+           c-10.9 0.4-16.5 0.7-17.8 8.4l-4.6 31.2z"/>
+      <!-- Shoe / floor overlap at bottom -->
+      <path id="legs-shoe-overlap"
+        class="fill-device-darkest"
+        d="m78.5 156.9h31l0.2-3.8c-2.6 0-6.8-2.6-7.1-6.2
+           c-11.9-0.3-23.7-0.2-24.1 10z"/>
+    </g>
+
+  </g>
+
+
+  <!-- ═══════════════════════════════════════════════════
+       PLANT  (potted plant on right desk)
+  ════════════════════════════════════════════════════ -->
+  <g id="plant">
+
+    <g id="plant-leaves">
+      <animateTransform
+        attributeName="transform"
+        type="rotate"
+        values="-2.2 160.8 127.1;2.8 160.8 127.1;1 160.8 127.1;-2.2 160.8 127.1"
+        dur="3.8s"
+        repeatCount="indefinite"/>
+      <!-- Each pair: light leaf body + dark vein/shadow -->
+      <path class="fill-plant-green"      d="m159.1 118.1c0.8-7.1-5-10.1-6-9.5-0.5 0.3 0.3 4.8 2.3 6.9l3.7 3.1v-0.5z"/>
+      <path class="fill-plant-dark-green" d="m155.1 110.4c1.6 2.1 3.6 5.6 4.4 16.7h-0.4c0-7.1-1.5-12.7-4-16.7z"/>
+      <path class="fill-plant-green"      d="m162.4 120.1c-1.2 1.6-0.8 3.9-0.8 4.3 5.4-0.7 8.1-5 8-6.5-0.1-0.5-5-0.5-7.2 2.2z"/>
+      <path class="fill-plant-dark-green" d="m167.7 118.5c-2.6 1.1-5 3.4-5.5 5.7l-0.3 0.2c0.8-3.3 2.8-4.8 5.8-5.9z"/>
+      <path class="fill-plant-green"      d="m159.2 124.4c-1-5.9-5.7-7.4-7.7-6.8l-0.1 0.3c1 2.5 3.1 5.5 7.8 6.5z"/>
+      <path class="fill-plant-dark-green" d="m153.7 118.9c3.2 1.8 5.2 3.5 5.7 8.2h-0.3c-0.6-4.2-2.4-6.2-5.4-8.2z"/>
+      <path class="fill-plant-green"      d="m162.1 110.9c-2 2.5-1.2 7.6 0.1 7.5 4.7-2.5 5.7-8 5.5-9.8-0.1-0.6-3.7-0.2-5.6 2.3z"/>
+      <path class="fill-plant-dark-green" d="m165.6 110.6c-2 2-4 7.8-4.7 16.5h0.3c0.2-8 1.9-13.4 4.4-16.5z"/>
+    </g>
+
+    <g id="plant-pot">
+      <path id="pot-body"
+        class="fill-desk-surface"
+        d="m155.6 127h10.8c0.7 0-0.2 5.4-0.9 8.5h-8.8l-1.1-7.9c-0.1-0.4-0.1-0.6 0-0.6z"/>
+      <path id="pot-shadow-side"
+        class="fill-desk-shadow"
+        d="m163.5 127.1h2.9c0.6 0-0.2 4-0.9 8.5h-2.9l0.9-8.5z"/>
+      <path id="pot-rim-outline"
+        class="stroke-window-outline"
+        d="m155.6 127.1h10.8"/>
+    </g>
+
+  </g>
+
+
+  <!-- ═══════════════════════════════════════════════════
+       FLOATING UI WINDOWS
+       Three card-style panels hovering above the desk.
+       Rendered last so they sit on top of everything.
+  ════════════════════════════════════════════════════ -->
+
+  <!-- ── Window 1: Browser / Image Card (top-left) ── -->
+  <g id="window-browser">
+
+    <path id="browser-frame"
+      class="fill-desk-highlight"
+      d="m76.2 43.7h-33.7c-1 0-2 1.2-2 2.2v21.5c0 1 0.9 2.2 2 2.2h33.7
+         c1 0 1.8-1 1.8-2v-21.9c0-1-0.8-2-1.8-2z"/>
+
+    <path id="browser-content-area"
+      class="fill-off-white"
+      d="m77.1 48.1v18.8c0 1-0.7 1.8-1.7 1.8h-33c-1 0-2-0.7-2-1.7v-18.9h36.7z"/>
+
+    <!-- Title bar with traffic-light dots -->
+    <path id="browser-title-bar"
+      class="fill-screen-bar-blue-pale"
+      d="m77.1 45.9v2.2h-36.7v-2.2c0-1 0.8-2.3 1.9-2.3h32.9c1.2 0 1.9 1 1.9 2.3z"/>
+    <circle id="browser-dot-1" class="fill-white" cx="43.4" cy="46" r=".7"/>
+    <circle id="browser-dot-2" class="fill-white" cx="46.4" cy="46" r=".8"/>
+    <circle id="browser-dot-3" class="fill-white" cx="49.5" cy="46" r=".8"/>
+
+    <!-- Thumbnail image area -->
+    <g id="browser-image-thumbnail">
+      <path id="thumbnail-bg"
+        class="fill-screen-bar-blue-pale"
+        d="m55.6 51.1h-11.1c-0.6 0-1.1 0.5-1.1 1v12c0 0.6 0.5 1.3 1.1 1.1
+           h11.1c0.6 0 1.1-0.1 1.1-0.7v-12.1c0-0.8-0.5-1.3-1.1-1.3z"/>
+      <path id="thumbnail-mountain-shape"
+        class="fill-window-tag-blue"
+        d="m43.5 61.4 3.6-6.3c0.3-0.5 0.6-0.6 1-0.1l2.6 3.7
+           c0.8 0.9 1.3-0.3 1.8-1 0.6-0.8 1.2-0.7 1.9 0.2l2.2 3.6v1.4h-13.1v-1.5z"/>
+      <path id="thumbnail-bottom-bar"
+        class="fill-screen-bar-blue-wash"
+        d="m43.5 62.6h13.2v0.8h-12.8z"/>
+    </g>
+
+    <!-- Text lines beside the thumbnail -->
+    <g id="browser-text-lines">
+      <path class="fill-text-lavender-mid"  d="m60.2 52.1h9.7c0.7 0 0.7 1.1 0 1.1h-9.7c-0.8 0-0.8-1.1 0-1.1z"/>
+      <path class="fill-screen-bar-blue-pale" d="m60.2 55.5h12.3c0.7 0 0.7 1.1 0 1.1h-12.3c-0.7 0-0.8-1.1 0-1.1z"/>
+      <path class="fill-screen-bar-blue-pale" d="m60.2 58.9h10.2c0.7 0 0.8 1.3 0 1.3h-10.2c-0.7 0-0.8-1.3 0-1.3z"/>
+      <path class="fill-text-lavender-soft"   d="m60.2 63.1h6.5c0.7 0 0.8 1.1 0 1.1h-6.5c-0.7 0-0.8-1.1 0-1.1z"/>
+    </g>
+
+    <!-- Placeholder anchor paths (zero-length, from source) -->
+    <path class="fill-white" d="m154.7 43.3"/>
+    <path class="fill-white" d="m153.3 43.3"/>
+
+  </g>
+
+
+  <!-- ── Window 2: Line Chart / Analytics (top-right) ── -->
+  <g id="window-line-chart">
+
+    <path id="chart-frame"
+      class="fill-desk-highlight"
+      d="m126.1 43.2h29.3c1 0 2.3 0.9 2.3 2.2v17.3c0 1-1 2.4-2.2 2.4
+         h-29.4c-1.5 0-2.5-0.9-2.5-2v-17.6c0-1.1 1.3-2.3 2.5-2.3z"/>
+
+    <path id="chart-content-area"
+      class="fill-white"
+      d="m126.5 43.4h28.1c1 0 2.1 0.8 2.1 2.1v15.5c0 1.4-0.6 2.4-2.1 2.4
+         h-28.2c-1.3 0-2.3-0.9-2.3-2.3v-15.5c0-1.2 1.1-2.2 2.4-2.2z"/>
+    <path id="chart-content-outline"
+      class="stroke-window-outline"
+      d="m126.4 43.4h28.2c1 0 2.1 0.8 2.1 2.1v15.5c0 1.4-0.6 2.4-2.1 2.4
+         h-28.2c-1.3 0-2.3-0.9-2.3-2.3v-15.5c0-1.2 1.1-2.2 2.3-2.2z"/>
+
+    <!-- Chart polyline -->
+    <path id="chart-line"
+      class="stroke-chart-line"
+      d="m130.9 55.9 7.2-4.9 5.4 4.2 6.2-6.1"/>
+
+    <!-- Data-point dots — flat fill + gradient overlay for each active point -->
+    <g id="chart-data-points">
+
+      <!-- Point 1 (leftmost, x=130.7) -->
+      <circle id="chart-point-1-base"     class="fill-chart-dot" cx="130.7" cy="56.1" r="1"/>
+      <circle id="chart-point-1-gradient" fill="url(#grad-chart-dot-point-1)" cx="130.7" cy="56.1" r="1"/>
+      <circle id="chart-point-1-outline"  class="stroke-window-outline" cx="130.7" cy="56.1" r="1"/>
+
+      <!-- Point 2 (x=138.2) — flat fill only -->
+      <circle id="chart-point-2"          class="fill-chart-dot" cx="138.2" cy="50.7" r="1"/>
+
+      <!-- Point 3 (x=143.6) -->
+      <circle id="chart-point-3-base"     class="fill-chart-dot" cx="143.6" cy="55.6" r="1"/>
+      <circle id="chart-point-3-gradient" fill="url(#grad-chart-dot-point-3)" cx="143.6" cy="55.6" r="1"/>
+
+      <!-- Point 4 (rightmost, x=149.7) -->
+      <circle id="chart-point-4-base"     class="fill-chart-dot" cx="149.7" cy="49.5" r="1"/>
+      <circle id="chart-point-4-gradient" fill="url(#grad-chart-dot-point-4)" cx="149.7" cy="49.5" r="1"/>
+
+    </g>
+
+  </g>
+
+
+  <!-- ── Window 3: Code Editor (top-center) ── -->
+  <g id="window-code-editor">
+
+    <path id="code-frame"
+      class="fill-desk-highlight"
+      d="m93.4 37.5h19.6c1.5 0 2.4 1.4 2.4 2.5v13.9c0 1-1 2.5-2.4 2.5
+         h-19.1c-1.3 0-2.3-1.2-2.3-2.3v-14.1c-0.1-1.3 1-2.5 1.8-2.5z"/>
+
+    <path id="code-content-area"
+      class="fill-code-bg"
+      d="m95 37.7h16.6c1 0 2.1 0.9 2.1 2v13.2c0 1-0.8 1.8-2 1.8
+         h-16.7c-1 0-2-1-2-2v-13c0-1 1-2 2-2z"/>
+
+    <!-- Code syntax glyphs rendered as paths: < /> -->
+    <g id="code-syntax-glyphs">
+      <path id="code-glyph-angle-open"
+        class="fill-white"
+        d="m100.3 49.6-3.4-2.6v-0.6l3.5-2.9c0.6-0.5 1.5 0.5 0.8 1
+           l-2.8 2 2.6 2c0.7 0.5 0 1.7-0.7 1.1z"/>
+      <path id="code-glyph-slash"
+        class="fill-white"
+        d="m102 49.6 2-6.9c0.2-0.8 1.5-0.5 1.1 0.4l-1.9 6.9c-0.1 0.7-1.5 0.6-1.2-0.4z"/>
+      <path id="code-glyph-angle-close"
+        class="fill-white"
+        d="m106.1 48.2 2.4-1.7-2.3-1.8c-0.6-0.5 0.3-1.6 0.8-1.1
+           l3.1 2.6v0.5l-3.2 2.7c-0.7 0.5-1.4-0.7-0.8-1.2z"/>
+    </g>
+
+  </g>
+
+
+  <!-- ═══════════════════════════════════════════════════
+       WINDOW CONNECTOR LINES
+       Dashed lines visually linking the three floating windows.
+  ════════════════════════════════════════════════════ -->
+  <g id="window-connector-lines">
+    <path id="connector-horizontal-browser-to-code"
+      class="stroke-connector-blue"
+      d="m79.6 64.7h18.1"/>
+    <path id="connector-vertical-browser-down"
+      class="stroke-connector-gray"
+      d="m85.2 66.4v10.1"/>
+    <path id="connector-vertical-code-down"
+      class="stroke-connector-blue"
+      d="m99.2 57 0.3 12.9"/>
+  </g>
+
+  <!-- Zero-length anchor path (preserved from source, invisible) -->
+  <path class="stroke-window-outline" d="m1.9 135.9"/>
+
+</svg>
