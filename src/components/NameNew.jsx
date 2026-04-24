@@ -1,12 +1,11 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import { Inter, Lexend } from "next/font/google";
 import Image from "next/image";
-import { LuCodeXml, LuGithub, LuLinkedin, LuMapPin } from "react-icons/lu";
+import { LuArrowUpRight, LuBriefcase, LuCodeXml, LuGithub, LuLinkedin, LuMapPin } from "react-icons/lu";
 
-import BlobsBackground from "./gradient";
 import styles from "./style/nameNew.module.css";
 
 const lexend = Lexend({
@@ -22,7 +21,7 @@ const inter = Inter({
 
 const socials = [
   { name: "Github", icon: <LuGithub />, url: "github" },
-  { name: "Linkedin", icon: <LuLinkedin />, url: "linkedin" },
+  { name: "LinkedIn", icon: <LuLinkedin />, url: "linkedin" },
   { name: "LeetCode", icon: <LuCodeXml />, url: "leetcode" },
 ];
 
@@ -45,121 +44,120 @@ export default function NameNew() {
   }, []);
 
   return (
-    <div className={styles.container}>
-      <BlobsBackground />
-
-      <motion.div
-        className={styles.contentWrapper}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1.5, ease: "easeOut" }}
-      >
-        <motion.div
-          className={styles.logoWrapper}
-          initial={{ opacity: 0, y: -20 }}
+    <header className={`${styles.container} ${inter.className}`}>
+      <div className={styles.heroShell}>
+        <motion.section
+          className={styles.heroCopy}
+          initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2, duration: 0.8, ease: "easeOut" }}
+          transition={{ delay: 0.12, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
         >
-          <Image
-            src="/assets/img/logo.png"
-            alt="Aneesh Logo"
-            width={90}
-            height={90}
-            priority
-            className={styles.logo}
-          />
-        </motion.div>
+          <div className={styles.logoMark}>
+            <Image
+              src="/assets/img/logo.png"
+              alt="Aneesh logo"
+              width={42}
+              height={42}
+              priority
+            />
+          </div>
 
-        <div className={styles.introWrapper}>
+          <p className={styles.greeting}>Hello, I am</p>
+
           <motion.h1
             className={`${styles.introName} ${lexend.className}`}
-            initial={{ opacity: 0, y: 30, filter: "blur(10px)" }}
+            initial={{ opacity: 0, y: 28, filter: "blur(8px)" }}
             animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-            transition={{ delay: 0.4, duration: 1, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ delay: 0.22, duration: 0.85, ease: [0.16, 1, 0.3, 1] }}
           >
             Aneesh Patne
           </motion.h1>
 
-          <motion.p
-            className={`${styles.introTextSmall} ${inter.className}`}
-            initial={{ opacity: 0, letterSpacing: "0em" }}
-            animate={{ opacity: 1, letterSpacing: "0.2em" }}
-            transition={{ delay: 0.8, duration: 1, ease: "easeOut" }}
-          >
+          <p className={styles.role}>
             Full Stack Engineer
-          </motion.p>
+          </p>
 
-          <motion.div
-            className={`${styles.locationBadge} ${inter.className}`}
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1, duration: 1, ease: "easeOut" }}
-          >
+          <p className={styles.valueStatement}>
+            I build reliable web platforms, AI-assisted tools, and data-driven
+            products with clean systems thinking and production-focused execution.
+          </p>
+
+          <div className={styles.locationBadge}>
             <LuMapPin />
             Mumbai, India
-          </motion.div>
-        </div>
+          </div>
 
-        <motion.div
-          className={styles.divider}
-          initial={{ scaleX: 0, opacity: 0 }}
-          animate={{ scaleX: 1, opacity: 1 }}
-          transition={{ delay: 1.2, duration: 1 }}
-        />
-
-        <motion.div
-          className={styles.socialsContainer}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.5, duration: 0.8 }}
-        >
-          {socials.map((social, index) => (
+          <div className={styles.ctaRow}>
             <motion.a
-              key={social.name}
-              href={socialLinks[index]}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`${styles.socialLink} ${
-                index === idx ? styles.active : ""
-              }`}
-              whileHover={{ scale: 1.12, rotate: 0 }}
-              whileTap={{ scale: 0.94 }}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 1.5 + index * 0.1, duration: 0.5 }}
-              title={social.name}
+              href="#project"
+              className={styles.primaryCta}
+              whileHover={{ y: -1 }}
+              whileTap={{ scale: 0.98 }}
             >
-              {social.icon}
+              View My Work
+              <LuArrowUpRight />
             </motion.a>
-          ))}
-        </motion.div>
 
-        <motion.div
-          className={`${styles.urlContainer} ${inter.className}`}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 2, duration: 1 }}
-        >
-          <span>aneeshpatne.com/</span>
-          <div className={styles.urlWindow} style={{ width: `${maxUrlLength}ch` }}>
-            <AnimatePresence mode="wait">
-              <motion.a
-                key={idx}
-                href={socialLinks[idx]}
+            <motion.a
+              href="mailto:aneeshpatne@gmail.com"
+              className={styles.secondaryCta}
+              whileHover={{ y: -1 }}
+              whileTap={{ scale: 0.98 }}
+              role="button"
+              aria-disabled="true"
+              onClick={(event) => event.preventDefault()}
+            >
+              <LuBriefcase />
+              Hire Me
+            </motion.a>
+          </div>
+
+          <div className={styles.socialsContainer} aria-label="Social profiles">
+            {socials.map((social, index) => (
+              <a
+                key={social.name}
+                href={socialLinks[index]}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={styles.dynamicUrl}
-                initial={{ y: 20, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                exit={{ y: -20, opacity: 0 }}
-                transition={{ duration: 0.5, ease: "easeInOut" }}
+                aria-label={social.name}
+                className={index === idx ? styles.activeSocial : ""}
               >
-                {socials[idx].url}
-              </motion.a>
-            </AnimatePresence>
+                {social.icon}
+              </a>
+            ))}
           </div>
-        </motion.div>
-      </motion.div>
-    </div>
+
+          <div className={styles.urlContainer}>
+            <span>aneeshpatne/</span>
+            <a
+              href={socialLinks[idx]}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.dynamicUrl}
+              style={{ minWidth: `${maxUrlLength}ch` }}
+            >
+              {socials[idx].url}
+            </a>
+          </div>
+        </motion.section>
+
+        <motion.section
+          className={styles.heroVisual}
+          aria-label="Developer workspace illustration"
+          initial={{ opacity: 0, scale: 0.96, y: 18 }}
+          animate={{ opacity: 1, scale: 1, y: 0 }}
+          transition={{ delay: 0.28, duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+        >
+          <Image
+            src="/assets/svg/workplace.svg"
+            alt="Minimal developer workspace illustration"
+            width={720}
+            height={720}
+            priority
+            className={styles.workplaceSvg}
+          />
+        </motion.section>
+      </div>
+    </header>
   );
 }

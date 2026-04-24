@@ -1,186 +1,293 @@
 .container {
-  --surface: #131313;
-  --surface-low: rgba(24, 24, 27, 0.78);
-  --surface-variant: rgba(32, 32, 40, 0.62);
-  --primary: #c0c1ff;
-  --primary-strong: #8083ff;
-  --text-main: #f5f7ff;
-  --text-muted: rgba(232, 236, 255, 0.76);
-  --text-soft: rgba(232, 236, 255, 0.46);
-  --outline-soft: rgba(70, 69, 84, 0.15);
+  --base: #0b0f1a;
+  --surface: #121826;
+  --card: #131c2e;
+  --action-color: #4754f6;
+  --action-hover: #3a44cc;
+  --text-primary: #ffffff;
+  --text-secondary: #a1a1aa;
+  --text-location: #8b93a7;
+  --border: rgba(255, 255, 255, 0.08);
   position: relative;
   width: 100%;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  min-height: 100vh;
   overflow: hidden;
-  z-index: 1;
   background:
-    radial-gradient(circle at 50% 20%, rgba(128, 131, 255, 0.12), transparent 34%),
-    linear-gradient(180deg, rgba(19, 19, 19, 0.84), rgba(19, 19, 19, 0.96));
+    radial-gradient(circle at 78% 38%, rgba(79, 107, 255, 0.12), transparent 28%),
+    linear-gradient(180deg, #0b0f1a 0%, #0b0f1a 100%);
+  color: var(--text-primary);
+  isolation: isolate;
 }
 
-.contentWrapper {
+.container::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 72px 72px;
+  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.55), transparent 78%);
+}
+
+.primaryCta,
+.secondaryCta,
+.socialsContainer a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.heroShell {
+  width: min(1180px, calc(100% - 40px));
+  min-height: 100vh;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(380px, 1.05fr);
+  align-items: center;
+  gap: clamp(40px, 7vw, 96px);
+  padding: clamp(32px, 5vh, 64px) 0 clamp(112px, 14vh, 152px);
+}
+
+.heroCopy {
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
+  max-width: 620px;
+}
+
+.logoMark {
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  text-align: center;
-  z-index: 2;
-  padding: 2rem;
+  margin-bottom: 24px;
 }
 
-.logoWrapper {
-  margin-bottom: 2rem;
-  filter: drop-shadow(0 0 24px rgba(192, 193, 255, 0.12));
+.logoMark img {
+  border-radius: 10px;
+  box-shadow: 0 12px 28px rgba(79, 107, 255, 0.16);
 }
 
-.logo {
-  object-fit: cover;
-}
-
-.introWrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.65rem;
+.greeting {
+  margin: 0 0 14px;
+  color: var(--action-color);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  line-height: 1;
+  opacity: 0.8;
+  text-transform: uppercase;
 }
 
 .introName {
-  font-size: 5rem;
-  font-weight: 600;
-  color: var(--text-main);
   margin: 0;
-  line-height: 1.1;
-  letter-spacing: -0.02em;
-  text-shadow: 0 0 40px rgba(192, 193, 255, 0.08);
+  max-width: 10ch;
+  color: var(--text-primary);
+  font-size: clamp(4rem, 8vw, 4.5rem);
+  font-weight: 700;
+  line-height: 0.96;
+  letter-spacing: 0;
 }
 
-.introTextSmall {
+.role {
+  margin: 22px 0 0;
+  color: var(--action-color);
+  font-size: clamp(1.25rem, 2vw, 1.5rem);
+  font-weight: 600;
+  line-height: 1.35;
+  letter-spacing: 0.3px;
+}
+
+.valueStatement {
+  max-width: 590px;
+  margin: 18px 0 0;
+  color: var(--text-secondary);
+  font-size: clamp(1rem, 1.5vw, 1.1rem);
+  line-height: 1.75;
+}
+
+.locationBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 20px;
+  color: var(--text-location);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.locationBadge svg {
+  color: var(--action-color);
+  font-size: 1rem;
+  opacity: 0.8;
+}
+
+.ctaRow {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 28px;
+}
+
+.primaryCta,
+.secondaryCta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: auto;
+  padding: 14px 24px;
+  border-radius: 10px;
+  text-decoration: none;
   font-size: 0.95rem;
-  text-transform: uppercase;
-  color: var(--primary);
-  margin: 0;
-  letter-spacing: 0.2em;
-  font-weight: 600;
+  transition: all 0.3s ease;
 }
 
-.divider {
-  width: 60px;
-  height: 1px;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(192, 193, 255, 0.9),
-    transparent
-  );
-  margin: 2.5rem 0;
+.primaryCta {
+  color: #ffffff;
+  font-weight: 600;
+  border: none;
+  background: var(--action-color);
+}
+
+.primaryCta:hover {
+  background: var(--action-hover);
+}
+
+.secondaryCta {
+  color: #ffffff;
+  border: 1px solid var(--action-color);
+  background: transparent;
+  font-weight: 500;
+}
+
+.secondaryCta:hover {
+  color: #ffffff;
+  border-color: var(--action-hover);
+  background: rgba(71, 84, 246, 0.08);
 }
 
 .socialsContainer {
   display: flex;
-  gap: 2rem;
-  margin-bottom: 3rem;
+  align-items: center;
+  gap: 12px;
+  margin-top: 28px;
 }
 
-.socialLink {
-  color: var(--text-soft);
-  font-size: 1.5rem;
-  transition: all 0.3s ease;
-  display: flex;
+.socialsContainer a {
+  display: inline-flex;
   align-items: center;
   justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  color: var(--text-secondary);
+  background: rgba(19, 28, 46, 0.68);
+  border: 1px solid var(--border);
+  font-size: 1.15rem;
+  transition: color 180ms ease, border-color 180ms ease, transform 180ms ease;
 }
 
-.socialLink:hover,
-.active {
-  color: var(--primary);
+.socialsContainer a:hover {
+  color: var(--action-color);
+  border-color: var(--action-color);
   transform: translateY(-2px);
-  filter: drop-shadow(0 0 10px rgba(128, 131, 255, 0.35));
+}
+
+.socialsContainer .activeSocial {
+  color: var(--action-color);
+  border-color: var(--action-color);
+  box-shadow: 0 0 0 2px rgba(71, 84, 246, 0.15);
 }
 
 .urlContainer {
   display: flex;
   align-items: center;
-  justify-content: center;
   gap: 0.5ch;
-  font-size: 1rem;
-  color: var(--text-soft);
-  margin-top: 1rem;
-}
-
-.urlWindow {
-  position: relative;
-  height: 1.5em;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
+  margin-top: 18px;
+  min-height: 28px;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  font-weight: 700;
 }
 
 .dynamicUrl {
-  color: var(--text-main);
-  font-weight: 500;
-  position: absolute;
-  left: 0;
+  display: inline-flex;
+  color: var(--text-primary);
   text-decoration: none;
-  transition: color 0.3s ease;
+  transition: color 180ms ease;
 }
 
 .dynamicUrl:hover {
-  color: var(--primary);
-  text-decoration: underline;
-  text-decoration-color: var(--primary-strong);
-  text-underline-offset: 4px;
+  color: var(--action-color);
 }
 
-@media (max-width: 768px) {
-  .introName {
-    font-size: 3.5rem;
-  }
-
-  .divider {
-    margin: 2rem 0;
-  }
-
-  .socialsContainer {
-    gap: 1.5rem;
-    margin-bottom: 2.5rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .introName {
-    font-size: 2.8rem;
-  }
-
-  .introTextSmall {
-    font-size: 0.8rem;
-  }
-}
-
-.locationBadge {
+.heroVisual {
   display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-size: 0.85rem;
-  color: var(--text-muted);
-  margin-top: 1rem;
-  padding: 0.7rem 1.2rem;
-  background: rgba(32, 32, 40, 0.42);
-  backdrop-filter: blur(12px);
-  box-shadow: inset 0 0 0 1px var(--outline-soft);
-  transition: all 0.3s ease;
+  justify-content: center;
+  width: 100%;
 }
 
-.locationBadge svg {
-  color: var(--primary);
-  font-size: 1.1em;
+.workplaceSvg {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 560px);
+  height: auto;
+  filter: drop-shadow(0 32px 70px rgba(0, 0, 0, 0.28));
 }
 
-.locationBadge:hover {
-  background: rgba(38, 38, 48, 0.56);
-  box-shadow: inset 0 0 0 1px rgba(70, 69, 84, 0.4);
-  transform: translateY(-2px);
+@media (max-width: 980px) {
+  .heroShell {
+    width: min(100% - 28px, 720px);
+    grid-template-columns: 1fr;
+    gap: 42px;
+    padding: 64px 0 80px;
+  }
+
+  .heroCopy {
+    align-items: center;
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  .introName {
+    max-width: 12ch;
+  }
+
+  .valueStatement {
+    max-width: 640px;
+  }
+
+  .workplaceSvg {
+    width: min(100%, 460px);
+  }
+}
+
+@media (max-width: 560px) {
+  .container {
+    min-height: auto;
+  }
+
+  .heroShell {
+    min-height: auto;
+    padding: 42px 0 72px;
+  }
+
+  .introName {
+    font-size: clamp(3rem, 17vw, 4rem);
+  }
+
+  .role {
+    margin-top: 18px;
+  }
+
+  .ctaRow {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .primaryCta,
+  .secondaryCta {
+    flex: 1 1 190px;
+  }
 }
