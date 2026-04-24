@@ -3,7 +3,7 @@
 .profileSection {
   /* Locally scoped custom properties */
   --about-gap: clamp(1.5rem, 4vw, 3rem);
-  --about-max-width: 1100px;
+  --about-max-width: 1300px;
   --about-accent: var(--gradient-start, #6ea8ff);
   --about-text-muted: hsl(0 0% 60%);
   --polaroid-bg: #fff;
