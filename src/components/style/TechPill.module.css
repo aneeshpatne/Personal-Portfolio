@@ -2,9 +2,12 @@
   display: inline-flex;
   align-items: center;
   min-height: 28px;
-  background-color: var(--color-bg-surface-elevated);
-  color: #fff;
-  font-size: 0.8rem;
+  background: rgb(255 255 255 / 0.045);
+  border: 1px solid rgb(255 255 255 / 0.1);
+  border-radius: 6px;
+  color: var(--color-text-primary);
+  font-size: 0.78rem;
+  overflow: hidden;
 }
 
 .logo {
@@ -14,7 +17,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: var(--color-secondary);
+  background-color: rgb(255 255 255 / 0.055);
+  border-right: 1px solid rgb(255 255 255 / 0.08);
 }
 
 .logoHidden {
@@ -26,7 +30,7 @@
   align-items: center;
   white-space: nowrap;
   padding: 0 0.55rem;
-  color: #fff;
+  color: var(--color-text-primary);
   font-weight: 500;
   line-height: 1.2;
 }

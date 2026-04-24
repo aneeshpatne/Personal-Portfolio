@@ -25,9 +25,7 @@ export function APIShowCase() {
         <h2 className={`${styles.title} ${instrumentSerif.className}`}>
           API Showcase
         </h2>
-        <p className={styles.subtitle}>
-          Live snapshots from the APIs I have built.
-        </p>
+        <p className={styles.subtitle}>Live API telemetry and data products</p>
       </div>
       <div className={styles.container}>
         <IntelWorld />
