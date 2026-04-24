@@ -1,16 +1,18 @@
 import styles from "../style/SystemArchitecture.module.css";
 
 const CCTVFlowSVG = () => {
-  const accentColor = "var(--gradient-mid)";
-  const secondaryAccent = "var(--gradient-start)";
-  const lineColor = "rgba(255, 255, 255, 0.15)";
-  const textColor = "rgba(255, 255, 255, 0.9)";
+  const accentColor = "#8083ff";
+  const secondaryAccent = "#c0c1ff";
+  const lineColor = "rgba(255, 255, 255, 0.22)";
+  const textColor = "rgba(248, 250, 252, 0.92)";
+  const nodeFill = "rgba(10, 14, 24, 0.46)";
+  const nodeAltFill = "rgba(255, 255, 255, 0.045)";
 
   const SVGDefs = ({ prefix = "" }) => (
     <defs>
       <linearGradient id={`${prefix}cBoxGradient`} x1="0" y1="0" x2="1" y2="1">
-        <stop offset="0%" stopColor="rgba(255, 255, 255, 0.08)" />
-        <stop offset="100%" stopColor="rgba(255, 255, 255, 0.02)" />
+        <stop offset="0%" stopColor="rgba(255, 255, 255, 0.07)" />
+        <stop offset="100%" stopColor="rgba(10, 14, 24, 0.34)" />
       </linearGradient>
       <marker
         id={`${prefix}carrowhead`}
@@ -66,18 +68,18 @@ const CCTVFlowSVG = () => {
         </g>
 
         <g transform="translate(210, 30)">
-          <rect width="180" height="80" rx="8" fill="#111" stroke={secondaryAccent} strokeWidth="2" />
+          <rect width="180" height="80" rx="8" fill={nodeFill} stroke={secondaryAccent} strokeWidth="2" />
           <text x="90" y="35" textAnchor="middle" fill={textColor} fontSize="14" fontWeight="600" className={styles.svgText}>FFMPEG Server</text>
           <text x="90" y="55" textAnchor="middle" fill={textColor} fontSize="11" opacity="0.7" className={styles.svgText}>Restream • Record</text>
         </g>
 
         <g transform="translate(480, 20)">
-          <rect width="140" height="50" rx="6" fill="#1a1a1a" stroke={secondaryAccent} strokeWidth="1.5" />
+          <rect width="140" height="50" rx="6" fill={nodeFill} stroke={secondaryAccent} strokeWidth="1.5" />
           <text x="70" y="30" textAnchor="middle" fill={textColor} fontSize="12" fontWeight="600" className={styles.svgText}>RTSP Feed</text>
         </g>
 
         <g transform="translate(480, 80)">
-          <path d="M0 10 C0 4 140 4 140 10 L140 40 C140 46 0 46 0 40 Z" fill="#1a1a1a" stroke={accentColor} strokeWidth="1.5" />
+          <path d="M0 10 C0 4 140 4 140 10 L140 40 C140 46 0 46 0 40 Z" fill={nodeFill} stroke={accentColor} strokeWidth="1.5" />
           <ellipse cx="70" cy="10" rx="70" ry="6" fill="none" stroke={accentColor} strokeWidth="1.5" strokeOpacity="0.5" />
           <text x="70" y="32" textAnchor="middle" fill={textColor} fontSize="12" fontWeight="600" className={styles.svgText}>Video Storage</text>
         </g>
@@ -101,32 +103,32 @@ const CCTVFlowSVG = () => {
 
         {/* Components */}
         <g transform="translate(50, 225)">
-          <path d="M0 8 C0 3 100 3 100 8 L100 32 C100 37 0 37 0 32 Z" fill="#1a1a1a" stroke={accentColor} strokeWidth="1.5" />
+          <path d="M0 8 C0 3 100 3 100 8 L100 32 C100 37 0 37 0 32 Z" fill={nodeFill} stroke={accentColor} strokeWidth="1.5" />
           <ellipse cx="50" cy="8" rx="50" ry="5" fill="none" stroke={accentColor} strokeWidth="1.5" strokeOpacity="0.5" />
           <text x="50" y="25" textAnchor="middle" fill={textColor} fontSize="11" fontWeight="600" className={styles.svgText}>DB / Logs</text>
         </g>
 
         <g transform="translate(210, 200)">
-          <rect width="180" height="80" rx="8" fill="#111" stroke={accentColor} strokeWidth="2" strokeDasharray="4 2" />
+          <rect width="180" height="80" rx="8" fill={nodeFill} stroke={accentColor} strokeWidth="2" strokeDasharray="4 2" />
           <text x="90" y="35" textAnchor="middle" fill={textColor} fontSize="14" fontWeight="600" className={styles.svgText}>FastAPI Service</text>
           <text x="90" y="55" textAnchor="middle" fill={textColor} fontSize="11" opacity="0.7" className={styles.svgText}>Logic • Detection</text>
         </g>
 
         {/* Stacked Outputs */}
         <g transform="translate(480, 160)">
-          <rect width="140" height="34" rx="6" fill="#222" stroke={lineColor} strokeWidth="1.5" />
+          <rect width="140" height="34" rx="6" fill={nodeAltFill} stroke={lineColor} strokeWidth="1.5" />
           <text x="70" y="21" textAnchor="middle" fill={textColor} fontSize="11" fontWeight="600" className={styles.svgText}>Vid by Motion</text>
         </g>
         <g transform="translate(480, 202)">
-          <rect width="140" height="34" rx="6" fill="#222" stroke={lineColor} strokeWidth="1.5" />
+          <rect width="140" height="34" rx="6" fill={nodeAltFill} stroke={lineColor} strokeWidth="1.5" />
           <text x="70" y="21" textAnchor="middle" fill={textColor} fontSize="11" fontWeight="600" className={styles.svgText}>Vid by Timestamp</text>
         </g>
         <g transform="translate(480, 244)">
-          <rect width="140" height="34" rx="6" fill="#222" stroke={lineColor} strokeWidth="1.5" />
+          <rect width="140" height="34" rx="6" fill={nodeAltFill} stroke={lineColor} strokeWidth="1.5" />
           <text x="70" y="21" textAnchor="middle" fill={textColor} fontSize="11" fontWeight="600" className={styles.svgText}>Motion Logs</text>
         </g>
         <g transform="translate(480, 286)">
-          <rect width="140" height="34" rx="6" fill="#222" stroke={lineColor} strokeDasharray="4 2" strokeWidth="1.5" />
+          <rect width="140" height="34" rx="6" fill={nodeAltFill} stroke={lineColor} strokeDasharray="4 2" strokeWidth="1.5" />
           <text x="70" y="21" textAnchor="middle" fill={textColor} fontSize="11" fontWeight="600" className={styles.svgText}>Telegram Bot</text>
         </g>
 
@@ -159,19 +161,19 @@ const CCTVFlowSVG = () => {
           <text x="50" y="35" textAnchor="middle" fill={textColor} fontSize="13" fontWeight="600" className={styles.svgText}>ESP32-CAM</text>
         </g>
         <g transform="translate(310, 130)">
-          <rect width="180" height="80" rx="8" fill="#111" stroke={secondaryAccent} strokeWidth="2" />
+          <rect width="180" height="80" rx="8" fill={nodeFill} stroke={secondaryAccent} strokeWidth="2" />
           <text x="90" y="35" textAnchor="middle" fill={textColor} fontSize="14" fontWeight="600" className={styles.svgText}>FFMPEG Server</text>
         </g>
         
         {/* RTSP */}
         <g transform="translate(240, 240)">
-          <rect width="100" height="60" rx="6" fill="#1a1a1a" stroke={secondaryAccent} strokeWidth="1.5" />
+          <rect width="100" height="60" rx="6" fill={nodeFill} stroke={secondaryAccent} strokeWidth="1.5" />
           <text x="50" y="35" textAnchor="middle" fill={textColor} fontSize="12" fontWeight="600" className={styles.svgText}>RTSP</text>
         </g>
         
         {/* Video Storage */}
         <g transform="translate(460, 240)">
-          <path d="M0 10 C0 4 100 4 100 10 L100 50 C100 56 0 56 0 50 Z" fill="#1a1a1a" stroke={accentColor} strokeWidth="1.5" />
+          <path d="M0 10 C0 4 100 4 100 10 L100 50 C100 56 0 56 0 50 Z" fill={nodeFill} stroke={accentColor} strokeWidth="1.5" />
           <ellipse cx="50" cy="10" rx="50" ry="6" fill="none" stroke={accentColor} strokeWidth="1.5" strokeOpacity="0.5" />
           <text x="50" y="35" textAnchor="middle" fill={textColor} fontSize="12" fontWeight="600" className={styles.svgText}>Storage</text>
         </g>
@@ -195,33 +197,33 @@ const CCTVFlowSVG = () => {
 
 
         <g transform="translate(350, 380)">
-           <path d="M0 8 C0 3 100 3 100 8 L100 32 C100 37 0 37 0 32 Z" fill="#1a1a1a" stroke={accentColor} strokeWidth="1.5" />
+           <path d="M0 8 C0 3 100 3 100 8 L100 32 C100 37 0 37 0 32 Z" fill={nodeFill} stroke={accentColor} strokeWidth="1.5" />
            <ellipse cx="50" cy="8" rx="50" ry="5" fill="none" stroke={accentColor} strokeWidth="1.5" strokeOpacity="0.5" />
            <text x="50" y="25" textAnchor="middle" fill={textColor} fontSize="11" fontWeight="600" className={styles.svgText}>DB / Logs</text>
         </g>
         <g transform="translate(310, 460)">
-           <rect width="180" height="60" rx="8" fill="#111" stroke={accentColor} strokeWidth="2" strokeDasharray="4 2" />
+           <rect width="180" height="60" rx="8" fill={nodeFill} stroke={accentColor} strokeWidth="2" strokeDasharray="4 2" />
            <text x="90" y="35" textAnchor="middle" fill={textColor} fontSize="14" fontWeight="600" className={styles.svgText}>FastAPI</text>
         </g>
 
         {/* 2x2 Grid Output Boxes */}
         {/* Row 1 */}
         <g transform="translate(260, 580)">
-          <rect width="120" height="50" rx="6" fill="#222" stroke={lineColor} strokeWidth="1.5" />
+          <rect width="120" height="50" rx="6" fill={nodeAltFill} stroke={lineColor} strokeWidth="1.5" />
           <text x="60" y="30" textAnchor="middle" fill={textColor} fontSize="11" fontWeight="600" className={styles.svgText}>Vid by Motion</text>
         </g>
         <g transform="translate(420, 580)">
-          <rect width="120" height="50" rx="6" fill="#222" stroke={lineColor} strokeWidth="1.5" />
+          <rect width="120" height="50" rx="6" fill={nodeAltFill} stroke={lineColor} strokeWidth="1.5" />
           <text x="60" y="30" textAnchor="middle" fill={textColor} fontSize="11" fontWeight="600" className={styles.svgText}>Vid by Time</text>
         </g>
         
         {/* Row 2 */}
         <g transform="translate(260, 660)">
-          <rect width="120" height="50" rx="6" fill="#222" stroke={lineColor} strokeWidth="1.5" />
+          <rect width="120" height="50" rx="6" fill={nodeAltFill} stroke={lineColor} strokeWidth="1.5" />
           <text x="60" y="30" textAnchor="middle" fill={textColor} fontSize="11" fontWeight="600" className={styles.svgText}>Motion Logs</text>
         </g>
         <g transform="translate(420, 660)">
-          <rect width="120" height="50" rx="6" fill="#222" stroke={lineColor} strokeDasharray="4 2" strokeWidth="1.5" />
+          <rect width="120" height="50" rx="6" fill={nodeAltFill} stroke={lineColor} strokeDasharray="4 2" strokeWidth="1.5" />
           <text x="60" y="30" textAnchor="middle" fill={textColor} fontSize="11" fontWeight="600" className={styles.svgText}>Telegram</text>
         </g>
       </svg>

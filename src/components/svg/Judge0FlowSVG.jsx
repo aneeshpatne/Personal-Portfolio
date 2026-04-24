@@ -1,16 +1,18 @@
 import styles from "../style/SystemArchitecture.module.css";
 
 const Judge0FlowSVG = () => {
-  const accentColor = "var(--gradient-mid)";
-  const secondaryAccent = "var(--gradient-start)";
-  const lineColor = "rgba(255, 255, 255, 0.15)";
-  const textColor = "rgba(255, 255, 255, 0.9)";
+  const accentColor = "#8083ff";
+  const secondaryAccent = "#c0c1ff";
+  const lineColor = "rgba(255, 255, 255, 0.22)";
+  const textColor = "rgba(248, 250, 252, 0.92)";
+  const nodeFill = "rgba(10, 14, 24, 0.46)";
+  const nodeAltFill = "rgba(255, 255, 255, 0.045)";
 
   const SVGDefs = ({ prefix = "" }) => (
     <defs>
       <linearGradient id={`${prefix}sBoxGradient`} x1="0" y1="0" x2="1" y2="1">
-        <stop offset="0%" stopColor="rgba(255, 255, 255, 0.08)" />
-        <stop offset="100%" stopColor="rgba(255, 255, 255, 0.02)" />
+        <stop offset="0%" stopColor="rgba(255, 255, 255, 0.07)" />
+        <stop offset="100%" stopColor="rgba(10, 14, 24, 0.34)" />
       </linearGradient>
       <marker
         id={`${prefix}arrowhead`}
@@ -72,14 +74,14 @@ const Judge0FlowSVG = () => {
 
         {/* 2. Spring Boot Server */}
         <g transform="translate(200, 80)">
-          <rect width="120" height="80" rx="8" fill="#111" stroke={secondaryAccent} strokeWidth="2" />
+          <rect width="120" height="80" rx="8" fill={nodeFill} stroke={secondaryAccent} strokeWidth="2" />
           <text x="60" y="35" textAnchor="middle" fill={textColor} fontSize="14" fontWeight="600" className={styles.svgText}>Spring Boot</text>
           <text x="60" y="55" textAnchor="middle" fill={textColor} fontSize="11" opacity="0.7" className={styles.svgText}>API Gateway</text>
         </g>
 
         {/* 3. PostgreSQL (Below Server) */}
         <g transform="translate(210, 200)">
-          <path d="M0 10 C0 4 100 4 100 10 L100 50 C100 56 0 56 0 50 Z" fill="#1a1a1a" stroke={accentColor} strokeWidth="1.5" />
+          <path d="M0 10 C0 4 100 4 100 10 L100 50 C100 56 0 56 0 50 Z" fill={nodeFill} stroke={accentColor} strokeWidth="1.5" />
           <ellipse cx="50" cy="10" rx="50" ry="6" fill="none" stroke={accentColor} strokeWidth="1.5" strokeOpacity="0.5" />
           <text x="50" y="35" textAnchor="middle" fill={textColor} fontSize="12" fontWeight="600" className={styles.svgText}>PostgreSQL</text>
           <text x="50" y="50" textAnchor="middle" fill={textColor} fontSize="10" opacity="0.7" className={styles.svgText}>User Data</text>
@@ -87,13 +89,13 @@ const Judge0FlowSVG = () => {
 
         {/* 4. RabbitMQ */}
         <g transform="translate(380, 90)">
-          <rect width="100" height="60" rx="6" fill="#222" stroke={lineColor} strokeDasharray="4 2" strokeWidth="1.5" />
+          <rect width="100" height="60" rx="6" fill={nodeAltFill} stroke={lineColor} strokeDasharray="4 2" strokeWidth="1.5" />
           <text x="50" y="35" textAnchor="middle" fill={textColor} fontSize="13" fontWeight="600" className={styles.svgText}>RabbitMQ</text>
         </g>
 
         {/* 5. Docker Engine */}
         <g transform="translate(540, 80)">
-          <rect width="120" height="80" rx="8" fill="url(#hsBoxGradient)" stroke="#0db7ed" strokeWidth="2" />
+          <rect width="120" height="80" rx="8" fill="url(#hsBoxGradient)" stroke={secondaryAccent} strokeWidth="2" />
           <text x="60" y="35" textAnchor="middle" fill={textColor} fontSize="14" fontWeight="600" className={styles.svgText}>Docker</text>
           <text x="60" y="55" textAnchor="middle" fill={textColor} fontSize="11" opacity="0.7" className={styles.svgText}>Worker Host</text>
         </g>
@@ -101,17 +103,17 @@ const Judge0FlowSVG = () => {
         {/* 6. Isolated Containers */}
         {/* Container 1 */}
         <g transform="translate(720, 20)">
-          <rect width="120" height="50" rx="6" fill="#1a1a1a" stroke={accentColor} strokeWidth="1" />
+          <rect width="120" height="50" rx="6" fill={nodeFill} stroke={accentColor} strokeWidth="1" />
           <text x="60" y="30" textAnchor="middle" fill={textColor} fontSize="11" className={styles.svgText}>Isolated Container 1</text>
         </g>
         {/* Container 2 */}
         <g transform="translate(720, 95)">
-          <rect width="120" height="50" rx="6" fill="#1a1a1a" stroke={accentColor} strokeWidth="1" />
+          <rect width="120" height="50" rx="6" fill={nodeFill} stroke={accentColor} strokeWidth="1" />
           <text x="60" y="30" textAnchor="middle" fill={textColor} fontSize="11" className={styles.svgText}>Isolated Container 2</text>
         </g>
         {/* Container 3 */}
         <g transform="translate(720, 170)">
-          <rect width="120" height="50" rx="6" fill="#1a1a1a" stroke={accentColor} strokeWidth="1" />
+          <rect width="120" height="50" rx="6" fill={nodeFill} stroke={accentColor} strokeWidth="1" />
           <text x="60" y="30" textAnchor="middle" fill={textColor} fontSize="11" className={styles.svgText}>Isolated Container 3</text>
         </g>
 
@@ -151,7 +153,7 @@ const Judge0FlowSVG = () => {
 
         {/* 2. Server */}
         <g transform="translate(110, 120)">
-          <rect width="140" height="80" rx="8" fill="#111" stroke={secondaryAccent} strokeWidth="2" />
+          <rect width="140" height="80" rx="8" fill={nodeFill} stroke={secondaryAccent} strokeWidth="2" />
           <text x="70" y="35" textAnchor="middle" fill={textColor} fontSize="14" fontWeight="600" className={styles.svgText}>Spring Boot</text>
           <text x="70" y="55" textAnchor="middle" fill={textColor} fontSize="11" opacity="0.7" className={styles.svgText}>API Gateway</text>
         </g>
@@ -159,35 +161,35 @@ const Judge0FlowSVG = () => {
         {/* 3. Postgres (Right Side) */}
         <g transform="translate(260, 130)">
            {/* Small icon version */}
-          <path d="M0 5 C0 2 50 2 50 5 L50 45 C50 48 0 48 0 45 Z" fill="#1a1a1a" stroke={accentColor} strokeWidth="1.5" />
+          <path d="M0 5 C0 2 50 2 50 5 L50 45 C50 48 0 48 0 45 Z" fill={nodeFill} stroke={accentColor} strokeWidth="1.5" />
           <ellipse cx="25" cy="5" rx="25" ry="3" fill="none" stroke={accentColor} strokeWidth="1.5" strokeOpacity="0.5" />
           <text x="25" y="30" textAnchor="middle" fill={textColor} fontSize="10" fontWeight="600" className={styles.svgText}>DB</text>
         </g>
 
         {/* 4. RabbitMQ */}
         <g transform="translate(130, 240)">
-          <rect width="100" height="60" rx="6" fill="#222" stroke={lineColor} strokeDasharray="4 2" strokeWidth="1.5" />
+          <rect width="100" height="60" rx="6" fill={nodeAltFill} stroke={lineColor} strokeDasharray="4 2" strokeWidth="1.5" />
           <text x="50" y="35" textAnchor="middle" fill={textColor} fontSize="13" fontWeight="600" className={styles.svgText}>RabbitMQ</text>
         </g>
 
         {/* 5. Docker */}
         <g transform="translate(110, 340)">
-          <rect width="140" height="80" rx="8" fill="url(#vsBoxGradient)" stroke="#0db7ed" strokeWidth="2" />
+          <rect width="140" height="80" rx="8" fill="url(#vsBoxGradient)" stroke={secondaryAccent} strokeWidth="2" />
           <text x="70" y="35" textAnchor="middle" fill={textColor} fontSize="14" fontWeight="600" className={styles.svgText}>Docker</text>
           <text x="70" y="55" textAnchor="middle" fill={textColor} fontSize="11" opacity="0.7" className={styles.svgText}>Worker Host</text>
         </g>
 
         {/* 6. Containers */}
         <g transform="translate(10, 460)">
-          <rect width="100" height="50" rx="6" fill="#1a1a1a" stroke={accentColor} strokeWidth="1" />
+          <rect width="100" height="50" rx="6" fill={nodeFill} stroke={accentColor} strokeWidth="1" />
           <text x="50" y="30" textAnchor="middle" fill={textColor} fontSize="10" className={styles.svgText}>Container 1</text>
         </g>
         <g transform="translate(130, 460)">
-          <rect width="100" height="50" rx="6" fill="#1a1a1a" stroke={accentColor} strokeWidth="1" />
+          <rect width="100" height="50" rx="6" fill={nodeFill} stroke={accentColor} strokeWidth="1" />
           <text x="50" y="30" textAnchor="middle" fill={textColor} fontSize="10" className={styles.svgText}>Container 2</text>
         </g>
         <g transform="translate(250, 460)">
-          <rect width="100" height="50" rx="6" fill="#1a1a1a" stroke={accentColor} strokeWidth="1" />
+          <rect width="100" height="50" rx="6" fill={nodeFill} stroke={accentColor} strokeWidth="1" />
           <text x="50" y="30" textAnchor="middle" fill={textColor} fontSize="10" className={styles.svgText}>Container 3</text>
         </g>
 

@@ -1,16 +1,19 @@
 import styles from "../style/SystemArchitecture.module.css";
 
 const SurakshaFlowSVG = () => {
-  const accentColor = "var(--gradient-mid)";
-  const secondaryAccent = "var(--gradient-start)";
-  const lineColor = "rgba(255, 255, 255, 0.15)";
-  const textColor = "rgba(255, 255, 255, 0.9)";
+  const accentColor = "#8083ff";
+  const secondaryAccent = "#c0c1ff";
+  const lineColor = "rgba(255, 255, 255, 0.22)";
+  const textColor = "rgba(248, 250, 252, 0.92)";
+  const nodeFill = "rgba(10, 14, 24, 0.46)";
+  const nodeAltFill = "rgba(255, 255, 255, 0.045)";
+  const nodeBorder = "rgba(255, 255, 255, 0.16)";
 
   const SVGDefs = ({ prefix = "" }) => (
     <defs>
       <linearGradient id={`${prefix}sBoxGradient`} x1="0" y1="0" x2="1" y2="1">
-        <stop offset="0%" stopColor="rgba(255, 255, 255, 0.08)" />
-        <stop offset="100%" stopColor="rgba(255, 255, 255, 0.02)" />
+        <stop offset="0%" stopColor="rgba(255, 255, 255, 0.07)" />
+        <stop offset="100%" stopColor="rgba(10, 14, 24, 0.34)" />
       </linearGradient>
       <filter
         id={`${prefix}sGlow`}
@@ -126,7 +129,7 @@ const SurakshaFlowSVG = () => {
             width="140"
             height="80"
             rx="8"
-            fill="#111"
+            fill={nodeFill}
             stroke={secondaryAccent}
             strokeWidth="2"
           />
@@ -161,7 +164,7 @@ const SurakshaFlowSVG = () => {
             height="80"
             rx="8"
             fill="url(#hsBoxGradient)"
-            stroke="rgba(255,255,255,0.2)"
+            stroke={nodeBorder}
           />
           <rect
             x="60"
@@ -201,7 +204,7 @@ const SurakshaFlowSVG = () => {
             width="100"
             height="60"
             rx="6"
-            fill="#1a1a1a"
+            fill={nodeFill}
             stroke={secondaryAccent}
             strokeWidth="1.5"
           />
@@ -231,7 +234,7 @@ const SurakshaFlowSVG = () => {
         <g transform="translate(620, 90)">
           <path
             d="M0 10 C0 4 80 4 80 10 L80 50 C80 56 0 56 0 50 Z"
-            fill="#1a1a1a"
+            fill={nodeFill}
             stroke={accentColor}
             strokeWidth="1.5"
           />
@@ -273,7 +276,7 @@ const SurakshaFlowSVG = () => {
             width="100"
             height="60"
             rx="6"
-            fill="#222"
+            fill={nodeAltFill}
             stroke={lineColor}
             strokeDasharray="4 2"
             strokeWidth="1.5"
@@ -389,7 +392,7 @@ const SurakshaFlowSVG = () => {
             width="140"
             height="80"
             rx="8"
-            fill="#111"
+            fill={nodeFill}
             stroke={secondaryAccent}
             strokeWidth="2"
           />
@@ -424,7 +427,7 @@ const SurakshaFlowSVG = () => {
             height="80"
             rx="8"
             fill="url(#vsBoxGradient)"
-            stroke="rgba(255,255,255,0.2)"
+            stroke={nodeBorder}
           />
           <rect
             x="60"
@@ -464,7 +467,7 @@ const SurakshaFlowSVG = () => {
             width="100"
             height="60"
             rx="6"
-            fill="#1a1a1a"
+            fill={nodeFill}
             stroke={secondaryAccent}
             strokeWidth="1.5"
           />
@@ -494,7 +497,7 @@ const SurakshaFlowSVG = () => {
         <g transform="translate(360, 370)">
           <path
             d="M0 10 C0 4 80 4 80 10 L80 50 C80 56 0 56 0 50 Z"
-            fill="#1a1a1a"
+            fill={nodeFill}
             stroke={accentColor}
             strokeWidth="1.5"
           />
@@ -536,7 +539,7 @@ const SurakshaFlowSVG = () => {
             width="100"
             height="60"
             rx="6"
-            fill="#222"
+            fill={nodeAltFill}
             stroke={lineColor}
             strokeDasharray="4 2"
             strokeWidth="1.5"
