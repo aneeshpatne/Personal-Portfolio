@@ -98,18 +98,16 @@ export default function NameNew() {
               <LuArrowUpRight />
             </motion.a>
 
-            <motion.a
-              href="mailto:aneeshpatne@gmail.com"
+            <motion.button
+              type="button"
               className={styles.secondaryCta}
               whileHover={{ y: -1 }}
               whileTap={{ scale: 0.98 }}
-              role="button"
               aria-disabled="true"
-              onClick={(event) => event.preventDefault()}
             >
               <LuBriefcase />
               Hire Me
-            </motion.a>
+            </motion.button>
           </div>
 
           <div className={styles.socialsContainer} aria-label="Social profiles">
