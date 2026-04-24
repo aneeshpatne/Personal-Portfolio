@@ -127,13 +127,13 @@
 }
 
 .techStackLogo {
-  background: rgb(128 131 255 / 0.16);
+  background: color-mix(in srgb, var(--tech-color) 18%, transparent);
+  color: var(--tech-color);
   height: 100%;
   width: 46px;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #c8c9ff;
   border-right: 1px solid var(--systems-chip-border);
 }
 

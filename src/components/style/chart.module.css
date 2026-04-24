@@ -6,17 +6,17 @@
   flex-direction: column;
   gap: 20px;
   align-items: center;
-  background-color: var(--color-bg-surface);
-  padding: 24px;
+  background: transparent;
+  padding: 0;
 }
 
 /* Header - Ultra Minimal */
 .chartHeader {
   font-size: 0.8rem;
   font-weight: 300;
-  letter-spacing: 5px;
+  letter-spacing: 0.24em;
   text-transform: uppercase;
-  color: var(--color-secondary); /* Subtle text */
+  color: var(--color-secondary);
   text-align: center;
 }
 
@@ -63,8 +63,10 @@
   align-items: center;
   min-height: 34px;
   min-width: 114px;
-  background-color: var(--color-bg-surface-elevated);
-  border: 1px solid rgba(255, 255, 255, 0.04);
+  background: rgb(255 255 255 / 0.045);
+  border: 1px solid rgb(255 255 255 / 0.11);
+  border-radius: 8px;
+  overflow: hidden;
 }
 
 .legendDot {
@@ -98,9 +100,9 @@
 
 /* Chart Center Text */
 .chartTotal {
-  font-size: 42px; /* Larger, thinner */
-  font-weight: 500; /* Light weight for elegance */
-  fill: #fff;
+  font-size: 42px;
+  font-weight: 500;
+  fill: var(--color-text-primary);
   font-family: inherit;
 }
 

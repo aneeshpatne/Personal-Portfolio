@@ -22,8 +22,8 @@ const selectedWorks = [
     previewSrc: "/assets/img/suraksha_showcase.png",
     Flowchart: SurakshaFlowSVG,
     techStacks: [
-      { name: "SpringBoot", Icon: SiSpringboot },
-      { name: "Java", Icon: FaJava },
+      { name: "SpringBoot", Icon: SiSpringboot, color: "#6db33f" },
+      { name: "Java", Icon: FaJava, color: "#f89820" },
     ],
     description:
       "Suraksha is an enterprise, multi-tenant auth service built on Spring Boot. It supports email/password, magic links, optional OTP 2FA, RS256 JWTs, refresh rotation, and org-level isolation. PostgreSQL stores data, Redis caches tokens/OTPs, and RabbitMQ delivers email.",
@@ -35,9 +35,9 @@ const selectedWorks = [
     previewSrc: "/assets/img/code.png",
     Flowchart: Judge0FlowSVG,
     techStacks: [
-      { name: "Python", Icon: FaPython },
-      { name: "Docker", Icon: FaDocker },
-      { name: "React", Icon: FaReact },
+      { name: "Python", Icon: FaPython, color: "#3776ab" },
+      { name: "Docker", Icon: FaDocker, color: "#2496ed" },
+      { name: "React", Icon: FaReact, color: "#61dafb" },
     ],
     description:
       "Practice Code is a scalable remote execution engine for safe, high-volume submissions. It orchestrates Docker containers via RabbitMQ for isolated runs, with a Spring Boot API gateway, PostgreSQL tracking, and an auto-scaling worker pool.",
@@ -49,9 +49,9 @@ const selectedWorks = [
     previewSrc: "/assets/img/cctv_showcase.png",
     Flowchart: CCTVFlowSVG,
     techStacks: [
-      { name: "ESP3266", Icon: FaMicrochip },
-      { name: "FFMPEG", Icon: FaVideo },
-      { name: "Python", Icon: FaPython },
+      { name: "ESP3266", Icon: FaMicrochip, color: "#ef4444" },
+      { name: "FFMPEG", Icon: FaVideo, color: "#f59e0b" },
+      { name: "Python", Icon: FaPython, color: "#3776ab" },
     ],
     description:
       "DIY CCTV is a self-hosted CCTV automation stack. It captures streams, overlays time and health metrics, records segments, restreams RTSP feeds, logs motion, exposes a FastAPI service, and sends Telegram summaries.",
@@ -100,8 +100,12 @@ export function SystemArchitectureNew() {
                   {title}
                 </h1>
                 <div className={styles.techStackContainer}>
-                  {techStacks.map(({ name, Icon }) => (
-                    <div className={styles.techStackItem} key={name}>
+                  {techStacks.map(({ name, Icon, color }) => (
+                    <div
+                      className={styles.techStackItem}
+                      key={name}
+                      style={{ "--tech-color": color }}
+                    >
                       <div className={styles.techStackLogo}>
                         <Icon
                           className={styles.techStackIcon}

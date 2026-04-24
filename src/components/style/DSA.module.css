@@ -5,117 +5,283 @@
   width: 100%;
 }
 
-.heading {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  text-align: center;
-  font-size: clamp(2rem, 3vw, 4rem);
-  margin-bottom: 2rem;
-}
-
 .Content {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 3rem;
-  padding: 0 3%;
-  width: 100%;
-  max-width: 1300px;
-}
+  --dsa-card-border: rgb(255 255 255 / 0.16);
+  --dsa-card-shadow:
+    0 18px 45px -30px rgb(0 0 0 / 0.82),
+    inset 0 1px 0 rgb(255 255 255 / 0.12);
+  --dsa-card-bg: rgb(10 14 24 / 0.34);
+  --dsa-chip-bg: rgb(255 255 255 / 0.045);
+  --dsa-chip-border: rgb(255 255 255 / 0.11);
 
-.LeftPanel {
-  flex: 0 0 auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-}
-
-.LeftPanel::before,
-.LeftPanel::after {
-  content: "";
-  position: absolute;
-  width: 28px;
-  height: 28px;
-  pointer-events: none;
-  opacity: 0.85;
-}
-
-.LeftPanel::before {
-  top: -2px;
-  left: -2px;
-  border-top: 2px solid var(--color-secondary);
-  border-left: 2px solid var(--color-secondary);
-}
-
-.LeftPanel::after {
-  right: -2px;
-  bottom: -2px;
-  border-right: 2px solid var(--color-secondary);
-  border-bottom: 2px solid var(--color-secondary);
-}
-
-.RightPanel {
-  flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
-  min-width: 0; /* Prevents overflow in flex items */
-  max-width: 900px;
-  position: relative;
+  justify-content: center;
+  align-items: stretch;
+  gap: clamp(1.5rem, 4vw, 3rem);
+  padding: clamp(2rem, 6vw, 4rem) 1.25rem;
+  width: 100%;
+  max-width: 1300px;
+  margin: 0 auto;
 }
 
-.RightPanel::before,
-.RightPanel::after {
+.header {
+  width: 100%;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--dsa-card-border);
+}
+
+.pageTitle {
+  font-size: clamp(3rem, 5vw, 6rem);
+  line-height: 0.9;
+  color: var(--color-text-primary);
+  margin: 0;
+  font-weight: 600;
+  letter-spacing: 0;
+}
+
+.pageTitle span {
+  display: block;
+}
+
+.secondaryText {
+  color: var(--color-secondary);
+}
+
+.panelGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  gap: 1.5rem;
+  width: 100%;
+  align-items: stretch;
+}
+
+.panel {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  position: relative;
+  border: 1px solid var(--dsa-card-border);
+  border-radius: 10px;
+  background: var(--dsa-card-bg);
+  box-shadow: var(--dsa-card-shadow);
+  overflow: hidden;
+}
+
+.panel::before {
   content: "";
   position: absolute;
-  width: 28px;
-  height: 28px;
+  top: 0;
+  left: 24px;
+  width: 2.5rem;
+  height: 2px;
+  background: linear-gradient(135deg, #c0c1ff, #8083ff);
   pointer-events: none;
-  opacity: 0.85;
+  opacity: 0.9;
 }
 
-.RightPanel::before {
-  top: -2px;
-  left: -2px;
-  border-top: 2px solid var(--color-secondary);
-  border-left: 2px solid var(--color-secondary);
+.panelText {
+  padding: 28px 32px 24px;
+  border-bottom: 1px solid var(--dsa-card-border);
 }
 
-.RightPanel::after {
-  right: -2px;
-  bottom: -2px;
-  border-right: 2px solid var(--color-secondary);
-  border-bottom: 2px solid var(--color-secondary);
+.panelText > span {
+  display: block;
+  color: var(--color-secondary);
+  font-size: 0.8rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
 }
 
-.chart {
-  /* Ensure chart container has boundaries */
+.panelTitle {
+  font-size: clamp(2rem, 4vw, 3rem);
+  padding: 10px 0;
+  color: var(--color-text-primary);
+  line-height: 0.95;
+  margin: 0;
+}
+
+.statRow {
   width: 100%;
   display: flex;
-  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
 }
 
-.HeatMapContainer {
-  width: 100%;
+.statItem {
   display: flex;
-  justify-content: center;
+  align-items: center;
+  height: 40px;
+  min-width: 150px;
+  background: var(--dsa-chip-bg);
+  border: 1px solid var(--dsa-chip-border);
+  border-radius: 8px;
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.07);
+  overflow: hidden;
 }
 
-.WeatherContainer {
-  width: 100%;
+.statLogo {
+  height: 100%;
+  width: 46px;
   display: flex;
+  align-items: center;
   justify-content: center;
+  color: var(--stat-color);
+  background: color-mix(in srgb, var(--stat-color) 18%, transparent);
+  border-right: 1px solid var(--dsa-chip-border);
+}
+
+.statIcon {
+  font-size: 1.15rem;
+}
+
+.statName {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding: 0 0.75rem;
+  color: var(--color-text-primary);
+  font-size: 0.95rem;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.panelDescription {
+  max-width: 68ch;
+  margin: 0;
+  padding: 12px 0 0;
+  color: var(--color-text-secondary);
+  font-size: clamp(0.98rem, 1.1vw, 1.05rem);
+  line-height: 1.7;
+  letter-spacing: 0.01em;
+  text-wrap: pretty;
+}
+
+.visualPanel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  min-height: 320px;
+  padding: 28px 32px 32px;
+  background: rgb(255 255 255 / 0.025);
+  overflow-x: auto;
+}
+
+.loadingState {
+  color: var(--color-text-secondary);
+  font-size: 0.95rem;
 }
 
 @media screen and (max-width: 1100px) {
-  .Content {
-    flex-direction: column;
-    align-items: center;
+  .panelGrid {
+    grid-template-columns: 1fr;
   }
 
-  .RightPanel {
+  .visualPanel {
+    min-height: 260px;
+  }
+}
+
+@media (max-width: 768px) {
+  .Content {
+    padding: 2rem 1rem;
+    gap: 1.5rem;
+  }
+
+  .header {
+    margin-bottom: 0.5rem;
+    padding-bottom: 0.75rem;
+  }
+
+  .pageTitle {
+    font-size: clamp(2.5rem, 12vw, 4rem);
+    line-height: 0.95;
+  }
+
+  .panel::before {
+    left: 16px;
+  }
+
+  .panelText {
+    padding: 18px 16px 20px;
+  }
+
+  .panelText > span {
+    font-size: 0.72rem;
+    letter-spacing: 0.22em;
+  }
+
+  .panelTitle {
+    font-size: clamp(2rem, 8vw, 2.45rem);
+    padding: 8px 0 10px;
+  }
+
+  .statItem {
     width: 100%;
+    min-width: 0;
+    height: 36px;
+  }
+
+  .statLogo {
+    width: 42px;
+  }
+
+  .statIcon {
+    font-size: 1rem;
+  }
+
+  .statName {
+    padding: 0 0.65rem;
+    font-size: 0.88rem;
+  }
+
+  .panelDescription {
+    max-width: none;
+    font-size: 0.98rem;
+    line-height: 1.65;
+  }
+
+  .visualPanel {
+    min-height: 0;
+    padding: 18px 16px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .pageTitle {
+    font-size: 2.35rem;
+  }
+
+  .panelText {
+    padding: 16px 14px 18px;
+  }
+
+  .panelText > span {
+    font-size: 0.68rem;
+    letter-spacing: 0.18em;
+  }
+
+  .panelTitle {
+    font-size: 1.8rem;
+  }
+
+  .statItem {
+    height: 34px;
+  }
+
+  .statLogo {
+    width: 38px;
+  }
+
+  .statName {
+    font-size: 0.82rem;
+    padding: 0 0.55rem;
+  }
+
+  .visualPanel {
+    padding: 16px 14px 18px;
   }
 }

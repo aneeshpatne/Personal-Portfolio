@@ -10,8 +10,8 @@ const FlowchartDefs = ({ prefix = "" }) => (
       x2="0%"
       y2="100%"
     >
-      <stop offset="0%" stopColor="rgba(255,255,255,0.08)" />
-      <stop offset="100%" stopColor="rgba(255,255,255,0.02)" />
+      <stop offset="0%" stopColor="rgba(255,255,255,0.07)" />
+      <stop offset="100%" stopColor="rgba(10,14,24,0.34)" />
     </linearGradient>
 
     {/* Subtle Glow */}
@@ -38,7 +38,7 @@ const FlowchartDefs = ({ prefix = "" }) => (
       <path
         d="M 0 0 L 6 3 L 0 6"
         fill="none"
-        stroke="rgba(255,255,255,0.3)"
+        stroke="rgba(255,255,255,0.22)"
         strokeWidth="1"
       />
     </marker>
@@ -58,7 +58,7 @@ export function ChatFlowchart() {
         <FlowchartDefs prefix="h" />
 
         {/* Connections */}
-        <g stroke="rgba(255,255,255,0.15)" strokeWidth="1" fill="none">
+        <g stroke="rgba(255,255,255,0.22)" strokeWidth="1" fill="none">
           {/* Client -> Router */}
           <line
             x1="120"
@@ -92,19 +92,19 @@ export function ChatFlowchart() {
         {/* Animated Particles */}
         <g>
           {/* Path 1: Top */}
-          <circle r="3" fill="#60a5fa" filter="url(#hChatSubtleGlow)">
+          <circle r="3" fill="#8083ff" filter="url(#hChatSubtleGlow)">
             <animateMotion dur="3s" repeatCount="indefinite">
               <mpath href="#hChatPath1" />
             </animateMotion>
           </circle>
           {/* Path 2: Middle */}
-          <circle r="3" fill="#a78bfa" filter="url(#hChatSubtleGlow)">
+          <circle r="3" fill="#8083ff" filter="url(#hChatSubtleGlow)">
             <animateMotion dur="4s" repeatCount="indefinite" begin="1s">
               <mpath href="#hChatPath2" />
             </animateMotion>
           </circle>
           {/* Path 3: Bottom */}
-          <circle r="3" fill="#34d399" filter="url(#hChatSubtleGlow)">
+          <circle r="3" fill="#c0c1ff" filter="url(#hChatSubtleGlow)">
             <animateMotion dur="3.5s" repeatCount="indefinite" begin="0.5s">
               <mpath href="#hChatPath3" />
             </animateMotion>
@@ -138,17 +138,17 @@ export function ChatFlowchart() {
             height="60"
             rx="12"
             fill="url(#hChatGlassGradient)"
-            stroke="rgba(255,255,255,0.1)"
+            stroke="rgba(255,255,255,0.16)"
             strokeWidth="1"
           />
-          <text x="50" y="25" textAnchor="middle" fill="#fff" fontSize="16">
+          <text x="50" y="25" textAnchor="middle" fill="rgba(248,250,252,0.92)" fontSize="16">
             💬
           </text>
           <text
             x="50"
             y="48"
             textAnchor="middle"
-            fill="rgba(255,255,255,0.8)"
+            fill="rgba(248,250,252,0.82)"
             fontSize="12"
           >
             User Chat
@@ -162,17 +162,17 @@ export function ChatFlowchart() {
             height="70"
             rx="12"
             fill="url(#hChatGlassGradient)"
-            stroke="rgba(255,255,255,0.1)"
+            stroke="rgba(255,255,255,0.16)"
             strokeWidth="1"
           />
-          <text x="60" y="28" textAnchor="middle" fill="#facc15" fontSize="18">
+          <text x="60" y="28" textAnchor="middle" fill="#c0c1ff" fontSize="18">
             ⚙️
           </text>
           <text
             x="60"
             y="52"
             textAnchor="middle"
-            fill="rgba(255,255,255,0.9)"
+            fill="rgba(248,250,252,0.92)"
             fontSize="13"
             fontWeight="500"
           >
@@ -187,17 +187,17 @@ export function ChatFlowchart() {
             height="50"
             rx="10"
             fill="url(#hChatGlassGradient)"
-            stroke="rgba(255,255,255,0.08)"
+            stroke="rgba(255,255,255,0.07)"
             strokeWidth="1"
           />
-          <text x="25" y="32" textAnchor="middle" fill="#10a37f" fontSize="16">
+          <text x="25" y="32" textAnchor="middle" fill="#c0c1ff" fontSize="16">
             🤖
           </text>
           <text
             x="65"
             y="32"
             textAnchor="middle"
-            fill="rgba(255,255,255,0.7)"
+            fill="rgba(248,250,252,0.72)"
             fontSize="12"
           >
             OpenAI API
@@ -211,17 +211,17 @@ export function ChatFlowchart() {
             height="50"
             rx="10"
             fill="url(#hChatGlassGradient)"
-            stroke="rgba(255,255,255,0.08)"
+            stroke="rgba(255,255,255,0.07)"
             strokeWidth="1"
           />
-          <text x="25" y="32" textAnchor="middle" fill="#d97757" fontSize="16">
+          <text x="25" y="32" textAnchor="middle" fill="#c0c1ff" fontSize="16">
             🧠
           </text>
           <text
             x="85"
             y="32"
             textAnchor="middle"
-            fill="rgba(255,255,255,0.7)"
+            fill="rgba(248,250,252,0.72)"
             fontSize="12"
           >
             Anthropic API
@@ -235,17 +235,17 @@ export function ChatFlowchart() {
             height="50"
             rx="10"
             fill="url(#hChatGlassGradient)"
-            stroke="rgba(255,255,255,0.08)"
+            stroke="rgba(255,255,255,0.07)"
             strokeWidth="1"
           />
-          <text x="25" y="32" textAnchor="middle" fill="#4285f4" fontSize="16">
+          <text x="25" y="32" textAnchor="middle" fill="#8083ff" fontSize="16">
             ✨
           </text>
           <text
             x="65"
             y="32"
             textAnchor="middle"
-            fill="rgba(255,255,255,0.7)"
+            fill="rgba(248,250,252,0.72)"
             fontSize="12"
           >
             Gemini API
@@ -262,7 +262,7 @@ export function ChatFlowchart() {
       >
         <FlowchartDefs prefix="v" />
 
-        <g stroke="rgba(255,255,255,0.15)" strokeWidth="1" fill="none">
+        <g stroke="rgba(255,255,255,0.22)" strokeWidth="1" fill="none">
           {/* Client -> Router */}
           <line
             x1="160"
@@ -299,17 +299,17 @@ export function ChatFlowchart() {
             height="60"
             rx="12"
             fill="url(#vChatGlassGradient)"
-            stroke="rgba(255,255,255,0.1)"
+            stroke="rgba(255,255,255,0.16)"
             strokeWidth="1"
           />
-          <text x="50" y="25" textAnchor="middle" fill="#fff" fontSize="16">
+          <text x="50" y="25" textAnchor="middle" fill="rgba(248,250,252,0.92)" fontSize="16">
             💬
           </text>
           <text
             x="50"
             y="48"
             textAnchor="middle"
-            fill="rgba(255,255,255,0.8)"
+            fill="rgba(248,250,252,0.82)"
             fontSize="12"
           >
             User Chat
@@ -323,17 +323,17 @@ export function ChatFlowchart() {
             height="70"
             rx="12"
             fill="url(#vChatGlassGradient)"
-            stroke="rgba(255,255,255,0.1)"
+            stroke="rgba(255,255,255,0.16)"
             strokeWidth="1"
           />
-          <text x="60" y="28" textAnchor="middle" fill="#facc15" fontSize="18">
+          <text x="60" y="28" textAnchor="middle" fill="#c0c1ff" fontSize="18">
             ⚙️
           </text>
           <text
             x="60"
             y="52"
             textAnchor="middle"
-            fill="rgba(255,255,255,0.9)"
+            fill="rgba(248,250,252,0.92)"
             fontSize="13"
             fontWeight="500"
           >
@@ -348,17 +348,17 @@ export function ChatFlowchart() {
             height="50"
             rx="10"
             fill="url(#vChatGlassGradient)"
-            stroke="rgba(255,255,255,0.08)"
+            stroke="rgba(255,255,255,0.07)"
             strokeWidth="1"
           />
-          <text x="50" y="20" textAnchor="middle" fill="#10a37f" fontSize="14">
+          <text x="50" y="20" textAnchor="middle" fill="#c0c1ff" fontSize="14">
             🤖
           </text>
           <text
             x="50"
             y="40"
             textAnchor="middle"
-            fill="rgba(255,255,255,0.7)"
+            fill="rgba(248,250,252,0.72)"
             fontSize="11"
           >
             GPT-4o
@@ -372,17 +372,17 @@ export function ChatFlowchart() {
             height="50"
             rx="10"
             fill="url(#vChatGlassGradient)"
-            stroke="rgba(255,255,255,0.08)"
+            stroke="rgba(255,255,255,0.07)"
             strokeWidth="1"
           />
-          <text x="50" y="20" textAnchor="middle" fill="#4285f4" fontSize="14">
+          <text x="50" y="20" textAnchor="middle" fill="#8083ff" fontSize="14">
             ✨
           </text>
           <text
             x="50"
             y="40"
             textAnchor="middle"
-            fill="rgba(255,255,255,0.7)"
+            fill="rgba(248,250,252,0.72)"
             fontSize="11"
           >
             Gemini
@@ -396,17 +396,17 @@ export function ChatFlowchart() {
             height="50"
             rx="10"
             fill="url(#vChatGlassGradient)"
-            stroke="rgba(255,255,255,0.08)"
+            stroke="rgba(255,255,255,0.07)"
             strokeWidth="1"
           />
-          <text x="50" y="20" textAnchor="middle" fill="#d97757" fontSize="14">
+          <text x="50" y="20" textAnchor="middle" fill="#c0c1ff" fontSize="14">
             🧠
           </text>
           <text
             x="50"
             y="40"
             textAnchor="middle"
-            fill="rgba(255,255,255,0.7)"
+            fill="rgba(248,250,252,0.72)"
             fontSize="11"
           >
             Claude 3.5

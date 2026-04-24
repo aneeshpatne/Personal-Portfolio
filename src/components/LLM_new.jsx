@@ -37,9 +37,9 @@ const creations = [
     description:
       "AI weather intelligence platform with a pipeline that fetches and processes radar images, blends live weather data, and generates concise reporting. It triggers tools to send email, post Telegram alerts, and notify based on conditions.",
     techStack: [
-      { name: "Python", Icon: FaPython },
-      { name: "Agents", Icon: FaRobot },
-      { name: "Telegram", Icon: FaTelegramPlane },
+      { name: "Python", Icon: FaPython, color: "#3776ab" },
+      { name: "Agents", Icon: FaRobot, color: "#f59e0b" },
+      { name: "Telegram", Icon: FaTelegramPlane, color: "#229ed9" },
     ],
     Flowchart: MausamFlowchart,
   },
@@ -50,9 +50,9 @@ const creations = [
     description:
       "Multi-model AI chat app with a unified interface for providers. Users pick a model and the system keeps the experience consistent. The backend routes requests to the chosen provider, handling auth, formatting, and response normalization. The architecture keeps Chat scalable, flexible, and easy to extend.",
     techStack: [
-      { name: "Agents", Icon: FaRobot },
-      { name: "FastAPI", Icon: SiFastapi },
-      { name: "Search", Icon: FaSearch },
+      { name: "Agents", Icon: FaRobot, color: "#f59e0b" },
+      { name: "FastAPI", Icon: SiFastapi, color: "#009688" },
+      { name: "Search", Icon: FaSearch, color: "#f97316" },
     ],
     Flowchart: ChatFlowchart,
   },
@@ -63,9 +63,9 @@ const creations = [
     description:
       "AI investigative news platform that delivers unbiased insights beyond headlines. It continuously scrapes and analyzes trusted sources to produce context-rich reports, using agentic web search and automated verification to reduce bias. A scalable FastAPI backend with PostgreSQL enables fast processing and reliable storage, while a Next.js frontend keeps reading smooth.",
     techStack: [
-      { name: "FastAPI", Icon: SiFastapi },
-      { name: "Search", Icon: FaSearch },
-      { name: "Postgres", Icon: SiPostgresql },
+      { name: "FastAPI", Icon: SiFastapi, color: "#009688" },
+      { name: "Search", Icon: FaSearch, color: "#f97316" },
+      { name: "Postgres", Icon: SiPostgresql, color: "#336791" },
     ],
     Flowchart: TazaKhabarFlowchart,
   },
@@ -126,8 +126,12 @@ export function LLM_new() {
                       {title}
                     </h2>
                     <div className={styles.TechStackRow}>
-                      {techStack.map(({ name, Icon }) => (
-                        <div key={name} className={styles.TechStackItem}>
+                      {techStack.map(({ name, Icon, color }) => (
+                        <div
+                          key={name}
+                          className={styles.TechStackItem}
+                          style={{ "--tech-color": color }}
+                        >
                           <div className={styles.TechStackLogo}>
                             <Icon
                               className={styles.TechStackIcon}

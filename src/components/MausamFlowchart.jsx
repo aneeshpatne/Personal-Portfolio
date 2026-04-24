@@ -10,8 +10,8 @@ const FlowchartDefs = ({ prefix = "" }) => (
       x2="0%"
       y2="100%"
     >
-      <stop offset="0%" stopColor="rgba(255,255,255,0.08)" />
-      <stop offset="100%" stopColor="rgba(255,255,255,0.02)" />
+      <stop offset="0%" stopColor="rgba(255,255,255,0.07)" />
+      <stop offset="100%" stopColor="rgba(10,14,24,0.34)" />
     </linearGradient>
 
     {/* Subtle Glow - Elegant & Minimal */}
@@ -38,7 +38,7 @@ const FlowchartDefs = ({ prefix = "" }) => (
       <path
         d="M 0 0 L 6 3 L 0 6"
         fill="none"
-        stroke="rgba(255,255,255,0.3)"
+        stroke="rgba(255,255,255,0.22)"
         strokeWidth="1"
       />
     </marker>
@@ -57,7 +57,7 @@ export function MausamFlowchart() {
         <FlowchartDefs prefix="h" />
 
         {/* Connection lines - Ultra-thin & sleek */}
-        <g stroke="rgba(255,255,255,0.15)" strokeWidth="1" fill="none">
+        <g stroke="rgba(255,255,255,0.22)" strokeWidth="1" fill="none">
           {/* Images to R2 */}
           <line
             x1="110"
@@ -128,13 +128,13 @@ export function MausamFlowchart() {
 
         {/* Animated Particles - Glowing & Vivid */}
         <g>
-          <circle r="3" fill="#60a5fa" filter="url(#hSubtleGlow)">
+          <circle r="3" fill="#8083ff" filter="url(#hSubtleGlow)">
             <animateMotion dur="4s" repeatCount="indefinite">
               <mpath href="#hMainPath" />
             </animateMotion>
           </circle>
 
-          <circle r="3" fill="#a78bfa" filter="url(#hSubtleGlow)">
+          <circle r="3" fill="#8083ff" filter="url(#hSubtleGlow)">
             <animateMotion dur="5s" repeatCount="indefinite" begin="2s">
               <mpath href="#hDbPath" />
             </animateMotion>
@@ -161,14 +161,14 @@ export function MausamFlowchart() {
             height="70"
             rx="12"
             fill="url(#hGlassGradient)"
-            stroke="rgba(255,255,255,0.1)"
+            stroke="rgba(255,255,255,0.16)"
             strokeWidth="1"
           />
           <text
             x="45"
             y="28"
             textAnchor="middle"
-            fill="rgba(255,255,255,0.9)"
+            fill="rgba(248,250,252,0.92)"
             fontSize="18"
           >
             📷
@@ -177,7 +177,7 @@ export function MausamFlowchart() {
             x="45"
             y="52"
             textAnchor="middle"
-            fill="rgba(255,255,255,0.7)"
+            fill="rgba(248,250,252,0.72)"
             fontSize="13"
             fontWeight="400"
             letterSpacing="0.5"
@@ -193,14 +193,14 @@ export function MausamFlowchart() {
             height="70"
             rx="12"
             fill="url(#hGlassGradient)"
-            stroke="rgba(255,255,255,0.1)"
+            stroke="rgba(255,255,255,0.16)"
             strokeWidth="1"
           />
           <text
             x="50"
             y="28"
             textAnchor="middle"
-            fill="#fdba74"
+            fill="#c0c1ff"
             fontSize="15"
             fontWeight="500"
             letterSpacing="0.5"
@@ -211,7 +211,7 @@ export function MausamFlowchart() {
             x="50"
             y="52"
             textAnchor="middle"
-            fill="rgba(255,255,255,0.6)"
+            fill="rgba(248,250,252,0.64)"
             fontSize="11"
             fontWeight="300"
           >
@@ -225,8 +225,8 @@ export function MausamFlowchart() {
             width="100"
             height="90"
             rx="16"
-            fill="rgba(139,92,246,0.05)"
-            stroke="rgba(139,92,246,0.3)"
+            fill="rgba(10,14,24,0.46)"
+            stroke="rgba(255,255,255,0.16)"
             strokeWidth="1"
             filter="url(#hSubtleGlow)"
           />
@@ -234,7 +234,7 @@ export function MausamFlowchart() {
             x="50"
             y="32"
             textAnchor="middle"
-            fill="#a78bfa"
+            fill="#8083ff"
             fontSize="22"
           >
             🧠
@@ -243,7 +243,7 @@ export function MausamFlowchart() {
             x="50"
             y="56"
             textAnchor="middle"
-            fill="#ddd6fe"
+            fill="#f8fafc"
             fontSize="15"
             fontWeight="500"
             letterSpacing="0.5"
@@ -254,7 +254,7 @@ export function MausamFlowchart() {
             x="50"
             y="76"
             textAnchor="middle"
-            fill="rgba(255,255,255,0.5)"
+            fill="rgba(248,250,252,0.58)"
             fontSize="10"
             fontWeight="300"
           >
@@ -269,14 +269,14 @@ export function MausamFlowchart() {
             height="70"
             rx="12"
             fill="url(#hGlassGradient)"
-            stroke="rgba(255,255,255,0.1)"
+            stroke="rgba(255,255,255,0.16)"
             strokeWidth="1"
           />
           <text
             x="50"
             y="28"
             textAnchor="middle"
-            fill="#86efac"
+            fill="#c0c1ff"
             fontSize="16"
           >
             🌡️
@@ -285,7 +285,7 @@ export function MausamFlowchart() {
             x="50"
             y="52"
             textAnchor="middle"
-            fill="rgba(255,255,255,0.7)"
+            fill="rgba(248,250,252,0.72)"
             fontSize="12"
             fontWeight="400"
           >
@@ -300,17 +300,17 @@ export function MausamFlowchart() {
             height="60"
             rx="12"
             fill="url(#hGlassGradient)"
-            stroke="rgba(255,255,255,0.1)"
+            stroke="rgba(255,255,255,0.16)"
             strokeWidth="1"
           />
-          <text x="50" y="24" textAnchor="middle" fill="#fff" fontSize="16">
+          <text x="50" y="24" textAnchor="middle" fill="rgba(248,250,252,0.92)" fontSize="16">
             ⚡
           </text>
           <text
             x="50"
             y="46"
             textAnchor="middle"
-            fill="rgba(255,255,255,0.7)"
+            fill="rgba(248,250,252,0.72)"
             fontSize="12"
             fontWeight="400"
           >
@@ -325,14 +325,14 @@ export function MausamFlowchart() {
             height="55"
             rx="10"
             fill="url(#hGlassGradient)"
-            stroke="rgba(255,255,255,0.08)"
+            stroke="rgba(255,255,255,0.07)"
             strokeWidth="1"
           />
           <text
             x="50"
             y="22"
             textAnchor="middle"
-            fill="#60a5fa"
+            fill="#8083ff"
             fontSize="14"
           >
             ✈️
@@ -341,7 +341,7 @@ export function MausamFlowchart() {
             x="50"
             y="42"
             textAnchor="middle"
-            fill="rgba(255,255,255,0.6)"
+            fill="rgba(248,250,252,0.64)"
             fontSize="11"
             fontWeight="300"
           >
@@ -356,14 +356,14 @@ export function MausamFlowchart() {
             height="55"
             rx="10"
             fill="url(#hGlassGradient)"
-            stroke="rgba(255,255,255,0.08)"
+            stroke="rgba(255,255,255,0.07)"
             strokeWidth="1"
           />
           <text
             x="50"
             y="22"
             textAnchor="middle"
-            fill="#f87171"
+            fill="#c0c1ff"
             fontSize="14"
           >
             ✉️
@@ -372,7 +372,7 @@ export function MausamFlowchart() {
             x="50"
             y="42"
             textAnchor="middle"
-            fill="rgba(255,255,255,0.6)"
+            fill="rgba(248,250,252,0.64)"
             fontSize="11"
             fontWeight="300"
           >
@@ -387,14 +387,14 @@ export function MausamFlowchart() {
             height="55"
             rx="10"
             fill="url(#hGlassGradient)"
-            stroke="rgba(255,255,255,0.08)"
+            stroke="rgba(255,255,255,0.07)"
             strokeWidth="1"
           />
           <text
             x="50"
             y="22"
             textAnchor="middle"
-            fill="#facc15"
+            fill="#c0c1ff"
             fontSize="14"
           >
             🔔
@@ -403,7 +403,7 @@ export function MausamFlowchart() {
             x="50"
             y="42"
             textAnchor="middle"
-            fill="rgba(255,255,255,0.6)"
+            fill="rgba(248,250,252,0.64)"
             fontSize="11"
             fontWeight="300"
           >
@@ -418,14 +418,14 @@ export function MausamFlowchart() {
             height="65"
             rx="12"
             fill="url(#hGlassGradient)"
-            stroke="rgba(255,255,255,0.1)"
+            stroke="rgba(255,255,255,0.16)"
             strokeWidth="1"
           />
           <text
             x="55"
             y="26"
             textAnchor="middle"
-            fill="#60a5fa"
+            fill="#8083ff"
             fontSize="16"
           >
             🗄️
@@ -434,7 +434,7 @@ export function MausamFlowchart() {
             x="55"
             y="50"
             textAnchor="middle"
-            fill="rgba(255,255,255,0.7)"
+            fill="rgba(248,250,252,0.72)"
             fontSize="12"
             fontWeight="400"
           >
@@ -449,14 +449,14 @@ export function MausamFlowchart() {
             height="55"
             rx="10"
             fill="url(#hGlassGradient)"
-            stroke="rgba(255,255,255,0.1)"
+            stroke="rgba(255,255,255,0.16)"
             strokeWidth="1"
           />
           <text
             x="55"
             y="22"
             textAnchor="middle"
-            fill="#4ade80"
+            fill="#c0c1ff"
             fontSize="14"
           >
             🌐
@@ -465,7 +465,7 @@ export function MausamFlowchart() {
             x="55"
             y="42"
             textAnchor="middle"
-            fill="rgba(255,255,255,0.7)"
+            fill="rgba(248,250,252,0.72)"
             fontSize="11"
             fontWeight="300"
           >
@@ -477,7 +477,7 @@ export function MausamFlowchart() {
         <text
           x="550"
           y="20"
-          fill="rgba(255,255,255,0.5)"
+          fill="rgba(248,250,252,0.58)"
           fontSize="11"
           fontStyle="italic"
         >
@@ -486,7 +486,7 @@ export function MausamFlowchart() {
         <text
           x="500"
           y="200"
-          fill="rgba(255,255,255,0.5)"
+          fill="rgba(248,250,252,0.58)"
           fontSize="11"
           fontStyle="italic"
         >
@@ -503,7 +503,7 @@ export function MausamFlowchart() {
         <FlowchartDefs prefix="v" />
 
         {/* Connection lines - Ultra-thin & sleek */}
-        <g stroke="rgba(255,255,255,0.15)" strokeWidth="1" fill="none">
+        <g stroke="rgba(255,255,255,0.22)" strokeWidth="1" fill="none">
           {/* Images to R2 */}
           <line
             x1="190"
@@ -580,13 +580,13 @@ export function MausamFlowchart() {
 
         {/* Animated Particles - Glowing & Vivid */}
         <g>
-          <circle r="3" fill="#60a5fa" filter="url(#vSubtleGlow)">
+          <circle r="3" fill="#8083ff" filter="url(#vSubtleGlow)">
             <animateMotion dur="4s" repeatCount="indefinite">
               <mpath href="#vMainPath" />
             </animateMotion>
           </circle>
 
-          <circle r="3" fill="#a78bfa" filter="url(#vSubtleGlow)">
+          <circle r="3" fill="#8083ff" filter="url(#vSubtleGlow)">
             <animateMotion dur="5s" repeatCount="indefinite" begin="2s">
               <mpath href="#vDbPath" />
             </animateMotion>
@@ -613,14 +613,14 @@ export function MausamFlowchart() {
             height="70"
             rx="12"
             fill="url(#vGlassGradient)"
-            stroke="rgba(255,255,255,0.1)"
+            stroke="rgba(255,255,255,0.16)"
             strokeWidth="1"
           />
           <text
             x="45"
             y="28"
             textAnchor="middle"
-            fill="rgba(255,255,255,0.9)"
+            fill="rgba(248,250,252,0.92)"
             fontSize="18"
           >
             📷
@@ -629,7 +629,7 @@ export function MausamFlowchart() {
             x="45"
             y="52"
             textAnchor="middle"
-            fill="rgba(255,255,255,0.7)"
+            fill="rgba(248,250,252,0.72)"
             fontSize="13"
             fontWeight="400"
             letterSpacing="0.5"
@@ -645,14 +645,14 @@ export function MausamFlowchart() {
             height="70"
             rx="12"
             fill="url(#vGlassGradient)"
-            stroke="rgba(255,255,255,0.1)"
+            stroke="rgba(255,255,255,0.16)"
             strokeWidth="1"
           />
           <text
             x="50"
             y="28"
             textAnchor="middle"
-            fill="#fdba74"
+            fill="#c0c1ff"
             fontSize="15"
             fontWeight="500"
             letterSpacing="0.5"
@@ -663,7 +663,7 @@ export function MausamFlowchart() {
             x="50"
             y="52"
             textAnchor="middle"
-            fill="rgba(255,255,255,0.6)"
+            fill="rgba(248,250,252,0.64)"
             fontSize="11"
             fontWeight="300"
           >
@@ -677,8 +677,8 @@ export function MausamFlowchart() {
             width="100"
             height="90"
             rx="16"
-            fill="rgba(139,92,246,0.05)"
-            stroke="rgba(139,92,246,0.3)"
+            fill="rgba(10,14,24,0.46)"
+            stroke="rgba(255,255,255,0.16)"
             strokeWidth="1"
             filter="url(#vSubtleGlow)"
           />
@@ -686,7 +686,7 @@ export function MausamFlowchart() {
             x="50"
             y="32"
             textAnchor="middle"
-            fill="#a78bfa"
+            fill="#8083ff"
             fontSize="22"
           >
             🧠
@@ -695,7 +695,7 @@ export function MausamFlowchart() {
             x="50"
             y="56"
             textAnchor="middle"
-            fill="#ddd6fe"
+            fill="#f8fafc"
             fontSize="15"
             fontWeight="500"
             letterSpacing="0.5"
@@ -706,7 +706,7 @@ export function MausamFlowchart() {
             x="50"
             y="76"
             textAnchor="middle"
-            fill="rgba(255,255,255,0.5)"
+            fill="rgba(248,250,252,0.58)"
             fontSize="10"
             fontWeight="300"
           >
@@ -721,14 +721,14 @@ export function MausamFlowchart() {
             height="70"
             rx="12"
             fill="url(#vGlassGradient)"
-            stroke="rgba(255,255,255,0.1)"
+            stroke="rgba(255,255,255,0.16)"
             strokeWidth="1"
           />
           <text
             x="50"
             y="28"
             textAnchor="middle"
-            fill="#86efac"
+            fill="#c0c1ff"
             fontSize="16"
           >
             🌡️
@@ -737,7 +737,7 @@ export function MausamFlowchart() {
             x="50"
             y="52"
             textAnchor="middle"
-            fill="rgba(255,255,255,0.7)"
+            fill="rgba(248,250,252,0.72)"
             fontSize="12"
             fontWeight="400"
           >
@@ -752,14 +752,14 @@ export function MausamFlowchart() {
             height="65"
             rx="12"
             fill="url(#vGlassGradient)"
-            stroke="rgba(255,255,255,0.1)"
+            stroke="rgba(255,255,255,0.16)"
             strokeWidth="1"
           />
           <text
             x="55"
             y="26"
             textAnchor="middle"
-            fill="#60a5fa"
+            fill="#8083ff"
             fontSize="16"
           >
             🗄️
@@ -768,7 +768,7 @@ export function MausamFlowchart() {
             x="55"
             y="50"
             textAnchor="middle"
-            fill="rgba(255,255,255,0.7)"
+            fill="rgba(248,250,252,0.72)"
             fontSize="12"
             fontWeight="400"
           >
@@ -783,17 +783,17 @@ export function MausamFlowchart() {
             height="60"
             rx="12"
             fill="url(#vGlassGradient)"
-            stroke="rgba(255,255,255,0.1)"
+            stroke="rgba(255,255,255,0.16)"
             strokeWidth="1"
           />
-          <text x="50" y="24" textAnchor="middle" fill="#fff" fontSize="16">
+          <text x="50" y="24" textAnchor="middle" fill="rgba(248,250,252,0.92)" fontSize="16">
             ⚡
           </text>
           <text
             x="50"
             y="46"
             textAnchor="middle"
-            fill="rgba(255,255,255,0.7)"
+            fill="rgba(248,250,252,0.72)"
             fontSize="12"
             fontWeight="400"
           >
@@ -808,14 +808,14 @@ export function MausamFlowchart() {
             height="55"
             rx="10"
             fill="url(#vGlassGradient)"
-            stroke="rgba(255,255,255,0.08)"
+            stroke="rgba(255,255,255,0.07)"
             strokeWidth="1"
           />
           <text
             x="50"
             y="22"
             textAnchor="middle"
-            fill="#60a5fa"
+            fill="#8083ff"
             fontSize="14"
           >
             ✈️
@@ -824,7 +824,7 @@ export function MausamFlowchart() {
             x="50"
             y="42"
             textAnchor="middle"
-            fill="rgba(255,255,255,0.6)"
+            fill="rgba(248,250,252,0.64)"
             fontSize="11"
             fontWeight="300"
           >
@@ -839,14 +839,14 @@ export function MausamFlowchart() {
             height="55"
             rx="10"
             fill="url(#vGlassGradient)"
-            stroke="rgba(255,255,255,0.08)"
+            stroke="rgba(255,255,255,0.07)"
             strokeWidth="1"
           />
           <text
             x="50"
             y="22"
             textAnchor="middle"
-            fill="#f87171"
+            fill="#c0c1ff"
             fontSize="14"
           >
             ✉️
@@ -855,7 +855,7 @@ export function MausamFlowchart() {
             x="50"
             y="42"
             textAnchor="middle"
-            fill="rgba(255,255,255,0.6)"
+            fill="rgba(248,250,252,0.64)"
             fontSize="11"
             fontWeight="300"
           >
@@ -870,14 +870,14 @@ export function MausamFlowchart() {
             height="55"
             rx="10"
             fill="url(#vGlassGradient)"
-            stroke="rgba(255,255,255,0.08)"
+            stroke="rgba(255,255,255,0.07)"
             strokeWidth="1"
           />
           <text
             x="50"
             y="22"
             textAnchor="middle"
-            fill="#facc15"
+            fill="#c0c1ff"
             fontSize="14"
           >
             🔔
@@ -886,7 +886,7 @@ export function MausamFlowchart() {
             x="50"
             y="42"
             textAnchor="middle"
-            fill="rgba(255,255,255,0.6)"
+            fill="rgba(248,250,252,0.64)"
             fontSize="11"
             fontWeight="300"
           >
@@ -901,14 +901,14 @@ export function MausamFlowchart() {
             height="55"
             rx="10"
             fill="url(#vGlassGradient)"
-            stroke="rgba(255,255,255,0.1)"
+            stroke="rgba(255,255,255,0.16)"
             strokeWidth="1"
           />
           <text
             x="55"
             y="22"
             textAnchor="middle"
-            fill="#4ade80"
+            fill="#c0c1ff"
             fontSize="14"
           >
             🌐
@@ -917,7 +917,7 @@ export function MausamFlowchart() {
             x="55"
             y="42"
             textAnchor="middle"
-            fill="rgba(255,255,255,0.7)"
+            fill="rgba(248,250,252,0.72)"
             fontSize="11"
             fontWeight="300"
           >
@@ -929,7 +929,7 @@ export function MausamFlowchart() {
         <text
           x="240"
           y="440"
-          fill="rgba(255,255,255,0.5)"
+          fill="rgba(248,250,252,0.58)"
           fontSize="11"
           fontStyle="italic"
         >
@@ -938,7 +938,7 @@ export function MausamFlowchart() {
         <text
           x="250"
           y="320"
-          fill="rgba(255,255,255,0.5)"
+          fill="rgba(248,250,252,0.58)"
           fontSize="11"
           fontStyle="italic"
         >

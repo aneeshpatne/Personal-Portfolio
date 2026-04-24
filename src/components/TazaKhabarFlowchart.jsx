@@ -9,8 +9,8 @@ const FlowchartDefs = ({ prefix = "" }) => (
       x2="0%"
       y2="100%"
     >
-      <stop offset="0%" stopColor="rgba(255,255,255,0.08)" />
-      <stop offset="100%" stopColor="rgba(255,255,255,0.02)" />
+      <stop offset="0%" stopColor="rgba(255,255,255,0.07)" />
+      <stop offset="100%" stopColor="rgba(10,14,24,0.34)" />
     </linearGradient>
 
     <filter
@@ -35,7 +35,7 @@ const FlowchartDefs = ({ prefix = "" }) => (
       <path
         d="M 0 0 L 6 3 L 0 6"
         fill="none"
-        stroke="rgba(255,255,255,0.3)"
+        stroke="rgba(255,255,255,0.22)"
         strokeWidth="1"
       />
     </marker>
@@ -54,7 +54,7 @@ export function TazaKhabarFlowchart() {
         <FlowchartDefs prefix="h" />
 
         {/* Connections (Spokes) */}
-        <g stroke="rgba(255,255,255,0.15)" strokeWidth="1" fill="none">
+        <g stroke="rgba(255,255,255,0.22)" strokeWidth="1" fill="none">
           {/* Center to Top (Emergency) */}
           <line x1="430" y1="120" x2="430" y2="75" markerEnd="url(#hTkArrowhead)" />
           
@@ -77,19 +77,19 @@ export function TazaKhabarFlowchart() {
             width="120"
             height="90"
             rx="16"
-            fill="rgba(139,92,246,0.05)"
-            stroke="rgba(139,92,246,0.3)"
+            fill="rgba(10,14,24,0.46)"
+            stroke="rgba(255,255,255,0.16)"
             strokeWidth="1"
             filter="url(#hTkSubtleGlow)"
           />
-          <text x="60" y="35" textAnchor="middle" fill="#a78bfa" fontSize="24">
+          <text x="60" y="35" textAnchor="middle" fill="#8083ff" fontSize="24">
             🤖
           </text>
           <text
             x="60"
             y="60"
             textAnchor="middle"
-            fill="#ddd6fe"
+            fill="#f8fafc"
             fontSize="16"
             fontWeight="500"
             letterSpacing="0.5"
@@ -100,7 +100,7 @@ export function TazaKhabarFlowchart() {
             x="60"
             y="78"
             textAnchor="middle"
-            fill="rgba(255,255,255,0.5)"
+            fill="rgba(248,250,252,0.58)"
             fontSize="11"
             fontWeight="300"
           >
@@ -115,17 +115,17 @@ export function TazaKhabarFlowchart() {
             height="60"
             rx="12"
             fill="url(#hTkGlassGradient)"
-            stroke="rgba(255,255,255,0.1)"
+            stroke="rgba(255,255,255,0.16)"
             strokeWidth="1"
           />
-          <text x="60" y="25" textAnchor="middle" fill="#ef4444" fontSize="16">
+          <text x="60" y="25" textAnchor="middle" fill="#c0c1ff" fontSize="16">
             🚨
           </text>
           <text
             x="60"
             y="48"
             textAnchor="middle"
-            fill="rgba(255,255,255,0.8)"
+            fill="rgba(248,250,252,0.82)"
             fontSize="12"
             fontWeight="400"
           >
@@ -140,17 +140,17 @@ export function TazaKhabarFlowchart() {
             height="60"
             rx="12"
             fill="url(#hTkGlassGradient)"
-            stroke="rgba(255,255,255,0.1)"
+            stroke="rgba(255,255,255,0.16)"
             strokeWidth="1"
           />
-          <text x="60" y="25" textAnchor="middle" fill="#3b82f6" fontSize="16">
+          <text x="60" y="25" textAnchor="middle" fill="#8083ff" fontSize="16">
             🔍
           </text>
           <text
             x="60"
             y="48"
             textAnchor="middle"
-            fill="rgba(255,255,255,0.8)"
+            fill="rgba(248,250,252,0.82)"
             fontSize="12"
             fontWeight="400"
           >
@@ -165,17 +165,17 @@ export function TazaKhabarFlowchart() {
             height="60"
             rx="12"
             fill="url(#hTkGlassGradient)"
-            stroke="rgba(255,255,255,0.1)"
+            stroke="rgba(255,255,255,0.16)"
             strokeWidth="1"
           />
-          <text x="60" y="25" textAnchor="middle" fill="#10b981" fontSize="16">
+          <text x="60" y="25" textAnchor="middle" fill="#c0c1ff" fontSize="16">
             📄
           </text>
           <text
             x="60"
             y="48"
             textAnchor="middle"
-            fill="rgba(255,255,255,0.8)"
+            fill="rgba(248,250,252,0.82)"
             fontSize="12"
             fontWeight="400"
           >
@@ -190,17 +190,17 @@ export function TazaKhabarFlowchart() {
             height="55"
             rx="10"
             fill="url(#hTkGlassGradient)"
-            stroke="rgba(255,255,255,0.1)"
+            stroke="rgba(255,255,255,0.16)"
             strokeWidth="1"
           />
-          <text x="50" y="24" textAnchor="middle" fill="#f472b6" fontSize="14">
+          <text x="50" y="24" textAnchor="middle" fill="#c0c1ff" fontSize="14">
             ✉️
           </text>
           <text
             x="50"
             y="44"
             textAnchor="middle"
-            fill="rgba(255,255,255,0.7)"
+            fill="rgba(248,250,252,0.72)"
             fontSize="11"
             fontWeight="300"
           >
@@ -215,17 +215,17 @@ export function TazaKhabarFlowchart() {
             height="55"
             rx="10"
             fill="url(#hTkGlassGradient)"
-            stroke="rgba(255,255,255,0.1)"
+            stroke="rgba(255,255,255,0.16)"
             strokeWidth="1"
           />
-          <text x="50" y="24" textAnchor="middle" fill="#60a5fa" fontSize="14">
+          <text x="50" y="24" textAnchor="middle" fill="#8083ff" fontSize="14">
             💬
           </text>
           <text
             x="50"
             y="44"
             textAnchor="middle"
-            fill="rgba(255,255,255,0.7)"
+            fill="rgba(248,250,252,0.72)"
             fontSize="11"
             fontWeight="300"
           >
@@ -243,7 +243,7 @@ export function TazaKhabarFlowchart() {
         <FlowchartDefs prefix="v" />
 
         {/* Connections */}
-        <g stroke="rgba(255,255,255,0.15)" strokeWidth="1" fill="none">
+        <g stroke="rgba(255,255,255,0.22)" strokeWidth="1" fill="none">
           {/* Center to Top (Emergency) */}
           <line
             x1="190"
@@ -296,19 +296,19 @@ export function TazaKhabarFlowchart() {
             width="120"
             height="100"
             rx="16"
-            fill="rgba(139,92,246,0.05)"
-            stroke="rgba(139,92,246,0.3)"
+            fill="rgba(10,14,24,0.46)"
+            stroke="rgba(255,255,255,0.16)"
             strokeWidth="1"
             filter="url(#vTkSubtleGlow)"
           />
-          <text x="60" y="40" textAnchor="middle" fill="#a78bfa" fontSize="24">
+          <text x="60" y="40" textAnchor="middle" fill="#8083ff" fontSize="24">
             🤖
           </text>
           <text
             x="60"
             y="65"
             textAnchor="middle"
-            fill="#ddd6fe"
+            fill="#f8fafc"
             fontSize="16"
             fontWeight="500"
           >
@@ -318,7 +318,7 @@ export function TazaKhabarFlowchart() {
             x="60"
             y="85"
             textAnchor="middle"
-            fill="rgba(255,255,255,0.5)"
+            fill="rgba(248,250,252,0.58)"
             fontSize="11"
             fontWeight="300"
           >
@@ -333,17 +333,17 @@ export function TazaKhabarFlowchart() {
             height="60"
             rx="10"
             fill="url(#vTkGlassGradient)"
-            stroke="rgba(255,255,255,0.1)"
+            stroke="rgba(255,255,255,0.16)"
             strokeWidth="1"
           />
-          <text x="60" y="24" textAnchor="middle" fill="#ef4444" fontSize="14">
+          <text x="60" y="24" textAnchor="middle" fill="#c0c1ff" fontSize="14">
             🚨
           </text>
           <text
             x="60"
             y="44"
             textAnchor="middle"
-            fill="rgba(255,255,255,0.7)"
+            fill="rgba(248,250,252,0.72)"
             fontSize="11"
             fontWeight="300"
           >
@@ -358,17 +358,17 @@ export function TazaKhabarFlowchart() {
             height="60"
             rx="10"
             fill="url(#vTkGlassGradient)"
-            stroke="rgba(255,255,255,0.1)"
+            stroke="rgba(255,255,255,0.16)"
             strokeWidth="1"
           />
-          <text x="50" y="22" textAnchor="middle" fill="#3b82f6" fontSize="14">
+          <text x="50" y="22" textAnchor="middle" fill="#8083ff" fontSize="14">
             🔍
           </text>
           <text
             x="50"
             y="44"
             textAnchor="middle"
-            fill="rgba(255,255,255,0.7)"
+            fill="rgba(248,250,252,0.72)"
             fontSize="11"
             fontWeight="300"
           >
@@ -383,17 +383,17 @@ export function TazaKhabarFlowchart() {
             height="60"
             rx="10"
             fill="url(#vTkGlassGradient)"
-            stroke="rgba(255,255,255,0.1)"
+            stroke="rgba(255,255,255,0.16)"
             strokeWidth="1"
           />
-          <text x="50" y="22" textAnchor="middle" fill="#f472b6" fontSize="14">
+          <text x="50" y="22" textAnchor="middle" fill="#c0c1ff" fontSize="14">
             ✉️
           </text>
           <text
             x="50"
             y="44"
             textAnchor="middle"
-            fill="rgba(255,255,255,0.7)"
+            fill="rgba(248,250,252,0.72)"
             fontSize="11"
             fontWeight="300"
           >
@@ -408,17 +408,17 @@ export function TazaKhabarFlowchart() {
             height="60"
             rx="10"
             fill="url(#vTkGlassGradient)"
-            stroke="rgba(255,255,255,0.1)"
+            stroke="rgba(255,255,255,0.16)"
             strokeWidth="1"
           />
-          <text x="50" y="22" textAnchor="middle" fill="#60a5fa" fontSize="14">
+          <text x="50" y="22" textAnchor="middle" fill="#8083ff" fontSize="14">
             💬
           </text>
           <text
             x="50"
             y="44"
             textAnchor="middle"
-            fill="rgba(255,255,255,0.7)"
+            fill="rgba(248,250,252,0.72)"
             fontSize="11"
             fontWeight="300"
           >
@@ -433,17 +433,17 @@ export function TazaKhabarFlowchart() {
             height="60"
             rx="10"
             fill="url(#vTkGlassGradient)"
-            stroke="rgba(255,255,255,0.1)"
+            stroke="rgba(255,255,255,0.16)"
             strokeWidth="1"
           />
-          <text x="50" y="22" textAnchor="middle" fill="#10b981" fontSize="14">
+          <text x="50" y="22" textAnchor="middle" fill="#c0c1ff" fontSize="14">
             📄
           </text>
           <text
             x="50"
             y="44"
             textAnchor="middle"
-            fill="rgba(255,255,255,0.7)"
+            fill="rgba(248,250,252,0.72)"
             fontSize="11"
             fontWeight="300"
           >
