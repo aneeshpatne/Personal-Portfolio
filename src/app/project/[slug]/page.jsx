@@ -76,7 +76,6 @@ export default async function ProjectPage({ params }) {
   return (
     <>
       <div className={style.ProjectPage}>
-        <div className={style.backgroundGlow}></div>
         <div className={style.content}>
           <h1 className={style.title}>{projectData.title}</h1>
 
@@ -151,7 +150,7 @@ export default async function ProjectPage({ params }) {
                   key={index}
                   className={style.tech}
                   style={{
-                    backgroundColor:
+                    "--item-color":
                       mapper[tech]?.color || "rgba(255, 255, 255, 0.1)",
                   }}
                 >
@@ -172,7 +171,7 @@ export default async function ProjectPage({ params }) {
                       key={index}
                       className={style.topic}
                       style={{
-                        backgroundColor:
+                        "--item-color":
                           mapper[topic]?.color || "rgba(255, 255, 255, 0.1)",
                       }}
                     >
