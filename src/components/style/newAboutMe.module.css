@@ -7,9 +7,12 @@
   --about-accent: var(--gradient-start, #6ea8ff);
   --about-text-muted: hsl(0 0% 60%);
   --polaroid-bg: #fff;
-  --polaroid-border: #8083ff;
+  --polaroid-border: rgb(255 255 255 / 0.18);
   --secondary-color: #8083ff;
-  --polaroid-shadow: 0 4px 14px -4px rgb(0 0 0 / 0.18);
+  --polaroid-shadow:
+    0 18px 45px -30px rgb(0 0 0 / 0.8),
+    inset 0 1px 0 rgb(255 255 255 / 0.12);
+  --polaroid-pad: 1.15rem;
 
   width: 100%;
   padding: clamp(2rem, 6vw, 4rem) 1.25rem;
@@ -30,14 +33,19 @@
 .polaroidWrapper {
   display: flex;
   justify-content: center;
+  width: 100%;
 }
 
 .polaroid {
   background: transparent;
-  box-shadow: none;
-  padding: 0.75rem;
+  border: 1px solid var(--polaroid-border);
+  border-radius: 10px;
+  box-shadow: var(--polaroid-shadow);
+  margin: 0;
+  padding: var(--polaroid-pad);
   position: relative;
   transition: transform 0.35s ease;
+  width: min(100%, 360px);
 }
 
 .polaroid::before,
@@ -46,6 +54,12 @@
   position: absolute;
   inset: 0;
   pointer-events: none;
+}
+
+.polaroid::after {
+  inset: var(--polaroid-pad);
+  z-index: 1;
+  background: linear-gradient(to top, rgb(0 0 0 / 0.78), rgb(0 0 0 / 0.46) 38%, transparent 72%);
 }
 .textContainer {
   display: flex;
@@ -95,17 +109,9 @@
 }
 
 .highlight {
-  color: #fff;
+  color: var(--secondary-color);
   font-weight: 500;
   box-shadow: inset 0 -2px 0 0 rgb(128 131 255 / 0.3);
-  transition:
-    color 0.3s ease,
-    box-shadow 0.3s ease;
-}
-
-.highlight:hover {
-  color: #c0c1ff;
-  box-shadow: inset 0 -12px 0 0 rgb(128 131 255 / 0.15);
 }
 
 .finePrintLabel {
@@ -118,31 +124,15 @@
   text-transform: uppercase;
 }
 
-.polaroid::before {
-  border-top: 2px solid var(--polaroid-border);
-  border-left: 2px solid var(--polaroid-border);
-  width: 2.25rem;
-  height: 2.25rem;
-}
-
-.polaroid::after {
-  right: 0;
-  bottom: 0;
-  left: auto;
-  top: auto;
-  border-right: 2px solid var(--polaroid-border);
-  border-bottom: 2px solid var(--polaroid-border);
-  width: 2.25rem;
-  height: 2.25rem;
-}
-
 .polaroidImage {
+  position: relative;
+  z-index: 0;
   display: block;
   width: 100%;
   height: auto;
   object-fit: cover;
-  aspect-ratio: 1 / 1;
-  border-radius: 2px;
+  aspect-ratio: 4 / 5;
+  border-radius: 0;
   user-select: none;
   -webkit-user-drag: none;
 }
@@ -152,9 +142,6 @@
     grid-template-columns: 1fr;
     justify-items: center;
     gap: 1.5rem;
-  }
-  .polaroidWrapper {
-    order: -1;
   }
   .textContainer {
     width: 100%;
@@ -177,11 +164,11 @@
   }
   /* Constrain photo size on narrow viewports */
   .polaroid {
+    --polaroid-pad: 0.9rem;
     width: clamp(220px, 72vw, 300px);
-    padding: 0.6rem 0.6rem 2.2rem; /* slightly tighter on mobile */
   }
   .polaroidImage {
-    aspect-ratio: 1/1;
+    aspect-ratio: 4/5;
   }
 }
 
@@ -193,7 +180,7 @@
     font-size: clamp(2.45rem, 15vw, 3.6rem);
   }
   .polaroid {
+    --polaroid-pad: 0.8rem;
     width: min(100%, 270px);
-    padding: 0.55rem 0.55rem 1.2rem;
   }
 }
