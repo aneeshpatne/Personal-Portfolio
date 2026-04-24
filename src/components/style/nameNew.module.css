@@ -230,6 +230,7 @@
 }
 
 .heroVisual {
+  position: relative;
   display: flex;
   justify-content: center;
   width: 100%;
@@ -264,7 +265,6 @@
   .valueStatement {
     max-width: 640px;
   }
-
   .workplaceSvg {
     width: min(100%, 460px);
   }

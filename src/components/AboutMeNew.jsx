@@ -1,5 +1,6 @@
 import styles from "./style/newAboutMe.module.css";
 import { Lexend } from "next/font/google";
+import { LuCheck } from "react-icons/lu";
 const lexend = Lexend({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700"],
@@ -36,6 +37,12 @@ export default function Profile() {
               className={styles.polaroidImage}
               loading="lazy"
             />
+            <figcaption className={styles.solutionBadge}>
+              <span className={styles.solutionCheck} aria-hidden="true">
+                <LuCheck />
+              </span>
+              <span>Building meaningful solutions</span>
+            </figcaption>
           </figure>
         </div>
       </div>
