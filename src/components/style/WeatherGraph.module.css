@@ -13,13 +13,19 @@
   height: 100%;
   min-height: 360px;
   padding: 24px 20px 16px;
-  background-color: var(--color-bg-surface);
+  background: var(--color-bg-card);
+  border: 1px solid rgb(255 255 255 / 0.1);
+  border-radius: 8px;
+  box-shadow:
+    0 20px 54px -36px rgb(0 0 0 / 0.9),
+    inset 0 1px 0 rgb(255 255 255 / 0.08);
   overflow: hidden;
-  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transition: transform 0.2s ease, border-color 0.2s ease;
 }
 
 .card:hover {
-  transform: translateY(-2px);
+  transform: translateY(-1px);
+  border-color: rgb(255 255 255 / 0.14);
 }
 
 /* ── Header ── */
@@ -32,7 +38,7 @@
   gap: 14px;
   margin-bottom: 16px;
   padding-bottom: 14px;
-  border-bottom: 1px solid var(--color-bg-surface-elevated);
+  border-bottom: 1px solid rgb(255 255 255 / 0.08);
 }
 
 .title {
@@ -53,7 +59,9 @@
   text-transform: uppercase;
   color: #52525b;
   padding: 6px 10px;
-  background-color: var(--color-bg-surface-elevated);
+  background-color: rgb(255 255 255 / 0.045);
+  border: 1px solid rgb(255 255 255 / 0.08);
+  border-radius: 6px;
   white-space: nowrap;
 }
 
@@ -67,7 +75,9 @@
 
 /* ── Tooltip ── */
 .tooltip {
-  background-color: var(--color-bg-logo-surface);
+  background-color: rgb(17 24 39 / 0.92);
+  border: 1px solid rgb(255 255 255 / 0.08);
+  border-radius: 8px;
   padding: 12px 14px;
   backdrop-filter: blur(12px);
 }

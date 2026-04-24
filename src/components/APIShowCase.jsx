@@ -1,4 +1,4 @@
-import { Instrument_Serif, Lexend } from "next/font/google";
+import { Lexend } from "next/font/google";
 import { PM25 } from "./PM25";
 import { News } from "./News";
 import { Weather } from "./Weather";

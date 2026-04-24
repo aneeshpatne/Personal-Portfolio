@@ -8,10 +8,16 @@
   width: 100%;
   height: 100%;
   min-height: 440px;
-  background-color: var(--color-bg-surface);
+  background: var(--color-bg-card);
+  border: 1px solid rgb(255 255 255 / 0.1);
+  border-radius: 8px;
+  box-shadow:
+    0 20px 54px -36px rgb(0 0 0 / 0.9),
+    inset 0 1px 0 rgb(255 255 255 / 0.08);
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  transition: transform 0.2s ease, border-color 0.2s ease;
 }
 
 .innerWrapper {
@@ -28,7 +34,8 @@
 }
 
 .card:hover {
-  transform: translateY(-2px);
+  transform: translateY(-1px);
+  border-color: rgb(255 255 255 / 0.14);
 }
 
 /* ── Header ── */
@@ -38,7 +45,7 @@
   justify-content: space-between;
   align-items: flex-start;
   padding-bottom: 14px;
-  border-bottom: 1px solid var(--color-bg-surface-elevated);
+  border-bottom: 1px solid rgb(255 255 255 / 0.08);
   margin-bottom: 20px;
   z-index: 2;
 }
@@ -56,7 +63,8 @@
   letter-spacing: 0.08em;
   color: #fafafa;
   padding: 6px 12px;
-  background-color: var(--color-bg-logo-surface);
+  background-color: rgb(255 255 255 / 0.07);
+  border-radius: 6px;
 }
 
 .apiBadge {
@@ -66,7 +74,9 @@
   letter-spacing: 0.1em;
   color: #52525b;
   padding: 6px 10px;
-  background-color: var(--color-bg-surface-elevated);
+  background-color: rgb(255 255 255 / 0.045);
+  border: 1px solid rgb(255 255 255 / 0.08);
+  border-radius: 6px;
 }
 
 .trendBadge {
@@ -79,7 +89,8 @@
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--trend-color, #ef4444);
-  background-color: var(--color-bg-surface-elevated);
+  background-color: color-mix(in srgb, var(--trend-color, #ef4444) 13%, transparent);
+  border-radius: 6px;
 }
 
 .trendBadge::before {
@@ -159,7 +170,9 @@
 }
 
 .factorCard {
-  background-color: var(--color-bg-surface-elevated);
+  background-color: rgb(255 255 255 / 0.035);
+  border: 1px solid rgb(255 255 255 / 0.08);
+  border-radius: 8px;
   padding: 14px;
   display: flex;
   flex-direction: column;
@@ -168,7 +181,7 @@
 }
 
 .factorCard:hover {
-  background-color: var(--color-bg-logo-surface);
+  background-color: rgb(255 255 255 / 0.06);
 }
 
 .factorHeader {
@@ -234,12 +247,12 @@
 /* ── Footer ── */
 .footerWrapper {
   width: 100%;
-  border-top: 1px solid var(--color-bg-surface-elevated);
+  border-top: 1px solid rgb(255 255 255 / 0.08);
   z-index: 2;
 }
 
 .cautionContainer {
-  background-color: var(--color-bg-surface-sunken);
+  background-color: rgb(5 8 13 / 0.4);
   width: 100%;
   padding: 14px var(--card-padding) var(--card-padding);
 }

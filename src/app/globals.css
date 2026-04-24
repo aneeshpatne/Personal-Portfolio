@@ -12,6 +12,7 @@ html {
   --color-bg-surface: #111827;
   --color-bg-surface-sunken: #080b12;
   --color-bg-surface-elevated: rgba(148, 163, 184, 0.08);
+  --color-bg-card: rgb(10 14 24 / 0.34);
   --color-bg-logo-surface: #172033;
   --color-text-primary: #f8fafc;
 

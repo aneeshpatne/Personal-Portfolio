@@ -3,7 +3,7 @@
   --systems-card-shadow:
     0 18px 45px -30px rgb(0 0 0 / 0.82),
     inset 0 1px 0 rgb(255 255 255 / 0.12);
-  --systems-card-bg: rgb(10 14 24 / 0.34);
+  --systems-card-bg: var(--color-bg-card);
   --systems-chip-bg: rgb(255 255 255 / 0.045);
   --systems-chip-border: rgb(255 255 255 / 0.11);
   --systems-muted: hsl(0 0% 70%);

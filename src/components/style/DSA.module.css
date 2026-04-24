@@ -10,7 +10,7 @@
   --dsa-card-shadow:
     0 20px 54px -36px rgb(0 0 0 / 0.9),
     inset 0 1px 0 rgb(255 255 255 / 0.08);
-  --dsa-card-bg: rgb(13 18 28 / 0.72);
+  --dsa-card-bg: var(--color-bg-card);
   --dsa-card-bg-elevated: rgb(17 24 39 / 0.76);
   --dsa-accent: #8f90ff;
 
@@ -64,9 +64,7 @@
   position: relative;
   border: 1px solid var(--dsa-card-border);
   border-radius: 8px;
-  background:
-    linear-gradient(180deg, rgb(255 255 255 / 0.045), transparent 46%),
-    var(--dsa-card-bg);
+  background: var(--dsa-card-bg);
   box-shadow: var(--dsa-card-shadow);
   overflow: hidden;
 }
