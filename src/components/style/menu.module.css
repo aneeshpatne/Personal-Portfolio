@@ -454,3 +454,124 @@
     width: 96%;
   }
 }
+
+/* Minimal dark material overrides */
+.MenuContainer {
+  --menu-border: rgb(255 255 255 / 0.1);
+  height: 48px;
+  padding: 4px;
+  border-radius: 8px;
+  background: var(--color-bg-card);
+  border: 1px solid var(--menu-border);
+  box-shadow:
+    0 20px 54px -36px rgb(0 0 0 / 0.9),
+    inset 0 1px 0 rgb(255 255 255 / 0.08);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+.chatButton {
+  height: 48px;
+  width: 112px;
+  right: 50px;
+  border-radius: 8px;
+  background: var(--color-bg-card);
+  border: 1px solid rgb(255 255 255 / 0.1);
+  box-shadow:
+    0 20px 54px -36px rgb(0 0 0 / 0.9),
+    inset 0 1px 0 rgb(255 255 255 / 0.08);
+  color: var(--color-text-primary);
+  letter-spacing: 0;
+  transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.16s ease;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+.chatButton::before,
+.chatButton::after {
+  display: none;
+}
+
+.chatButton:hover:not(.active) {
+  transform: translateY(-1px);
+  border-color: rgb(255 255 255 / 0.16);
+  background: rgb(255 255 255 / 0.07);
+  box-shadow:
+    0 20px 54px -36px rgb(0 0 0 / 0.9),
+    inset 0 1px 0 rgb(255 255 255 / 0.08);
+}
+
+.chatButton.active {
+  background: rgb(128 131 255 / 0.16);
+  color: var(--color-secondary);
+  border-color: rgb(128 131 255 / 0.28);
+  box-shadow:
+    0 20px 54px -36px rgb(0 0 0 / 0.9),
+    inset 0 1px 0 rgb(255 255 255 / 0.08);
+}
+
+.aiIcon {
+  animation: none;
+}
+
+.menuItem {
+  border-radius: 6px;
+  padding: 0 18px;
+  color: var(--color-text-muted);
+  letter-spacing: 0;
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+.menuItem:hover:not(.menuItemActive) {
+  color: var(--color-text-primary);
+  background: rgb(255 255 255 / 0.055);
+}
+
+.menuItem:hover:not(.menuItemActive)::after {
+  display: none;
+}
+
+.menuItemActive {
+  color: var(--color-secondary);
+}
+
+.activeIndicator {
+  inset: 3px;
+  border-radius: 6px;
+  background: rgb(128 131 255 / 0.16);
+  border: 1px solid rgb(128 131 255 / 0.24);
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.06);
+  animation: none;
+  opacity: 1;
+}
+
+.chatBackdrop {
+  background: rgb(0 0 0 / 0.52);
+  backdrop-filter: blur(6px);
+}
+
+.chatBoxMain {
+  border: 1px solid rgb(255 255 255 / 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 24px 70px -36px rgb(0 0 0 / 0.95);
+}
+
+@media (max-width: 768px) {
+  .chatButton {
+    bottom: 18px;
+    right: 16px;
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    background: var(--color-bg-card);
+    border: 1px solid rgb(255 255 255 / 0.12);
+    box-shadow:
+      0 20px 54px -36px rgb(0 0 0 / 0.9),
+      inset 0 1px 0 rgb(255 255 255 / 0.08);
+  }
+
+  .chatButton.active {
+    background: rgb(128 131 255 / 0.16);
+  }
+}
