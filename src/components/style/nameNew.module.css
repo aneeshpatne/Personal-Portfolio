@@ -2,7 +2,7 @@
   --base: #0b0f1a;
   --surface: #121826;
   --card: #131c2e;
-  --action-color: #4754f6;
+  --action-color: #5f61d9;
   --action-hover: #3a44cc;
   --text-primary: #ffffff;
   --text-secondary: #a1a1aa;
@@ -13,7 +13,11 @@
   min-height: 100vh;
   overflow: hidden;
   background:
-    radial-gradient(circle at 78% 38%, rgba(79, 107, 255, 0.12), transparent 28%),
+    radial-gradient(
+      circle at 78% 38%,
+      rgba(79, 107, 255, 0.12),
+      transparent 28%
+    ),
     linear-gradient(180deg, #0b0f1a 0%, #0b0f1a 100%);
   color: var(--text-primary);
   isolation: isolate;
@@ -185,7 +189,10 @@
   background: rgba(19, 28, 46, 0.68);
   border: 1px solid var(--border);
   font-size: 1.15rem;
-  transition: color 180ms ease, border-color 180ms ease, transform 180ms ease;
+  transition:
+    color 180ms ease,
+    border-color 180ms ease,
+    transform 180ms ease;
 }
 
 .socialsContainer a:hover {

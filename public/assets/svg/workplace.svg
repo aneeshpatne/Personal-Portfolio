@@ -124,7 +124,7 @@
     .fill-skin-shadow      { fill: #9B6B57; }
 
     /* — Character: clothing ──────────────────────── */
-    .fill-shirt-blue       { fill: #3A44CC; }           /* main shirt / jacket */
+    .fill-shirt-blue       { fill: #5F61D9; }           /* main shirt / jacket */
     .fill-shirt-dark       { fill: #314DA0; }           /* shirt folds / shadow */
     .fill-hair-navy        { fill: #0B0F17; }           /* hair accent */
 
