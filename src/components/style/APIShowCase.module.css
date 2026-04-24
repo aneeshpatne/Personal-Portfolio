@@ -34,7 +34,7 @@
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   gap: 16px;
-  max-width: 1320px;
+  max-width: 1300px;
   margin: 0 auto;
   position: relative;
   z-index: 1;
