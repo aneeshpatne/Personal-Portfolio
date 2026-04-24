@@ -537,6 +537,8 @@
   justify-content: center;
   overflow: hidden;
   opacity: 0.92;
+  position: relative;
+  isolation: isolate;
 }
 
 .cardArt img {
@@ -544,10 +546,126 @@
   height: 100%;
   object-fit: contain;
   display: block;
+  transform-origin: center;
+  animation: webdevSvgFloat 6s ease-in-out infinite;
+  filter: drop-shadow(0 16px 28px rgb(0 0 0 / 0.18));
+  will-change: transform, filter;
+}
+
+.cardArt::before,
+.cardArt::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background: var(--color-secondary);
+  box-shadow: 0 0 18px rgb(128 131 255 / 0.42);
+  opacity: 0;
+  animation: webdevSignalDrift 4.8s ease-in-out infinite;
+}
+
+.cardArt::before {
+  left: 18%;
+  top: 28%;
+}
+
+.cardArt::after {
+  right: 18%;
+  bottom: 26%;
+  animation-delay: 1.6s;
+}
+
+.cardArtFrontend img {
+  animation-delay: -0.8s;
+}
+
+.cardArtCloud img {
+  animation-name: webdevSvgFloatCloud;
+  animation-duration: 7s;
+}
+
+.cardArtAi img {
+  animation-name: webdevSvgPulseFloat;
+  animation-duration: 5.6s;
+}
+
+.cardArtFrontend::before {
+  background: #61dafb;
+  box-shadow: 0 0 18px rgb(97 218 251 / 0.38);
+}
+
+.cardArtCloud::before {
+  background: #4285f4;
+  box-shadow: 0 0 18px rgb(66 133 244 / 0.38);
+}
+
+.cardArtCloud::after {
+  background: #ff9900;
+  box-shadow: 0 0 18px rgb(255 153 0 / 0.34);
+}
+
+.cardArtAi::before {
+  background: #10b981;
+  box-shadow: 0 0 18px rgb(16 185 129 / 0.36);
+}
+
+.cardArtAi::after {
+  background: #f97316;
+  box-shadow: 0 0 18px rgb(249 115 22 / 0.34);
 }
 
 .cardArtCloud img {
   width: min(100%, 270px);
+}
+
+@keyframes webdevSvgFloat {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+    filter: drop-shadow(0 16px 28px rgb(0 0 0 / 0.18));
+  }
+  50% {
+    transform: translate3d(0, -6px, 0) scale(1.012);
+    filter: drop-shadow(0 22px 34px rgb(0 0 0 / 0.22));
+  }
+}
+
+@keyframes webdevSvgFloatCloud {
+  0%,
+  100% {
+    transform: translate3d(-3px, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(4px, -5px, 0) scale(1.01);
+  }
+}
+
+@keyframes webdevSvgPulseFloat {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+    opacity: 0.92;
+  }
+  50% {
+    transform: translate3d(0, -5px, 0) scale(1.018);
+    opacity: 1;
+  }
+}
+
+@keyframes webdevSignalDrift {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 8px, 0) scale(0.75);
+  }
+  35% {
+    opacity: 0.75;
+  }
+  100% {
+    opacity: 0;
+    transform: translate3d(22px, -22px, 0) scale(1);
+  }
 }
 
 .pageTitle {
@@ -758,5 +876,13 @@
 @media (max-width: 480px) {
   .style7 {
     min-height: 90px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cardArt img,
+  .cardArt::before,
+  .cardArt::after {
+    animation: none;
   }
 }

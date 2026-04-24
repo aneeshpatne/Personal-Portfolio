@@ -17,21 +17,36 @@ export default function Menu() {
   const { isChatOpen, toggleChat } = useChatContext();
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visible = entries
-          .filter((e) => e.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
-        if (visible.length) setActiveSection(visible[0].target.id);
-      },
-      { threshold: 0.08 }
-    );
+    let ticking = false;
 
-    sections.forEach(({ id }) => {
-      const el = document.getElementById(id);
-      if (el) requestAnimationFrame(() => observer.observe(el));
-    });
-    return () => observer.disconnect();
+    const updateActiveSection = () => {
+      const viewportAnchor = window.innerHeight * 0.45;
+      const current = sections.find(({ id }) => {
+        const el = document.getElementById(id);
+        if (!el) return false;
+
+        const rect = el.getBoundingClientRect();
+        return rect.top <= viewportAnchor && rect.bottom >= viewportAnchor;
+      });
+
+      if (current) setActiveSection(current.id);
+      ticking = false;
+    };
+
+    const requestUpdate = () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(updateActiveSection);
+    };
+
+    requestUpdate();
+    window.addEventListener("scroll", requestUpdate, { passive: true });
+    window.addEventListener("resize", requestUpdate);
+
+    return () => {
+      window.removeEventListener("scroll", requestUpdate);
+      window.removeEventListener("resize", requestUpdate);
+    };
   }, []);
 
   const handleNavigate = useCallback((id) => {

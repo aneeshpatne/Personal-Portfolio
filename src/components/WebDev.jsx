@@ -129,7 +129,7 @@ export default function WebDev() {
           <div className={styles.title}>
             <span className={styles.titleText}>Frontend</span>
           </div>
-          <div className={styles.cardArt}>
+          <div className={`${styles.cardArt} ${styles.cardArtFrontend}`}>
             <img src="/assets/svg/frontend.svg" alt="" />
           </div>
           <div className={styles.skillBox}>
@@ -192,7 +192,7 @@ export default function WebDev() {
           <div className={styles.title}>
             <span className={styles.titleText}>AI & Intelligence</span>
           </div>
-          <div className={styles.cardArt}>
+          <div className={`${styles.cardArt} ${styles.cardArtAi}`}>
             <img src="/assets/svg/ai.svg" alt="" />
           </div>
           <div className={styles.skillBox5}>
