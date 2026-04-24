@@ -9,8 +9,6 @@ import { BreakingNews } from "./BreakingNews";
 import { Status } from "./Status";
 import { IntelWorld } from "./IntelWorld";
 import { IntelIndia } from "./IntelIndia";
-import { WorldMapCard } from "./WorldMapCard";
-import { MausamPrediction } from "./MausamPrediction";
 
 const instrumentSerif = Lexend({
   subsets: ["latin"],
@@ -32,8 +30,8 @@ export function APIShowCase() {
         <IntelIndia />
         <BreakingNews />
         <News />
-        <WorldMapCard />
-        <MausamPrediction />
+        {/* <WorldMapCard />
+        <MausamPrediction /> */}
         <Weather />
         <WeatherGraph />
         <PM25 />

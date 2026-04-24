@@ -95,7 +95,13 @@
     grid-column: span 7;
   }
 
-  .container > *:nth-child(9) {
+  .container > *:nth-child(9),
+  .container > *:nth-child(10),
+  .container > *:nth-child(11) {
+    grid-column: span 12;
+  }
+
+  .container > *:nth-child(9):not(:last-child) {
     grid-column: span 4;
   }
 
@@ -103,7 +109,7 @@
     grid-column: span 8;
   }
 
-  .container > *:nth-child(11) {
+  .container > *:last-child {
     grid-column: span 12;
   }
 }
