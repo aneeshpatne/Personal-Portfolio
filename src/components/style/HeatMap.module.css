@@ -63,12 +63,6 @@
   font-weight: 500;
 }
 
-.separator {
-  color: #575d96;
-  font-size: 1.2rem;
-  line-height: 0;
-}
-
 .dot {
   height: 8px;
   width: 8px;

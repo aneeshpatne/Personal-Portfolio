@@ -1,7 +1,5 @@
 import styles from "./style/DSA.module.css";
 import { Lexend } from "next/font/google";
-import { SiCodeforces, SiGithub, SiLeetcode } from "react-icons/si";
-import { FaChartPie } from "react-icons/fa";
 import { HeatMap } from "./HeatMap";
 import { Suspense } from "react";
 import { Chart } from "./Chart";
@@ -17,25 +15,17 @@ const dsaPanels = [
     id: "progress",
     category: "PROBLEM SOLVING / LIVE",
     title: "Solved Problems",
-    description:
-      "A live breakdown of solved LeetCode problems across difficulty bands, built to keep progress scannable without leaving the page.",
-    stats: [
-      { name: "LeetCode", Icon: SiLeetcode, color: "#ffa116" },
-      { name: "Analytics", Icon: FaChartPie, color: "#22c55e" },
-    ],
+    asset: "/assets/svg/dsa_tick.svg",
+    assetAlt: "",
+    badge: true,
     Component: Chart,
   },
   {
     id: "activity",
     category: "CONSISTENCY / 2026",
     title: "Coding Activity",
-    description:
-      "A consolidated activity map across Github, LeetCode, CSES, and Codeforces that shows practice consistency over the year.",
-    stats: [
-      { name: "Github", Icon: SiGithub, color: "#f0f6fc" },
-      { name: "Codeforces", Icon: SiCodeforces, color: "#1f8acb" },
-      { name: "LeetCode", Icon: SiLeetcode, color: "#ffa116" },
-    ],
+    asset: "/assets/svg/trophy.svg",
+    assetAlt: "",
     Component: HeatMap,
     suspense: true,
   },
@@ -53,28 +43,32 @@ export default function DSA() {
         </div>
         <div className={styles.panelGrid}>
           {dsaPanels.map(
-            ({ id, category, title, description, stats, Component, suspense }) => (
+            ({
+              id,
+              category,
+              title,
+              asset,
+              assetAlt,
+              badge,
+              Component,
+              suspense,
+            }) => (
               <section className={styles.panel} key={id}>
                 <div className={styles.panelText}>
-                  <span>{category}</span>
-                  <h2 className={`${styles.panelTitle} ${lexend.className}`}>
-                    {title}
-                  </h2>
-                  <div className={styles.statRow}>
-                    {stats.map(({ name, Icon, color }) => (
-                      <div
-                        className={styles.statItem}
-                        key={name}
-                        style={{ "--stat-color": color }}
-                      >
-                        <div className={styles.statLogo}>
-                          <Icon className={styles.statIcon} aria-hidden="true" />
-                        </div>
-                        <div className={styles.statName}>{name}</div>
-                      </div>
-                    ))}
+                  <div>
+                    <span>{category}</span>
+                    <h2 className={`${styles.panelTitle} ${lexend.className}`}>
+                      {title}
+                    </h2>
                   </div>
-                  <p className={styles.panelDescription}>{description}</p>
+                  <div
+                    className={
+                      badge ? styles.assetBadge : styles.assetIllustration
+                    }
+                    aria-hidden="true"
+                  >
+                    <img src={asset} alt={assetAlt} className={styles.asset} />
+                  </div>
                 </div>
                 <div className={styles.visualPanel}>
                   {suspense ? (

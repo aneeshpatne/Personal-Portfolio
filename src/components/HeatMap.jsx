@@ -44,8 +44,6 @@ export async function HeatMap() {
       <p className={`${styles.caption} ${firaCode.className}`}>
         <span className={styles.dot}></span>
         <span className={styles.yearHighlight}>2026 So far</span>
-        <span className={styles.separator}>•</span>
-        Github, Leetcode, CSES, Codeforces
       </p>
     </div>
   );
