@@ -9,6 +9,7 @@ import { BreakingNews } from "./BreakingNews";
 import { Status } from "./Status";
 import { IntelWorld } from "./IntelWorld";
 import { IntelIndia } from "./IntelIndia";
+import { WorldMapCard } from "./WorldMapCard";
 
 const instrumentSerif = Lexend({
   subsets: ["latin"],

@@ -196,13 +196,13 @@ export default function WorldMapCardClient({ pointGroups = {} }) {
 
               <CircleMarker
                 center={[point.lat, point.lng]}
-                radius={12}
-                bubblingMouseEvents
+                radius={14}
+                bubblingMouseEvents={false}
                 pathOptions={{
-                  color: "rgba(255, 255, 255, 0.02)",
-                  weight: 1,
-                  fillColor: "rgba(255, 255, 255, 0.02)",
-                  fillOpacity: 0.02,
+                  color: "rgba(255, 255, 255, 0.01)",
+                  weight: 0,
+                  fillColor: "rgba(255, 255, 255, 0.01)",
+                  fillOpacity: 0.01,
                 }}
               >
                 {point.label ? (
